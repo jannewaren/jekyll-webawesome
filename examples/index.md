@@ -7,6 +7,26 @@ Examples of the Web Awesome components and their markdown syntax.
 
 ## Callouts
 
+:::info
+This is an info callout with **bold text** and [links](https://example.com).
+:::
+
+:::success
+This is a success callout.
+:::
+
+:::warning
+This is a warning callout.
+:::
+
+:::danger
+This is a danger callout.
+:::
+
+:::neutral
+This is a neutral callout.
+:::
+
 ### Info
 
 #### Live Example

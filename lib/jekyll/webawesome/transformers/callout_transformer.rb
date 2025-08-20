@@ -37,27 +37,27 @@ module Jekyll
           when 'info'
             {
               additional_params: ' variant="brand"',
-              inner_prepend: '<wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon>'
+              inner_prepend: '<wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon>'
             }
           when 'success'
             {
               additional_params: ' variant="success"',
-              inner_prepend: '<wa-icon slot="icon" name="circle-check" variant="regular"></wa-icon>'
+              inner_prepend: '<wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon>'
             }
           when 'neutral'
             {
               additional_params: ' variant="neutral"',
-              inner_prepend: '<wa-icon slot="icon" name="gear" variant="regular"></wa-icon>'
+              inner_prepend: '<wa-icon slot="icon" name="gear" variant="solid"></wa-icon>'
             }
           when 'warning'
             {
               additional_params: ' variant="warning"',
-              inner_prepend: '<wa-icon slot="icon" name="triangle-exclamation" variant="regular"></wa-icon>'
+              inner_prepend: '<wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon>'
             }
           when 'danger'
             {
               additional_params: ' variant="danger"',
-              inner_prepend: '<wa-icon slot="icon" name="circle-exclamation" variant="regular"></wa-icon>'
+              inner_prepend: '<wa-icon slot="icon" name="circle-exclamation" variant="solid"></wa-icon>'
             }
           else
             {
