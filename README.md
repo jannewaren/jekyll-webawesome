@@ -112,7 +112,9 @@ This is a neutral callout.
 :::
 ```
 
-These transform into Web Awesome callout components with appropriate icons and styling.
+These transform into Web Awesome callout components with appropriate icons and styling
+
+![Callout component example](readme_screenshots/callouts.png)
 
 ### Cards
 

@@ -23,6 +23,10 @@
             margin: 0 auto;
         }
         
+        wa-callout {
+            margin-top: 1rem;
+        }
+
         /* Heading styles */
         h1 {
             margin-top: 0;
@@ -72,11 +76,26 @@
 
 <h2 id="callouts">Callouts</h2>
 
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>This is an info callout with <strong>bold text</strong> and <a href="https://example.com">links</a>.</p>
+</wa-callout>
+
+<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>This is a success callout.</p>
+</wa-callout>
+
+<wa-callout variant="warning"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p>This is a warning callout.</p>
+</wa-callout>
+
+<wa-callout variant="danger"><wa-icon slot="icon" name="circle-exclamation" variant="solid"></wa-icon><p>This is a danger callout.</p>
+</wa-callout>
+
+<wa-callout variant="neutral"><wa-icon slot="icon" name="gear" variant="solid"></wa-icon><p>This is a neutral callout.</p>
+</wa-callout>
+
 <h3 id="info">Info</h3>
 
 <h4 id="live-example">Live Example</h4>
 
-<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p>Content here</p>
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Content here</p>
 </wa-callout>
 
 <h4 id="syntax">Syntax</h4>
@@ -90,7 +109,7 @@ Content here
 
 <h4 id="live-example-1">Live Example</h4>
 
-<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="regular"></wa-icon><p>Content here</p>
+<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>Content here</p>
 </wa-callout>
 
 <h4 id="syntax-1">Syntax</h4>
@@ -104,7 +123,7 @@ Content here
 
 <h4 id="live-example-2">Live Example</h4>
 
-<wa-callout variant="warning"><wa-icon slot="icon" name="triangle-exclamation" variant="regular"></wa-icon><p>Content here</p>
+<wa-callout variant="warning"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p>Content here</p>
 </wa-callout>
 
 <h4 id="syntax-2">Syntax</h4>
@@ -118,7 +137,7 @@ Content here
 
 <h4 id="live-example-3">Live Example</h4>
 
-<wa-callout variant="danger"><wa-icon slot="icon" name="circle-exclamation" variant="regular"></wa-icon><p>Content here</p>
+<wa-callout variant="danger"><wa-icon slot="icon" name="circle-exclamation" variant="solid"></wa-icon><p>Content here</p>
 </wa-callout>
 
 <h4 id="syntax-3">Syntax</h4>
@@ -132,7 +151,7 @@ Content here
 
 <h4 id="live-example-4">Live Example</h4>
 
-<wa-callout variant="neutral"><wa-icon slot="icon" name="gear" variant="regular"></wa-icon><p>Content here</p>
+<wa-callout variant="neutral"><wa-icon slot="icon" name="gear" variant="solid"></wa-icon><p>Content here</p>
 </wa-callout>
 
 <h4 id="syntax-4">Syntax</h4>
@@ -146,7 +165,7 @@ Content here
 
 <h4 id="live-example-5">Live Example</h4>
 
-<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p>This is an <strong>important</strong> callout with a <a href="https://google.com">link to Google</a> and some <em>italic text</em>. You can also use <code>inline code</code> here.</p>
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>This is an <strong>important</strong> callout with a <a href="https://google.com">link to Google</a> and some <em>italic text</em>. You can also use <code>inline code</code> here.</p>
 </wa-callout>
 
 <h4 id="syntax-5">Syntax</h4>
@@ -158,7 +177,7 @@ This is an <span class="gs">**important**</span> callout with a <span class="p">
 
 <h4 id="live-example-6">Live Example</h4>
 
-<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="regular"></wa-icon><p><strong>Success!</strong> Your changes have been saved. Visit <a href="https://example.com/docs">our documentation</a> for more information.</p>
+<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p><strong>Success!</strong> Your changes have been saved. Visit <a href="https://example.com/docs">our documentation</a> for more information.</p>
 </wa-callout>
 
 <h4 id="syntax-6">Syntax</h4>
@@ -172,7 +191,7 @@ This is an <span class="gs">**important**</span> callout with a <span class="p">
 
 <h4 id="live-example-7">Live Example</h4>
 
-<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p>This is a <strong>complex</strong> callout with multiple features:</p>
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>This is a <strong>complex</strong> callout with multiple features:</p>
 
 <ul>
   <li>First list item with <em>italic</em> text</li>
@@ -941,13 +960,13 @@ Click the <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span
 
 <h5 id="live-example-57">Live Example</h5>
 
-<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p><wa-icon name="info-circle"></wa-icon> <strong>Important:</strong> Make sure to backup your data before proceeding with the update.</p>
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><wa-icon name="info-circle"></wa-icon> <strong>Important:</strong> Make sure to backup your data before proceeding with the update.</p>
 </wa-callout>
 
-<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="regular"></wa-icon><p><wa-icon name="check-circle"></wa-icon> <strong>Success!</strong> Your settings have been saved successfully.</p>
+<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p><wa-icon name="check-circle"></wa-icon> <strong>Success!</strong> Your settings have been saved successfully.</p>
 </wa-callout>
 
-<wa-callout variant="warning"><wa-icon slot="icon" name="triangle-exclamation" variant="regular"></wa-icon><p><wa-icon name="exclamation-triangle"></wa-icon> <strong>Warning:</strong> This action cannot be undone.</p>
+<wa-callout variant="warning"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p><wa-icon name="exclamation-triangle"></wa-icon> <strong>Warning:</strong> This action cannot be undone.</p>
 </wa-callout>
 
 <h5 id="syntax-57">Syntax</h5>
@@ -1039,7 +1058,7 @@ In Progress<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
 
 <h4 id="live-example-61">Live Example</h4>
 
-<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p>Here’s a JavaScript example:</p>
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Here’s a JavaScript example:</p>
 
 <p>
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nf">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
