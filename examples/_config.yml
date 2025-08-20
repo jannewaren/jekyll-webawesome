@@ -1,0 +1,23 @@
+# Jekyll Web Awesome Plugin Example Site
+title: "Jekyll Web Awesome Plugin Examples"
+description: "A showcase of all Web Awesome components supported by the jekyll-webawesome plugin"
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Add the plugin to your plugins list
+plugins:
+  - jekyll-webawesome
+
+# Enable debug output (optional)
+webawesome:
+  debug: true
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
