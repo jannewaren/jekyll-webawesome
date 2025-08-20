@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Awesome Examples - Jekyll Web Awesome Plugin Examples</title>
+    
+    <!-- Web Awesome CDN -->
+    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/styles/webawesome.css" />
+    <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/webawesome.loader.js"></script>
+    
+    <!-- Minimal styling -->
+    <style>
+        body {
+            padding: 20px;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Heading styles */
+        h1 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            padding-left: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+            padding-left: 0.75rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        h4 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #34495e;
+            padding-left: 0.5rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        /* First heading spacing adjustment */
+        h2:first-of-type {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <p>Examples of the Web Awesome components and their markdown syntax.</p>
+
+<h2 id="callouts">Callouts</h2>
+
+<h3 id="info">Info</h3>
+
+<h4 id="live-example">Live Example</h4>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p>Content here</p>
+</wa-callout>
+
+<h4 id="syntax">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:::info
+Content here
+:::
+</code></pre></div></div>
+
+<h3 id="success">Success</h3>
+
+<h4 id="live-example-1">Live Example</h4>
+
+<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="regular"></wa-icon><p>Content here</p>
+</wa-callout>
+
+<h4 id="syntax-1">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:::success
+Content here
+:::
+</code></pre></div></div>
+
+<h3 id="warning">Warning</h3>
+
+<h4 id="live-example-2">Live Example</h4>
+
+<wa-callout variant="warning"><wa-icon slot="icon" name="triangle-exclamation" variant="regular"></wa-icon><p>Content here</p>
+</wa-callout>
+
+<h4 id="syntax-2">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:::warning
+Content here
+:::
+</code></pre></div></div>
+
+<h3 id="danger">Danger</h3>
+
+<h4 id="live-example-3">Live Example</h4>
+
+<wa-callout variant="danger"><wa-icon slot="icon" name="circle-exclamation" variant="regular"></wa-icon><p>Content here</p>
+</wa-callout>
+
+<h4 id="syntax-3">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:::danger
+Content here
+:::
+</code></pre></div></div>
+
+<h3 id="neutral">Neutral</h3>
+
+<h4 id="live-example-4">Live Example</h4>
+
+<wa-callout variant="neutral"><wa-icon slot="icon" name="gear" variant="regular"></wa-icon><p>Content here</p>
+</wa-callout>
+
+<h4 id="syntax-4">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:::neutral
+Content here
+:::
+</code></pre></div></div>
+
+<h3 id="with-bold-and-links">With Bold and Links</h3>
+
+<h4 id="live-example-5">Live Example</h4>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p>This is an <strong>important</strong> callout with a <a href="https://google.com">link to Google</a> and some <em>italic text</em>. You can also use <code>inline code</code> here.</p>
+</wa-callout>
+
+<h4 id="syntax-5">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:::info
+This is an <span class="gs">**important**</span> callout with a <span class="p">[</span><span class="nv">link to Google</span><span class="p">](</span><span class="sx">https://google.com</span><span class="p">)</span> and some <span class="ge">*italic text*</span>. You can also use <span class="sb">`inline code`</span> here.
+:::
+</code></pre></div></div>
+
+<h4 id="live-example-6">Live Example</h4>
+
+<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="regular"></wa-icon><p><strong>Success!</strong> Your changes have been saved. Visit <a href="https://example.com/docs">our documentation</a> for more information.</p>
+</wa-callout>
+
+<h4 id="syntax-6">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:::success
+<span class="gs">**Success!**</span> Your changes have been saved. Visit <span class="p">[</span><span class="nv">our documentation</span><span class="p">](</span><span class="sx">https://example.com/docs</span><span class="p">)</span> for more information.
+:::
+</code></pre></div></div>
+
+<h3 id="with-complex-content-lists--multiple-paragraphs">With Complex Content (Lists &amp; Multiple Paragraphs)</h3>
+
+<h4 id="live-example-7">Live Example</h4>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p>This is a <strong>complex</strong> callout with multiple features:</p>
+
+<ul>
+  <li>First list item with <em>italic</em> text</li>
+  <li>Second item with <a href="https://example.com">a link</a></li>
+  <li>Third item with <code>inline code</code></li>
+</ul>
+
+<p>Here’s a second paragraph with more <strong>bold text</strong>.</p>
+
+<p>And a third paragraph to test multiple paragraphs.</p>
+</wa-callout>
+
+<h4 id="syntax-7">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:::info
+This is a <span class="gs">**complex**</span> callout with multiple features:
+<span class="p">
+-</span> First list item with <span class="ge">*italic*</span> text
+<span class="p">-</span> Second item with <span class="p">[</span><span class="nv">a link</span><span class="p">](</span><span class="sx">https://example.com</span><span class="p">)</span>
+<span class="p">-</span> Third item with <span class="sb">`inline code`</span>
+
+Here's a second paragraph with more <span class="gs">**bold text**</span>.
+
+And a third paragraph to test multiple paragraphs.
+:::
+</code></pre></div></div>
+
+<h2 id="tags">Tags</h2>
+
+<h3 id="basic-tags">Basic Tags</h3>
+
+<h4 id="live-example-8">Live Example</h4>
+
+<wa-tag>Basic tag</wa-tag>
+
+<h4 id="syntax-8">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag&gt;</span>Basic tag<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h3 id="with-variants">With Variants</h3>
+
+<h4 id="live-example-9">Live Example</h4>
+
+<wa-tag variant="brand">Version 2.0</wa-tag>
+
+<h4 id="syntax-9">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"brand"</span><span class="nt">&gt;</span>Version 2.0<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h4 id="live-example-10">Live Example</h4>
+
+<wa-tag variant="success">Completed</wa-tag>
+
+<h4 id="syntax-10">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"success"</span><span class="nt">&gt;</span>Completed<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h4 id="live-example-11">Live Example</h4>
+
+<wa-tag variant="warning">In Progress</wa-tag>
+
+<h4 id="syntax-11">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"warning"</span><span class="nt">&gt;</span>In Progress<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h4 id="live-example-12">Live Example</h4>
+
+<wa-tag variant="danger">Critical Issue</wa-tag>
+
+<h4 id="syntax-12">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"danger"</span><span class="nt">&gt;</span>Critical Issue<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h4 id="live-example-13">Live Example</h4>
+
+<wa-tag variant="neutral">Documentation</wa-tag>
+
+<h4 id="syntax-13">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"neutral"</span><span class="nt">&gt;</span>Documentation<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h3 id="with-markdown-content">With Markdown Content</h3>
+
+<h4 id="live-example-14">Live Example</h4>
+
+<wa-tag variant="brand"><strong>v3.0</strong> Beta Release</wa-tag>
+
+<h4 id="syntax-14">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"brand"</span><span class="nt">&gt;&lt;strong&gt;</span>v3.0<span class="nt">&lt;/strong&gt;</span> Beta Release<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h4 id="live-example-15">Live Example</h4>
+
+<wa-tag variant="success"><a href="https://example.com">View Results</a></wa-tag>
+
+<h4 id="syntax-15">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"success"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"https://example.com"</span><span class="nt">&gt;</span>View Results<span class="nt">&lt;/a&gt;&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h4 id="live-example-16">Live Example</h4>
+
+<wa-tag variant="warning"><em>Please review</em> before continuing</wa-tag>
+
+<h4 id="syntax-16">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"warning"</span><span class="nt">&gt;&lt;em&gt;</span>Please review<span class="nt">&lt;/em&gt;</span> before continuing<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h2 id="details">Details</h2>
+
+<h3 id="basic">Basic</h3>
+
+<h4 id="live-example-17">Live Example</h4>
+
+<wa-details appearance="outlined"><span slot="summary"><p>Summary text</p>
+</span><p>Details content</p>
+</wa-details>
+
+<h4 id="syntax-17">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^^^
+Summary text
+<span class="gt">&gt;&gt;&gt;</span>
+Details content
+^^^
+</code></pre></div></div>
+
+<h3 id="filled">Filled</h3>
+
+<h4 id="live-example-18">Live Example</h4>
+
+<wa-details appearance="filled"><span slot="summary"><p>Summary with filled style</p>
+</span><p>Content</p>
+</wa-details>
+
+<h4 id="syntax-18">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^^^filled
+Summary with filled style
+<span class="gt">&gt;&gt;&gt;</span>
+Content
+^^^
+</code></pre></div></div>
+
+<h3 id="plain">Plain</h3>
+
+<h4 id="live-example-19">Live Example</h4>
+
+<wa-details appearance="plain"><span slot="summary"><p>Summary with plain style</p>
+</span><p>Content</p>
+</wa-details>
+
+<h4 id="syntax-19">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^^^plain
+Summary with plain style
+<span class="gt">&gt;&gt;&gt;</span>
+Content
+^^^
+</code></pre></div></div>
+
+<h3 id="filled--outlined">Filled + Outlined</h3>
+
+<h4 id="live-example-20">Live Example</h4>
+
+<wa-details appearance="filled outlined"><span slot="summary"><p>Summary with both styles</p>
+</span><p>Content</p>
+</wa-details>
+
+<h4 id="syntax-20">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^^^filled-outlined
+Summary with both styles
+<span class="gt">&gt;&gt;&gt;</span>
+Content
+^^^
+</code></pre></div></div>
+
+<h3 id="with-extra-formatting">With Extra Formatting</h3>
+
+<h4 id="live-example-21">Live Example</h4>
+
+<wa-details appearance="outlined"><span slot="summary"><p>Click here for <strong>important</strong> information</p>
+</span><p>This details section contains <strong>bold text</strong>, <a href="https://example.com">a link to our docs</a>, and <em>italic text</em>. You can also use <code>inline code</code> formatting.</p>
+
+<ul>
+  <li>And lists</li>
+  <li>With multiple items</li>
+</ul>
+</wa-details>
+
+<h4 id="syntax-21">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^^^
+Click here for <span class="gs">**important**</span> information
+<span class="gt">&gt;&gt;&gt;</span>
+This details section contains <span class="gs">**bold text**</span>, <span class="p">[</span><span class="nv">a link to our docs</span><span class="p">](</span><span class="sx">https://example.com</span><span class="p">)</span>, and <span class="ge">*italic text*</span>. You can also use <span class="sb">`inline code`</span> formatting.
+<span class="p">
+-</span> And lists
+<span class="p">-</span> With multiple items
+^^^
+</code></pre></div></div>
+
+<h2 id="tab-groups">Tab Groups</h2>
+
+<h3 id="default-top">Default (Top)</h3>
+
+<h4 id="live-example-22">Live Example</h4>
+
+<wa-tab-group placement="top"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Content for tab 1</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>Content for tab 2</p>
+</wa-tab-panel></wa-tab-group>
+
+<h4 id="syntax-22">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>++++++
++++ Tab 1
+Content for tab 1
++++
+
++++ Tab 2
+Content for tab 2
++++
+++++++
+</code></pre></div></div>
+
+<h3 id="bottom-placement">Bottom Placement</h3>
+
+<h4 id="live-example-23">Live Example</h4>
+
+<wa-tab-group placement="bottom"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Content with tabs at bottom</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>More content for tab 2</p>
+</wa-tab-panel></wa-tab-group>
+
+<h4 id="syntax-23">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>++++++bottom
++++ Tab 1
+Content with tabs at bottom
++++
+
++++ Tab 2
+More content for tab 2
++++
+++++++
+</code></pre></div></div>
+
+<h3 id="start-placement-left">Start Placement (Left)</h3>
+
+<h4 id="live-example-24">Live Example</h4>
+
+<wa-tab-group placement="start"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Content with tabs on left</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>More content for tab 2</p>
+</wa-tab-panel></wa-tab-group>
+
+<h4 id="syntax-24">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>++++++start
++++ Tab 1
+Content with tabs on left
++++
+
++++ Tab 2
+More content for tab 2
++++
+++++++
+</code></pre></div></div>
+
+<h3 id="end-placement-right">End Placement (Right)</h3>
+
+<h4 id="live-example-25">Live Example</h4>
+
+<wa-tab-group placement="end"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Content with tabs on right</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>More content for tab 2</p>
+</wa-tab-panel></wa-tab-group>
+
+<h4 id="syntax-25">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>++++++end
++++ Tab 1
+Content with tabs on right
++++
+
++++ Tab 2
+More content for tab 2
++++
+++++++
+</code></pre></div></div>
+
+<h3 id="with-bold-and-links-in-tabs">With Bold and Links in Tabs</h3>
+
+<h4 id="live-example-26">Live Example</h4>
+
+<wa-tab-group placement="top"><wa-tab panel="tab-1">**Quick Start**</wa-tab><wa-tab panel="tab-2">*Advanced* Setup</wa-tab><wa-tab-panel name="tab-1"><p>Get started quickly with our <a href="https://example.com/install">installation guide</a>. This tab contains <strong>bold text</strong> and <em>italic formatting</em>.</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>For advanced users, check out our <a href="https://example.com/advanced">advanced configuration docs</a>. Use <code>npm install</code> to get started.</p>
+</wa-tab-panel></wa-tab-group>
+
+<h4 id="syntax-26">Syntax</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>++++++
++++ <span class="gs">**Quick Start**</span>
+Get started quickly with our <span class="p">[</span><span class="nv">installation guide</span><span class="p">](</span><span class="sx">https://example.com/install</span><span class="p">)</span>. This tab contains <span class="gs">**bold text**</span> and <span class="ge">*italic formatting*</span>.
++++
+
++++ <span class="ge">*Advanced*</span> Setup
+For advanced users, check out our <span class="p">[</span><span class="nv">advanced configuration docs</span><span class="p">](</span><span class="sx">https://example.com/advanced</span><span class="p">)</span>. Use <span class="sb">`npm install`</span> to get started.
++++
+++++++
+</code></pre></div></div>
+
+<h2 id="badges">Badges</h2>
+
+<h3 id="basic-badge">Basic Badge</h3>
+
+<h4 id="live-example-27">Live Example</h4>
+
+<wa-badge>New</wa-badge>
+
+<h4 id="syntax-27">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-badge&gt;</span>New<span class="nt">&lt;/wa-badge&gt;</span></code></pre></figure>
+
+<h3 id="brand-badge">Brand Badge</h3>
+
+<h4 id="live-example-28">Live Example</h4>
+
+<wa-badge variant="brand">5</wa-badge>
+
+<h4 id="syntax-28">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-badge</span> <span class="na">variant=</span><span class="s">"brand"</span><span class="nt">&gt;</span>5<span class="nt">&lt;/wa-badge&gt;</span></code></pre></figure>
+
+<h3 id="success-badge">Success Badge</h3>
+
+<h4 id="live-example-29">Live Example</h4>
+
+<wa-badge variant="success">Online</wa-badge>
+
+<h4 id="syntax-29">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-badge</span> <span class="na">variant=</span><span class="s">"success"</span><span class="nt">&gt;</span>Online<span class="nt">&lt;/wa-badge&gt;</span></code></pre></figure>
+
+<h3 id="warning-badge">Warning Badge</h3>
+
+<h4 id="live-example-30">Live Example</h4>
+
+<wa-badge variant="warning">3 pending</wa-badge>
+
+<h4 id="syntax-30">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-badge</span> <span class="na">variant=</span><span class="s">"warning"</span><span class="nt">&gt;</span>3 pending<span class="nt">&lt;/wa-badge&gt;</span></code></pre></figure>
+
+<h3 id="danger-badge">Danger Badge</h3>
+
+<h4 id="live-example-31">Live Example</h4>
+
+<wa-badge variant="danger">Error</wa-badge>
+
+<h4 id="syntax-31">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-badge</span> <span class="na">variant=</span><span class="s">"danger"</span><span class="nt">&gt;</span>Error<span class="nt">&lt;/wa-badge&gt;</span></code></pre></figure>
+
+<h3 id="neutral-badge">Neutral Badge</h3>
+
+<h4 id="live-example-32">Live Example</h4>
+
+<wa-badge variant="neutral">Draft</wa-badge>
+
+<h4 id="syntax-32">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-badge</span> <span class="na">variant=</span><span class="s">"neutral"</span><span class="nt">&gt;</span>Draft<span class="nt">&lt;/wa-badge&gt;</span></code></pre></figure>
+
+<h3 id="alternative-syntax">Alternative Syntax</h3>
+
+<h4 id="live-example-33">Live Example</h4>
+
+<wa-badge variant="brand">Alternative</wa-badge>
+
+<h4 id="syntax-33">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-badge</span> <span class="na">variant=</span><span class="s">"brand"</span><span class="nt">&gt;</span>Alternative<span class="nt">&lt;/wa-badge&gt;</span></code></pre></figure>
+
+<h3 id="badges-with-formatting">Badges with Formatting</h3>
+
+<h4 id="live-example-34">Live Example</h4>
+
+<wa-badge variant="brand"><strong>Bold</strong>&nbsp;badge</wa-badge>
+
+<h4 id="syntax-34">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-badge</span> <span class="na">variant=</span><span class="s">"brand"</span><span class="nt">&gt;&lt;strong&gt;</span>Bold<span class="nt">&lt;/strong&gt;</span><span class="ni">&amp;nbsp;</span>badge<span class="nt">&lt;/wa-badge&gt;</span></code></pre></figure>
+
+<h2 id="buttons">Buttons</h2>
+
+<h3 id="link-buttons">Link Buttons</h3>
+
+<h4 id="live-example-35">Live Example</h4>
+
+<wa-button variant="brand" href="https://www.google.com">Go to Google</wa-button>
+
+<h4 id="syntax-35">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"brand"</span> <span class="na">href=</span><span class="s">"https://www.google.com"</span><span class="nt">&gt;</span>Go to Google<span class="nt">&lt;/wa-button&gt;</span></code></pre></figure>
+
+<h3 id="button-variants">Button Variants</h3>
+
+<h4 id="live-example-36">Live Example</h4>
+
+<wa-button variant="success" href="https://example.com/start">Get Started</wa-button>
+
+<wa-button variant="warning" href="https://example.com/warning">Proceed with Caution</wa-button>
+
+<wa-button variant="danger" href="https://example.com/delete">Delete Account</wa-button>
+
+<wa-button variant="neutral" href="https://example.com/docs">Learn More</wa-button>
+
+<h4 id="syntax-36">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"success"</span> <span class="na">href=</span><span class="s">"https://example.com/start"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/wa-button&gt;</span>
+
+<span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"warning"</span> <span class="na">href=</span><span class="s">"https://example.com/warning"</span><span class="nt">&gt;</span>Proceed with Caution<span class="nt">&lt;/wa-button&gt;</span>
+
+<span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"danger"</span> <span class="na">href=</span><span class="s">"https://example.com/delete"</span><span class="nt">&gt;</span>Delete Account<span class="nt">&lt;/wa-button&gt;</span>
+
+<span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"neutral"</span> <span class="na">href=</span><span class="s">"https://example.com/docs"</span><span class="nt">&gt;</span>Learn More<span class="nt">&lt;/wa-button&gt;</span></code></pre></figure>
+
+<h3 id="regular-buttons-no-links">Regular Buttons (No Links)</h3>
+
+<h4 id="live-example-37">Live Example</h4>
+
+<wa-button variant="brand">Submit Form</wa-button>
+
+<wa-button variant="danger">Reset Data</wa-button>
+
+<h4 id="syntax-37">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"brand"</span><span class="nt">&gt;</span>Submit Form<span class="nt">&lt;/wa-button&gt;</span>
+
+<span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"danger"</span><span class="nt">&gt;</span>Reset Data<span class="nt">&lt;/wa-button&gt;</span></code></pre></figure>
+
+<h3 id="buttons-with-formatting">Buttons with Formatting</h3>
+
+<h4 id="live-example-38">Live Example</h4>
+
+<wa-button variant="brand" href="https://example.com/v2"><strong>Download</strong>&nbsp;<em>v2.0</em></wa-button>
+
+<wa-button variant="success"><strong>Submit</strong>&nbsp;Form</wa-button>
+
+<h4 id="syntax-38">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"brand"</span> <span class="na">href=</span><span class="s">"https://example.com/v2"</span><span class="nt">&gt;&lt;strong&gt;</span>Download<span class="nt">&lt;/strong&gt;</span><span class="ni">&amp;nbsp;</span><span class="nt">&lt;em&gt;</span>v2.0<span class="nt">&lt;/em&gt;&lt;/wa-button&gt;</span>
+
+<span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"success"</span><span class="nt">&gt;&lt;strong&gt;</span>Submit<span class="nt">&lt;/strong&gt;</span><span class="ni">&amp;nbsp;</span>Form<span class="nt">&lt;/wa-button&gt;</span></code></pre></figure>
+
+<h3 id="alternative-syntax-1">Alternative Syntax</h3>
+
+<h4 id="live-example-39">Live Example</h4>
+
+<wa-button variant="brand" href="https://example.com/alt">Alternative Button</wa-button>
+
+<wa-button variant="success">Regular Alternative</wa-button>
+
+<h4 id="syntax-39">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"brand"</span> <span class="na">href=</span><span class="s">"https://example.com/alt"</span><span class="nt">&gt;</span>Alternative Button<span class="nt">&lt;/wa-button&gt;</span>
+
+<span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"success"</span><span class="nt">&gt;</span>Regular Alternative<span class="nt">&lt;/wa-button&gt;</span></code></pre></figure>
+
+<h2 id="cards">Cards</h2>
+
+<h3 id="basic-card">Basic Card</h3>
+
+<h4 id="live-example-40">Live Example</h4>
+
+<wa-card><p>This is a basic card with just content. It provides a simple container for organizing information.</p>
+</wa-card>
+
+<h4 id="syntax-40">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card&gt;&lt;p&gt;</span>This is a basic card with just content. It provides a simple container for organizing information.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h3 id="card-with-header">Card with Header</h3>
+
+<h4 id="live-example-41">Live Example</h4>
+
+<wa-card with-header=""><div slot="header"><p>Welcome Card</p>
+</div><p>This card has a title that will appear in the header slot, making it easy to identify the content.</p>
+</wa-card>
+
+<h4 id="syntax-41">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">with-header</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Welcome Card<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>This card has a title that will appear in the header slot, making it easy to identify the content.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h3 id="card-with-media-and-header">Card with Media and Header</h3>
+
+<h4 id="live-example-42">Live Example</h4>
+
+<wa-card with-media="" with-header=""><img slot="media" src="image.png" alt="Example Image" /><div slot="header"><p>Featured Content</p>
+</div><p>This card includes both an image in the media slot and a title in the header slot.</p>
+</wa-card>
+
+<h4 id="syntax-42">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">with-media</span> <span class="na">with-header</span><span class="nt">&gt;&lt;img</span> <span class="na">slot=</span><span class="s">"media"</span> <span class="na">src=</span><span class="s">"image.png"</span> <span class="na">alt=</span><span class="s">"Example Image"</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Featured Content<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>This card includes both an image in the media slot and a title in the header slot.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h3 id="card-with-footer-button">Card with Footer Button</h3>
+
+<h4 id="live-example-43">Live Example</h4>
+
+<wa-card with-header="" with-footer=""><div slot="header"><p>Get Started</p>
+</div><p>Ready to begin your journey? This card includes a call-to-action button in the footer.</p>
+<div slot="footer"><wa-button href="https://example.com">Learn More</wa-button></div></wa-card>
+
+<h4 id="syntax-43">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">with-header</span> <span class="na">with-footer</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Get Started<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>Ready to begin your journey? This card includes a call-to-action button in the footer.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">slot=</span><span class="s">"footer"</span><span class="nt">&gt;&lt;wa-button</span> <span class="na">href=</span><span class="s">"https://example.com"</span><span class="nt">&gt;</span>Learn More<span class="nt">&lt;/wa-button&gt;&lt;/div&gt;&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h3 id="complete-card-with-all-features">Complete Card with All Features</h3>
+
+<h4 id="live-example-44">Live Example</h4>
+
+<wa-card appearance="filled" with-media="" with-header="" with-footer=""><img slot="media" src="image.png" alt="Hero Image" /><div slot="header"><p>Complete Example</p>
+</div><p>This is a complete card example that includes media, header, content, and footer. It uses the filled appearance for a different visual style.</p>
+<div slot="footer"><wa-button href="https://example.com">Get Started</wa-button></div></wa-card>
+
+<h4 id="syntax-44">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">appearance=</span><span class="s">"filled"</span> <span class="na">with-media</span> <span class="na">with-header</span> <span class="na">with-footer</span><span class="nt">&gt;&lt;img</span> <span class="na">slot=</span><span class="s">"media"</span> <span class="na">src=</span><span class="s">"image.png"</span> <span class="na">alt=</span><span class="s">"Hero Image"</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Complete Example<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>This is a complete card example that includes media, header, content, and footer. It uses the filled appearance for a different visual style.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">slot=</span><span class="s">"footer"</span><span class="nt">&gt;&lt;wa-button</span> <span class="na">href=</span><span class="s">"https://example.com"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/wa-button&gt;&lt;/div&gt;&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h3 id="card-appearances">Card Appearances</h3>
+
+<h4 id="filled-appearance">Filled Appearance</h4>
+
+<h5 id="live-example-45">Live Example</h5>
+
+<wa-card appearance="filled" with-header=""><div slot="header"><p>Filled Card</p>
+</div><p>This card uses the filled appearance for a more prominent display.</p>
+</wa-card>
+
+<h5 id="syntax-45">Syntax</h5>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">appearance=</span><span class="s">"filled"</span> <span class="na">with-header</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Filled Card<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>This card uses the filled appearance for a more prominent display.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h4 id="plain-appearance">Plain Appearance</h4>
+
+<h5 id="live-example-46">Live Example</h5>
+
+<wa-card appearance="plain" with-header=""><div slot="header"><p>Plain Card</p>
+</div><p>This card uses the plain appearance for a minimal look.</p>
+</wa-card>
+
+<h5 id="syntax-46">Syntax</h5>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">appearance=</span><span class="s">"plain"</span> <span class="na">with-header</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Plain Card<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>This card uses the plain appearance for a minimal look.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h4 id="filled-outlined-appearance">Filled Outlined Appearance</h4>
+
+<h5 id="live-example-47">Live Example</h5>
+
+<wa-card appearance="filled-outlined" with-header=""><div slot="header"><p>Filled Outlined Card</p>
+</div><p>This card uses the filled-outlined appearance combining both styles.</p>
+</wa-card>
+
+<h5 id="syntax-47">Syntax</h5>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">appearance=</span><span class="s">"filled-outlined"</span> <span class="na">with-header</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Filled Outlined Card<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>This card uses the filled-outlined appearance combining both styles.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h4 id="accent-appearance">Accent Appearance</h4>
+
+<h5 id="live-example-48">Live Example</h5>
+
+<wa-card appearance="accent" with-header=""><div slot="header"><p>Accent Card</p>
+</div><p>This card uses the accent appearance for emphasis and highlighting.</p>
+</wa-card>
+
+<h5 id="syntax-48">Syntax</h5>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">appearance=</span><span class="s">"accent"</span> <span class="na">with-header</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Accent Card<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>This card uses the accent appearance for emphasis and highlighting.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h3 id="cards-with-rich-content">Cards with Rich Content</h3>
+
+<h4 id="live-example-49">Live Example</h4>
+
+<wa-card with-header="" with-footer=""><div slot="header"><p>Project Showcase</p>
+</div><p>This card demonstrates rich content including <strong>bold text</strong>, <em>italic text</em>, <code>inline code</code>, and <a href="https://example.com">links</a>.</p>
+
+<p>Features include:
+- Responsive design
+- Accessible markup
+- Easy customization
+- Modern styling</p>
+
+<p>Perfect for showcasing projects, features, or any structured content.</p>
+<div slot="footer"><wa-button href="https://github.com/example/project">View Project</wa-button></div></wa-card>
+
+<h4 id="syntax-49">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">with-header</span> <span class="na">with-footer</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Project Showcase<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>This card demonstrates rich content including <span class="nt">&lt;strong&gt;</span>bold text<span class="nt">&lt;/strong&gt;</span>, <span class="nt">&lt;em&gt;</span>italic text<span class="nt">&lt;/em&gt;</span>, <span class="nt">&lt;code&gt;</span>inline code<span class="nt">&lt;/code&gt;</span>, and <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://example.com"</span><span class="nt">&gt;</span>links<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>Features include:
+<span class="p">-</span> Responsive design
+<span class="p">-</span> Accessible markup
+<span class="p">-</span> Easy customization
+<span class="p">-</span> Modern styling<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>Perfect for showcasing projects, features, or any structured content.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">slot=</span><span class="s">"footer"</span><span class="nt">&gt;&lt;wa-button</span> <span class="na">href=</span><span class="s">"https://github.com/example/project"</span><span class="nt">&gt;</span>View Project<span class="nt">&lt;/wa-button&gt;&lt;/div&gt;&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h3 id="code-blocks-in-cards">Code Blocks in Cards</h3>
+
+<h4 id="live-example-50">Live Example</h4>
+
+<wa-card with-header="" with-footer=""><div slot="header"><p>Installation Guide</p>
+</div><p>Follow these steps to install the package:</p>
+
+<p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm <span class="nb">install </span>jekyll-webawesome
+bundle <span class="nb">install</span></code></pre></figure>
+</p>
+
+<p>Then add it to your <code>_config.yml</code>:</p>
+
+<p>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-webawesome</span></code></pre></figure>
+</p>
+<div slot="footer"><wa-button href="https://github.com/example/docs">View Documentation</wa-button></div></wa-card>
+
+<h4 id="syntax-50">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">with-header</span> <span class="na">with-footer</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;</span>Installation Guide<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>Follow these steps to install the package:</code></pre></figure>
+<p>bash
+npm install jekyll-webawesome
+bundle install</p>
+<pre><code class="language-&lt;/p&gt;">
+&lt;p&gt;Then add it to your &lt;code&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;yaml
+plugins:
+  - jekyll-webawesome
+&lt;/code&gt;&lt;/p&gt;
+&lt;div slot="footer"&gt;&lt;wa-button href="https://github.com/example/docs"&gt;View Documentation&lt;/wa-button&gt;&lt;/div&gt;&lt;/wa-card&gt;
+</code></pre>
+
+<h2 id="icons">Icons</h2>
+
+<h3 id="basic-icons">Basic Icons</h3>
+
+<h4 id="live-example-51">Live Example</h4>
+
+<p>Click the <wa-icon name="settings"></wa-icon> icon to configure your preferences.</p>
+
+<h4 id="syntax-51">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown">Click the <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"settings"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> icon to configure your preferences.</code></pre></figure>
+
+<h3 id="icons-with-different-names">Icons with Different Names</h3>
+
+<h4 id="live-example-52">Live Example</h4>
+
+<p>Navigation: <wa-icon name="home"></wa-icon> <wa-icon name="user-circle"></wa-icon> <wa-icon name="search"></wa-icon> <wa-icon name="menu"></wa-icon></p>
+
+<p>File operations: <wa-icon name="file"></wa-icon> <wa-icon name="folder"></wa-icon> <wa-icon name="download"></wa-icon> <wa-icon name="upload"></wa-icon></p>
+
+<p>UI elements: <wa-icon name="heart"></wa-icon> <wa-icon name="star"></wa-icon> <wa-icon name="bell"></wa-icon> <wa-icon name="gear"></wa-icon></p>
+
+<h4 id="syntax-52">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown">Navigation: <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"home"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"user-circle"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"search"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"menu"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span>
+
+File operations: <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"file"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"folder"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"download"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"upload"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span>
+
+UI elements: <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"heart"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"star"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"bell"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"gear"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span></code></pre></figure>
+
+<h3 id="icons-in-lists">Icons in Lists</h3>
+
+<h4 id="live-example-53">Live Example</h4>
+
+<p>Features include:</p>
+<ul>
+  <li>
+    <wa-icon name="check"></wa-icon>
+    <p>Security first approach</p>
+  </li>
+  <li>
+    <wa-icon name="rocket"></wa-icon>
+    <p>Fast performance</p>
+  </li>
+  <li>
+    <wa-icon name="users"></wa-icon>
+    <p>Community support</p>
+  </li>
+  <li>
+    <wa-icon name="code"></wa-icon>
+    <p>Open source</p>
+  </li>
+</ul>
+
+<h4 id="syntax-53">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown">Features include:
+<span class="p">-</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"check"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Security first approach
+<span class="p">-</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"rocket"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Fast performance
+<span class="p">-</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"users"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Community support
+<span class="p">-</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"code"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Open source</code></pre></figure>
+
+<h3 id="icons-in-links">Icons in Links</h3>
+
+<h4 id="live-example-54">Live Example</h4>
+
+<p>Visit our <a href="https://example.com/docs">documentation <wa-icon name="book"></wa-icon></a> or check the <a href="https://example.com/settings">settings <wa-icon name="cog"></wa-icon> page</a>.</p>
+
+<h4 id="syntax-54">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown">Visit our <span class="p">[</span><span class="nv">documentation &lt;wa-icon name="book"&gt;&lt;/wa-icon&gt;</span><span class="p">](</span><span class="sx">https://example.com/docs</span><span class="p">)</span> or check the <span class="p">[</span><span class="nv">settings &lt;wa-icon name="cog"&gt;&lt;/wa-icon&gt; page</span><span class="p">](</span><span class="sx">https://example.com/settings</span><span class="p">)</span>.</code></pre></figure>
+
+<h3 id="icons-with-numbers-and-underscores">Icons with Numbers and Underscores</h3>
+
+<h4 id="live-example-55">Live Example</h4>
+
+<p>Version icons: <wa-icon name="v1"></wa-icon> <wa-icon name="v2"></wa-icon> <wa-icon name="version_2"></wa-icon> <wa-icon name="icon123"></wa-icon></p>
+
+<p>Status indicators: <wa-icon name="status_ok"></wa-icon> <wa-icon name="alert_1"></wa-icon> <wa-icon name="warning_2"></wa-icon></p>
+
+<h4 id="syntax-55">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown">Version icons: <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"v1"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"v2"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"version_2"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"icon123"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span>
+
+Status indicators: <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"status_ok"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"alert_1"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"warning_2"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span></code></pre></figure>
+
+<h3 id="alternative-syntax-2">Alternative Syntax</h3>
+
+<h4 id="live-example-56">Live Example</h4>
+
+<wa-icon name="home"></wa-icon>
+
+<p>Click the <wa-icon name="settings"></wa-icon> to open preferences.</p>
+
+<h4 id="syntax-56">Syntax</h4>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"home"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span>
+
+Click the <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"settings"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> to open preferences.</code></pre></figure>
+
+<h3 id="icons-in-other-components">Icons in Other Components</h3>
+
+<h4 id="icons-in-callouts">Icons in Callouts</h4>
+
+<h5 id="live-example-57">Live Example</h5>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p><wa-icon name="info-circle"></wa-icon> <strong>Important:</strong> Make sure to backup your data before proceeding with the update.</p>
+</wa-callout>
+
+<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="regular"></wa-icon><p><wa-icon name="check-circle"></wa-icon> <strong>Success!</strong> Your settings have been saved successfully.</p>
+</wa-callout>
+
+<wa-callout variant="warning"><wa-icon slot="icon" name="triangle-exclamation" variant="regular"></wa-icon><p><wa-icon name="exclamation-triangle"></wa-icon> <strong>Warning:</strong> This action cannot be undone.</p>
+</wa-callout>
+
+<h5 id="syntax-57">Syntax</h5>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:::info
+$$$info-circle <span class="gs">**Important:**</span> Make sure to backup your data before proceeding with the update.
+:::
+
+:::success
+$$$check-circle <span class="gs">**Success!**</span> Your settings have been saved successfully.
+:::
+
+:::warning
+$$$exclamation-triangle <span class="gs">**Warning:**</span> This action cannot be undone.
+:::
+</code></pre></div></div>
+
+<h4 id="icons-in-tags">Icons in Tags</h4>
+
+<h5 id="live-example-58">Live Example</h5>
+
+<wa-tag variant="brand"><wa-icon name="star"></wa-icon>
+Premium</wa-tag>
+
+<wa-tag variant="success"><wa-icon name="check"></wa-icon>
+Completed</wa-tag>
+
+<wa-tag variant="warning"><wa-icon name="clock"></wa-icon>
+In Progress</wa-tag>
+
+<h5 id="syntax-58">Syntax</h5>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"brand"</span><span class="nt">&gt;&lt;wa-icon</span> <span class="na">name=</span><span class="s">"star"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span>
+Premium<span class="nt">&lt;/wa-tag&gt;</span>
+
+<span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"success"</span><span class="nt">&gt;&lt;wa-icon</span> <span class="na">name=</span><span class="s">"check"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span>
+Completed<span class="nt">&lt;/wa-tag&gt;</span>
+
+<span class="nt">&lt;wa-tag</span> <span class="na">variant=</span><span class="s">"warning"</span><span class="nt">&gt;&lt;wa-icon</span> <span class="na">name=</span><span class="s">"clock"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span>
+In Progress<span class="nt">&lt;/wa-tag&gt;</span></code></pre></figure>
+
+<h4 id="icons-in-cards">Icons in Cards</h4>
+
+<h5 id="live-example-59">Live Example</h5>
+
+<wa-card with-header="" with-footer=""><div slot="header"><p><wa-icon name="rocket"></wa-icon> Quick Start Guide</p>
+</div><p>Get up and running quickly with our step-by-step guide.</p>
+
+<p>Key features:
+- \($zap Fast setup
+-\)$shield Security built-in
+- <wa-icon name="globe"></wa-icon> Works everywhere</p>
+<div slot="footer"><wa-button href="https://example.com/start"><wa-icon name="arrow-right"></wa-icon> Get Started</wa-button></div></wa-card>
+
+<h5 id="syntax-59">Syntax</h5>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-card</span> <span class="na">with-header</span> <span class="na">with-footer</span><span class="nt">&gt;&lt;div</span> <span class="na">slot=</span><span class="s">"header"</span><span class="nt">&gt;&lt;p&gt;&lt;wa-icon</span> <span class="na">name=</span><span class="s">"rocket"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Quick Start Guide<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;p&gt;</span>Get up and running quickly with our step-by-step guide.<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>Key features:
+<span class="p">-</span> <span class="se">\(</span>$zap Fast setup
+-<span class="se">\)</span>$shield Security built-in
+<span class="p">-</span> <span class="nt">&lt;wa-icon</span> <span class="na">name=</span><span class="s">"globe"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Works everywhere<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">slot=</span><span class="s">"footer"</span><span class="nt">&gt;&lt;wa-button</span> <span class="na">href=</span><span class="s">"https://example.com/start"</span><span class="nt">&gt;&lt;wa-icon</span> <span class="na">name=</span><span class="s">"arrow-right"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Get Started<span class="nt">&lt;/wa-button&gt;&lt;/div&gt;&lt;/wa-card&gt;</span></code></pre></figure>
+
+<h4 id="icons-in-buttons">Icons in Buttons</h4>
+
+<h5 id="live-example-60">Live Example</h5>
+
+<wa-button variant="brand" href="https://example.com/download"><wa-icon name="download"></wa-icon> Download Now</wa-button>
+
+<wa-button variant="success"><wa-icon name="save"></wa-icon> Save Changes</wa-button>
+
+<wa-button variant="danger"><wa-icon name="trash"></wa-icon> Delete Item</wa-button>
+
+<h5 id="syntax-60">Syntax</h5>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"brand"</span> <span class="na">href=</span><span class="s">"https://example.com/download"</span><span class="nt">&gt;&lt;wa-icon</span> <span class="na">name=</span><span class="s">"download"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Download Now<span class="nt">&lt;/wa-button&gt;</span>
+
+<span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"success"</span><span class="nt">&gt;&lt;wa-icon</span> <span class="na">name=</span><span class="s">"save"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Save Changes<span class="nt">&lt;/wa-button&gt;</span>
+
+<span class="nt">&lt;wa-button</span> <span class="na">variant=</span><span class="s">"danger"</span><span class="nt">&gt;&lt;wa-icon</span> <span class="na">name=</span><span class="s">"trash"</span><span class="nt">&gt;&lt;/wa-icon&gt;</span> Delete Item<span class="nt">&lt;/wa-button&gt;</span></code></pre></figure>
+
+<h2 id="code-blocks-inside-components">Code Blocks Inside Components</h2>
+
+<p>Testing whether code blocks work properly inside Web Awesome components.</p>
+
+<h3 id="code-blocks-in-callouts">Code Blocks in Callouts</h3>
+
+<h4 id="live-example-61">Live Example</h4>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon><p>Here’s a JavaScript example:</p>
+
+<p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nf">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">$</span><span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="sr">/code&gt;</span><span class="err">;
+</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">greet</span><span class="p">(</span><span class="err">‘</span><span class="nx">World</span><span class="err">’</span><span class="p">));</span></code></pre></figure>
+</p>
+</wa-callout>
+
+<h3 id="code-blocks-in-details">Code Blocks in Details</h3>
+
+<h4 id="live-example-62">Live Example</h4>
+
+<wa-details appearance="outlined"><span slot="summary"><p>Click to see Python code</p>
+</span><p>Here’s a Python function:</p>
+
+<p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">h1</span> <span class="nb">id</span><span class="o">=</span><span class="sh">"</span><span class="s">generate-first-10-fibonacci-numbers</span><span class="sh">"</span><span class="o">&gt;</span><span class="n">Generate</span> <span class="n">first</span> <span class="mi">10</span> <span class="n">Fibonacci</span> <span class="n">numbers</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">f</span><span class="err">”</span><span class="nf">fib</span><span class="p">({</span><span class="n">i</span><span class="p">})</span> <span class="o">=</span> <span class="p">{</span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">i</span><span class="p">)}</span><span class="err">”</span><span class="p">)</span></code></pre></figure>
+</p>
+</wa-details>
+
+<h3 id="code-blocks-in-tab-groups">Code Blocks in Tab Groups</h3>
+
+<h4 id="live-example-63">Live Example</h4>
+
+<wa-tab-group placement="top"><wa-tab panel="tab-1">JavaScript</wa-tab><wa-tab panel="tab-2">Python</wa-tab><wa-tab panel="tab-3">Ruby</wa-tab><wa-tab-panel name="tab-1"><p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Array methods example</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">doubled</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">doubled</span><span class="p">);</span> <span class="c1">// [2, 4, 6, 8, 10]</span></code></pre></figure>
+</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># List comprehension example
+</span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">doubled</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">doubled</span><span class="p">)</span>  <span class="c1"># [2, 4, 6, 8, 10]</span></code></pre></figure>
+</p>
+</wa-tab-panel><wa-tab-panel name="tab-3"><p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Ruby array mapping</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">doubled</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="nb">puts</span> <span class="n">doubled</span>  <span class="c1"># [2, 4, 6, 8, 10]</span></code></pre></figure>
+</p>
+</wa-tab-panel></wa-tab-group>
+
+        </main>
+    </div>
+</body>
+</html>
