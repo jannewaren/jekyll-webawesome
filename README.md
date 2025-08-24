@@ -218,6 +218,8 @@ This card uses the accent appearance for emphasis.
 ===
 ```
 
+![Cards component example](readme_screenshots/cards.png)
+
 ### Tags
 
 Create tags using the `@@@` syntax:
@@ -248,17 +250,9 @@ Documentation
 @@@
 ```
 
-These transform into Web Awesome tag components with appropriate colors and styling. Tags support markdown formatting within the content:
+These transform into Web Awesome tag components with appropriate colors and styling.
 
-```markdown
-@@@brand
-**v3.0** Beta
-@@@
-
-@@@success
-[View Results](https://example.com)
-@@@
-```
+![Tags component example](readme_screenshots/tags.png)
 
 ### Details/Summary (Collapsible Content)
 
@@ -302,7 +296,7 @@ Content goes here
 
 ### Tab Groups
 
-Create tabbed content using the `++++++` syntax:
+Create tabbed content using the `++++++` syntax for tab groups and `+++` for tabs.
 
 ```markdown
 ++++++
@@ -319,6 +313,8 @@ Content for the third tab.
 +++
 ++++++
 ```
+
+![Tabs component example](readme_screenshots/tabs1.png)
 
 You can specify tab placement:
 
@@ -341,6 +337,8 @@ More content
 +++
 ++++++
 ```
+
+![Tabs component example](readme_screenshots/tabs2.png)
 
 Supported placements: `top` (default), `bottom`, `start`, `end`.
 
