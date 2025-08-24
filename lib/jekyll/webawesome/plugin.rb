@@ -16,6 +16,30 @@ module Jekyll
         false
       end
 
+      # Check if pages transformation is enabled
+      def self.transform_pages_enabled?(site)
+        # Check plugin configuration first
+        return Jekyll::WebAwesome.configuration.transform_pages if Jekyll::WebAwesome.configuration
+
+        # Check site config
+        return site.config.dig('webawesome', 'transform_pages') if site.config.dig('webawesome', 'transform_pages') != nil
+
+        # Default to true
+        true
+      end
+
+      # Check if documents transformation is enabled
+      def self.transform_documents_enabled?(site)
+        # Check plugin configuration first
+        return Jekyll::WebAwesome.configuration.transform_documents if Jekyll::WebAwesome.configuration
+
+        # Check site config
+        return site.config.dig('webawesome', 'transform_documents') if site.config.dig('webawesome', 'transform_documents') != nil
+
+        # Default to true
+        true
+      end
+
       # Check if a file is a markdown file
       def self.markdown_file?(filepath)
         filepath.to_s.match?(/\.md$/i)
@@ -24,6 +48,7 @@ module Jekyll
       # Register hooks for pre-render processing (before markdown conversion)
       Jekyll::Hooks.register :documents, :pre_render do |document|
         next unless markdown_file?(document.relative_path)
+        next unless transform_documents_enabled?(document.site)
 
         puts "Jekyll::WebAwesome Processing document (pre-render): #{document.relative_path}\n" if debug_enabled?(document.site)
         document.content = Transformer.process(document.content)
@@ -31,6 +56,7 @@ module Jekyll
 
       Jekyll::Hooks.register :pages, :pre_render do |page|
         next unless markdown_file?(page.relative_path)
+        next unless transform_pages_enabled?(page.site)
 
         puts "Jekyll::WebAwesome Processing page (pre-render): #{page.relative_path}\n" if debug_enabled?(page.site)
         page.content = Transformer.process(page.content)

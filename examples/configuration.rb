@@ -8,4 +8,8 @@ require 'jekyll-webawesome'
 # Optional: Configure debug mode programmatically
 Jekyll::WebAwesome.configure do |config|
   config.debug_mode = true
+
+  # Control which file types to transform (default: both true)
+  config.transform_pages = true      # Transform pages (like index.md, about.md)
+  config.transform_documents = true  # Transform documents (like blog posts in _posts)
 end

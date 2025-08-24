@@ -62,12 +62,30 @@ And add configuration options as needed in `_config.yml`:
 webawesome:
   # Enable debug output to see which files are being processed
   debug: true
+
+  # Control which file types to transform (default: both true)
+  transform_pages: true      # Transform pages (like index.md, about.md)
+  transform_documents: true  # Transform documents (like blog posts in _posts)
 ```
 
 And then execute:
 
 ```bash
 bundle install
+```
+
+### Programmatic Configuration
+
+You can also configure the plugin programmatically in a `_plugins/` file or in your gem's initialization:
+
+```ruby
+require 'jekyll-webawesome'
+
+Jekyll::WebAwesome.configure do |config|
+  config.debug_mode = true
+  config.transform_pages = false     # Don't transform pages
+  config.transform_documents = true  # Only transform documents (posts)
+end
 ```
 
 ## Live Examples
