@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+### Added
+
+- Configuration options to control transformation scope
+  - `transform_pages` - Enable/disable transformations for pages (default: true)
+  - `transform_documents` - Enable/disable transformations for documents/posts (default: true)
+  - Can be configured via `_config.yml` or programmatically
+
 ## [0.1.0] - 2025-08-09
 
 ### Added
