@@ -7,7 +7,7 @@ RSpec.describe Jekyll::WebAwesome::CalloutTransformer do
       result = described_class.transform(markdown)
 
       expect(result).to include('<wa-callout variant="brand">')
-      expect(result).to include('<wa-icon slot="icon" name="circle-info" variant="regular"></wa-icon>')
+      expect(result).to include('<wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon>')
       expect(result).to include('<p>This is info</p>')
       expect(result).to include('</wa-callout>')
     end
@@ -17,7 +17,7 @@ RSpec.describe Jekyll::WebAwesome::CalloutTransformer do
       result = described_class.transform(markdown)
 
       expect(result).to include('<wa-callout variant="success">')
-      expect(result).to include('<wa-icon slot="icon" name="circle-check" variant="regular"></wa-icon>')
+      expect(result).to include('<wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon>')
     end
 
     it 'transforms warning callouts' do
@@ -25,7 +25,7 @@ RSpec.describe Jekyll::WebAwesome::CalloutTransformer do
       result = described_class.transform(markdown)
 
       expect(result).to include('<wa-callout variant="warning">')
-      expect(result).to include('<wa-icon slot="icon" name="triangle-exclamation" variant="regular"></wa-icon>')
+      expect(result).to include('<wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon>')
     end
 
     it 'transforms danger callouts' do
@@ -33,7 +33,7 @@ RSpec.describe Jekyll::WebAwesome::CalloutTransformer do
       result = described_class.transform(markdown)
 
       expect(result).to include('<wa-callout variant="danger">')
-      expect(result).to include('<wa-icon slot="icon" name="circle-exclamation" variant="regular"></wa-icon>')
+      expect(result).to include('<wa-icon slot="icon" name="circle-exclamation" variant="solid"></wa-icon>')
     end
 
     it 'transforms neutral callouts' do
@@ -41,7 +41,7 @@ RSpec.describe Jekyll::WebAwesome::CalloutTransformer do
       result = described_class.transform(markdown)
 
       expect(result).to include('<wa-callout variant="neutral">')
-      expect(result).to include('<wa-icon slot="icon" name="gear" variant="regular"></wa-icon>')
+      expect(result).to include('<wa-icon slot="icon" name="gear" variant="solid"></wa-icon>')
     end
 
     it 'does not transform invalid callout types' do
