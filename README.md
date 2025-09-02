@@ -16,6 +16,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Button** | `%%%variant` | `:::wa-button variant` | `<wa-button variant="brand" href="url">text</wa-button>` or `<wa-button variant="brand">text</wa-button>` |
 | **Callouts** | `:::info` | `:::wa-callout info` | `<wa-callout variant="brand"><wa-icon name="circle-info"></wa-icon>content</wa-callout>` |
 | **Card** | `===` | `:::wa-card` | `<wa-card>content</wa-card>` |
+| **Comparison** | `>>>` | `:::wa-comparison` | `<wa-comparison><img slot="before" /><img slot="after" /></wa-comparison>` |
 | **Details** | `^^^` | `:::wa-details` | `<wa-details><summary>summary</summary>content</wa-details>` |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
@@ -133,6 +134,34 @@ This is a neutral callout.
 These transform into Web Awesome callout components with appropriate icons and styling
 
 ![Callout component example](readme_screenshots/callouts.png)
+
+### Comparison
+
+Create before/after image comparisons using the `>>>` syntax:
+
+```markdown
+>>>
+![Grayscale version](before.jpg)
+![Color version](after.jpg)
+>>>
+```
+
+This transforms into a Web Awesome comparison component that lets users interactively compare two images:
+
+```html
+<wa-comparison>
+  <img slot="before" src="before.jpg" alt="Grayscale version" />
+  <img slot="after" src="after.jpg" alt="Color version" />
+</wa-comparison>
+```
+
+The comparison component requires exactly two images within the wrapper:
+
+- The first image becomes the "before" slot
+- The second image becomes the "after" slot
+- Standard Markdown image syntax is preserved: `![alt text](image.url)`
+
+![Comparison component example](readme_screenshots/comparison.png)
 
 ### Cards
 
