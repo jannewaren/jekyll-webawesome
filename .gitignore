@@ -15,3 +15,4 @@ mkmf.log
 .rspec_status
 Gemfile.lock
 WEBAWESOME_DOCS.md
+.DS_Store

@@ -53,6 +53,15 @@ Critical Issue
 Documentation
 @@@
 
+## Comparison
+
+>>>
+![Grayscale image](image.png)
+![Color image](image_colours.png)
+>>>
+
+This shows before/after comparison functionality.
+
 ## Details/Summary (Collapsible Content)
 
 ^^^
