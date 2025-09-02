@@ -74,10 +74,8 @@
         <main>
             <p>Ex## Comparison</p>
 
-<p>|||
-<img src="image.png" alt="Grayscale image" />
-<img src="image.png" alt="Color image" />
-||| of the Web Awesome components and their markdown syntax.</p>
+<wa-comparison><img slot="before" src="image.png" alt="Grayscale image" /><img slot="after" src="image.png" alt="Color image" /></wa-comparison>
+<p>of the Web Awesome components and their markdown syntax.</p>
 
 <h2 id="callouts">Callouts</h2>
 
@@ -112,10 +110,7 @@
 
 <h2 id="comparison">Comparison</h2>
 
-<p>|||25
-<img src="image.png" alt="Grayscale image" />
-<img src="image_colours.png" alt="Color image" />
-|||</p>
+<wa-comparison position="25"><img slot="before" src="image.png" alt="Grayscale image" /><img slot="after" src="image_colours.png" alt="Color image" /></wa-comparison>
 
 <p>This shows before/after comparison functionality with initial position at 25%.</p>
 
