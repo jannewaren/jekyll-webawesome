@@ -8,10 +8,10 @@ RSpec.describe Jekyll::WebAwesome::Transformer do
         This is info
         :::
 
-        >>>
+        |||50
         ![Before](before.jpg)
         ![After](after.jpg)
-        >>>
+        |||
 
         ^^^
         Summary
@@ -29,7 +29,7 @@ RSpec.describe Jekyll::WebAwesome::Transformer do
       result = described_class.process(markdown)
 
       expect(result).to include('<wa-callout variant="brand">')
-      expect(result).to include('<wa-comparison>')
+      expect(result).to include('<wa-comparison position="50">')
       expect(result).to include('<img slot="before" src="before.jpg" alt="Before" />')
       expect(result).to include('<img slot="after" src="after.jpg" alt="After" />')
       expect(result).to include('<wa-details appearance=\'outlined\'>')
