@@ -3,7 +3,12 @@ layout: default
 title: Web Awesome Examples
 ---
 
-Examples of the Web Awesome components and their markdown syntax.
+Ex## Comparison
+
+|||
+![Grayscale image](image.png)
+![Color image](image.png)
+||| of the Web Awesome components and their markdown syntax.
 
 ## Callouts
 
@@ -55,12 +60,12 @@ Documentation
 
 ## Comparison
 
->>>
+|||25
 ![Grayscale image](image.png)
 ![Color image](image_colours.png)
->>>
+|||
 
-This shows before/after comparison functionality.
+This shows before/after comparison functionality with initial position at 25%.
 
 ## Details/Summary (Collapsible Content)
 

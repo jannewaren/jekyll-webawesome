@@ -16,7 +16,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Button** | `%%%variant` | `:::wa-button variant` | `<wa-button variant="brand" href="url">text</wa-button>` or `<wa-button variant="brand">text</wa-button>` |
 | **Callouts** | `:::info` | `:::wa-callout info` | `<wa-callout variant="brand"><wa-icon name="circle-info"></wa-icon>content</wa-callout>` |
 | **Card** | `===` | `:::wa-card` | `<wa-card>content</wa-card>` |
-| **Comparison** | `>>>` | `:::wa-comparison` | `<wa-comparison><img slot="before" /><img slot="after" /></wa-comparison>` |
+| **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
 | **Details** | `^^^` | `:::wa-details` | `<wa-details><summary>summary</summary>content</wa-details>` |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
@@ -28,7 +28,6 @@ These content-focused components will get dedicated syntax in future releases:
 | Component | Primary Syntax | Alternative syntax | HTML Output |
 |-----------|----------------------|-------------------|-------------|
 | **Copy Button** | `<<<` | `:::wa-copy-button` | `<wa-copy-button>content</wa-copy-button>` |
-| **Divider** | `\|\|\|` | `:::wa-divider` | `<wa-divider></wa-divider>` |
 | **Icon** | `$$$icon-name` | `:::wa-icon name` | `<wa-icon name="icon-name"></wa-icon>` |
 | **Progress Bar** | `&&&value` | `:::wa-progress-bar value` | `<wa-progress-bar value="50"></wa-progress-bar>` |
 | **Rating** | `???value` | `:::wa-rating value` | `<wa-rating value="4"></wa-rating>` |
@@ -137,19 +136,28 @@ These transform into Web Awesome callout components with appropriate icons and s
 
 ### Comparison
 
-Create before/after image comparisons using the `>>>` syntax:
+Create before/after image comparisons using the `|||` syntax:
 
 ```markdown
->>>
+|||
 ![Grayscale version](before.jpg)
 ![Color version](after.jpg)
->>>
+|||
+```
+
+You can specify the initial position of the comparison slider (0-100):
+
+```markdown
+|||25
+![Grayscale version](before.jpg)
+![Color version](after.jpg)
+|||
 ```
 
 This transforms into a Web Awesome comparison component that lets users interactively compare two images:
 
 ```html
-<wa-comparison>
+<wa-comparison position="25">
   <img slot="before" src="before.jpg" alt="Grayscale version" />
   <img slot="after" src="after.jpg" alt="Color version" />
 </wa-comparison>
@@ -160,6 +168,9 @@ The comparison component requires exactly two images within the wrapper:
 - The first image becomes the "before" slot
 - The second image becomes the "after" slot
 - Standard Markdown image syntax is preserved: `![alt text](image.url)`
+- Optional position parameter (0-100) sets the initial slider position
+
+> **Note**: If the comparison block doesn't contain exactly two images, it will be left unchanged rather than transformed.
 
 ![Comparison component example](readme_screenshots/comparison.png)
 
