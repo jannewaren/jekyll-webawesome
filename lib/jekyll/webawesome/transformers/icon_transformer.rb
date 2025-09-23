@@ -52,7 +52,7 @@ module Jekyll
 
           # Protect fenced code blocks
           protected = content.gsub(/```.*?```/m) do |match|
-            placeholder = "ICON_PROTECTED_CODE_BLOCK_#{counter}"
+            placeholder = "<!--ICON_PROTECTED_CODE_BLOCK_#{counter}-->"
             code_blocks[placeholder] = match
             counter += 1
             placeholder
@@ -60,7 +60,7 @@ module Jekyll
 
           # Protect inline code
           protected = protected.gsub(/`[^`]+`/) do |match|
-            placeholder = "ICON_PROTECTED_INLINE_CODE_#{counter}"
+            placeholder = "<!--ICON_PROTECTED_INLINE_CODE_#{counter}-->"
             code_blocks[placeholder] = match
             counter += 1
             placeholder
