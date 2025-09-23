@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [0.2.1] - 2025-09-23
+
+- Fixed issues with icon transformation messing up code blocks and inline code
+
 ## [0.2.0] - 2025-09-03
 
 ### Added
