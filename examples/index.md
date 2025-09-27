@@ -3,12 +3,7 @@ layout: default
 title: Web Awesome Examples
 ---
 
-Ex## Comparison
-
-|||
-![Grayscale image](image.png)
-![Color image](image.png)
-||| of the Web Awesome components and their markdown syntax.
+Examples of the Web Awesome components and their markdown syntax.
 
 ## Callouts
 
