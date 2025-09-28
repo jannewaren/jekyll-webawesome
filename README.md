@@ -17,6 +17,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Callouts** | `:::info` | `:::wa-callout info` | `<wa-callout variant="brand"><wa-icon name="circle-info"></wa-icon>content</wa-callout>` |
 | **Card** | `===` | `:::wa-card` | `<wa-card>content</wa-card>` |
 | **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
+| **Copy Button** | `<<<` | `:::wa-copy-button` | `<wa-copy-button value="content">content</wa-copy-button>` |
 | **Details** | `^^^` | `:::wa-details` | `<wa-details><summary>summary</summary>content</wa-details>` |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
@@ -27,7 +28,6 @@ These content-focused components will get dedicated syntax in future releases:
 
 | Component | Primary Syntax | Alternative syntax | HTML Output |
 |-----------|----------------------|-------------------|-------------|
-| **Copy Button** | `<<<` | `:::wa-copy-button` | `<wa-copy-button>content</wa-copy-button>` |
 | **Icon** | `$$$icon-name` | `:::wa-icon name` | `<wa-icon name="icon-name"></wa-icon>` |
 | **Progress Bar** | `&&&value` | `:::wa-progress-bar value` | `<wa-progress-bar value="50"></wa-progress-bar>` |
 | **Rating** | `???value` | `:::wa-rating value` | `<wa-rating value="4"></wa-rating>` |
@@ -293,6 +293,44 @@ Documentation
 These transform into Web Awesome tag components with appropriate colors and styling.
 
 ![Tags component example](readme_screenshots/tags.png)
+
+### Copy Buttons
+
+Create copy-to-clipboard buttons using the `<<<` syntax:
+
+```markdown
+<<<
+Copy this simple text
+<<<
+
+<<<
+npm install jekyll-webawesome
+<<<
+```
+
+Copy buttons support **markdown formatting** in the display text while preserving the original markdown in the clipboard value:
+
+```markdown
+<<<
+**Copy** this text with *markdown* formatting and `code`
+<<<
+```
+
+This transforms into a Web Awesome copy button component:
+
+```html
+<wa-copy-button value="**Copy** this text with *markdown* formatting and `code`"></wa-copy-button>
+```
+
+Copy buttons work well for:
+
+- Code snippets and commands
+- URLs and configuration values  
+- Installation instructions
+- API keys or tokens
+- Any text users might want to copy
+
+> **Note**: The `value` attribute contains the raw text (including any markdown) that gets copied to the clipboard. The copy button displays the standard Web Awesome copy icon and handles the clipboard operation automatically.
 
 ### Details/Summary (Collapsible Content)
 

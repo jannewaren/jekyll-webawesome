@@ -184,6 +184,34 @@ Submit Form
 Reset Data
 %%%
 
+## Copy Buttons
+
+Basic copy buttons:
+
+<<<
+Copy this simple text
+<<<
+
+Copy buttons with markdown formatting:
+
+<<<
+**Copy** this text with *markdown* formatting and `code`
+<<<
+
+Multiline copy button examples:
+
+<<<
+This is a multiline
+copy button example
+with multiple lines of text
+<<<
+
+Alternative syntax with :::wa-copy-button:
+
+:::wa-copy-button
+Alternative syntax example
+:::
+
 ## Cards
 
 ===

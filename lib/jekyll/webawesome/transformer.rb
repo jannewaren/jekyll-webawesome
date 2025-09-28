@@ -14,6 +14,7 @@ module Jekyll
         content = CalloutTransformer.transform(content)
         content = CardTransformer.transform(content)
         content = ComparisonTransformer.transform(content)
+        content = CopyButtonTransformer.transform(content)
         content = DetailsTransformer.transform(content)
         content = IconTransformer.transform(content)
         content = TagTransformer.transform(content)
