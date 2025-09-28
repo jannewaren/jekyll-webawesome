@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+- Placeholder
+
+## [0.3.0] - 2025-09-29
+
 - Support for wa-copy-button component (`<<<...<<<` or `:::wa-copy-button`)
 
 ## [0.2.1] - 2025-09-23
