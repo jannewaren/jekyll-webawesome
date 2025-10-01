@@ -18,7 +18,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Card** | `===` | `:::wa-card` | `<wa-card>content</wa-card>` |
 | **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
 | **Copy Button** | `<<<` | `:::wa-copy-button` | `<wa-copy-button value="content">content</wa-copy-button>` |
-| **Details** | `^^^` | `:::wa-details` | `<wa-details><summary>summary</summary>content</wa-details>` |
+| **Details** | `^^^appearance? icon-placement?` | `:::wa-details appearance? icon-placement?` | `<wa-details appearance="..." icon-placement="...">content</wa-details>` |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
 
@@ -372,6 +372,38 @@ Content goes here
 ^^^
 ```
 
+You can also control icon placement (expand/collapse icon location):
+
+```markdown
+^^^start
+Summary with icon on the start (left)
+>>>
+The expand/collapse icon appears on the left side
+^^^
+
+^^^end
+Summary with icon on the end (right)
+>>>
+The expand/collapse icon appears on the right side (default)
+^^^
+```
+
+You can combine appearance and icon placement:
+
+```markdown
+^^^filled start
+Filled appearance with icon on the start
+>>>
+Content with both styling and icon positioning
+^^^
+
+^^^plain end
+Plain appearance with icon on the end
+>>>
+Parameters can be in any order: start filled, filled start, etc.
+^^^
+```
+
 ### Tab Groups
 
 Create tabbed content using the `++++++` syntax for tab groups and `+++` for tabs.
@@ -470,6 +502,13 @@ Cards automatically parse content into these slots:
 | `filled` | filled |
 | `plain` | plain |
 | `filled-outlined` | filled outlined |
+
+### Details Icon Placement
+
+| Position | Description |
+|----------|-------------|
+| `end` (default) | Icon appears on the right side |
+| `start` | Icon appears on the left side |
 
 ### Tab Placements
 
