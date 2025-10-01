@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Placeholder
 
+## [0.4.0] - 2025-09-29
+
+- Support for icon placement in wa-details component
+
 ## [0.3.0] - 2025-09-29
 
 - Support for wa-copy-button component (`<<<...<<<` or `:::wa-copy-button`)
@@ -18,8 +22,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [0.2.0] - 2025-09-03
 
-### Added
-
 - Configuration options to control transformation scope
   - `transform_pages` - Enable/disable transformations for pages (default: true)
   - `transform_documents` - Enable/disable transformations for documents/posts (default: true)
@@ -29,8 +31,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
   - Requires exactly two images for before/after comparison
 
 ## [0.1.0] - 2025-08-09
-
-### Added
 
 - Initial release of jekyll-webawesome gem
 - Support for Badge components (`!!!variant` or `:::wa-badge variant`)
