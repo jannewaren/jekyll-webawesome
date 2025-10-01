@@ -94,6 +94,16 @@ Filled and outlined appearance summary
 Content goes here
 ^^^
 
+### Icon placement
+
+Defaults to end but you can use start to get the icon at the beginning.
+
+^^^plain start
+Plain appearance summary
+>>>
+The icon is in the beginning now
+^^^
+
 ## Tab Groups
 
 ++++++

@@ -113,7 +113,7 @@
 
 <h2 id="detailssummary-collapsible-content">Details/Summary (Collapsible Content)</h2>
 
-<wa-details appearance="outlined"><span slot="summary"><p>Click to expand this summary</p>
+<wa-details appearance="outlined" icon-placement="end"><span slot="summary"><p>Click to expand this summary</p>
 </span><p>This is the detailed content that can be collapsed and expanded.</p>
 
 <p>You can include:
@@ -123,16 +123,24 @@
 - Code blocks</p>
 </wa-details>
 
-<wa-details appearance="filled"><span slot="summary"><p>Filled appearance summary</p>
+<wa-details appearance="filled" icon-placement="end"><span slot="summary"><p>Filled appearance summary</p>
 </span><p>Content goes here</p>
 </wa-details>
 
-<wa-details appearance="plain"><span slot="summary"><p>Plain appearance summary</p>
+<wa-details appearance="plain" icon-placement="end"><span slot="summary"><p>Plain appearance summary</p>
 </span><p>Content goes here</p>
 </wa-details>
 
-<wa-details appearance="filled outlined"><span slot="summary"><p>Filled and outlined appearance summary</p>
+<wa-details appearance="filled outlined" icon-placement="end"><span slot="summary"><p>Filled and outlined appearance summary</p>
 </span><p>Content goes here</p>
+</wa-details>
+
+<h3 id="icon-placement">Icon placement</h3>
+
+<p>Defaults to end but you can use start to get the icon at the beginning.</p>
+
+<wa-details appearance="plain" icon-placement="start"><span slot="summary"><p>Plain appearance summary</p>
+</span><p>The icon is in the beginning now</p>
 </wa-details>
 
 <h2 id="tab-groups">Tab Groups</h2>
