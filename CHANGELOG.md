@@ -6,7 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
-- Placeholder
+## [0.4.1] - 2025-10-02
+
+- Code blocks inside custom elements (wa-details, wa-callout, etc.) are now properly protected from markdown processing
+  - Previously, code blocks would be corrupted with HTML entities and extra `<p>` tags when nested inside custom elements
 
 ## [0.4.0] - 2025-09-29
 
