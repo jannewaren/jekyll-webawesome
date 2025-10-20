@@ -69,9 +69,9 @@ RSpec.describe Jekyll::WebAwesome::DialogTransformer do
         expect(result).to include('light-dismiss')
       end
 
-      it 'supports without-header parameter' do
+      it 'always includes header with X close button' do
         input = <<~MARKDOWN
-          ???without-header
+          ???
           Open Dialog
           >>>
           Content here.
@@ -80,8 +80,8 @@ RSpec.describe Jekyll::WebAwesome::DialogTransformer do
 
         result = described_class.transform(input)
 
-        expect(result).to include('without-header')
-        expect(result).not_to include("label='")
+        expect(result).not_to include('without-header')
+        expect(result).to include("label='")
       end
 
       it 'supports width parameter with px' do
@@ -169,24 +169,9 @@ RSpec.describe Jekyll::WebAwesome::DialogTransformer do
         expect(result).to include("style='--width: 600px'")
       end
 
-      it 'supports combining without-header and width' do
+      it 'supports combining light-dismiss and width' do
         input = <<~MARKDOWN
-          ???without-header 45em
-          Open Dialog
-          >>>
-          Content here.
-          ???
-        MARKDOWN
-
-        result = described_class.transform(input)
-
-        expect(result).to include('without-header')
-        expect(result).to include("style='--width: 45em'")
-      end
-
-      it 'supports combining all parameters' do
-        input = <<~MARKDOWN
-          ???light-dismiss without-header 700px
+          ???light-dismiss 45em
           Open Dialog
           >>>
           Content here.
@@ -196,7 +181,24 @@ RSpec.describe Jekyll::WebAwesome::DialogTransformer do
         result = described_class.transform(input)
 
         expect(result).to include('light-dismiss')
-        expect(result).to include('without-header')
+        expect(result).not_to include('without-header')
+        expect(result).to include("style='--width: 45em'")
+      end
+
+      it 'always includes header even with multiple parameters' do
+        input = <<~MARKDOWN
+          ???light-dismiss 700px
+          Open Dialog
+          >>>
+          Content here.
+          ???
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        expect(result).to include('light-dismiss')
+        expect(result).not_to include('without-header')
+        expect(result).to include("label='")
         expect(result).to include("style='--width: 700px'")
       end
 
