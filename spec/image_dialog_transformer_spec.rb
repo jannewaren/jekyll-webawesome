@@ -218,6 +218,79 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
       end
     end
 
+    context 'with comparison blocks' do
+      it 'does not transform images inside comparison blocks' do
+        input = <<~HTML
+          <wa-comparison position="50">
+            <img slot="before" src="before.jpg" alt="Before" />
+            <img slot="after" src="after.jpg" alt="After" />
+          </wa-comparison>
+        HTML
+
+        result = described_class.transform(input)
+
+        # Comparison block should remain unchanged
+        expect(result).to include('<wa-comparison position="50">')
+        expect(result).to include('slot="before"')
+        expect(result).to include('slot="after"')
+        expect(result).to include('before.jpg')
+        expect(result).to include('after.jpg')
+        # Should not add dialog syntax
+        expect(result).not_to include('???')
+      end
+
+      it 'transforms standalone images but not comparison images' do
+        input = <<~MARKDOWN
+          ![Standalone image](standalone.png)
+
+          <wa-comparison position="25">
+            <img slot="before" src="before.jpg" alt="Before" />
+            <img slot="after" src="after.jpg" alt="After" />
+          </wa-comparison>
+
+          ![Another standalone](another.png)
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        # Standalone images should be transformed
+        expect(result.scan(/\?\?\?/).length).to eq(4) # 2 images * 2 markers
+        expect(result).to include('standalone.png')
+        expect(result).to include('another.png')
+
+        # Comparison should remain unchanged
+        expect(result).to include('<wa-comparison position="25">')
+        expect(result).to include('slot="before"')
+        expect(result).to include('before.jpg')
+        expect(result).to include('after.jpg')
+      end
+
+      it 'handles multiple comparison blocks' do
+        input = <<~HTML
+          <wa-comparison>
+            <img slot="before" src="img1.jpg" alt="Image 1" />
+            <img slot="after" src="img2.jpg" alt="Image 2" />
+          </wa-comparison>
+
+          <wa-comparison position="75">
+            <img slot="before" src="img3.jpg" alt="Image 3" />
+            <img slot="after" src="img4.jpg" alt="Image 4" />
+          </wa-comparison>
+        HTML
+
+        result = described_class.transform(input)
+
+        # Both comparison blocks should remain unchanged
+        expect(result).to include('img1.jpg')
+        expect(result).to include('img2.jpg')
+        expect(result).to include('img3.jpg')
+        expect(result).to include('img4.jpg')
+        expect(result.scan(/<wa-comparison/).length).to eq(2)
+        # No dialog syntax should be added
+        expect(result).not_to include('???')
+      end
+    end
+
     context 'dialog syntax output' do
       it 'includes light-dismiss parameter' do
         input = '![Image](image.png)'

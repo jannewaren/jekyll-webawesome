@@ -10,8 +10,9 @@ module Jekyll
     # Example: ![Alt text](image.png "nodialog")
     class ImageDialogTransformer < BaseTransformer
       def self.transform(content)
-        # First, protect inline code blocks from transformation
+        # First, protect inline code blocks and comparison blocks from transformation
         protected_content, code_blocks = protect_inline_code(content)
+        protected_content, comparison_blocks = protect_comparisons(protected_content)
 
         # Match markdown images: ![alt](url) or ![alt](url "title")
         # Capture alt text, URL, and optional title
@@ -33,7 +34,8 @@ module Jekyll
           end
         end
 
-        # Restore protected inline code
+        # Restore protected comparison blocks first, then inline code
+        result = restore_comparisons(result, comparison_blocks)
         restore_inline_code(result, code_blocks)
       end
 
@@ -55,6 +57,26 @@ module Jekyll
         def restore_inline_code(content, code_blocks)
           code_blocks.each_with_index do |code, index|
             content = content.gsub("INLINE_CODE_#{index}", code)
+          end
+          content
+        end
+
+        # Protect comparison blocks from image transformation
+        def protect_comparisons(content)
+          comparison_blocks = []
+          # Match comparison blocks: <wa-comparison ...>...</wa-comparison>
+          protected = content.gsub(/<wa-comparison[^>]*>.*?<\/wa-comparison>/m) do |match|
+            placeholder = "COMPARISON_BLOCK_#{comparison_blocks.length}"
+            comparison_blocks << match
+            placeholder
+          end
+          [protected, comparison_blocks]
+        end
+
+        # Restore protected comparison blocks
+        def restore_comparisons(content, comparison_blocks)
+          comparison_blocks.each_with_index do |block, index|
+            content = content.gsub("COMPARISON_BLOCK_#{index}", block)
           end
           content
         end
