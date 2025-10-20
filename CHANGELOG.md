@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Code blocks inside custom elements (wa-details, wa-callout, etc.) are now properly protected from markdown processing
   - Previously, code blocks would be corrupted with HTML entities and extra `<p>` tags when nested inside custom elements
+- Add support for wa-dialog component
 
 ## [0.4.0] - 2025-09-29
 

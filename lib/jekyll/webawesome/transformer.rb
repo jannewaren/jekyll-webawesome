@@ -16,6 +16,7 @@ module Jekyll
         content = ComparisonTransformer.transform(content)
         content = CopyButtonTransformer.transform(content)
         content = DetailsTransformer.transform(content)
+        content = DialogTransformer.transform(content)
         content = IconTransformer.transform(content)
         content = TagTransformer.transform(content)
         TabsTransformer.transform(content)

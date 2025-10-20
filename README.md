@@ -19,6 +19,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
 | **Copy Button** | `<<<` | `:::wa-copy-button` | `<wa-copy-button value="content">content</wa-copy-button>` |
 | **Details** | `^^^appearance? icon-placement?` | `:::wa-details appearance? icon-placement?` | `<wa-details appearance="..." icon-placement="...">content</wa-details>` |
+| **Dialog** | `???params?` | `:::wa-dialog params?` | `<wa-dialog>` with trigger button and content |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
 
@@ -332,6 +333,108 @@ Copy buttons work well for:
 
 > **Note**: The `value` attribute contains the raw text (including any markdown) that gets copied to the clipboard. The copy button displays the standard Web Awesome copy icon and handles the clipboard operation automatically.
 
+### Dialogs
+
+Create interactive dialogs (modals) using the `???` syntax:
+
+```markdown
+???
+Open Dialog
+>>>
+This is the dialog content with **markdown** support.
+???
+```
+
+This creates a trigger button and a dialog that opens when clicked:
+
+```html
+<wa-button data-dialog='open dialog-abc123'>Open Dialog</wa-button>
+<wa-dialog id='dialog-abc123' label='Open Dialog'>
+  <p>This is the dialog content with <strong>markdown</strong> support.</p>
+  <wa-button slot='footer' variant='primary' data-dialog='close'>Close</wa-button>
+</wa-dialog>
+```
+
+#### Dialogs with Headings
+
+The first heading (`#`) automatically becomes the dialog's label (title):
+
+```markdown
+???
+Show Details
+>>>
+# Important Information
+This is the content of the dialog.
+???
+```
+
+The button displays "Show Details" and the dialog header shows "Important Information".
+
+#### Dialog Options
+
+You can customize dialog behavior with optional parameters:
+
+**Light Dismiss** - Dialog closes when clicking the overlay:
+
+```markdown
+???light-dismiss
+Open Dialog
+>>>
+Click outside to close this dialog.
+???
+```
+
+**Without Header** - Remove the dialog header entirely:
+
+```markdown
+???without-header
+Open Dialog
+>>>
+This dialog has no header.
+???
+```
+
+**Custom Width** - Set a specific width using CSS units (px, em, rem, vw, vh, %):
+
+```markdown
+???600px
+Open Dialog
+>>>
+This dialog is 600 pixels wide.
+???
+
+???50vw
+Open Wide Dialog
+>>>
+This dialog is 50% of the viewport width.
+???
+
+???40em
+Open Dialog
+>>>
+This dialog is 40em wide.
+???
+```
+
+**Combining Options** - You can combine multiple options:
+
+```markdown
+???light-dismiss 700px
+Open Dialog
+>>>
+# Custom Dialog
+This dialog has light dismiss enabled and is 700px wide.
+???
+
+???without-header light-dismiss 45em
+Open Simple Dialog
+>>>
+This dialog has no header, light dismiss, and is 45em wide.
+???
+```
+
+> **Note**: The dialog uses Web Awesome's declarative `data-dialog` API, so no custom JavaScript is needed. Each dialog gets a unique ID automatically generated from its content, and a close button is automatically added to the footer.
+
 ### Details/Summary (Collapsible Content)
 
 Create collapsible content using the `^^^` syntax:
@@ -509,6 +612,22 @@ Cards automatically parse content into these slots:
 |----------|-------------|
 | `end` (default) | Icon appears on the right side |
 | `start` | Icon appears on the left side |
+
+### Dialog Parameters
+
+| Option | Description |
+|--------|-------------|
+| `light-dismiss` | Dialog closes when clicking outside/on overlay |
+| `without-header` | Removes the dialog header entirely |
+| Width (e.g., `500px`, `50vw`, `40em`) | Sets custom width using CSS units (px, em, rem, vw, vh, %) |
+
+### Dialog Features
+
+- **Automatic ID Generation**: Each dialog gets a unique ID based on MD5 hash of its content
+- **Auto-close Button**: A "Close" button is automatically added to the footer
+- **Declarative API**: Uses Web Awesome's `data-dialog` attributes - no custom JavaScript needed
+- **Label Extraction**: First `#` heading becomes the dialog label, or button text is used as fallback
+- **Markdown Support**: Full markdown formatting in dialog content
 
 ### Tab Placements
 
