@@ -239,15 +239,6 @@ with multiple lines of text"></wa-copy-button>
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
-<p>Dialog without header:</p>
-
-<wa-button data-dialog="open dialog-96ebc8f4">Open Headerless Dialog</wa-button>
-<wa-dialog id="dialog-96ebc8f4" without-header="">
-<p>This dialog has no header bar at the top.</p>
-
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
-</wa-dialog>
-
 <p>Dialog with custom width (600px):</p>
 
 <wa-button data-dialog="open dialog-34579bb6">Open Wide Dialog</wa-button>
@@ -310,7 +301,7 @@ with multiple lines of text"></wa-copy-button>
 <p>When enabled, all images automatically become clickable and open in a full-size dialog:</p>
 
 <style>
-  #dialog-4ebd90fe-btn::part(base) {
+  #dialog-136a734e-btn::part(base) {
     padding: 0;
     margin: 0;
     border: none;
@@ -320,25 +311,25 @@ with multiple lines of text"></wa-copy-button>
     min-width: 0;
     height: auto;
   }
-  #dialog-4ebd90fe-btn::part(base):hover {
+  #dialog-136a734e-btn::part(base):hover {
     background: transparent;
     border-color: transparent;
   }
-  #dialog-4ebd90fe-btn::part(base):active {
+  #dialog-136a734e-btn::part(base):active {
     background: transparent;
     border-color: transparent;
   }
 </style>
 
-<wa-button id="dialog-4ebd90fe-btn" variant="text" data-dialog="open dialog-4ebd90fe"><img src="image.png" alt="BW Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
-<wa-dialog id="dialog-4ebd90fe" without-header="" light-dismiss="">
+<wa-button id="dialog-136a734e-btn" variant="text" data-dialog="open dialog-136a734e"><img src="image.png" alt="BW Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-136a734e" label="BW Image" light-dismiss="">
 <p><img src="image.png" alt="BW Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
-  #dialog-b481d29c-btn::part(base) {
+  #dialog-7e7643ed-btn::part(base) {
     padding: 0;
     margin: 0;
     border: none;
@@ -348,18 +339,18 @@ with multiple lines of text"></wa-copy-button>
     min-width: 0;
     height: auto;
   }
-  #dialog-b481d29c-btn::part(base):hover {
+  #dialog-7e7643ed-btn::part(base):hover {
     background: transparent;
     border-color: transparent;
   }
-  #dialog-b481d29c-btn::part(base):active {
+  #dialog-7e7643ed-btn::part(base):active {
     background: transparent;
     border-color: transparent;
   }
 </style>
 
-<wa-button id="dialog-b481d29c-btn" variant="text" data-dialog="open dialog-b481d29c"><img src="image_colours.png" alt="Colour Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
-<wa-dialog id="dialog-b481d29c" without-header="" light-dismiss="">
+<wa-button id="dialog-7e7643ed-btn" variant="text" data-dialog="open dialog-7e7643ed"><img src="image_colours.png" alt="Colour Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-7e7643ed" label="Colour Image" light-dismiss="">
 <p><img src="image_colours.png" alt="Colour Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
@@ -368,7 +359,7 @@ with multiple lines of text"></wa-copy-button>
 <p>You can control the dialog width by adding a width parameter in the title:</p>
 
 <style>
-  #dialog-3d6da695-btn::part(base) {
+  #dialog-43edf1c0-btn::part(base) {
     padding: 0;
     margin: 0;
     border: none;
@@ -378,25 +369,25 @@ with multiple lines of text"></wa-copy-button>
     min-width: 0;
     height: auto;
   }
-  #dialog-3d6da695-btn::part(base):hover {
+  #dialog-43edf1c0-btn::part(base):hover {
     background: transparent;
     border-color: transparent;
   }
-  #dialog-3d6da695-btn::part(base):active {
+  #dialog-43edf1c0-btn::part(base):active {
     background: transparent;
     border-color: transparent;
   }
 </style>
 
-<wa-button id="dialog-3d6da695-btn" variant="text" data-dialog="open dialog-3d6da695"><img src="image.png" alt="BW Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
-<wa-dialog id="dialog-3d6da695" without-header="" light-dismiss="" style="--width: 50%">
+<wa-button id="dialog-43edf1c0-btn" variant="text" data-dialog="open dialog-43edf1c0"><img src="image.png" alt="BW Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-43edf1c0" label="BW Image with custom width" light-dismiss="" style="--width: 50%">
 <p><img src="image.png" alt="BW Image with custom width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
-  #dialog-fcb273ef-btn::part(base) {
+  #dialog-bdd788bf-btn::part(base) {
     padding: 0;
     margin: 0;
     border: none;
@@ -406,25 +397,25 @@ with multiple lines of text"></wa-copy-button>
     min-width: 0;
     height: auto;
   }
-  #dialog-fcb273ef-btn::part(base):hover {
+  #dialog-bdd788bf-btn::part(base):hover {
     background: transparent;
     border-color: transparent;
   }
-  #dialog-fcb273ef-btn::part(base):active {
+  #dialog-bdd788bf-btn::part(base):active {
     background: transparent;
     border-color: transparent;
   }
 </style>
 
-<wa-button id="dialog-fcb273ef-btn" variant="text" data-dialog="open dialog-fcb273ef"><img src="image_colours.png" alt="Colour Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
-<wa-dialog id="dialog-fcb273ef" without-header="" light-dismiss="" style="--width: 800px">
+<wa-button id="dialog-bdd788bf-btn" variant="text" data-dialog="open dialog-bdd788bf"><img src="image_colours.png" alt="Colour Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-bdd788bf" label="Colour Image in large dialog" light-dismiss="" style="--width: 800px">
 <p><img src="image_colours.png" alt="Colour Image in large dialog" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
-  #dialog-e0652c07-btn::part(base) {
+  #dialog-ca73b7dd-btn::part(base) {
     padding: 0;
     margin: 0;
     border: none;
@@ -434,18 +425,18 @@ with multiple lines of text"></wa-copy-button>
     min-width: 0;
     height: auto;
   }
-  #dialog-e0652c07-btn::part(base):hover {
+  #dialog-ca73b7dd-btn::part(base):hover {
     background: transparent;
     border-color: transparent;
   }
-  #dialog-e0652c07-btn::part(base):active {
+  #dialog-ca73b7dd-btn::part(base):active {
     background: transparent;
     border-color: transparent;
   }
 </style>
 
-<wa-button id="dialog-e0652c07-btn" variant="text" data-dialog="open dialog-e0652c07"><img src="image.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
-<wa-dialog id="dialog-e0652c07" without-header="" light-dismiss="" style="--width: 90vw">
+<wa-button id="dialog-ca73b7dd-btn" variant="text" data-dialog="open dialog-ca73b7dd"><img src="image.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-ca73b7dd" label="Full viewport width" light-dismiss="" style="--width: 90vw">
 <p><img src="image.png" alt="Full viewport width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
@@ -454,7 +445,7 @@ with multiple lines of text"></wa-copy-button>
 <p>Same with a big image</p>
 
 <style>
-  #dialog-866fad7a-btn::part(base) {
+  #dialog-d322c672-btn::part(base) {
     padding: 0;
     margin: 0;
     border: none;
@@ -464,25 +455,25 @@ with multiple lines of text"></wa-copy-button>
     min-width: 0;
     height: auto;
   }
-  #dialog-866fad7a-btn::part(base):hover {
+  #dialog-d322c672-btn::part(base):hover {
     background: transparent;
     border-color: transparent;
   }
-  #dialog-866fad7a-btn::part(base):active {
+  #dialog-d322c672-btn::part(base):active {
     background: transparent;
     border-color: transparent;
   }
 </style>
 
-<wa-button id="dialog-866fad7a-btn" variant="text" data-dialog="open dialog-866fad7a"><img src="image_big.png" alt="Big Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
-<wa-dialog id="dialog-866fad7a" without-header="" light-dismiss="" style="--width: 50%">
+<wa-button id="dialog-d322c672-btn" variant="text" data-dialog="open dialog-d322c672"><img src="image_big.png" alt="Big Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-d322c672" label="Big Image with custom width" light-dismiss="" style="--width: 50%">
 <p><img src="image_big.png" alt="Big Image with custom width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
-  #dialog-22690927-btn::part(base) {
+  #dialog-a64e8908-btn::part(base) {
     padding: 0;
     margin: 0;
     border: none;
@@ -492,25 +483,25 @@ with multiple lines of text"></wa-copy-button>
     min-width: 0;
     height: auto;
   }
-  #dialog-22690927-btn::part(base):hover {
+  #dialog-a64e8908-btn::part(base):hover {
     background: transparent;
     border-color: transparent;
   }
-  #dialog-22690927-btn::part(base):active {
+  #dialog-a64e8908-btn::part(base):active {
     background: transparent;
     border-color: transparent;
   }
 </style>
 
-<wa-button id="dialog-22690927-btn" variant="text" data-dialog="open dialog-22690927"><img src="image_big.png" alt="Big Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
-<wa-dialog id="dialog-22690927" without-header="" light-dismiss="" style="--width: 800px">
+<wa-button id="dialog-a64e8908-btn" variant="text" data-dialog="open dialog-a64e8908"><img src="image_big.png" alt="Big Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-a64e8908" label="Big Image in large dialog" light-dismiss="" style="--width: 800px">
 <p><img src="image_big.png" alt="Big Image in large dialog" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
-  #dialog-b649f9d3-btn::part(base) {
+  #dialog-6425125b-btn::part(base) {
     padding: 0;
     margin: 0;
     border: none;
@@ -520,18 +511,18 @@ with multiple lines of text"></wa-copy-button>
     min-width: 0;
     height: auto;
   }
-  #dialog-b649f9d3-btn::part(base):hover {
+  #dialog-6425125b-btn::part(base):hover {
     background: transparent;
     border-color: transparent;
   }
-  #dialog-b649f9d3-btn::part(base):active {
+  #dialog-6425125b-btn::part(base):active {
     background: transparent;
     border-color: transparent;
   }
 </style>
 
-<wa-button id="dialog-b649f9d3-btn" variant="text" data-dialog="open dialog-b649f9d3"><img src="image_big.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
-<wa-dialog id="dialog-b649f9d3" without-header="" light-dismiss="" style="--width: 90vw">
+<wa-button id="dialog-6425125b-btn" variant="text" data-dialog="open dialog-6425125b"><img src="image_big.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-6425125b" label="Full viewport width" light-dismiss="" style="--width: 90vw">
 <p><img src="image_big.png" alt="Full viewport width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>

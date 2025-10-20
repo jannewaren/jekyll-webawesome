@@ -252,14 +252,6 @@ Open Light Dismiss Dialog
 You can close this dialog by clicking on the overlay.
 ???
 
-Dialog without header:
-
-???without-header
-Open Headerless Dialog
->>>
-This dialog has no header bar at the top.
-???
-
 Dialog with custom width (600px):
 
 ???600px

@@ -387,16 +387,6 @@ Click outside to close this dialog.
 ???
 ```
 
-**Without Header** - Remove the dialog header entirely:
-
-```markdown
-???without-header
-Open Dialog
->>>
-This dialog has no header.
-???
-```
-
 **Custom Width** - Set a specific width using CSS units (px, em, rem, vw, vh, %):
 
 ```markdown
@@ -428,15 +418,9 @@ Open Dialog
 # Custom Dialog
 This dialog has light dismiss enabled and is 700px wide.
 ???
-
-???without-header light-dismiss 45em
-Open Simple Dialog
->>>
-This dialog has no header, light dismiss, and is 45em wide.
-???
 ```
 
-> **Note**: The dialog uses Web Awesome's declarative `data-dialog` API, so no custom JavaScript is needed. Each dialog gets a unique ID automatically generated from its content, and a close button is automatically added to the footer.
+> **Note**: The dialog uses Web Awesome's declarative `data-dialog` API, so no custom JavaScript is needed. Each dialog gets a unique ID automatically generated from its content. The header with X close button is always shown for accessibility, and a "Close" button is automatically added to the footer.
 
 ### Details/Summary (Collapsible Content)
 
@@ -621,12 +605,12 @@ Cards automatically parse content into these slots:
 | Option | Description |
 |--------|-------------|
 | `light-dismiss` | Dialog closes when clicking outside/on overlay |
-| `without-header` | Removes the dialog header entirely |
 | Width (e.g., `500px`, `50vw`, `40em`) | Sets custom width using CSS units (px, em, rem, vw, vh, %) |
 
 ### Dialog Features
 
 - **Automatic ID Generation**: Each dialog gets a unique ID based on MD5 hash of its content
+- **Header with X Button**: The header with X close button is always shown for accessibility
 - **Auto-close Button**: A "Close" button is automatically added to the footer
 - **Declarative API**: Uses Web Awesome's `data-dialog` attributes - no custom JavaScript needed
 - **Label Extraction**: First `#` heading becomes the dialog label, or button text is used as fallback

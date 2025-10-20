@@ -12,7 +12,7 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
         result = described_class.transform(input)
 
         # Check it outputs our dialog syntax
-        expect(result).to start_with('???light-dismiss without-header')
+        expect(result).to start_with('???light-dismiss')
         expect(result).to include('>>>')
         expect(result).to end_with('???')
         # Check button image (thumbnail)
@@ -26,7 +26,7 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
         result = described_class.transform(input)
 
         expect(result).to include('<img src="screenshot.png" alt=""')
-        expect(result).to start_with('???light-dismiss without-header')
+        expect(result).to start_with('???light-dismiss')
       end
 
       it 'transforms image with complex alt text' do
@@ -68,7 +68,7 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
 
         result = described_class.transform(input)
 
-        expect(result).to start_with('???light-dismiss without-header 50%')
+        expect(result).to start_with('???light-dismiss 50%')
         expect(result).not_to include('title="50%"')
       end
 
@@ -77,7 +77,7 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
 
         result = described_class.transform(input)
 
-        expect(result).to start_with('???light-dismiss without-header 800px')
+        expect(result).to start_with('???light-dismiss 800px')
       end
 
       it 'supports vw width' do
@@ -85,7 +85,7 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
 
         result = described_class.transform(input)
 
-        expect(result).to start_with('???light-dismiss without-header 60vw')
+        expect(result).to start_with('???light-dismiss 60vw')
       end
 
       it 'supports em width' do
@@ -93,7 +93,7 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
 
         result = described_class.transform(input)
 
-        expect(result).to start_with('???light-dismiss without-header 40em')
+        expect(result).to start_with('???light-dismiss 40em')
       end
     end
 
@@ -156,7 +156,7 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
         result = described_class.transform(input)
 
         expect(result).to include('Check out this image:')
-        expect(result).to include('???light-dismiss without-header')
+        expect(result).to include('???light-dismiss')
         expect(result).to include('in the text.')
       end
 
@@ -234,7 +234,7 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
 
         result = described_class.transform(input)
 
-        expect(result).to include('???light-dismiss without-header')
+        expect(result).to include('???light-dismiss')
         expect(result).to include('- Item 1')
         expect(result).to include('- Item 3')
       end
@@ -418,12 +418,12 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
         expect(result).to include('light-dismiss')
       end
 
-      it 'includes without-header parameter' do
+      it 'always includes header with X close button' do
         input = '![Image](image.png)'
 
         result = described_class.transform(input)
 
-        expect(result).to include('without-header')
+        expect(result).not_to include('without-header')
       end
 
       it 'uses >>> separator' do

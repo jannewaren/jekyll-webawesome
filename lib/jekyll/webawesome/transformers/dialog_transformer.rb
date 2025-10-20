@@ -8,7 +8,8 @@ module Jekyll
     # Transforms dialog syntax into wa-dialog elements with trigger buttons
     # Primary syntax: ???params\nbutton text\n>>>\ncontent\n???
     # Alternative syntax: :::wa-dialog params\nbutton text\n>>>\ncontent\n:::
-    # Params: light-dismiss, without-header, and optional width (e.g., 500px, 50vw, 40em)
+    # Params: light-dismiss and optional width (e.g., 500px, 50vw, 40em)
+    # Note: Header with close X button is always enabled for accessibility
     class DialogTransformer < BaseTransformer
       def self.transform(content)
         # Define both regex patterns - capture parameter string, button text, and content
@@ -24,7 +25,7 @@ module Jekyll
           dialog_content = dialog_content.strip
 
           # Parse parameters
-          light_dismiss, without_header, width = parse_parameters(params_string)
+          light_dismiss, width = parse_parameters(params_string)
 
           # Extract label from first heading or use button text
           label, content_without_label = extract_label(dialog_content, button_text)
@@ -37,7 +38,7 @@ module Jekyll
 
           # Build the dialog HTML
           build_dialog_html(dialog_id, button_text, label, content_html,
-                            light_dismiss, without_header, width)
+                            light_dismiss, width)
         end
 
         # Apply both patterns
@@ -50,12 +51,11 @@ module Jekyll
 
         # Parse parameters from the params string
         def parse_parameters(params_string)
-          return [false, false, nil] if params_string.nil? || params_string.strip.empty?
+          return [false, nil] if params_string.nil? || params_string.strip.empty?
 
           tokens = params_string.strip.split(/\s+/)
 
           light_dismiss = tokens.include?('light-dismiss')
-          without_header = tokens.include?('without-header')
 
           # Look for width parameter (last token with CSS units)
           width = nil
@@ -66,10 +66,11 @@ module Jekyll
             end
           end
 
-          [light_dismiss, without_header, width]
+          [light_dismiss, width]
         end
 
         # Extract label from first heading in content
+        # Always returns a label - uses heading if available, otherwise default_label
         def extract_label(content, default_label)
           # Check if content starts with a heading
           if content.match(/^#\s+(.+?)$/)
@@ -78,6 +79,7 @@ module Jekyll
             content_without_label = content.sub(/^#\s+.+?\n/, '').strip
             [label, content_without_label]
           else
+            # Use default label (button text) to ensure header is always shown
             [default_label, content]
           end
         end
@@ -90,13 +92,14 @@ module Jekyll
         end
 
         # Build the complete dialog HTML with trigger button
+        # Header with X close button is always enabled for accessibility
         def build_dialog_html(dialog_id, button_text, label, content_html,
-                              light_dismiss, without_header, width)
+                              light_dismiss, width)
           # Build dialog attributes
           dialog_attrs = ["id='#{dialog_id}'"]
           # Escape both HTML and attribute characters for label
-          dialog_attrs << "label='#{escape_attribute(escape_html(label))}'" unless without_header
-          dialog_attrs << 'without-header' if without_header
+          # Header is always shown to provide the X close button
+          dialog_attrs << "label='#{escape_attribute(escape_html(label))}'"
           dialog_attrs << 'light-dismiss' if light_dismiss
 
           # Build style attribute for width if specified

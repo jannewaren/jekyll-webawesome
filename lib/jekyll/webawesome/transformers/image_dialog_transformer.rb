@@ -120,7 +120,8 @@ module Jekyll
           width = extract_width_from_title(title)
 
           # Build dialog parameters
-          params = %w[light-dismiss without-header]
+          # Always include header with X close button for accessibility
+          params = ['light-dismiss']
           params << width if width
           params_string = params.join(' ')
 
@@ -129,8 +130,10 @@ module Jekyll
           title_attr = title && !title.include?('nodialog') && !contains_width?(title) ? " title=\"#{title}\"" : ''
           button_content = "<img src=\"#{image_url}\" alt=\"#{alt_text}\" style=\"cursor: zoom-in; display: block; width: 100%; height: auto;\"#{title_attr} />"
 
-          # Build the dialog content - full-size image
-          dialog_content = "<img src=\"#{image_url}\" alt=\"#{alt_text}\" style=\"max-width: 100%; height: auto; display: block; margin: 0 auto;\" />"
+          # Build the dialog content with alt text as heading for the label
+          # Use alt text for the label, or "Image" as fallback if alt is empty
+          label_text = alt_text.empty? ? 'Image' : alt_text
+          dialog_content = "# #{label_text}\n\n<img src=\"#{image_url}\" alt=\"#{alt_text}\" style=\"max-width: 100%; height: auto; display: block; margin: 0 auto;\" />"
 
           # Use our custom dialog syntax that will be processed by DialogTransformer
           # Format: ???params\nbutton_content\n>>>\ndialog_content\n???
