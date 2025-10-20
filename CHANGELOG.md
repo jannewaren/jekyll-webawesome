@@ -6,11 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+- Add support for wa-dialog component
+- Image dialog auto-transformation feature
+  - New `image_dialog` configuration option (opt-in, default: false)
+  - Automatically transforms markdown images into clickable dialogs
+  - Support for custom dialog width via title attribute (e.g., `"50%"`, `"800px"`, `"90vw"`)
+  - Opt-out mechanism via `"nodialog"` in title attribute
+
 ## [0.4.1] - 2025-10-02
 
 - Code blocks inside custom elements (wa-details, wa-callout, etc.) are now properly protected from markdown processing
   - Previously, code blocks would be corrupted with HTML entities and extra `<p>` tags when nested inside custom elements
-- Add support for wa-dialog component
 
 ## [0.4.0] - 2025-09-29
 

@@ -19,6 +19,7 @@ webawesome:
   # Control which file types to transform (default: both true)
   transform_pages: true      # Transform pages (like index.md, about.md)
   transform_documents: true  # Transform documents (like blog posts in _posts)
+  image_dialog: true
 
 # Exclude files from processing
 exclude:

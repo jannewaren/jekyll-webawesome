@@ -23,7 +23,7 @@ module Jekyll
 
     # Configuration class for future extensibility
     class Configuration
-      attr_accessor :debug_mode, :callout_icons, :custom_components, :transform_pages, :transform_documents
+      attr_accessor :debug_mode, :callout_icons, :custom_components, :transform_pages, :transform_documents, :image_dialog
 
       def initialize
         @debug_mode = false
@@ -31,6 +31,7 @@ module Jekyll
         @custom_components = {}
         @transform_pages = true
         @transform_documents = true
+        @image_dialog = false # Opt-in by default for safety
       end
 
       private

@@ -210,6 +210,8 @@ with multiple lines of text"></wa-copy-button>
 
 <h2 id="dialogs">Dialogs</h2>
 
+<h3 id="manual-dialogs">Manual Dialogs</h3>
+
 <p>Basic dialog:</p>
 
 <wa-button data-dialog="open dialog-3002490c">Open Basic Dialog</wa-button>
@@ -297,6 +299,255 @@ with multiple lines of text"></wa-copy-button>
 
 <wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
 </wa-dialog>
+
+<h3 id="image-dialogs-auto-transformed-images">Image Dialogs (Auto-transformed Images)</h3>
+
+<p><strong>Note:</strong> Enable this feature in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">webawesome</span><span class="pi">:</span>
+  <span class="na">image_dialog</span><span class="pi">:</span> <span class="kc">true</span></code></pre></figure>
+
+<p>When enabled, all images automatically become clickable and open in a full-size dialog:</p>
+
+<style>
+  #dialog-4ebd90fe-btn::part(base) {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    min-width: 0;
+    height: auto;
+  }
+  #dialog-4ebd90fe-btn::part(base):hover {
+    background: transparent;
+    border-color: transparent;
+  }
+  #dialog-4ebd90fe-btn::part(base):active {
+    background: transparent;
+    border-color: transparent;
+  }
+</style>
+
+<wa-button id="dialog-4ebd90fe-btn" variant="text" data-dialog="open dialog-4ebd90fe"><img src="image.png" alt="BW Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-4ebd90fe" without-header="" light-dismiss="">
+<p><img src="image.png" alt="BW Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<style>
+  #dialog-b481d29c-btn::part(base) {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    min-width: 0;
+    height: auto;
+  }
+  #dialog-b481d29c-btn::part(base):hover {
+    background: transparent;
+    border-color: transparent;
+  }
+  #dialog-b481d29c-btn::part(base):active {
+    background: transparent;
+    border-color: transparent;
+  }
+</style>
+
+<wa-button id="dialog-b481d29c-btn" variant="text" data-dialog="open dialog-b481d29c"><img src="image_colours.png" alt="Colour Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-b481d29c" without-header="" light-dismiss="">
+<p><img src="image_colours.png" alt="Colour Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>You can control the dialog width by adding a width parameter in the title:</p>
+
+<style>
+  #dialog-3d6da695-btn::part(base) {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    min-width: 0;
+    height: auto;
+  }
+  #dialog-3d6da695-btn::part(base):hover {
+    background: transparent;
+    border-color: transparent;
+  }
+  #dialog-3d6da695-btn::part(base):active {
+    background: transparent;
+    border-color: transparent;
+  }
+</style>
+
+<wa-button id="dialog-3d6da695-btn" variant="text" data-dialog="open dialog-3d6da695"><img src="image.png" alt="BW Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-3d6da695" without-header="" light-dismiss="" style="--width: 50%">
+<p><img src="image.png" alt="BW Image with custom width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<style>
+  #dialog-fcb273ef-btn::part(base) {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    min-width: 0;
+    height: auto;
+  }
+  #dialog-fcb273ef-btn::part(base):hover {
+    background: transparent;
+    border-color: transparent;
+  }
+  #dialog-fcb273ef-btn::part(base):active {
+    background: transparent;
+    border-color: transparent;
+  }
+</style>
+
+<wa-button id="dialog-fcb273ef-btn" variant="text" data-dialog="open dialog-fcb273ef"><img src="image_colours.png" alt="Colour Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-fcb273ef" without-header="" light-dismiss="" style="--width: 800px">
+<p><img src="image_colours.png" alt="Colour Image in large dialog" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<style>
+  #dialog-e0652c07-btn::part(base) {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    min-width: 0;
+    height: auto;
+  }
+  #dialog-e0652c07-btn::part(base):hover {
+    background: transparent;
+    border-color: transparent;
+  }
+  #dialog-e0652c07-btn::part(base):active {
+    background: transparent;
+    border-color: transparent;
+  }
+</style>
+
+<wa-button id="dialog-e0652c07-btn" variant="text" data-dialog="open dialog-e0652c07"><img src="image.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-e0652c07" without-header="" light-dismiss="" style="--width: 90vw">
+<p><img src="image.png" alt="Full viewport width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>Same with a big image</p>
+
+<style>
+  #dialog-866fad7a-btn::part(base) {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    min-width: 0;
+    height: auto;
+  }
+  #dialog-866fad7a-btn::part(base):hover {
+    background: transparent;
+    border-color: transparent;
+  }
+  #dialog-866fad7a-btn::part(base):active {
+    background: transparent;
+    border-color: transparent;
+  }
+</style>
+
+<wa-button id="dialog-866fad7a-btn" variant="text" data-dialog="open dialog-866fad7a"><img src="image_big.png" alt="Big Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-866fad7a" without-header="" light-dismiss="" style="--width: 50%">
+<p><img src="image_big.png" alt="Big Image with custom width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<style>
+  #dialog-22690927-btn::part(base) {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    min-width: 0;
+    height: auto;
+  }
+  #dialog-22690927-btn::part(base):hover {
+    background: transparent;
+    border-color: transparent;
+  }
+  #dialog-22690927-btn::part(base):active {
+    background: transparent;
+    border-color: transparent;
+  }
+</style>
+
+<wa-button id="dialog-22690927-btn" variant="text" data-dialog="open dialog-22690927"><img src="image_big.png" alt="Big Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-22690927" without-header="" light-dismiss="" style="--width: 800px">
+<p><img src="image_big.png" alt="Big Image in large dialog" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<style>
+  #dialog-b649f9d3-btn::part(base) {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    min-width: 0;
+    height: auto;
+  }
+  #dialog-b649f9d3-btn::part(base):hover {
+    background: transparent;
+    border-color: transparent;
+  }
+  #dialog-b649f9d3-btn::part(base):active {
+    background: transparent;
+    border-color: transparent;
+  }
+</style>
+
+<wa-button id="dialog-b649f9d3-btn" variant="text" data-dialog="open dialog-b649f9d3"><img src="image_big.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-dialog id="dialog-b649f9d3" without-header="" light-dismiss="" style="--width: 90vw">
+<p><img src="image_big.png" alt="Full viewport width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>You can also control thumbnail display width with inline HTML:</p>
+
+<p><img src="image.png" alt="Small thumbnail" width="200" /></p>
+
+<p><img src="image_colours.png" alt="Medium size" style="width: 50%;" /></p>
+
+<p>To prevent an image from being transformed, add <code class="language-plaintext highlighter-rouge">"nodialog"</code> to the title attribute:</p>
+
+<p><img src="image.png" alt="Icon image" title="nodialog" /></p>
+
+<p>Images in inline code are automatically protected: <code class="language-plaintext highlighter-rouge">![example](image.png)</code> won’t be transformed.</p>
 
 <h2 id="cards">Cards</h2>
 

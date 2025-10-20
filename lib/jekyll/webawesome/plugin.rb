@@ -40,6 +40,18 @@ module Jekyll
         true
       end
 
+      # Check if image dialog transformation is enabled
+      def self.image_dialog_enabled?(site)
+        # Check plugin configuration first
+        return Jekyll::WebAwesome.configuration.image_dialog if Jekyll::WebAwesome.configuration
+
+        # Check site config
+        return site.config.dig('webawesome', 'image_dialog') if site.config.dig('webawesome', 'image_dialog') != nil
+
+        # Default to false (opt-in feature)
+        false
+      end
+
       # Check if a file is a markdown file
       def self.markdown_file?(filepath)
         filepath.to_s.match?(/\.md$/i)
@@ -51,7 +63,7 @@ module Jekyll
         next unless transform_documents_enabled?(document.site)
 
         puts "Jekyll::WebAwesome Processing document (pre-render): #{document.relative_path}\n" if debug_enabled?(document.site)
-        document.content = Transformer.process(document.content)
+        document.content = Transformer.process(document.content, document.site)
       end
 
       Jekyll::Hooks.register :pages, :pre_render do |page|
@@ -59,7 +71,7 @@ module Jekyll
         next unless transform_pages_enabled?(page.site)
 
         puts "Jekyll::WebAwesome Processing page (pre-render): #{page.relative_path}\n" if debug_enabled?(page.site)
-        page.content = Transformer.process(page.content)
+        page.content = Transformer.process(page.content, page.site)
       end
     end
   end
