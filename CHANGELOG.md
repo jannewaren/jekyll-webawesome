@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Placeholder
 
+## [0.5.3] - 2025-10-20
+
+- Always have a header with X button on the dialogs
+
 ## [0.5.2] - 2025-10-20
 
 - Fix the image dialog auto-transformation feature protection again
