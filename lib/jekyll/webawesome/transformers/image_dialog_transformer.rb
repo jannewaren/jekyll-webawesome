@@ -9,7 +9,10 @@ module Jekyll
     # Images can opt-out by adding "nodialog" to the title attribute
     # Example: ![Alt text](image.png "nodialog")
     class ImageDialogTransformer < BaseTransformer
-      def self.transform(content)
+      def self.transform(content, site = nil)
+        # Get configuration including default width
+        config = site ? Plugin.image_dialog_config(site) : {}
+        
         # First, protect code blocks, inline code, and comparison blocks from transformation
         protected_content, fenced_code_blocks = protect_fenced_code_blocks(content)
         protected_content, inline_code_blocks = protect_inline_code(protected_content)
@@ -31,7 +34,7 @@ module Jekyll
             match
           else
             # Transform to clickable image with dialog
-            transform_to_dialog(alt_text, image_url, title)
+            transform_to_dialog(alt_text, image_url, title, config)
           end
         end
 
@@ -115,9 +118,12 @@ module Jekyll
 
         # Transform image into our custom dialog syntax
         # This will be processed by DialogTransformer to create the actual wa-dialog
-        def transform_to_dialog(alt_text, image_url, title)
+        def transform_to_dialog(alt_text, image_url, title, config = {})
           # Parse width from title if specified (e.g., "50%", "800px", "60vw")
           width = extract_width_from_title(title)
+          
+          # Use default width from config if no width specified in title
+          width ||= config[:default_width] if config[:default_width]
 
           # Build dialog parameters
           # Always include header with X close button for accessibility

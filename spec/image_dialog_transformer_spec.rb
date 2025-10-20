@@ -454,5 +454,71 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
         expect(result).to include('margin: 0 auto')
       end
     end
+
+    context 'with default width configuration' do
+      let(:site) { double('site') }
+      let(:plugin) { Jekyll::WebAwesome::Plugin }
+
+      context 'when default_width is configured' do
+        let(:config) { { enabled: true, default_width: '90vh' } }
+
+        before do
+          allow(plugin).to receive(:image_dialog_config).and_return(config)
+        end
+
+        it 'uses default width when no width in title' do
+          input = '![Image](image.png)'
+
+          result = described_class.transform(input, site)
+
+          expect(result).to start_with('???light-dismiss 90vh')
+        end
+
+        it 'overrides default width when width specified in title' do
+          input = '![Image](image.png "50%")'
+
+          result = described_class.transform(input, site)
+
+          expect(result).to start_with('???light-dismiss 50%')
+          expect(result).not_to include('90vh')
+        end
+
+        it 'uses default width with title text that has no width' do
+          input = '![Image](image.png "Click to view")'
+
+          result = described_class.transform(input, site)
+
+          expect(result).to start_with('???light-dismiss 90vh')
+          expect(result).to include('title="Click to view"')
+        end
+      end
+
+      context 'when no default_width is configured' do
+        let(:config) { { enabled: true } }
+
+        before do
+          allow(plugin).to receive(:image_dialog_config).and_return(config)
+        end
+
+        it 'creates dialog without width parameter' do
+          input = '![Image](image.png)'
+
+          result = described_class.transform(input, site)
+
+          expect(result).to start_with('???light-dismiss')
+          expect(result).not_to match(/\?\?\?light-dismiss \d/)
+        end
+      end
+
+      context 'when site is nil' do
+        it 'works without configuration' do
+          input = '![Image](image.png)'
+
+          result = described_class.transform(input, nil)
+
+          expect(result).to start_with('???light-dismiss')
+        end
+      end
+    end
   end
 end

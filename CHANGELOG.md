@@ -8,6 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Placeholder
 
+## [0.5.4] - 2025-10-20
+
+- Support for default width for the image_dialog like
+
+```yaml
+webawesome:
+  image_dialog:
+    enabled: true
+    default_width: 90vh
+```
+
 ## [0.5.3] - 2025-10-20
 
 - Always have a header with X button on the dialogs
