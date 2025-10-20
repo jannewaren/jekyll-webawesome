@@ -60,5 +60,15 @@ RSpec.describe Jekyll::WebAwesome::CalloutTransformer do
       expect(result).to include('Line 2</p>')
       expect(result).to include('<p>Line 4</p>')
     end
+
+    it 'handles two separate paragraphs' do
+      markdown = ":::warning\nFirst paragraph\n\nSecond one.\n:::"
+      result = described_class.transform(markdown)
+
+      expect(result).to include('<wa-callout variant="warning">')
+      expect(result).to include('<p>First paragraph</p>')
+      expect(result).to include('<p>Second one.</p>')
+      expect(result).to include('</wa-callout>')
+    end
   end
 end
