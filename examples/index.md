@@ -224,6 +224,8 @@ Alternative syntax example
 
 ## Dialogs
 
+### Manual Dialogs
+
 Basic dialog:
 
 ???
@@ -306,6 +308,48 @@ Alternative with Options
 >>>
 This combines alternative syntax with light-dismiss and 45em width.
 :::
+
+### Image Dialogs (Auto-transformed Images)
+
+**Note:** Enable this feature in `_config.yml`:
+```yaml
+webawesome:
+  image_dialog: true
+```
+
+When enabled, all images automatically become clickable and open in a full-size dialog:
+
+![BW Image](image.png)
+
+![Colour Image](image_colours.png)
+
+You can control the dialog width by adding a width parameter in the title:
+
+![BW Image with custom width](image.png "50%")
+
+![Colour Image in large dialog](image_colours.png "800px")
+
+![Full viewport width](image.png "90vw")
+
+Same with a big image
+
+![Big Image with custom width](image_big.png "50%")
+
+![Big Image in large dialog](image_big.png "800px")
+
+![Full viewport width](image_big.png "90vw")
+
+You can also control thumbnail display width with inline HTML:
+
+<img src="image.png" alt="Small thumbnail" width="200" />
+
+<img src="image_colours.png" alt="Medium size" style="width: 50%;" />
+
+To prevent an image from being transformed, add `"nodialog"` to the title attribute:
+
+![Icon image](image.png "nodialog")
+
+Images in inline code are automatically protected: `![example](image.png)` won't be transformed.
 
 ## Cards
 

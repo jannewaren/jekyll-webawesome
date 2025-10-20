@@ -102,11 +102,43 @@ module Jekyll
           # Build style attribute for width if specified
           style_attr = width ? " style='--width: #{width}'" : ''
 
+          # Check if button contains an image (for image dialog support)
+          is_image_button = button_text.include?('<img')
+
           # Build the HTML
           html = []
 
+          # Add CSS Parts styling for image buttons to make them invisible
+          if is_image_button
+            button_id = "#{dialog_id}-btn"
+            html << '<style>'
+            html << "  ##{button_id}::part(base) {"
+            html << '    padding: 0;'
+            html << '    margin: 0;'
+            html << '    border: none;'
+            html << '    background: transparent;'
+            html << '    box-shadow: none;'
+            html << '    color: inherit;'
+            html << '    min-width: 0;'
+            html << '    height: auto;'
+            html << '  }'
+            html << "  ##{button_id}::part(base):hover {"
+            html << '    background: transparent;'
+            html << '    border-color: transparent;'
+            html << '  }'
+            html << "  ##{button_id}::part(base):active {"
+            html << '    background: transparent;'
+            html << '    border-color: transparent;'
+            html << '  }'
+            html << '</style>'
+          end
+
           # Trigger button
-          html << "<wa-button data-dialog='open #{dialog_id}'>#{escape_html(button_text)}</wa-button>"
+          # Only allow HTML for image tags (for image dialog support), escape everything else for security
+          button_content = is_image_button ? button_text : escape_html(button_text)
+          button_id_attr = is_image_button ? " id='#{button_id}'" : ''
+          button_variant = is_image_button ? " variant='text'" : ''
+          html << "<wa-button#{button_id_attr}#{button_variant} data-dialog='open #{dialog_id}'>#{button_content}</wa-button>"
 
           # Dialog element
           html << "<wa-dialog #{dialog_attrs.join(' ')}#{style_attr}>"

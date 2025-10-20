@@ -67,6 +67,9 @@ webawesome:
   # Control which file types to transform (default: both true)
   transform_pages: true      # Transform pages (like index.md, about.md)
   transform_documents: true  # Transform documents (like blog posts in _posts)
+  
+  # Enable automatic image-to-dialog transformation (default: false)
+  image_dialog: true         # Makes all images clickable and open in dialogs
 ```
 
 And then execute:
@@ -628,6 +631,42 @@ Cards automatically parse content into these slots:
 - **Declarative API**: Uses Web Awesome's `data-dialog` attributes - no custom JavaScript needed
 - **Label Extraction**: First `#` heading becomes the dialog label, or button text is used as fallback
 - **Markdown Support**: Full markdown formatting in dialog content
+
+### Image Dialogs (Auto-transformation)
+
+Enable automatic image-to-dialog transformation in your `_config.yml`:
+
+```yaml
+webawesome:
+  image_dialog: true
+```
+
+When enabled, all markdown images automatically become clickable and open in full-size dialogs:
+
+```markdown
+![Architecture Diagram](diagram.png)
+```
+
+**Control dialog width** by adding a width parameter to the title:
+
+```markdown
+![Diagram](diagram.png "50%")        # Dialog width: 50%
+![Photo](photo.jpg "800px")         # Dialog width: 800px
+![Wide](image.png "90vw")           # Dialog width: 90% viewport
+```
+
+Supported width units: `px`, `em`, `rem`, `vw`, `vh`, `%`, `ch`
+
+**Opt-out** by adding `"nodialog"` to the title:
+
+```markdown
+![Small Icon](icon.svg "nodialog")
+```
+
+**Features:**
+
+- Light-dismiss and headerless dialogs for clean UX
+- Thumbnail displays at original size, dialog shows full-size
 
 ### Tab Placements
 
