@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+- Placeholder
+
+## [0.5.0] - 2025-10-20
+
 - Add support for wa-dialog component
 - Image dialog auto-transformation feature
   - New `image_dialog` configuration option (opt-in, default: false)
