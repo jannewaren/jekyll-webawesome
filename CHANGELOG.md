@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Placeholder
 
+## [0.5.2] - 2025-10-20
+
+- Fix the image dialog auto-transformation feature protection again
+
 ## [0.5.1] - 2025-10-20
 
 - Image dialog auto-transformation feature fix: protect comparison components
