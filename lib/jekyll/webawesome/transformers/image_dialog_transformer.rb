@@ -10,8 +10,9 @@ module Jekyll
     # Example: ![Alt text](image.png "nodialog")
     class ImageDialogTransformer < BaseTransformer
       def self.transform(content)
-        # First, protect inline code blocks and comparison blocks from transformation
-        protected_content, code_blocks = protect_inline_code(content)
+        # First, protect code blocks, inline code, and comparison blocks from transformation
+        protected_content, fenced_code_blocks = protect_fenced_code_blocks(content)
+        protected_content, inline_code_blocks = protect_inline_code(protected_content)
         protected_content, comparison_blocks = protect_comparisons(protected_content)
 
         # Match markdown images: ![alt](url) or ![alt](url "title")
@@ -34,19 +35,40 @@ module Jekyll
           end
         end
 
-        # Restore protected comparison blocks first, then inline code
+        # Restore protected blocks in reverse order
         result = restore_comparisons(result, comparison_blocks)
-        restore_inline_code(result, code_blocks)
+        result = restore_inline_code(result, inline_code_blocks)
+        restore_fenced_code_blocks(result, fenced_code_blocks)
       end
 
       class << self
         private
 
+        # Protect fenced code blocks from transformation
+        def protect_fenced_code_blocks(content)
+          code_blocks = []
+          # Match both ``` and ~~~ style code blocks with optional language
+          protected = content.gsub(/^```.*?^```$|^~~~.*?^~~~$/m) do |match|
+            placeholder = "<!--IMAGE_DIALOG_FENCED_CODE_#{code_blocks.length}-->"
+            code_blocks << match
+            placeholder
+          end
+          [protected, code_blocks]
+        end
+
+        # Restore protected fenced code blocks
+        def restore_fenced_code_blocks(content, code_blocks)
+          code_blocks.each_with_index do |code, index|
+            content = content.gsub("<!--IMAGE_DIALOG_FENCED_CODE_#{index}-->", code)
+          end
+          content
+        end
+
         # Protect inline code from transformation
         def protect_inline_code(content)
           code_blocks = []
           protected = content.gsub(/`[^`]+`/) do |match|
-            placeholder = "INLINE_CODE_#{code_blocks.length}"
+            placeholder = "<!--IMAGE_DIALOG_INLINE_CODE_#{code_blocks.length}-->"
             code_blocks << match
             placeholder
           end
@@ -56,27 +78,37 @@ module Jekyll
         # Restore protected inline code
         def restore_inline_code(content, code_blocks)
           code_blocks.each_with_index do |code, index|
-            content = content.gsub("INLINE_CODE_#{index}", code)
+            content = content.gsub("<!--IMAGE_DIALOG_INLINE_CODE_#{index}-->", code)
           end
           content
         end
 
         # Protect comparison blocks from image transformation
+        # Must protect both markdown syntax (|||...|||) and already-transformed HTML
         def protect_comparisons(content)
           comparison_blocks = []
-          # Match comparison blocks: <wa-comparison ...>...</wa-comparison>
-          protected = content.gsub(/<wa-comparison[^>]*>.*?<\/wa-comparison>/m) do |match|
-            placeholder = "COMPARISON_BLOCK_#{comparison_blocks.length}"
+          
+          # First protect markdown comparison syntax: |||...|||
+          protected = content.gsub(/\|\|\|(\d+)?\n.*?\n\|\|\|/m) do |match|
+            placeholder = "<!--IMAGE_DIALOG_COMPARISON_#{comparison_blocks.length}-->"
             comparison_blocks << match
             placeholder
           end
+          
+          # Also protect already-transformed HTML comparison blocks: <wa-comparison ...>...</wa-comparison>
+          protected = protected.gsub(/<wa-comparison[^>]*>.*?<\/wa-comparison>/m) do |match|
+            placeholder = "<!--IMAGE_DIALOG_COMPARISON_#{comparison_blocks.length}-->"
+            comparison_blocks << match
+            placeholder
+          end
+          
           [protected, comparison_blocks]
         end
 
         # Restore protected comparison blocks
         def restore_comparisons(content, comparison_blocks)
           comparison_blocks.each_with_index do |block, index|
-            content = content.gsub("COMPARISON_BLOCK_#{index}", block)
+            content = content.gsub("<!--IMAGE_DIALOG_COMPARISON_#{index}-->", block)
           end
           content
         end
