@@ -208,6 +208,96 @@ with multiple lines of text"></wa-copy-button>
 
 <wa-copy-button value="Alternative syntax example"></wa-copy-button>
 
+<h2 id="dialogs">Dialogs</h2>
+
+<p>Basic dialog:</p>
+
+<wa-button data-dialog="open dialog-3002490c">Open Basic Dialog</wa-button>
+<wa-dialog id="dialog-3002490c" label="Open Basic Dialog">
+<p>This is a simple dialog with <strong>markdown</strong> support and <a href="https://example.com">links</a>.</p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>Dialog with heading as label:</p>
+
+<wa-button data-dialog="open dialog-75d4e79f">Show Information</wa-button>
+<wa-dialog id="dialog-75d4e79f" label="Important Notice">
+<p>Please read this information carefully before proceeding.</p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>Dialog with light dismiss (click outside to close):</p>
+
+<wa-button data-dialog="open dialog-8770bdf3">Open Light Dismiss Dialog</wa-button>
+<wa-dialog id="dialog-8770bdf3" label="Click Outside" light-dismiss="">
+<p>You can close this dialog by clicking on the overlay.</p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>Dialog without header:</p>
+
+<wa-button data-dialog="open dialog-96ebc8f4">Open Headerless Dialog</wa-button>
+<wa-dialog id="dialog-96ebc8f4" without-header="">
+<p>This dialog has no header bar at the top.</p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>Dialog with custom width (600px):</p>
+
+<wa-button data-dialog="open dialog-34579bb6">Open Wide Dialog</wa-button>
+<wa-dialog id="dialog-34579bb6" label="Custom Width" style="--width: 600px">
+<p>This dialog is 600 pixels wide.</p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>Dialog with custom width (50vw):</p>
+
+<wa-button data-dialog="open dialog-bbf06cf2">Open Half-Screen Dialog</wa-button>
+<wa-dialog id="dialog-bbf06cf2" label="Viewport Width" style="--width: 50vw">
+<p>This dialog is 50% of the viewport width.</p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>Dialog with all options combined:</p>
+
+<wa-button data-dialog="open dialog-2ce5903b">Open Custom Dialog</wa-button>
+<wa-dialog id="dialog-2ce5903b" label="Fully Customized" light-dismiss="" style="--width: 700px">
+<p>This dialog has light dismiss enabled and is 700px wide. It includes:</p>
+
+<ul>
+  <li><strong>Markdown formatting</strong></li>
+  <li>Lists and structured content</li>
+  <li><a href="https://webawesome.com">External links</a></li>
+  <li>Code: <code>console.log('Hello')</code></li>
+</ul>
+
+<p>Click outside or use the close button below!</p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<p>Alternative syntax:</p>
+
+<wa-button data-dialog="open dialog-328c70ed">Alternative Dialog Syntax</wa-button>
+<wa-dialog id="dialog-328c70ed" label="Alternative Syntax">
+<p>This uses the <code>:::wa-dialog</code> syntax instead of <code>???</code>.</p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
+<wa-button data-dialog="open dialog-1e5bf7e9">Alternative with Options</wa-button>
+<wa-dialog id="dialog-1e5bf7e9" label="Alternative with Options" light-dismiss="" style="--width: 45em">
+<p>This combines alternative syntax with light-dismiss and 45em width.</p>
+
+<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+</wa-dialog>
+
 <h2 id="cards">Cards</h2>
 
 <wa-card><p>This is a basic card with just content.</p>

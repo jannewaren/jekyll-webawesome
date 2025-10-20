@@ -222,6 +222,91 @@ Alternative syntax with :::wa-copy-button:
 Alternative syntax example
 :::
 
+## Dialogs
+
+Basic dialog:
+
+???
+Open Basic Dialog
+>>>
+This is a simple dialog with **markdown** support and [links](https://example.com).
+???
+
+Dialog with heading as label:
+
+???
+Show Information
+>>>
+# Important Notice
+Please read this information carefully before proceeding.
+???
+
+Dialog with light dismiss (click outside to close):
+
+???light-dismiss
+Open Light Dismiss Dialog
+>>>
+# Click Outside
+You can close this dialog by clicking on the overlay.
+???
+
+Dialog without header:
+
+???without-header
+Open Headerless Dialog
+>>>
+This dialog has no header bar at the top.
+???
+
+Dialog with custom width (600px):
+
+???600px
+Open Wide Dialog
+>>>
+# Custom Width
+This dialog is 600 pixels wide.
+???
+
+Dialog with custom width (50vw):
+
+???50vw
+Open Half-Screen Dialog
+>>>
+# Viewport Width
+This dialog is 50% of the viewport width.
+???
+
+Dialog with all options combined:
+
+???light-dismiss 700px
+Open Custom Dialog
+>>>
+# Fully Customized
+This dialog has light dismiss enabled and is 700px wide. It includes:
+
+- **Markdown formatting**
+- Lists and structured content
+- [External links](https://webawesome.com)
+- Code: `console.log('Hello')`
+
+Click outside or use the close button below!
+???
+
+Alternative syntax:
+
+:::wa-dialog
+Alternative Dialog Syntax
+>>>
+# Alternative Syntax
+This uses the `:::wa-dialog` syntax instead of `???`.
+:::
+
+:::wa-dialog light-dismiss 45em
+Alternative with Options
+>>>
+This combines alternative syntax with light-dismiss and 45em width.
+:::
+
 ## Cards
 
 ===
