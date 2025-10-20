@@ -169,6 +169,62 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
         expect(result).not_to include('???')
       end
 
+      it 'does not affect fenced code blocks with markdown syntax' do
+        input = <<~MARKDOWN
+          Example of markdown image syntax:
+
+          ```markdown
+          ![Alt Text](image.jpg)
+          ```
+
+          This should not be transformed.
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        expect(result).to include('```markdown')
+        expect(result).to include('![Alt Text](image.jpg)')
+        expect(result).to include('```')
+        expect(result).not_to include('???')
+      end
+
+      it 'does not affect fenced code blocks with tildes' do
+        input = <<~MARKDOWN
+          ~~~markdown
+          ![Image](photo.png)
+          ~~~
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        expect(result).to include('~~~markdown')
+        expect(result).to include('![Image](photo.png)')
+        expect(result).not_to include('???')
+      end
+
+      it 'transforms images outside code blocks but not inside' do
+        input = <<~MARKDOWN
+          ![Real image](real.png)
+
+          Example code:
+
+          ```markdown
+          ![Example image](example.png)
+          ```
+
+          ![Another real image](another.png)
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        # Real images should be transformed (2 images = 4 markers)
+        expect(result.scan(/\?\?\?/).length).to eq(4)
+        
+        # Code block should remain unchanged
+        expect(result).to include('```markdown')
+        expect(result).to include('![Example image](example.png)')
+      end
+
       it 'transforms images in lists' do
         input = <<~MARKDOWN
           - Item 1
@@ -219,7 +275,7 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
     end
 
     context 'with comparison blocks' do
-      it 'does not transform images inside comparison blocks' do
+      it 'does not transform images inside HTML comparison blocks' do
         input = <<~HTML
           <wa-comparison position="50">
             <img slot="before" src="before.jpg" alt="Before" />
@@ -236,6 +292,44 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
         expect(result).to include('before.jpg')
         expect(result).to include('after.jpg')
         # Should not add dialog syntax
+        expect(result).not_to include('???')
+      end
+
+      it 'does not transform images inside markdown comparison syntax' do
+        input = <<~MARKDOWN
+          |||
+          ![Before Image](img-gray.jpg)
+          >>>
+          ![After Image](img-colour.jpg)
+          |||
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        # Comparison block should remain unchanged
+        expect(result).to include('|||')
+        expect(result).to include('>>>')
+        expect(result).to include('![Before Image](img-gray.jpg)')
+        expect(result).to include('![After Image](img-colour.jpg)')
+        # Should not add dialog syntax
+        expect(result).not_to include('???')
+      end
+
+      it 'does not transform images inside markdown comparison with position' do
+        input = <<~MARKDOWN
+          |||10
+          ![Before](before.png)
+          >>>
+          ![After](after.png)
+          |||
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        # Comparison block should remain unchanged
+        expect(result).to include('|||10')
+        expect(result).to include('![Before](before.png)')
+        expect(result).to include('![After](after.png)')
         expect(result).not_to include('???')
       end
 
@@ -263,6 +357,30 @@ RSpec.describe Jekyll::WebAwesome::ImageDialogTransformer do
         expect(result).to include('slot="before"')
         expect(result).to include('before.jpg')
         expect(result).to include('after.jpg')
+      end
+
+      it 'transforms standalone but not markdown comparison images' do
+        input = <<~MARKDOWN
+          ![Standalone](standalone.png)
+
+          |||
+          ![Before](before.jpg)
+          >>>
+          ![After](after.jpg)
+          |||
+
+          ![Another](another.png)
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        # Standalone images should be transformed (2 images = 4 markers)
+        expect(result.scan(/\?\?\?/).length).to eq(4)
+        
+        # Comparison markdown should remain unchanged
+        expect(result).to include('|||')
+        expect(result).to include('![Before](before.jpg)')
+        expect(result).to include('![After](after.jpg)')
       end
 
       it 'handles multiple comparison blocks' do
