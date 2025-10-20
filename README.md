@@ -69,7 +69,13 @@ webawesome:
   transform_documents: true  # Transform documents (like blog posts in _posts)
   
   # Enable automatic image-to-dialog transformation (default: false)
+  # Can be a simple boolean
   image_dialog: true         # Makes all images clickable and open in dialogs
+  
+  # Or a hash with options for more control
+  image_dialog:
+    enabled: true            # Enable the feature
+    default_width: 90vh      # Default width for dialogs (e.g., 90vh, 80%, 1200px)
 ```
 
 And then execute:
@@ -622,7 +628,13 @@ Enable automatic image-to-dialog transformation in your `_config.yml`:
 
 ```yaml
 webawesome:
+  # Simple boolean to enable
   image_dialog: true
+  
+  # Or configure with options
+  image_dialog:
+    enabled: true
+    default_width: 90vh      # Default width for all image dialogs
 ```
 
 When enabled, all markdown images automatically become clickable and open in full-size dialogs:
@@ -631,7 +643,9 @@ When enabled, all markdown images automatically become clickable and open in ful
 ![Architecture Diagram](diagram.png)
 ```
 
-**Control dialog width** by adding a width parameter to the title:
+**Default Width**: Set a default width for all image dialogs in the configuration. Images will use this width unless overridden in the title.
+
+**Control dialog width** by adding a width parameter to the title (overrides default):
 
 ```markdown
 ![Diagram](diagram.png "50%")        # Dialog width: 50%
@@ -651,6 +665,7 @@ Supported width units: `px`, `em`, `rem`, `vw`, `vh`, `%`, `ch`
 
 - Light-dismiss and headerless dialogs for clean UX
 - Thumbnail displays at original size, dialog shows full-size
+- Configurable default width for consistent sizing
 
 ### Tab Placements
 

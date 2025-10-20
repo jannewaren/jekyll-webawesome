@@ -52,6 +52,33 @@ module Jekyll
         false
       end
 
+      # Get image dialog configuration with default width support
+      def self.image_dialog_config(site)
+        config = {}
+        
+        # First check if it's enabled
+        enabled_config = nil
+        if Jekyll::WebAwesome.configuration
+          enabled_config = Jekyll::WebAwesome.configuration.image_dialog
+        elsif site.config.dig('webawesome', 'image_dialog') != nil
+          enabled_config = site.config.dig('webawesome', 'image_dialog')
+        end
+
+        # If disabled or not set, return empty config
+        return config unless enabled_config
+
+        # If it's a boolean true, set enabled
+        if enabled_config == true
+          config[:enabled] = true
+        # If it's a hash, merge it
+        elsif enabled_config.is_a?(Hash)
+          config = enabled_config.transform_keys(&:to_sym)
+          config[:enabled] = true unless config.key?(:enabled)
+        end
+
+        config
+      end
+
       # Check if a file is a markdown file
       def self.markdown_file?(filepath)
         filepath.to_s.match?(/\.md$/i)

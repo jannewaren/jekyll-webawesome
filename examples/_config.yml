@@ -19,7 +19,13 @@ webawesome:
   # Control which file types to transform (default: both true)
   transform_pages: true      # Transform pages (like index.md, about.md)
   transform_documents: true  # Transform documents (like blog posts in _posts)
-  image_dialog: true
+  
+  # Image dialog configuration
+  # Can be a simple boolean: true/false
+  # Or a hash with options:
+  image_dialog:
+    enabled: true
+    default_width: 90vh      # Default width for image dialogs (e.g., 90vh, 80%, 1200px)
 
 # Exclude files from processing
 exclude:

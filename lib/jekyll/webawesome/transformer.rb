@@ -18,7 +18,7 @@ module Jekyll
         content = DetailsTransformer.transform(content)
 
         # Apply image dialog transformer BEFORE dialog transformer so it can generate dialog syntax
-        content = ImageDialogTransformer.transform(content) if site && Plugin.image_dialog_enabled?(site)
+        content = ImageDialogTransformer.transform(content, site) if site && Plugin.image_dialog_enabled?(site)
 
         content = DialogTransformer.transform(content)
         content = IconTransformer.transform(content)

@@ -31,7 +31,7 @@ module Jekyll
         @custom_components = {}
         @transform_pages = true
         @transform_documents = true
-        @image_dialog = false # Opt-in by default for safety
+        @image_dialog = false # Opt-in by default for safety, or can be a hash with options
       end
 
       private
