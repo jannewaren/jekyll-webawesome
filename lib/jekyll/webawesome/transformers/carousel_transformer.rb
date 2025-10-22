@@ -13,7 +13,7 @@ module Jekyll
       def self.transform(content)
         # Define both regex patterns
         # Match: ~~~~~~params (optional)
-        #        ~~~ 
+        #        ~~~
         #        content (can be empty)
         #        ~~~
         #        (repeat slides)
@@ -56,6 +56,8 @@ module Jekyll
               when 'scroll-hint'
                 result[:css_vars]['--scroll-hint'] = value
               when 'aspect-ratio'
+                # Support 'auto', 'none', or 'unset' to remove the default aspect ratio
+                # This is useful for text content or variable-height slides
                 result[:css_vars]['--aspect-ratio'] = value
               when 'slide-gap'
                 result[:css_vars]['--slide-gap'] = value

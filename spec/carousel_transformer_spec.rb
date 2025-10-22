@@ -286,6 +286,40 @@ RSpec.describe Jekyll::WebAwesome::CarouselTransformer do
         expect(result).to include('style="--aspect-ratio: 3/2"')
       end
 
+      it 'transforms carousel with aspect-ratio:auto to remove fixed height' do
+        input = <<~MARKDOWN
+          ~~~~~~aspect-ratio:auto
+          ~~~
+          Slide 1
+          ~~~
+          ~~~
+          Slide 2
+          ~~~
+          ~~~~~~
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        expect(result).to include('style="--aspect-ratio: auto"')
+      end
+
+      it 'transforms carousel with aspect-ratio:none to remove fixed height' do
+        input = <<~MARKDOWN
+          ~~~~~~aspect-ratio:none
+          ~~~
+          Slide 1
+          ~~~
+          ~~~
+          Slide 2
+          ~~~
+          ~~~~~~
+        MARKDOWN
+
+        result = described_class.transform(input)
+
+        expect(result).to include('style="--aspect-ratio: none"')
+      end
+
       it 'transforms carousel with slide-gap CSS property' do
         input = <<~MARKDOWN
           ~~~~~~slide-gap:1rem
@@ -575,7 +609,7 @@ RSpec.describe Jekyll::WebAwesome::CarouselTransformer do
 
       it 'handles extra whitespace in parameters' do
         input = <<~MARKDOWN
-          ~~~~~~  3   loop  
+          ~~~~~~  3   loop#{'  '}
           ~~~
           Slide 1
           ~~~

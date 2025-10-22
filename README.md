@@ -423,6 +423,29 @@ Additional info
 ~~~~~~
 ```
 
+#### Removing Fixed Aspect Ratio
+
+For carousels with **text content, cards, or variable-height slides**, you may want to remove the default `16/9` aspect ratio to let content size naturally:
+
+```markdown
+~~~~~~aspect-ratio:auto navigation
+~~~
+# First Slide
+
+This carousel will size based on content height, not a fixed aspect ratio.
+
+Perfect for text-heavy slides or mixed content.
+~~~
+~~~
+# Second Slide
+
+Another slide with different content height.
+~~~
+~~~~~~
+```
+
+Use `aspect-ratio:auto` or `aspect-ratio:none` to override the default fixed height behavior.
+
 #### Carousel Parameters
 
 | Parameter Type | Syntax | Description |
@@ -771,7 +794,7 @@ Cards automatically parse content into these slots:
 | `mouse-dragging` | Boolean | Enable click-and-drag (default: off) |
 | `vertical` | Keyword | Use vertical orientation (default: horizontal) |
 | `scroll-hint:value` | CSS Property | Padding to show adjacent slides (e.g., `2rem`, `50px`) |
-| `aspect-ratio:value` | CSS Property | Viewport aspect ratio (default: 16/9, e.g., `3/2`, `4/3`) |
+| `aspect-ratio:value` | CSS Property | Viewport aspect ratio (default: 16/9, e.g., `3/2`, `4/3`). Use `auto` or `none` for content-based height |
 | `slide-gap:value` | CSS Property | Space between slides (default: `var(--wa-space-m)`) |
 
 ### Tag Variants
