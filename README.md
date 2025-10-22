@@ -16,6 +16,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Button** | `%%%variant` | `:::wa-button variant` | `<wa-button variant="brand" href="url">text</wa-button>` or `<wa-button variant="brand">text</wa-button>` |
 | **Callouts** | `:::info` | `:::wa-callout info` | `<wa-callout variant="brand"><wa-icon name="circle-info"></wa-icon>content</wa-callout>` |
 | **Card** | `===` | `:::wa-card` | `<wa-card>content</wa-card>` |
+| **Carousel** | `~~~~~~` | `:::wa-carousel` | `<wa-carousel>` with carousel items |
 | **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
 | **Copy Button** | `<<<` | `:::wa-copy-button` | `<wa-copy-button value="content">content</wa-copy-button>` |
 | **Details** | `^^^appearance? icon-placement?` | `:::wa-details appearance? icon-placement?` | `<wa-details appearance="..." icon-placement="...">content</wa-details>` |
@@ -269,6 +270,184 @@ This card uses the accent appearance for emphasis.
 ```
 
 ![Cards component example](readme_screenshots/cards.png)
+
+### Carousel
+
+Create carousels (image sliders/content rotators) using the `~~~~~~` syntax:
+
+```markdown
+~~~~~~
+~~~
+![Mountain landscape](mountain.jpg)
+Beautiful mountain scenery
+~~~
+~~~
+![Ocean view](ocean.jpg)
+Peaceful ocean waves
+~~~
+~~~
+![Forest path](forest.jpg)
+Walking through the woods
+~~~
+~~~~~~
+```
+
+#### Multiple Slides Per View
+
+Show multiple slides at once by specifying the number:
+
+```markdown
+~~~~~~3
+~~~
+Product 1 content
+~~~
+~~~
+Product 2 content
+~~~
+~~~
+Product 3 content
+~~~
+~~~
+Product 4 content
+~~~
+~~~~~~
+```
+
+#### Navigation and Pagination
+
+Add navigation arrows and pagination dots with keywords:
+
+```markdown
+~~~~~~navigation pagination
+~~~
+First slide
+~~~
+~~~
+Second slide
+~~~
+~~~
+Third slide
+~~~
+~~~~~~
+```
+
+#### Slides Per Move
+
+Control how many slides advance at a time (first number is slides-per-page, second is slides-per-move):
+
+```markdown
+~~~~~~3 2 navigation
+~~~
+Slide 1
+~~~
+~~~
+Slide 2
+~~~
+~~~
+Slide 3
+~~~
+~~~
+Slide 4
+~~~
+~~~
+Slide 5
+~~~
+~~~~~~
+```
+
+This shows 3 slides at a time and moves 2 slides when navigating.
+
+#### Looping
+
+Enable continuous looping with the `loop` keyword:
+
+```markdown
+~~~~~~loop navigation
+~~~
+Slide 1
+~~~
+~~~
+Slide 2
+~~~
+~~~
+Slide 3
+~~~
+~~~~~~
+```
+
+#### Scroll Hint
+
+Add padding to show adjacent slides as a hint using the `scroll-hint` CSS property:
+
+```markdown
+~~~~~~scroll-hint:3rem navigation
+~~~
+![Photo 1](photo1.jpg)
+~~~
+~~~
+![Photo 2](photo2.jpg)
+~~~
+~~~
+![Photo 3](photo3.jpg)
+~~~
+~~~~~~
+```
+
+#### Advanced Options
+
+Combine multiple parameters for full control:
+
+```markdown
+~~~~~~3 2 loop navigation pagination scroll-hint:2rem
+~~~
+![Product 1](prod1.jpg)
+
+# Feature One
+
+Description here
+~~~
+~~~
+![Product 2](prod2.jpg)
+
+# Feature Two
+
+More details
+~~~
+~~~
+![Product 3](prod3.jpg)
+
+# Feature Three
+
+Additional info
+~~~
+~~~~~~
+```
+
+#### Carousel Parameters
+
+| Parameter Type | Syntax | Description |
+|----------------|--------|-------------|
+| **Slides Per Page** | First number (e.g., `3`) | How many slides visible at once (default: 1) |
+| **Slides Per Move** | Second number (e.g., `2`) | How many slides to advance (default: 1) |
+| **Loop** | `loop` | Enable continuous looping (default: off) |
+| **Navigation** | `navigation` | Show previous/next buttons |
+| **Pagination** | `pagination` | Show dot indicators |
+| **Autoplay** | `autoplay` | Auto-advance slides |
+| **Mouse Dragging** | `mouse-dragging` | Enable click-and-drag |
+| **Vertical** | `vertical` | Vertical orientation |
+| **Scroll Hint** | `scroll-hint:2rem` | Padding to show adjacent slides |
+| **Aspect Ratio** | `aspect-ratio:3/2` | Viewport aspect ratio (default: 16/9) |
+| **Slide Gap** | `slide-gap:1rem` | Space between slides |
+
+All parameters are optional and can be combined in any order:
+
+```markdown
+~~~~~~vertical pagination autoplay
+~~~
+Content here
+~~~
+~~~~~~
+```
 
 ### Tags
 
@@ -578,6 +757,22 @@ Cards automatically parse content into these slots:
 - **Header**: First `#` heading becomes header slot  
 - **Content**: Remaining content becomes main content
 - **Footer**: Trailing links become footer buttons
+
+### Carousel Options
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| Slides Per Page | Number (first numeric parameter) | How many slides visible at once (default: 1) |
+| Slides Per Move | Number (second numeric parameter) | How many slides to advance (default: 1) |
+| `loop` | Boolean | Enable continuous looping (default: off) |
+| `navigation` | Boolean | Show previous/next buttons (default: off) |
+| `pagination` | Boolean | Show dot indicators (default: off) |
+| `autoplay` | Boolean | Auto-advance slides (default: off) |
+| `mouse-dragging` | Boolean | Enable click-and-drag (default: off) |
+| `vertical` | Keyword | Use vertical orientation (default: horizontal) |
+| `scroll-hint:value` | CSS Property | Padding to show adjacent slides (e.g., `2rem`, `50px`) |
+| `aspect-ratio:value` | CSS Property | Viewport aspect ratio (default: 16/9, e.g., `3/2`, `4/3`) |
+| `slide-gap:value` | CSS Property | Space between slides (default: `var(--wa-space-m)`) |
 
 ### Tag Variants
 
