@@ -13,6 +13,7 @@ module Jekyll
         content = ButtonTransformer.transform(content)
         content = CalloutTransformer.transform(content)
         content = CardTransformer.transform(content)
+        content = CarouselTransformer.transform(content)
         content = ComparisonTransformer.transform(content)
         content = CopyButtonTransformer.transform(content)
         content = DetailsTransformer.transform(content)

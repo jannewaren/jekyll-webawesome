@@ -392,3 +392,200 @@ This card uses the filled-outlined appearance.
 # Accent Card
 This card uses the accent appearance for emphasis.
 ===
+
+## Carousel
+
+### Basic Carousel
+
+~~~~~~
+~~~
+![Mountain landscape](image.png)
+
+**Mountain Beauty**
+
+Breathtaking views of mountain peaks
+~~~
+~~~
+![Ocean scene](image_colours.png)
+
+**Ocean Waves**
+
+Peaceful coastal scenery
+~~~
+~~~
+![Forest path](image_big.png)
+
+**Forest Trail**
+
+Walk through nature
+~~~
+~~~~~~
+
+### Multiple Slides Per View
+
+Show 3 slides at once:
+
+~~~~~~3
+~~~
+**Slide 1**
+
+First product description
+~~~
+~~~
+**Slide 2**
+
+Second product description
+~~~
+~~~
+**Slide 3**
+
+Third product description
+~~~
+~~~
+**Slide 4**
+
+Fourth product description
+~~~
+~~~
+**Slide 5**
+
+Fifth product description
+~~~
+~~~~~~
+
+### With Navigation and Pagination
+
+~~~~~~navigation pagination
+~~~
+**Slide One**
+
+Content for the first slide with navigation
+~~~
+~~~
+**Slide Two**
+
+Content for the second slide
+~~~
+~~~
+**Slide Three**
+
+Content for the third slide
+~~~
+~~~~~~
+
+### Looping Carousel
+
+Continuously loop through slides:
+
+~~~~~~loop navigation pagination
+~~~
+**Product A**
+
+Description of product A
+~~~
+~~~
+**Product B**
+
+Description of product B
+~~~
+~~~
+**Product C**
+
+Description of product C
+~~~
+~~~~~~
+
+### With Scroll Hint
+
+Show adjacent slides peeking:
+
+~~~~~~scroll-hint:2rem navigation
+~~~
+![Product 1](image.png)
+
+**Product One**
+~~~
+~~~
+![Product 2](image_colours.png)
+
+**Product Two**
+~~~
+~~~
+![Product 3](image_big.png)
+
+**Product Three**
+~~~
+~~~~~~
+
+### Advanced: Multiple Slides, Custom Move
+
+Show 3 slides, move 2 at a time:
+
+~~~~~~3 2 loop navigation pagination
+~~~
+**Feature 1**
+
+Description here
+~~~
+~~~
+**Feature 2**
+
+More details
+~~~
+~~~
+**Feature 3**
+
+Additional info
+~~~
+~~~
+**Feature 4**
+
+Extra content
+~~~
+~~~
+**Feature 5**
+
+Final item
+~~~
+~~~
+**Feature 6**
+
+Bonus item
+~~~
+~~~~~~
+
+### Vertical Carousel
+
+~~~~~~vertical pagination
+~~~
+**Top Item**
+
+First item in vertical layout
+~~~
+~~~
+**Middle Item**
+
+Second item
+~~~
+~~~
+**Bottom Item**
+
+Third item
+~~~
+~~~~~~
+
+### Alternative Syntax
+
+:::wa-carousel navigation pagination
+~~~
+**Alternative Syntax**
+
+First slide using alternative syntax
+~~~
+~~~
+**Second Slide**
+
+More content here
+~~~
+:::
+

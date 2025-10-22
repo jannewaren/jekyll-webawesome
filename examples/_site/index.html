@@ -577,6 +577,139 @@ with multiple lines of text"></wa-copy-button>
 </div><p>This card uses the accent appearance for emphasis.</p>
 </wa-card>
 
+<h2 id="carousel">Carousel</h2>
+
+<h3 id="basic-carousel">Basic Carousel</h3>
+
+<wa-carousel><wa-carousel-item><p><img src="image.png" alt="Mountain landscape" /></p>
+
+<p><strong>Mountain Beauty</strong></p>
+
+<p>Breathtaking views of mountain peaks</p>
+</wa-carousel-item><wa-carousel-item><p><img src="image_colours.png" alt="Ocean scene" /></p>
+
+<p><strong>Ocean Waves</strong></p>
+
+<p>Peaceful coastal scenery</p>
+</wa-carousel-item><wa-carousel-item><p><img src="image_big.png" alt="Forest path" /></p>
+
+<p><strong>Forest Trail</strong></p>
+
+<p>Walk through nature</p>
+</wa-carousel-item></wa-carousel>
+
+<h3 id="multiple-slides-per-view">Multiple Slides Per View</h3>
+
+<p>Show 3 slides at once:</p>
+
+<wa-carousel slides-per-page="3"><wa-carousel-item><p><strong>Slide 1</strong></p>
+
+<p>First product description</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Slide 2</strong></p>
+
+<p>Second product description</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Slide 3</strong></p>
+
+<p>Third product description</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Slide 4</strong></p>
+
+<p>Fourth product description</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Slide 5</strong></p>
+
+<p>Fifth product description</p>
+</wa-carousel-item></wa-carousel>
+
+<h3 id="with-navigation-and-pagination">With Navigation and Pagination</h3>
+
+<wa-carousel navigation="" pagination=""><wa-carousel-item><p><strong>Slide One</strong></p>
+
+<p>Content for the first slide with navigation</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Slide Two</strong></p>
+
+<p>Content for the second slide</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Slide Three</strong></p>
+
+<p>Content for the third slide</p>
+</wa-carousel-item></wa-carousel>
+
+<h3 id="looping-carousel">Looping Carousel</h3>
+
+<p>Continuously loop through slides:</p>
+
+<wa-carousel loop="" navigation="" pagination=""><wa-carousel-item><p><strong>Product A</strong></p>
+
+<p>Description of product A</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Product B</strong></p>
+
+<p>Description of product B</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Product C</strong></p>
+
+<p>Description of product C</p>
+</wa-carousel-item></wa-carousel>
+
+<h3 id="with-scroll-hint">With Scroll Hint</h3>
+
+<p>Show adjacent slides peeking:</p>
+
+<wa-carousel navigation="" style="--scroll-hint: 2rem"><wa-carousel-item><p><img src="image.png" alt="Product 1" /></p>
+
+<p><strong>Product One</strong></p>
+</wa-carousel-item><wa-carousel-item><p><img src="image_colours.png" alt="Product 2" /></p>
+
+<p><strong>Product Two</strong></p>
+</wa-carousel-item><wa-carousel-item><p><img src="image_big.png" alt="Product 3" /></p>
+
+<p><strong>Product Three</strong></p>
+</wa-carousel-item></wa-carousel>
+
+<h3 id="advanced-multiple-slides-custom-move">Advanced: Multiple Slides, Custom Move</h3>
+
+<p>Show 3 slides, move 2 at a time:</p>
+
+<wa-carousel slides-per-page="3" slides-per-move="2" loop="" navigation="" pagination=""><wa-carousel-item><p><strong>Feature 1</strong></p>
+
+<p>Description here</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Feature 2</strong></p>
+
+<p>More details</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Feature 3</strong></p>
+
+<p>Additional info</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Feature 4</strong></p>
+
+<p>Extra content</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Feature 5</strong></p>
+
+<p>Final item</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Feature 6</strong></p>
+
+<p>Bonus item</p>
+</wa-carousel-item></wa-carousel>
+
+<h3 id="vertical-carousel">Vertical Carousel</h3>
+
+<wa-carousel orientation="vertical" pagination=""><wa-carousel-item><p><strong>Top Item</strong></p>
+
+<p>First item in vertical layout</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Middle Item</strong></p>
+
+<p>Second item</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Bottom Item</strong></p>
+
+<p>Third item</p>
+</wa-carousel-item></wa-carousel>
+
+<h3 id="alternative-syntax">Alternative Syntax</h3>
+
+<wa-carousel navigation="" pagination=""><wa-carousel-item><p><strong>Alternative Syntax</strong></p>
+
+<p>First slide using alternative syntax</p>
+</wa-carousel-item><wa-carousel-item><p><strong>Second Slide</strong></p>
+
+<p>More content here</p>
+</wa-carousel-item></wa-carousel>
+
+
         </main>
     </div>
 </body>
