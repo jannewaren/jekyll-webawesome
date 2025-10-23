@@ -142,5 +142,116 @@ Line two</wa-tag>'
         expect(result).to eq(expected)
       end
     end
+
+    context 'with inline syntax' do
+      it 'transforms inline tag without variant' do
+        input = 'Some text @@@ Basic tag @@@ more text'
+        expected = 'Some text <wa-tag>Basic tag</wa-tag> more text'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'transforms inline tag with brand variant' do
+        input = 'Check out @@@ brand Version 2.0 @@@ for details'
+        expected = 'Check out <wa-tag variant="brand">Version 2.0</wa-tag> for details'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'transforms inline tag with success variant' do
+        input = 'Status: @@@ success Completed @@@'
+        expected = 'Status: <wa-tag variant="success">Completed</wa-tag>'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'transforms inline tag with warning variant' do
+        input = 'Note @@@ warning In Progress @@@ today'
+        expected = 'Note <wa-tag variant="warning">In Progress</wa-tag> today'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'transforms inline tag with danger variant' do
+        input = 'Alert: @@@ danger Critical @@@ issue'
+        expected = 'Alert: <wa-tag variant="danger">Critical</wa-tag> issue'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'transforms inline tag with neutral variant' do
+        input = 'See @@@ neutral Documentation @@@ for more'
+        expected = 'See <wa-tag variant="neutral">Documentation</wa-tag> for more'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'works in headings' do
+        input = '## Feature @@@ brand v2.0 @@@ Released'
+        expected = '## Feature <wa-tag variant="brand">v2.0</wa-tag> Released'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'works in multiple headings' do
+        input = <<~MARKDOWN
+          # Main Title @@@ success New @@@
+
+          Some content here.
+
+          ## Section @@@ warning Beta @@@ Overview
+        MARKDOWN
+
+        result = described_class.transform(input)
+        expect(result).to include('# Main Title <wa-tag variant="success">New</wa-tag>')
+        expect(result).to include('## Section <wa-tag variant="warning">Beta</wa-tag> Overview')
+      end
+
+      it 'handles multiple inline tags in same line' do
+        input = 'Status @@@ success Done @@@ and @@@ warning Pending @@@ items'
+        expected = 'Status <wa-tag variant="success">Done</wa-tag> and <wa-tag variant="warning">Pending</wa-tag> items'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'handles inline tags with markdown content' do
+        input = 'Check @@@ brand **Bold** text @@@ here'
+        expected = 'Check <wa-tag variant="brand"><strong>Bold</strong> text</wa-tag> here'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'trims extra whitespace in inline tags' do
+        input = 'Text @@@  brand   Version   @@@  end'
+        expected = 'Text <wa-tag variant="brand">Version</wa-tag>  end'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'does not confuse inline with block syntax' do
+        input = <<~MARKDOWN
+          Inline @@@ success Tag @@@ here
+
+          @@@warning
+          Block tag
+          @@@
+        MARKDOWN
+
+        result = described_class.transform(input)
+        expect(result).to include('Inline <wa-tag variant="success">Tag</wa-tag> here')
+        expect(result).to include('<wa-tag variant="warning">Block tag</wa-tag>')
+      end
+    end
   end
 end
+
