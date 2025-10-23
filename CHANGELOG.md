@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Placeholder
 
+## [0.6.0] - 2025-10-23
+
+- Support inline wa-tag components
+
 ## [0.6.0] - 2025-10-22
 
 - Support for wa-carousel component
