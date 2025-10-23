@@ -6,13 +6,18 @@ module Jekyll
   module WebAwesome
     # Transforms tag syntax into wa-tag elements
     # Primary syntax: @@@variant?\ncontent\n@@@
+    # Inline syntax: @@@ variant? content @@@
     # Alternative syntax: :::wa-tag variant?\ncontent\n:::
     # Variants: brand, success, neutral, warning, danger
     class TagTransformer < BaseTransformer
       def self.transform(content)
-        # Define both regex patterns
+        # Define regex patterns
+        # Block syntax (multiline with newlines)
         primary_regex = /^@@@(brand|success|neutral|warning|danger)?\n(.*?)\n@@@/m
         alternative_regex = /^:::wa-tag\s*(brand|success|neutral|warning|danger)?\n(.*?)\n:::/m
+        
+        # Inline syntax (same line with spaces)
+        inline_regex = /@@@\s*(brand|success|neutral|warning|danger)?\s+([^@]+?)\s+@@@/
 
         # Define shared transformation logic
         transform_proc = proc do |variant, tag_content|
@@ -21,8 +26,17 @@ module Jekyll
           build_tag_html(tag_content, variant)
         end
 
-        # Apply both patterns
-        patterns = dual_syntax_patterns(primary_regex, alternative_regex, transform_proc)
+        # Apply all patterns (inline first to avoid conflicts)
+        patterns = [
+          {
+            regex: inline_regex,
+            block: proc do |_match, matchdata|
+              captures = matchdata.captures
+              transform_proc.call(*captures)
+            end
+          },
+          *dual_syntax_patterns(primary_regex, alternative_regex, transform_proc)
+        ]
         apply_multiple_patterns(content, patterns)
       end
 
