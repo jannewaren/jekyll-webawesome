@@ -12,12 +12,12 @@ module Jekyll
     class TagTransformer < BaseTransformer
       def self.transform(content)
         # Define regex patterns
-        # Block syntax (multiline with newlines)
-        primary_regex = /^@@@(brand|success|neutral|warning|danger)?\n(.*?)\n@@@/m
-        alternative_regex = /^:::wa-tag\s*(brand|success|neutral|warning|danger)?\n(.*?)\n:::/m
-        
+        # Block syntax (multiline with newlines) - supports both LF and CRLF
+        primary_regex = /^@@@(brand|success|neutral|warning|danger)?\r?\n(.*?)\r?\n@@@/m
+        alternative_regex = /^:::wa-tag\s*(brand|success|neutral|warning|danger)?\r?\n(.*?)\r?\n:::/m
+
         # Inline syntax (same line with spaces)
-        inline_regex = /@@@\s*(brand|success|neutral|warning|danger)?\s+([^@]+?)\s+@@@/
+        inline_regex = /@@@\s*(brand|success|neutral|warning|danger)?\s+([^@\r\n]+?)\s+@@@/
 
         # Define shared transformation logic
         transform_proc = proc do |variant, tag_content|
