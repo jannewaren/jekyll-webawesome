@@ -29,6 +29,10 @@ This is a neutral callout.
 
 ## Tags
 
+Tags can be used in two ways: **block syntax** (with newlines) or **inline syntax** (on the same line with spaces).
+
+### Block Tags
+
 @@@
 Basic tag
 @@@
@@ -52,6 +56,22 @@ Critical Issue
 @@@neutral
 Documentation
 @@@
+
+### Inline Tags
+
+Use inline tags in headings or within text: @@@ brand v2.0 @@@ or @@@ success New @@@
+
+#### In Headings
+
+### Feature @@@ brand v2.0 @@@ Released
+
+### Status @@@ warning Beta @@@ Features
+
+#### In Text
+
+This release has @@@ success stable @@@ status and includes @@@ brand new features @@@.
+
+You can use multiple variants: @@@ brand Brand @@@ @@@ success Success @@@ @@@ neutral Neutral @@@ @@@ warning Warning @@@ @@@ danger Danger @@@
 
 ## Comparison
 
