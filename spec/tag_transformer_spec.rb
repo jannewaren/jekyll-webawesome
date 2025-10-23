@@ -122,6 +122,29 @@ RSpec.describe Jekyll::WebAwesome::TagTransformer do
         result = described_class.transform(input)
         expect(result).to eq(input) # Should remain unchanged
       end
+
+      it 'does not leave orphaned variant text when syntax is incomplete' do
+        input = <<~MARKDOWN
+          @@@brand
+          Text content
+
+          More paragraphs
+        MARKDOWN
+
+        result = described_class.transform(input)
+        # Should not transform since there's no closing @@@
+        expect(result).to eq(input)
+        expect(result).not_to include('<wa-tag')
+      end
+
+      it 'does not leave orphaned variant with blank line after variant' do
+        input = "@@@brand\n\nText\n@@@"
+        expected = '<wa-tag variant="brand">Text</wa-tag>'
+
+        result = described_class.transform(input)
+        # This should still work - blank lines in content are OK
+        expect(result).to eq(expected)
+      end
     end
 
     context 'with whitespace handling' do
@@ -137,6 +160,31 @@ RSpec.describe Jekyll::WebAwesome::TagTransformer do
         input = "@@@neutral\nLine one\nLine two\n@@@"
         expected = '<wa-tag variant="neutral">Line one
 Line two</wa-tag>'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'handles CRLF (Windows) line endings' do
+        input = "@@@brand\r\nVersion 2.0\r\n@@@"
+        expected = '<wa-tag variant="brand">Version 2.0</wa-tag>'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'handles multiline content with CRLF line endings' do
+        input = "@@@danger\r\nLine one\r\nLine two\r\n@@@"
+        expected = '<wa-tag variant="danger">Line one
+Line two</wa-tag>'
+
+        result = described_class.transform(input)
+        expect(result).to eq(expected)
+      end
+
+      it 'handles mixed LF and CRLF line endings' do
+        input = "@@@success\r\nCompleted\n@@@"
+        expected = '<wa-tag variant="success">Completed</wa-tag>'
 
         result = described_class.transform(input)
         expect(result).to eq(expected)
@@ -254,4 +302,3 @@ Line two</wa-tag>'
     end
   end
 end
-
