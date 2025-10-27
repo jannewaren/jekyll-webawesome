@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'transformer'
 require_relative 'code_block_transformer'
 
 module Jekyll
@@ -84,21 +83,58 @@ module Jekyll
         filepath.to_s.match?(/\.md$/i)
       end
 
-      # Register hooks for pre-render processing (before markdown conversion)
-      Jekyll::Hooks.register :documents, :pre_render do |document|
-        next unless markdown_file?(document.relative_path)
-        next unless transform_documents_enabled?(document.site)
-
-        puts "Jekyll::WebAwesome Processing document (pre-render): #{document.relative_path}\n" if debug_enabled?(document.site)
-        document.content = Transformer.process(document.content, document.site)
+      # Sync Jekyll configuration to Markawesome before processing
+      def self.sync_configuration(site)
+        # Sync callout icons from site config if present
+        if site.config.dig('webawesome', 'callout_icons')
+          Markawesome.configure do |config|
+            config.callout_icons = site.config.dig('webawesome', 'callout_icons').transform_keys(&:to_sym)
+          end
+        elsif Jekyll::WebAwesome.configuration&.callout_icons
+          Markawesome.configure do |config|
+            config.callout_icons = Jekyll::WebAwesome.configuration.callout_icons
+          end
+        end
       end
 
-      Jekyll::Hooks.register :pages, :pre_render do |page|
-        next unless markdown_file?(page.relative_path)
-        next unless transform_pages_enabled?(page.site)
+      # Register hooks for pre-render processing (before markdown conversion)
+      # Wrapped in conditional to prevent errors when Jekyll::Hooks is not fully loaded
+      if defined?(Jekyll::Hooks)
+        Jekyll::Hooks.register :documents, :pre_render do |document|
+          next unless markdown_file?(document.relative_path)
+          next unless transform_documents_enabled?(document.site)
 
-        puts "Jekyll::WebAwesome Processing page (pre-render): #{page.relative_path}\n" if debug_enabled?(page.site)
-        page.content = Transformer.process(page.content, page.site)
+          # Sync configuration from Jekyll to Markawesome
+          sync_configuration(document.site)
+
+          puts "Jekyll::WebAwesome Processing document (pre-render): #{document.relative_path}\n" if debug_enabled?(document.site)
+          
+          # Build options for Markawesome
+          options = {}
+          if image_dialog_enabled?(document.site)
+            options[:image_dialog] = image_dialog_config(document.site)
+          end
+          
+          document.content = Markawesome::Transformer.process(document.content, options)
+        end
+
+        Jekyll::Hooks.register :pages, :pre_render do |page|
+          next unless markdown_file?(page.relative_path)
+          next unless transform_pages_enabled?(page.site)
+
+          # Sync configuration from Jekyll to Markawesome
+          sync_configuration(page.site)
+
+          puts "Jekyll::WebAwesome Processing page (pre-render): #{page.relative_path}\n" if debug_enabled?(page.site)
+          
+          # Build options for Markawesome
+          options = {}
+          if image_dialog_enabled?(page.site)
+            options[:image_dialog] = image_dialog_config(page.site)
+          end
+          
+          page.content = Markawesome::Transformer.process(page.content, options)
+        end
       end
     end
   end

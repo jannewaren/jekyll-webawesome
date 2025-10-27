@@ -322,8 +322,8 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       # Step 1: Protect all code blocks (priority 50)
       content = described_class.protect_all_code_blocks(markdown)
 
-      # Step 2: Transform wa-details (priority 20 - done by Transformer)
-      content = Jekyll::WebAwesome::DetailsTransformer.transform(content)
+      # Step 2: Transform wa-details (priority 20 - done by Markawesome::Transformer)
+      content = Markawesome::DetailsTransformer.transform(content)
 
       # At this point, the code block should still be protected
       expect(content).to include('<!--PROTECTED_CODE_BLOCK_0-->')

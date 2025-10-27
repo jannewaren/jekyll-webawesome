@@ -96,61 +96,64 @@ module Jekyll
       end
 
       # Register hooks directly in the transformer module
-      # Clear protected blocks at start of build
-      Jekyll::Hooks.register :site, :pre_render do |_site|
-        CodeBlockTransformer.clear_protected_blocks
-      end
+      # Wrapped in conditional to prevent errors when Jekyll::Hooks is not fully loaded
+      if defined?(Jekyll::Hooks)
+        # Clear protected blocks at start of build
+        Jekyll::Hooks.register :site, :pre_render do |_site|
+          CodeBlockTransformer.clear_protected_blocks
+        end
 
-      # STEP 1: Protect all code blocks BEFORE any transformations (highest priority)
-      Jekyll::Hooks.register :documents, :pre_render, priority: 50 do |document|
-        next unless document.relative_path =~ /.*\.md$/i
-        next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
+        # STEP 1: Protect all code blocks BEFORE any transformations (highest priority)
+        Jekyll::Hooks.register :documents, :pre_render, priority: 50 do |document|
+          next unless document.relative_path =~ /.*\.md$/i
+          next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
 
-        puts "Jekyll::WebAwesome::CodeBlockTransformer protecting code blocks in document: #{document.relative_path}\n"
-        document.content = CodeBlockTransformer.protect_all_code_blocks(document.content)
-      end
+          puts "Jekyll::WebAwesome::CodeBlockTransformer protecting code blocks in document: #{document.relative_path}\n"
+          document.content = CodeBlockTransformer.protect_all_code_blocks(document.content)
+        end
 
-      Jekyll::Hooks.register :pages, :pre_render, priority: 50 do |page|
-        next unless page.relative_path =~ /.*\.md$/i
-        next unless CodeBlockTransformer.transform_pages_enabled?(page.site)
+        Jekyll::Hooks.register :pages, :pre_render, priority: 50 do |page|
+          next unless page.relative_path =~ /.*\.md$/i
+          next unless CodeBlockTransformer.transform_pages_enabled?(page.site)
 
-        puts "Jekyll::WebAwesome::CodeBlockTransformer protecting code blocks in page: #{page.relative_path}\n"
-        page.content = CodeBlockTransformer.protect_all_code_blocks(page.content)
-      end
+          puts "Jekyll::WebAwesome::CodeBlockTransformer protecting code blocks in page: #{page.relative_path}\n"
+          page.content = CodeBlockTransformer.protect_all_code_blocks(page.content)
+        end
 
-      # STEP 2: Transform protected code blocks to Jekyll highlight syntax
-      # This happens AFTER WebAwesome transformers (priority 20) but BEFORE restoration
-      Jekyll::Hooks.register :documents, :pre_render, priority: 15 do |document|
-        next unless document.relative_path =~ /.*\.md$/i
-        next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
+        # STEP 2: Transform protected code blocks to Jekyll highlight syntax
+        # This happens AFTER WebAwesome transformers (priority 20) but BEFORE restoration
+        Jekyll::Hooks.register :documents, :pre_render, priority: 15 do |document|
+          next unless document.relative_path =~ /.*\.md$/i
+          next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
 
-        puts "Jekyll::WebAwesome::CodeBlockTransformer transforming code blocks in document: #{document.relative_path}\n"
-        document.content = CodeBlockTransformer.transform_code_blocks(document.content)
-      end
+          puts "Jekyll::WebAwesome::CodeBlockTransformer transforming code blocks in document: #{document.relative_path}\n"
+          document.content = CodeBlockTransformer.transform_code_blocks(document.content)
+        end
 
-      Jekyll::Hooks.register :pages, :pre_render, priority: 15 do |page|
-        next unless page.relative_path =~ /.*\.md$/i
-        next unless CodeBlockTransformer.transform_pages_enabled?(page.site)
+        Jekyll::Hooks.register :pages, :pre_render, priority: 15 do |page|
+          next unless page.relative_path =~ /.*\.md$/i
+          next unless CodeBlockTransformer.transform_pages_enabled?(page.site)
 
-        puts "Jekyll::WebAwesome::CodeBlockTransformer transforming code blocks in page: #{page.relative_path}\n"
-        page.content = CodeBlockTransformer.transform_code_blocks(page.content)
-      end
+          puts "Jekyll::WebAwesome::CodeBlockTransformer transforming code blocks in page: #{page.relative_path}\n"
+          page.content = CodeBlockTransformer.transform_code_blocks(page.content)
+        end
 
-      # STEP 3: Restore protected blocks after transformation (lowest priority)
-      Jekyll::Hooks.register :documents, :pre_render, priority: 10 do |document|
-        next unless document.relative_path =~ /.*\.md$/i
-        next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
+        # STEP 3: Restore protected blocks after transformation (lowest priority)
+        Jekyll::Hooks.register :documents, :pre_render, priority: 10 do |document|
+          next unless document.relative_path =~ /.*\.md$/i
+          next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
 
-        puts "Jekyll::WebAwesome::CodeBlockTransformer restoring code blocks in document: #{document.relative_path}\n"
-        document.content = CodeBlockTransformer.restore_protected_blocks(document.content)
-      end
+          puts "Jekyll::WebAwesome::CodeBlockTransformer restoring code blocks in document: #{document.relative_path}\n"
+          document.content = CodeBlockTransformer.restore_protected_blocks(document.content)
+        end
 
-      Jekyll::Hooks.register :pages, :pre_render, priority: 10 do |page|
-        next unless page.relative_path =~ /.*\.md$/i
-        next unless CodeBlockTransformer.transform_pages_enabled?(page.site)
+        Jekyll::Hooks.register :pages, :pre_render, priority: 10 do |page|
+          next unless page.relative_path =~ /.*\.md$/i
+          next unless CodeBlockTransformer.transform_pages_enabled?(page.site)
 
-        puts "Jekyll::WebAwesome::CodeBlockTransformer restoring code blocks in page: #{page.relative_path}\n"
-        page.content = CodeBlockTransformer.restore_protected_blocks(page.content)
+          puts "Jekyll::WebAwesome::CodeBlockTransformer restoring code blocks in page: #{page.relative_path}\n"
+          page.content = CodeBlockTransformer.restore_protected_blocks(page.content)
+        end
       end
     end
   end

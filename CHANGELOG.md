@@ -8,6 +8,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Placeholder
 
+## [0.7.0] - 2025-10-27
+
+### Changed
+
+- **BREAKING CHANGE**: Extracted all transformation logic into separate `markawesome` gem
+- Jekyll WebAwesome now depends on `markawesome ~> 0.1` for transformation logic
+- Configuration is now synced from Jekyll to Markawesome automatically
+- Hook registration wrapped in conditional checks to prevent test environment errors
+
+### Removed
+
+- All transformer classes moved to `markawesome` gem
+- Individual transformer spec files (now in `markawesome` gem)
+
+### Added
+
+- Configuration sync method to pass Jekyll config to Markawesome
+- Conditional `if defined?(Jekyll::Hooks)` guards around hook registrations
+- Support for passing `image_dialog` options to Markawesome transformer
+
+### Technical Details
+
+This release extracts the Markdown-to-Web Awesome transformation engine into a framework-agnostic gem called `markawesome`. The `jekyll-webawesome` gem now focuses solely on Jekyll integration (hooks, plugin registration, code block handling), while `markawesome` handles all component transformations.
+
+Benefits:
+
+- Transformation logic can now be used with other static site generators (Hugo, Middleman, etc.)
+- Better separation of concerns
+- Easier testing and maintenance
+- No breaking changes for end users (syntax remains the same)
+
+Migration:
+
+- Update your Gemfile: `gem 'jekyll-webawesome', '~> 0.5.0'`
+- Run `bundle update jekyll-webawesome`
+- No configuration changes needed - everything works the same
+
 ## [0.6.0] - 2025-10-23
 
 - Support inline wa-tag components
