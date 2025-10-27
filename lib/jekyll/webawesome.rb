@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
+require 'markawesome'
 require_relative 'webawesome/version'
-require_relative 'webawesome/transformer'
 require_relative 'webawesome/code_block_transformer'
 require_relative 'webawesome/plugin'
 
@@ -17,7 +17,19 @@ module Jekyll
       def configure
         self.configuration ||= Configuration.new
         yield(configuration) if block_given?
+        # Sync configuration to Markawesome
+        sync_to_markawesome
         configuration
+      end
+
+      # Sync Jekyll WebAwesome configuration to Markawesome
+      def sync_to_markawesome
+        return unless configuration
+
+        Markawesome.configure do |config|
+          config.callout_icons = configuration.callout_icons if configuration.callout_icons
+          config.custom_components = configuration.custom_components if configuration.custom_components
+        end
       end
     end
 

@@ -24,21 +24,6 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
 
-### Planned
-
-These content-focused components will get dedicated syntax in future releases:
-
-| Component | Primary Syntax | Alternative syntax | HTML Output |
-|-----------|----------------------|-------------------|-------------|
-| **Icon** | `$$$icon-name` | `:::wa-icon name` | `<wa-icon name="icon-name"></wa-icon>` |
-| **Progress Bar** | `&&&value` | `:::wa-progress-bar value` | `<wa-progress-bar value="50"></wa-progress-bar>` |
-| **Rating** | `???value` | `:::wa-rating value` | `<wa-rating value="4"></wa-rating>` |
-| **Avatar** | (none) | `:::wa-avatar` | `<wa-avatar>` |
-| **QR Code** | (none) | `:::wa-qr-code` | `<wa-qr-code>` |
-| **Skeleton** | (none) | `:::wa-skeleton` | `<wa-skeleton>` |
-| **Spinner** | (none) | `:::wa-spinner` | `<wa-spinner>` |
-| **Tooltip** | (none) | `:::wa-tooltip` | `<wa-tooltip>` |
-
 Not all components will make sense to include here, to be included in the "prose" content of a web page. Some components are more suitable to be used in layouts or used in the page as includes, too complicated for this purpose.
 
 Both syntax styles work identically and can be mixed within the same document.
