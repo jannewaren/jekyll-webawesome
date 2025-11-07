@@ -108,7 +108,7 @@ module Jekyll
           next unless document.relative_path =~ /.*\.md$/i
           next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
 
-          puts "Jekyll::WebAwesome::CodeBlockTransformer protecting code blocks in document: #{document.relative_path}\n"
+          puts "Jekyll::WebAwesome::CodeBlockTransformer protecting code blocks in document: #{document.relative_path}\n" if Plugin.debug_enabled?(document.site)
           document.content = CodeBlockTransformer.protect_all_code_blocks(document.content)
         end
 
@@ -116,7 +116,7 @@ module Jekyll
           next unless page.relative_path =~ /.*\.md$/i
           next unless CodeBlockTransformer.transform_pages_enabled?(page.site)
 
-          puts "Jekyll::WebAwesome::CodeBlockTransformer protecting code blocks in page: #{page.relative_path}\n"
+          puts "Jekyll::WebAwesome::CodeBlockTransformer protecting code blocks in page: #{page.relative_path}\n" if Plugin.debug_enabled?(page.site)
           page.content = CodeBlockTransformer.protect_all_code_blocks(page.content)
         end
 
@@ -126,7 +126,7 @@ module Jekyll
           next unless document.relative_path =~ /.*\.md$/i
           next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
 
-          puts "Jekyll::WebAwesome::CodeBlockTransformer transforming code blocks in document: #{document.relative_path}\n"
+          puts "Jekyll::WebAwesome::CodeBlockTransformer transforming code blocks in document: #{document.relative_path}\n" if Plugin.debug_enabled?(document.site)
           document.content = CodeBlockTransformer.transform_code_blocks(document.content)
         end
 
@@ -134,7 +134,7 @@ module Jekyll
           next unless page.relative_path =~ /.*\.md$/i
           next unless CodeBlockTransformer.transform_pages_enabled?(page.site)
 
-          puts "Jekyll::WebAwesome::CodeBlockTransformer transforming code blocks in page: #{page.relative_path}\n"
+          puts "Jekyll::WebAwesome::CodeBlockTransformer transforming code blocks in page: #{page.relative_path}\n" if Plugin.debug_enabled?(page.site)
           page.content = CodeBlockTransformer.transform_code_blocks(page.content)
         end
 
@@ -143,7 +143,7 @@ module Jekyll
           next unless document.relative_path =~ /.*\.md$/i
           next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
 
-          puts "Jekyll::WebAwesome::CodeBlockTransformer restoring code blocks in document: #{document.relative_path}\n"
+          puts "Jekyll::WebAwesome::CodeBlockTransformer restoring code blocks in document: #{document.relative_path}\n" if Plugin.debug_enabled?(document.site)
           document.content = CodeBlockTransformer.restore_protected_blocks(document.content)
         end
 
@@ -151,7 +151,7 @@ module Jekyll
           next unless page.relative_path =~ /.*\.md$/i
           next unless CodeBlockTransformer.transform_pages_enabled?(page.site)
 
-          puts "Jekyll::WebAwesome::CodeBlockTransformer restoring code blocks in page: #{page.relative_path}\n"
+          puts "Jekyll::WebAwesome::CodeBlockTransformer restoring code blocks in page: #{page.relative_path}\n" if Plugin.debug_enabled?(page.site)
           page.content = CodeBlockTransformer.restore_protected_blocks(page.content)
         end
       end
