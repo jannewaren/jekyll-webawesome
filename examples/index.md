@@ -769,6 +769,30 @@ Description of product C
 ~~~
 ~~~~~~
 
+### Autoplay Carousel
+
+Automatically advance slides every 5 seconds:
+
+~~~~~~autoplay autoplay-interval:5000 loop pagination
+~~~
+**Auto Slide 1**
+
+This carousel auto-advances every 5 seconds
+~~~
+~~~
+**Auto Slide 2**
+
+Watch it transition automatically
+~~~
+~~~
+**Auto Slide 3**
+
+Autoplay pauses during user interaction
+~~~
+~~~~~~
+
+> **Note**: Autoplay interval is specified in milliseconds (5000 = 5 seconds). The default is 3000ms (3 seconds) if not specified. Autoplay automatically pauses when users interact with the carousel.
+
 ### With Scroll Hint
 
 Show adjacent slides peeking:
