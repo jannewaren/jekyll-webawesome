@@ -462,10 +462,134 @@ copy button example
 with multiple lines of text
 <<<
 
-Alternative syntax with :::wa-copy-button:
+### Tooltip Placement
+
+Control where the tooltip appears relative to the button:
+
+<<<top
+Tooltip appears on top (default)
+<<<
+
+<<<right
+Tooltip appears on the right
+<<<
+
+<<<bottom
+Tooltip appears on the bottom
+<<<
+
+<<<left
+Tooltip appears on the left
+<<<
+
+### Custom Labels
+
+Customize the tooltip messages for different states:
+
+<<<copy-label="Click to copy"
+Custom copy label only
+<<<
+
+<<<copy-label="Copy to clipboard" success-label="Copied successfully!"
+Custom copy and success labels
+<<<
+
+<<<copy-label="Copy" success-label="Done!" error-label="Copy failed"
+All three labels customized
+<<<
+
+### Feedback Duration
+
+Control how long the success message is displayed (in milliseconds):
+
+<<<250
+Quick feedback (250ms)
+<<<
+
+<<<2000
+Long feedback (2 seconds)
+<<<
+
+<<<3000 right
+3 second feedback with right tooltip
+<<<
+
+### Disabled State
+
+Disabled copy buttons cannot be clicked:
+
+<<<disabled
+You cannot copy this
+<<<
+
+<<<disabled bottom
+Disabled with bottom tooltip
+<<<
+
+<<<disabled top 1500
+Disabled with custom duration and placement
+<<<
+
+### Copy from Another Element
+
+Copy content from other elements by ID (requires the element to exist on the page):
+
+<span id="example-text">This text can be copied</span>
+
+<<<from="example-text"
+Copy from span above
+<<<
+
+<input type="text" id="example-input" value="Input value to copy" style="margin-bottom: 1rem;">
+
+<<<from="example-input.value" right
+Copy from input's value property
+<<<
+
+<a id="example-link" href="https://webawesome.com">Web Awesome</a>
+
+<<<from="example-link[href]" bottom
+Copy link's href attribute
+<<<
+
+### Combined Attributes
+
+Mix and match attributes in any order:
+
+<<<right 1500 copy-label="Click to copy"
+Right tooltip, 1.5s feedback, custom label
+<<<
+
+<<<bottom disabled copy-label="Cannot copy" error-label="Copying disabled"
+Disabled with custom messages
+<<<
+
+<<<left 2000 copy-label="Copy this" success-label="Copied!" error-label="Failed to copy"
+Full customization: placement, duration, all labels
+<<<
+
+<<<top 500 copy-label="Quick copy" success-label="Done"
+Fast feedback with custom labels
+<<<
+
+### Alternative Syntax
+
+The `:::wa-copy-button` syntax works identically:
 
 :::wa-copy-button
 Alternative syntax example
+:::
+
+:::wa-copy-button right
+Alternative syntax with right tooltip
+:::
+
+:::wa-copy-button disabled bottom 2000
+Alternative syntax with multiple attributes
+:::
+
+:::wa-copy-button copy-label="Copy code" success-label="Code copied!"
+npm install jekyll-webawesome
 :::
 
 ## Dialogs
