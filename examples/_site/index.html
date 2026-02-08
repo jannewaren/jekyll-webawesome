@@ -18,12 +18,62 @@
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        wa-callout, wa-card, wa-button, wa-tag, wa-details, wa-tab-group, wa-icon, wa-badge {
+        /* Use a content wrapper for better readability */
+        main {
+            max-width: 900px;
+        }
+
+        wa-card, wa-details, wa-tab-group {
             margin-top: 1rem;
+            display: block;
+        }
+
+        /* Callouts in a flex container to show size differences */
+        wa-callout {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Create visual grouping for component examples */
+        h3 + wa-callout,
+        p + wa-callout,
+        wa-callout + wa-callout {
+            margin-top: 0.5rem;
+        }
+
+        /* Inline components */
+        wa-button, wa-tag, wa-icon, wa-badge {
+            margin-top: 1rem;
+        }
+
+        /* Code blocks */
+        pre, code {
+            background: #f8f9fa;
+            border-radius: 4px;
+            padding: 0.2em 0.4em;
+            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        /* Add visual separation between component groups */
+        h2 {
+            border-top: 1px solid #e9ecef;
+            padding-top: 2rem;
+        }
+
+        h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
         }
 
         /* Heading styles */
@@ -71,7 +121,9 @@
 <body>
     <div class="container">
         <main>
-            <p>Examples of the Web Awesome components and their markdown syntax.</p>
+            <h1 id="web-awesome-component-examples">Web Awesome Component Examples</h1>
+
+<p>This page demonstrates the jekyll-webawesome plugin’s custom Markdown syntax for creating Web Awesome components. Each component shows both the syntax and the rendered result.</p>
 
 <h2 id="callouts">Callouts</h2>
 
@@ -88,6 +140,49 @@
 </wa-callout>
 
 <wa-callout variant="neutral"><wa-icon slot="icon" name="gear" variant="solid"></wa-icon><p>This is a neutral callout.</p>
+</wa-callout>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>This is a brand callout (the official variant name, same as <code>info</code>).</p>
+</wa-callout>
+
+<h3 id="callouts-with-size">Callouts with size</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">size</code> attribute affects internal padding and typography. Compare the compact padding of <code class="language-plaintext highlighter-rouge">small</code> with the generous spacing of <code class="language-plaintext highlighter-rouge">large</code>:</p>
+
+<wa-callout variant="brand" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>This is a <strong>small</strong> callout with compact padding.</p>
+</wa-callout>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>This is a <strong>medium</strong> callout (default) with standard padding.</p>
+</wa-callout>
+
+<wa-callout variant="brand" size="large"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>This is a <strong>large</strong> callout with generous padding.</p>
+</wa-callout>
+
+<h3 id="callouts-with-appearance">Callouts with appearance</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">appearance</code> attribute controls visual styling. Each appearance has a distinct look:</p>
+
+<wa-callout variant="brand" appearance="accent"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>Accent</strong> — Bold and prominent with solid color, perfect for important notices.</p>
+</wa-callout>
+
+<wa-callout variant="warning" appearance="outlined"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p><strong>Outlined</strong> — Subtle with just a border, good for less critical info.</p>
+</wa-callout>
+
+<wa-callout variant="success" appearance="plain"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p><strong>Plain</strong> — Minimal styling with just text color, most subtle option.</p>
+</wa-callout>
+
+<wa-callout variant="danger" appearance="filled"><wa-icon slot="icon" name="circle-exclamation" variant="solid"></wa-icon><p><strong>Filled</strong> — Solid background without border, strong visual presence.</p>
+</wa-callout>
+
+<wa-callout variant="brand" appearance="filled-outlined"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>Filled-outlined</strong> (default) — Combines filled background with border for maximum clarity.</p>
+</wa-callout>
+
+<h3 id="combined-size-and-appearance">Combined size and appearance</h3>
+
+<wa-callout variant="brand" appearance="accent" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Small accent callout — compact and eye-catching.</p>
+</wa-callout>
+
+<wa-callout variant="warning" appearance="filled-outlined" size="large"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p>Large filled-outlined warning callout.</p>
 </wa-callout>
 
 <h2 id="tags">Tags</h2>
