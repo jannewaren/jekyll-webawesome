@@ -189,7 +189,7 @@
 
 <p>Tags can be used in two ways: <strong>block syntax</strong> (with newlines) or <strong>inline syntax</strong> (on the same line with spaces).</p>
 
-<h3 id="block-tags">Block Tags</h3>
+<h3 id="basic-tag-variants">Basic Tag Variants</h3>
 
 <wa-tag>Basic tag</wa-tag>
 
@@ -202,6 +202,84 @@
 <wa-tag variant="danger">Critical Issue</wa-tag>
 
 <wa-tag variant="neutral">Documentation</wa-tag>
+
+<h3 id="appearance-styles">Appearance Styles</h3>
+
+<p>Tags support four different appearance styles:</p>
+
+<wa-tag appearance="accent">Accent appearance</wa-tag>
+
+<wa-tag appearance="filled">Filled appearance</wa-tag>
+
+<wa-tag appearance="outlined">Outlined appearance</wa-tag>
+
+<wa-tag appearance="filled-outlined">Filled-outlined (default)</wa-tag>
+
+<p>You can combine variants with appearances:</p>
+
+<wa-tag variant="brand" appearance="accent">Brand accent</wa-tag>
+
+<wa-tag variant="success" appearance="filled">Success filled</wa-tag>
+
+<wa-tag variant="warning" appearance="outlined">Warning outlined</wa-tag>
+
+<wa-tag variant="danger" appearance="filled-outlined">Danger filled-outlined</wa-tag>
+
+<h3 id="sizes">Sizes</h3>
+
+<p>Tags come in three sizes:</p>
+
+<wa-tag size="small">Small tag</wa-tag>
+
+<wa-tag size="medium">Medium tag (default)</wa-tag>
+
+<wa-tag size="large">Large tag</wa-tag>
+
+<p>Combined with variants:</p>
+
+<wa-tag variant="brand" size="small">Small brand</wa-tag>
+
+<wa-tag variant="success" size="medium">Medium success</wa-tag>
+
+<wa-tag variant="danger" size="large">Large danger</wa-tag>
+
+<h3 id="pill-shape">Pill Shape</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">pill</code> attribute gives tags rounded edges:</p>
+
+<wa-tag pill="">Rounded tag</wa-tag>
+
+<wa-tag variant="brand" pill="">Brand pill</wa-tag>
+
+<wa-tag variant="success" size="large" pill="">Large success pill</wa-tag>
+
+<wa-tag variant="warning" size="small" pill="">Small warning pill</wa-tag>
+
+<h3 id="removable-tags">Removable Tags</h3>
+
+<p>Tags with the <code class="language-plaintext highlighter-rouge">with-remove</code> attribute show a remove button:</p>
+
+<wa-tag with-remove="">Removable tag</wa-tag>
+
+<wa-tag variant="brand" with-remove="">Removable brand tag</wa-tag>
+
+<wa-tag variant="success" size="large" with-remove="">Large removable success tag</wa-tag>
+
+<wa-tag variant="danger" pill="" with-remove="">Removable pill-shaped danger tag</wa-tag>
+
+<h3 id="combined-attributes">Combined Attributes</h3>
+
+<p>All tag attributes work together in any order:</p>
+
+<wa-tag variant="brand" appearance="accent" size="small" pill="">Small brand accent pill</wa-tag>
+
+<wa-tag variant="success" appearance="filled" size="large" with-remove="">Large filled success with remove</wa-tag>
+
+<wa-tag variant="warning" appearance="outlined" size="medium" pill="">Medium outlined warning pill</wa-tag>
+
+<wa-tag variant="danger" appearance="filled-outlined" size="large" pill="" with-remove="">Large danger pill with all features</wa-tag>
+
+<wa-tag variant="brand" appearance="filled" size="large" pill="">Same as first (order doesn’t matter)</wa-tag>
 
 <h3 id="inline-tags">Inline Tags</h3>
 
@@ -218,6 +296,12 @@
 <p>This release has <wa-tag variant="success">stable</wa-tag> status and includes <wa-tag variant="brand">new features</wa-tag>.</p>
 
 <p>You can use multiple variants: <wa-tag variant="brand">Brand</wa-tag> <wa-tag variant="success">Success</wa-tag> <wa-tag variant="neutral">Neutral</wa-tag> <wa-tag variant="warning">Warning</wa-tag> <wa-tag variant="danger">Danger</wa-tag></p>
+
+<h4 id="inline-with-attributes">Inline with Attributes</h4>
+
+<p>Inline tags support all attributes: <wa-tag variant="brand" size="small" pill="">Tag</wa-tag> and <wa-tag variant="success" appearance="filled" size="large">Ready</wa-tag> and <wa-tag variant="danger" pill="" with-remove="">Remove</wa-tag>.</p>
+
+<p>Status <wa-tag variant="brand" appearance="accent" size="small">Active</wa-tag> - Version <wa-tag variant="success" size="large" pill="">v2.0</wa-tag></p>
 
 <h2 id="comparison">Comparison</h2>
 
@@ -616,7 +700,7 @@ with multiple lines of text"></wa-copy-button>
 
 <wa-copy-button from="example-link[href]" tooltip-placement="bottom"></wa-copy-button>
 
-<h3 id="combined-attributes">Combined Attributes</h3>
+<h3 id="combined-attributes-1">Combined Attributes</h3>
 
 <p>Mix and match attributes in any order:</p>
 

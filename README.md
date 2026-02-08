@@ -538,6 +538,121 @@ These transform into Web Awesome tag components with appropriate colors and styl
 
 ![Tags component example](readme_screenshots/tags.png)
 
+#### Tag Attributes
+
+Tags support flexible parameters in any order:
+
+**Variants:**
+```markdown
+@@@brand
+Brand tag
+@@@
+
+@@@success
+Success tag
+@@@
+
+@@@warning
+Warning tag
+@@@
+
+@@@danger
+Danger tag
+@@@
+
+@@@neutral
+Neutral tag (default)
+@@@
+```
+
+**Appearance Styles:**
+```markdown
+@@@accent
+Accent appearance
+@@@
+
+@@@filled
+Filled appearance
+@@@
+
+@@@outlined
+Outlined appearance
+@@@
+
+@@@filled-outlined
+Filled-outlined appearance (default)
+@@@
+```
+
+**Sizes:**
+```markdown
+@@@small
+Small tag
+@@@
+
+@@@medium
+Medium tag (default)
+@@@
+
+@@@large
+Large tag
+@@@
+```
+
+**Pill Shape:**
+```markdown
+@@@pill
+Rounded tag
+@@@
+
+@@@brand pill
+Brand tag with rounded edges
+@@@
+```
+
+**Removable Tags:**
+```markdown
+@@@with-remove
+Removable tag
+@@@
+
+@@@success with-remove
+Success tag with remove button
+@@@
+```
+
+**Combining Attributes:**
+
+All attributes work together in any order:
+
+```markdown
+@@@brand accent small pill
+Small brand tag with accent style and rounded edges
+@@@
+
+@@@success filled large with-remove
+Large filled success tag with remove button
+@@@
+
+@@@pill large brand filled
+Same tag - attributes can be in any order
+@@@
+```
+
+**Inline Tag Syntax:**
+
+Tags can also be used inline within paragraphs or headings:
+
+```markdown
+Here's an inline @@@ brand v2.0 @@@ tag in a sentence.
+
+## Feature @@@ success New @@@ Released
+
+Status: @@@ warning Beta @@@ - testing in progress
+
+Combine inline @@@ pill small success Ready @@@ with attributes
+```
+
 ### Copy Buttons
 
 Create copy-to-clipboard buttons using the `<<<` syntax:
