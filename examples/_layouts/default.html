@@ -18,12 +18,62 @@
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        wa-callout, wa-card, wa-button, wa-tag, wa-details, wa-tab-group, wa-icon, wa-badge {
+        /* Use a content wrapper for better readability */
+        main {
+            max-width: 900px;
+        }
+
+        wa-card, wa-details, wa-tab-group {
             margin-top: 1rem;
+            display: block;
+        }
+
+        /* Callouts in a flex container to show size differences */
+        wa-callout {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Create visual grouping for component examples */
+        h3 + wa-callout,
+        p + wa-callout,
+        wa-callout + wa-callout {
+            margin-top: 0.5rem;
+        }
+
+        /* Inline components */
+        wa-button, wa-tag, wa-icon, wa-badge {
+            margin-top: 1rem;
+        }
+
+        /* Code blocks */
+        pre, code {
+            background: #f8f9fa;
+            border-radius: 4px;
+            padding: 0.2em 0.4em;
+            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        /* Add visual separation between component groups */
+        h2 {
+            border-top: 1px solid #e9ecef;
+            padding-top: 2rem;
+        }
+
+        h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
         }
 
         /* Heading styles */

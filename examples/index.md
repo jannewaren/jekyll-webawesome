@@ -3,7 +3,9 @@ layout: default
 title: Web Awesome Examples
 ---
 
-Examples of the Web Awesome components and their markdown syntax.
+# Web Awesome Component Examples
+
+This page demonstrates the jekyll-webawesome plugin's custom Markdown syntax for creating Web Awesome components. Each component shows both the syntax and the rendered result.
 
 ## Callouts
 
@@ -33,34 +35,42 @@ This is a brand callout (the official variant name, same as `info`).
 
 ### Callouts with size
 
+The `size` attribute affects internal padding and typography. Compare the compact padding of `small` with the generous spacing of `large`:
+
 :::info small
-This is a **small** callout.
+This is a **small** callout with compact padding.
+:::
+
+:::info
+This is a **medium** callout (default) with standard padding.
 :::
 
 :::info large
-This is a **large** callout.
+This is a **large** callout with generous padding.
 :::
 
 ### Callouts with appearance
 
+The `appearance` attribute controls visual styling. Each appearance has a distinct look:
+
 :::info accent
-This is an **accent** callout — draws more attention.
+**Accent** — Bold and prominent with solid color, perfect for important notices.
 :::
 
 :::warning outlined
-This is an **outlined** warning callout.
+**Outlined** — Subtle with just a border, good for less critical info.
 :::
 
 :::success plain
-This is a **plain** success callout.
+**Plain** — Minimal styling with just text color, most subtle option.
 :::
 
 :::danger filled
-This is a **filled** danger callout.
+**Filled** — Solid background without border, strong visual presence.
 :::
 
 :::info filled-outlined
-This is a **filled-outlined** callout — the default style made explicit.
+**Filled-outlined** (default) — Combines filled background with border for maximum clarity.
 :::
 
 ### Combined size and appearance
