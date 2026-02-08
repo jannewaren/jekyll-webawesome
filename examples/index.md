@@ -27,6 +27,52 @@ This is a danger callout.
 This is a neutral callout.
 :::
 
+:::brand
+This is a brand callout (the official variant name, same as `info`).
+:::
+
+### Callouts with size
+
+:::info small
+This is a **small** callout.
+:::
+
+:::info large
+This is a **large** callout.
+:::
+
+### Callouts with appearance
+
+:::info accent
+This is an **accent** callout — draws more attention.
+:::
+
+:::warning outlined
+This is an **outlined** warning callout.
+:::
+
+:::success plain
+This is a **plain** success callout.
+:::
+
+:::danger filled
+This is a **filled** danger callout.
+:::
+
+:::info filled-outlined
+This is a **filled-outlined** callout — the default style made explicit.
+:::
+
+### Combined size and appearance
+
+:::info small accent
+Small accent callout — compact and eye-catching.
+:::
+
+:::warning large filled-outlined
+Large filled-outlined warning callout.
+:::
+
 ## Tags
 
 Tags can be used in two ways: **block syntax** (with newlines) or **inline syntax** (on the same line with spaces).

@@ -3,7 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'jekyll', '~> 4.0'
-gem 'markawesome', '~> 0.2'
+gem 'markawesome', path: '../../markawesome'
+gem 'logger'
 
 group :jekyll_plugins do
   gem 'jekyll-webawesome', path: '../'
