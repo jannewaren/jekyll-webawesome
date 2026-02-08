@@ -252,6 +252,10 @@ Same styling and grouping. Opening this closes the first section.
 
 ## Tab Groups
 
+### Basic Tab Group
+
+Default placement at top:
+
 ++++++
 +++ First Tab
 Content for the first tab goes here.
@@ -266,23 +270,162 @@ Content for the third tab.
 +++
 ++++++
 
+### Tab Placement
+
+Tabs on the left side (start):
+
 ++++++start
 +++ Tab 1
-Content here
+Content here with start placement
 +++
-+++ Tab 2  
++++ Tab 2
 More content
 +++
 ++++++
 
+Tabs on the bottom:
+
 ++++++bottom
 +++ Tab 1
-Content here
+Content here with bottom placement
 +++
 +++ Tab 2
-More content  
+More content
 +++
 ++++++
+
+Tabs on the right side (end):
+
+++++++end
++++ Tab 1
+Content here with end placement
++++
++++ Tab 2
+More content
++++
+++++++
+
+### Initial Active Tab
+
+Set which tab is active on load (second tab is active here):
+
+++++++tab-2
++++ First Tab
+This is not active initially
++++
++++ Second Tab
+This tab is active on load!
++++
++++ Third Tab
+This is not active initially
++++
+++++++
+
+### Keyboard Navigation
+
+Manual activation requires Space/Enter after arrow key navigation:
+
+++++++manual
++++ General
+Use arrow keys to focus, then press Space or Enter to activate.
++++
++++ Advanced
+Try navigating with arrow keys!
++++
++++ Settings
+Manual activation prevents accidental tab switches.
++++
+++++++
+
+Auto activation (default behavior) switches immediately:
+
+++++++auto
++++ Tab 1
+Arrow keys switch tabs immediately.
++++
++++ Tab 2
+No need to press Space or Enter.
++++
+++++++
+
+### Scroll Controls
+
+Disable scroll arrows for many tabs:
+
+++++++no-scroll-controls
++++ Tab 1
+No scroll arrows displayed
++++
++++ Tab 2
+Content 2
++++
++++ Tab 3
+Content 3
++++
++++ Tab 4
+Content 4
++++
++++ Tab 5
+Content 5
++++
+++++++
+
+### Combining Attributes
+
+All attributes work together in any order:
+
+++++++bottom manual tab-3
++++ First Tab
+Not initially active
++++
++++ Second Tab
+Also not active
++++
++++ Third Tab
+This tab is active on load, tabs are at bottom, and keyboard navigation is manual!
++++
+++++++
+
+Complex combination with all features:
+
+++++++end manual tab-2 no-scroll-controls
++++ General
+Basic settings
++++
++++ Advanced
+This tab is active initially. Tabs are on the right, keyboard navigation is manual, and scroll controls are disabled.
++++
++++ Pro
+Professional settings
++++
+++++++
+
+### Alternative Syntax
+
+Using explicit `:::wa-tab-group` syntax:
+
+:::wa-tab-group start manual
++++ General
+This uses the alternative syntax with start placement and manual activation.
++++
++++ Custom
+Alternative syntax works the same way!
++++
+:::
+
+All attributes work with alternative syntax:
+
+:::wa-tab-group bottom tab-2 no-scroll-controls
++++ First
+Not active
++++
++++ Second
+Active on load using alternative syntax
++++
++++ Third
+Also not active
++++
+:::
 
 ## Badges
 
