@@ -2,6 +2,8 @@
 
 This is a plugin for [Jekyll](https://jekyllrb.com/) that transforms custom Markdown syntax into [Web Awesome](https://webawesome.com/) components. Use a simple, intuitive Markdown-like syntax to create rich interactive components in your Jekyll website. The goal is to keep HTML out of Markdown files and create an easier experience for non-developers to update content.
 
+The tranformations have been extracted into a separate project: [markawesome](https://github.com/jannewaren/markawesome), which can be used with any static site generator or Ruby application that processes Markdown.
+
 The context here is a technical documentation website, and being limited to just basic Markdown features often results in a boring wall of text which the user won't read. The aim is to help create a more visually interesting page to read, by mixing in some components like callouts, tabs, cards and collapsible summary/details.
 
 ## Web Awesome components
