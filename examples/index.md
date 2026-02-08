@@ -639,6 +639,34 @@ This card uses the filled-outlined appearance.
 This card uses the accent appearance for emphasis.
 ===
 
+### Card Orientations
+
+Horizontal layout displays media and content side-by-side:
+
+===horizontal
+![Feature Image](image.png)
+# Horizontal Card
+This card displays with a side-by-side layout where media appears on the left and content on the right. Perfect for showcasing features or products.
+===
+
+===filled horizontal
+![Product Photo](image_colours.png)
+# Filled Horizontal
+Combine appearance and orientation attributes for varied styling. The filled appearance with horizontal layout creates a bold presentation.
+===
+
+===accent horizontal
+![Accent Feature](image_big.png)
+# Accent Horizontal
+The accent appearance combined with horizontal orientation draws attention to important content while maintaining a modern side-by-side layout.
+===
+
+===plain horizontal
+![Simple Layout](image.png)
+# Plain Horizontal
+The plain appearance with horizontal orientation creates a clean, minimal presentation ideal for simple content displays.
+===
+
 ## Carousel
 
 ### Basic Carousel
