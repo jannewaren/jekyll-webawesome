@@ -424,9 +424,88 @@
 copy button example
 with multiple lines of text"></wa-copy-button>
 
-<p>Alternative syntax with :::wa-copy-button:</p>
+<h3 id="tooltip-placement">Tooltip Placement</h3>
 
-<wa-copy-button value="Alternative syntax example"></wa-copy-button>
+<p>Control where the tooltip appears relative to the button:</p>
+
+<wa-copy-button value="Tooltip appears on top (default)" tooltip-placement="top"></wa-copy-button>
+
+<wa-copy-button value="Tooltip appears on the right" tooltip-placement="right"></wa-copy-button>
+
+<wa-copy-button value="Tooltip appears on the bottom" tooltip-placement="bottom"></wa-copy-button>
+
+<wa-copy-button value="Tooltip appears on the left" tooltip-placement="left"></wa-copy-button>
+
+<h3 id="custom-labels">Custom Labels</h3>
+
+<p>Customize the tooltip messages for different states:</p>
+
+<wa-copy-button value="Custom copy label only" copy-label="Click to copy"></wa-copy-button>
+
+<wa-copy-button value="Custom copy and success labels" copy-label="Copy to clipboard" success-label="Copied successfully!"></wa-copy-button>
+
+<wa-copy-button value="All three labels customized" copy-label="Copy" success-label="Done!" error-label="Copy failed"></wa-copy-button>
+
+<h3 id="feedback-duration">Feedback Duration</h3>
+
+<p>Control how long the success message is displayed (in milliseconds):</p>
+
+<wa-copy-button value="Quick feedback (250ms)" feedback-duration="250"></wa-copy-button>
+
+<wa-copy-button value="Long feedback (2 seconds)" feedback-duration="2000"></wa-copy-button>
+
+<wa-copy-button value="3 second feedback with right tooltip" tooltip-placement="right" feedback-duration="3000"></wa-copy-button>
+
+<h3 id="disabled-state">Disabled State</h3>
+
+<p>Disabled copy buttons cannot be clicked:</p>
+
+<wa-copy-button value="You cannot copy this" disabled=""></wa-copy-button>
+
+<wa-copy-button value="Disabled with bottom tooltip" tooltip-placement="bottom" disabled=""></wa-copy-button>
+
+<wa-copy-button value="Disabled with custom duration and placement" tooltip-placement="top" feedback-duration="1500" disabled=""></wa-copy-button>
+
+<h3 id="copy-from-another-element">Copy from Another Element</h3>
+
+<p>Copy content from other elements by ID (requires the element to exist on the page):</p>
+
+<p><span id="example-text">This text can be copied</span></p>
+
+<wa-copy-button from="example-text"></wa-copy-button>
+
+<p><input type="text" id="example-input" value="Input value to copy" style="margin-bottom: 1rem;" /></p>
+
+<wa-copy-button from="example-input.value" tooltip-placement="right"></wa-copy-button>
+
+<p><a id="example-link" href="https://webawesome.com">Web Awesome</a></p>
+
+<wa-copy-button from="example-link[href]" tooltip-placement="bottom"></wa-copy-button>
+
+<h3 id="combined-attributes">Combined Attributes</h3>
+
+<p>Mix and match attributes in any order:</p>
+
+<wa-copy-button value="Right tooltip, 1.5s feedback, custom label" tooltip-placement="right" copy-label="Click to copy" feedback-duration="1500"></wa-copy-button>
+
+<wa-copy-button value="Disabled with custom messages" tooltip-placement="bottom" copy-label="Cannot copy" error-label="Copying disabled" disabled=""></wa-copy-button>
+
+<wa-copy-button value="Full customization: placement, duration, all labels" tooltip-placement="left" copy-label="Copy this" success-label="Copied!" error-label="Failed to copy" feedback-duration="2000"></wa-copy-button>
+
+<wa-copy-button value="Fast feedback with custom labels" tooltip-placement="top" copy-label="Quick copy" success-label="Done" feedback-duration="500"></wa-copy-button>
+
+<h3 id="alternative-syntax-1">Alternative Syntax</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">:::wa-copy-button</code> syntax works identically:</p>
+
+<wa-copy-button value=":::"></wa-copy-button>
+<p>wa-copy-button right
+Alternative syntax with right tooltip
+:::</p>
+
+<wa-copy-button value="Alternative syntax with multiple attributes" tooltip-placement="bottom" feedback-duration="2000" disabled=""></wa-copy-button>
+
+<wa-copy-button value="npm install jekyll-webawesome" copy-label="Copy code" success-label="Code copied!"></wa-copy-button>
 
 <h2 id="dialogs">Dialogs</h2>
 
@@ -958,7 +1037,7 @@ with multiple lines of text"></wa-copy-button>
 <p>Third item</p>
 </wa-carousel-item></wa-carousel>
 
-<h3 id="alternative-syntax-1">Alternative Syntax</h3>
+<h3 id="alternative-syntax-2">Alternative Syntax</h3>
 
 <wa-carousel navigation="" pagination=""><wa-carousel-item><p><strong>Alternative Syntax</strong></p>
 

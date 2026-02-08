@@ -20,7 +20,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Card** | `===appearance? orientation?` | `:::wa-card appearance? orientation?` | `<wa-card appearance="filled" orientation="horizontal">content</wa-card>` |
 | **Carousel** | `~~~~~~` | `:::wa-carousel` | `<wa-carousel>` with carousel items |
 | **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
-| **Copy Button** | `<<<` | `:::wa-copy-button` | `<wa-copy-button value="content">content</wa-copy-button>` |
+| **Copy Button** | `<<<placement? disabled? duration? labels?` | `:::wa-copy-button attributes?` | `<wa-copy-button value="content" tooltip-placement="right" disabled>` |
 | **Details** | `^^^appearance? icon-placement?` | `:::wa-details appearance? icon-placement?` | `<wa-details appearance="..." icon-placement="...">content</wa-details>` |
 | **Dialog** | `???params?` | `:::wa-dialog params?` | `<wa-dialog>` with trigger button and content |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
@@ -566,15 +566,93 @@ This transforms into a Web Awesome copy button component:
 <wa-copy-button value="**Copy** this text with *markdown* formatting and `code`"></wa-copy-button>
 ```
 
+#### Copy Button Attributes
+
+Copy buttons support flexible parameters in any order:
+
+**Tooltip Placement:**
+```markdown
+<<<top
+Copy with tooltip on top (default)
+<<<
+
+<<<right
+Copy with tooltip on right
+<<<
+
+<<<bottom
+Copy with tooltip on bottom
+<<<
+
+<<<left
+Copy with tooltip on left
+<<<
+```
+
+**Custom Labels:**
+```markdown
+<<<copy-label="Click to copy" success-label="Copied!" error-label="Failed"
+Customize feedback messages
+<<<
+```
+
+**Feedback Duration:**
+```markdown
+<<<2000
+Show success feedback for 2 seconds
+<<<
+
+<<<250 right
+Quick feedback (250ms) with right tooltip
+<<<
+```
+
+**Disabled State:**
+```markdown
+<<<disabled
+You can't copy this
+<<<
+
+<<<disabled bottom
+Disabled with bottom tooltip
+<<<
+```
+
+**Copy from Another Element:**
+```markdown
+<<<from="my-element"
+Copy from element with id="my-element"
+<<<
+
+<<<from="my-input.value"
+Copy from input's value property
+<<<
+
+<<<from="my-link[href]"
+Copy from link's href attribute
+<<<
+```
+
+**Combined Attributes:**
+```markdown
+<<<right disabled 1500 copy-label="Click to copy"
+Multiple attributes in any order
+<<<
+
+<<<bottom 3000 copy-label="Copy" success-label="Done!" error-label="Error"
+Full customization example
+<<<
+```
+
 Copy buttons work well for:
 
 - Code snippets and commands
-- URLs and configuration values  
+- URLs and configuration values
 - Installation instructions
 - API keys or tokens
 - Any text users might want to copy
 
-> **Note**: The `value` attribute contains the raw text (including any markdown) that gets copied to the clipboard. The copy button displays the standard Web Awesome copy icon and handles the clipboard operation automatically.
+> **Note**: The `value` attribute contains the raw text (including any markdown) that gets copied to the clipboard. When using the `from` attribute, the button copies from the referenced element instead. The copy button displays the standard Web Awesome copy icon and handles the clipboard operation automatically.
 
 ### Buttons
 
