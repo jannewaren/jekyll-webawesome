@@ -14,8 +14,8 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 
 | Component | Primary Syntax | Alternative Syntax | HTML Output |
 |-----------|----------------|-------------------|-------------|
-| **Badge** | `!!!variant` | `:::wa-badge variant` | `<wa-badge variant="brand">content</wa-badge>` |
-| **Button** | `%%%variant` | `:::wa-button variant` | `<wa-button variant="brand" href="url">text</wa-button>` or `<wa-button variant="brand">text</wa-button>` |
+| **Badge** | `!!!variant appearance? pill? attention?` | `:::wa-badge variant appearance?` | `<wa-badge variant="brand" appearance="filled">content</wa-badge>` |
+| **Button** | `%%%variant? appearance? size? pill? caret? loading? disabled?` | `:::wa-button attributes?` | `<wa-button variant="brand" size="large" pill>text</wa-button>` or with `href` for links |
 | **Callouts** | `:::info size? appearance?` | `:::wa-callout info size? appearance?` | `<wa-callout variant="brand"><wa-icon name="circle-info"></wa-icon>content</wa-callout>` |
 | **Card** | `===` | `:::wa-card` | `<wa-card>content</wa-card>` |
 | **Carousel** | `~~~~~~` | `:::wa-carousel` | `<wa-carousel>` with carousel items |
@@ -555,6 +555,187 @@ Copy buttons work well for:
 
 > **Note**: The `value` attribute contains the raw text (including any markdown) that gets copied to the clipboard. The copy button displays the standard Web Awesome copy icon and handles the clipboard operation automatically.
 
+### Buttons
+
+Create interactive buttons using the `%%%` syntax. Buttons support both regular buttons and link buttons (with `href`):
+
+#### Basic Buttons
+
+```markdown
+%%%
+Click me
+%%%
+
+%%%brand
+Submit Form
+%%%
+
+%%%success
+Save Changes
+%%%
+
+%%%danger
+Delete Account
+%%%
+```
+
+These transform into Web Awesome button components with the specified variants.
+
+#### Link Buttons
+
+Create link buttons using markdown link syntax:
+
+```markdown
+%%%brand
+[Download](https://example.com/file.zip)
+%%%
+
+%%%success
+[Get Started](https://example.com/start)
+%%%
+
+%%%
+[Learn More](/docs)
+%%%
+```
+
+Link buttons use the `href` attribute and behave like links (support CMD/CTRL+click, right-click, etc.).
+
+#### Button Appearance
+
+Control the button's visual appearance with the `appearance` attribute:
+
+```markdown
+%%%brand accent
+Accent Button
+%%%
+
+%%%success filled
+Filled Button
+%%%
+
+%%%warning outlined
+Outlined Button
+%%%
+
+%%%danger filled-outlined
+Filled-Outlined Button
+%%%
+
+%%%neutral plain
+Plain Button
+%%%
+```
+
+**Available appearances:** `accent` (default), `filled`, `outlined`, `filled-outlined`, `plain`
+
+#### Button Sizes
+
+Buttons come in three sizes:
+
+```markdown
+%%%small
+Small Button
+%%%
+
+%%%medium
+Medium Button
+%%%
+
+%%%large
+Large Button
+%%%
+```
+
+**Available sizes:** `small`, `medium` (default), `large`
+
+#### Pill Buttons
+
+Add the `pill` attribute for rounded edges:
+
+```markdown
+%%%pill
+Rounded Button
+%%%
+
+%%%brand pill large
+Large Pill Button
+%%%
+
+%%%success pill
+[Download Now](https://example.com/download)
+%%%
+```
+
+#### Dropdown Indicator
+
+Add the `caret` attribute to show a dropdown indicator:
+
+```markdown
+%%%caret
+Options ▼
+%%%
+
+%%%brand caret
+Actions ▼
+%%%
+```
+
+This adds a `with-caret` attribute to display a dropdown arrow, useful for buttons that trigger dropdowns or menus.
+
+#### Button States
+
+Buttons can have loading or disabled states:
+
+```markdown
+%%%loading
+Processing...
+%%%
+
+%%%disabled
+Can't Click This
+%%%
+
+%%%brand loading
+Saving Changes...
+%%%
+
+%%%danger disabled
+[Delete](https://example.com/delete)
+%%%
+```
+
+#### Combining Attributes
+
+All button attributes can be combined in any order:
+
+```markdown
+%%%brand filled large pill
+Big Filled Button
+%%%
+
+%%%success outlined small pill caret
+Small Options
+%%%
+
+%%%danger filled medium disabled
+Cannot Delete
+%%%
+
+%%%neutral plain large loading
+[Processing...](https://example.com/process)
+%%%
+```
+
+**Attributes work in any order:**
+- `variant`: `brand`, `success`, `neutral`, `warning`, `danger`
+- `appearance`: `accent`, `filled`, `outlined`, `filled-outlined`, `plain`
+- `size`: `small`, `medium`, `large`
+- `pill`: rounded edges
+- `caret`: dropdown indicator
+- `loading`: loading state
+- `disabled`: disabled state
+
 ### Dialogs
 
 Create interactive dialogs (modals) using the `???` syntax:
@@ -826,6 +1007,20 @@ Cards automatically parse content into these slots:
 | `warning` | Warning/caution state |
 | `danger` | Error/critical state |
 | `neutral` | Neutral/informational state |
+
+### Button Attributes
+
+| Attribute | Values | Default | Description |
+|-----------|--------|---------|-------------|
+| `variant` | `brand`, `success`, `neutral`, `warning`, `danger` | `neutral` | Semantic button color variant |
+| `appearance` | `accent`, `filled`, `outlined`, `filled-outlined`, `plain` | `accent` | Visual appearance style |
+| `size` | `small`, `medium`, `large` | `medium` | Button size (affects padding and font size) |
+| `pill` | keyword | off | Rounded edges for pill-style buttons |
+| `caret` | keyword | off | Dropdown indicator (adds `with-caret` attribute) |
+| `loading` | keyword | off | Shows loading spinner |
+| `disabled` | keyword | off | Disables button interaction |
+
+**Note:** All attributes can be combined in any order. For link buttons, use markdown link syntax: `[Text](url)`.
 
 ### Details Appearances
 

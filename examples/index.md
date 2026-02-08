@@ -242,6 +242,10 @@ Draft
 
 ## Buttons
 
+### Basic Button Variants
+
+Link buttons with different variants:
+
 %%%brand
 [Go to Google](https://www.google.com)
 %%%
@@ -262,6 +266,8 @@ Draft
 [Learn More](https://example.com/docs)
 %%%
 
+Regular buttons (non-link):
+
 %%%brand
 Submit Form
 %%%
@@ -269,6 +275,170 @@ Submit Form
 %%%danger
 Reset Data
 %%%
+
+### Button Appearances
+
+Buttons with different appearance styles (using brand variant):
+
+%%%brand accent
+Accent (Default)
+%%%
+
+%%%brand filled
+Filled Appearance
+%%%
+
+%%%brand outlined
+Outlined Appearance
+%%%
+
+%%%brand filled-outlined
+Filled-Outlined
+%%%
+
+%%%brand plain
+Plain Appearance
+%%%
+
+### Button Sizes
+
+Buttons in different sizes:
+
+%%%small
+Small Button
+%%%
+
+%%%medium
+Medium Button (Default)
+%%%
+
+%%%large
+Large Button
+%%%
+
+Size combined with variant:
+
+%%%brand small
+Small Brand
+%%%
+
+%%%success large
+Large Success
+%%%
+
+### Pill Buttons
+
+Pill buttons have rounded edges:
+
+%%%pill
+Rounded Button
+%%%
+
+%%%brand pill
+Brand Pill
+%%%
+
+%%%success pill large
+Large Success Pill
+%%%
+
+%%%danger pill small
+Small Danger Pill
+%%%
+
+Pill link buttons:
+
+%%%pill brand
+[Download](https://example.com/download)
+%%%
+
+### Buttons with Caret
+
+Buttons with dropdown indicator:
+
+%%%caret
+Options ▼
+%%%
+
+%%%brand caret
+Actions ▼
+%%%
+
+%%%success caret small
+Small Menu
+%%%
+
+### Button States
+
+Loading state:
+
+%%%loading
+Processing...
+%%%
+
+%%%brand loading
+Saving Changes...
+%%%
+
+Disabled state:
+
+%%%disabled
+Can't Click
+%%%
+
+%%%danger disabled
+Cannot Delete
+%%%
+
+%%%brand disabled
+[Disabled Link](https://example.com)
+%%%
+
+### Complex Combinations
+
+Multiple attributes combined:
+
+%%%brand filled large pill
+Large Filled Pill
+%%%
+
+%%%success outlined small pill caret
+Small Options
+%%%
+
+%%%warning filled medium
+Medium Warning
+%%%
+
+%%%danger outlined large pill
+Large Danger Pill
+%%%
+
+Link button with all attributes:
+
+%%%brand filled large pill
+[Download Now](https://example.com/download)
+%%%
+
+%%%success outlined small
+[Get Started](https://example.com/start)
+%%%
+
+### Alternative Syntax
+
+Using :::wa-button syntax:
+
+:::wa-button brand
+Regular Button
+:::
+
+:::wa-button success filled large
+Large Filled Success
+:::
+
+:::wa-button danger pill
+[Link Button](https://example.com)
+:::
 
 ## Copy Buttons
 
