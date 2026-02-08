@@ -8,6 +8,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Placeholder
 
+## [0.8.0] - 2026-02-08
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.3` to bring in comprehensive attribute improvements
+- All transformer enhancements from markawesome 0.3.0 are now available:
+  - Tag: variant, size, appearance, pill, and removable attributes
+  - Tabs: activation, active, and no-scroll-controls attributes
+  - Details: disabled, open, and name attributes
+  - Copy Button: variant, size, appearance, and disabled attributes
+  - Carousel: autoplay-interval attribute
+  - Card: orientation attribute
+  - Consistent AttributeParser usage across all major transformers
+
+### Improved
+
+- More flexible, order-independent parameter syntax for all components
+- Better attribute handling consistency across transformers
+
 ## [0.7.1] - 2025-11-07
 
 ### Fixed
