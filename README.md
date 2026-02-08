@@ -1095,14 +1095,16 @@ Content for the third tab.
 
 ![Tabs component example](readme_screenshots/tabs1.png)
 
-You can specify tab placement:
+#### Tab Placement
+
+You can specify where tabs appear relative to content:
 
 ```markdown
 ++++++start
 +++ Tab 1
 Content here
 +++
-+++ Tab 2  
++++ Tab 2
 More content
 +++
 ++++++
@@ -1112,14 +1114,124 @@ More content
 Content here
 +++
 +++ Tab 2
-More content  
+More content
 +++
 ++++++
 ```
 
 ![Tabs component example](readme_screenshots/tabs2.png)
 
-Supported placements: `top` (default), `bottom`, `start`, `end`.
+**Supported placements:** `top` (default), `bottom`, `start`, `end`
+
+#### Initial Active Tab
+
+Set which tab is initially active by specifying the panel name:
+
+```markdown
+++++++tab-3
++++ Tab 1
+First panel
++++
++++ Tab 2
+Second panel
++++
++++ Tab 3
+This tab will be active on load
++++
+++++++
+```
+
+Panel names follow the pattern `tab-1`, `tab-2`, `tab-3`, etc., or you can reference specific names if you're using custom IDs.
+
+#### Keyboard Navigation
+
+Control how keyboard navigation works with the `activation` attribute:
+
+```markdown
+<!-- Auto activation (default) - arrow keys immediately show panels -->
+++++++auto
++++ Tab 1
+Content
++++
++++ Tab 2
+Content
++++
+++++++
+
+<!-- Manual activation - arrow keys focus, but Space/Enter needed to show panel -->
+++++++manual
++++ Tab 1
+Content
++++
++++ Tab 2
+Content
++++
+++++++
+```
+
+**Activation modes:**
+- `auto` (default) - Arrow keys immediately show the corresponding tab panel
+- `manual` - Tab receives focus but requires Space or Enter to show panel
+
+#### Scroll Controls
+
+Disable scroll arrows for overflowing tabs:
+
+```markdown
+++++++no-scroll-controls
++++ Tab 1
+Content
++++
++++ Tab 2
+Content
++++
++++ Tab 3
+Content
++++
+++++++
+```
+
+#### Combining Attributes
+
+All attributes can be combined in any order:
+
+```markdown
+++++++bottom manual tab-2 no-scroll-controls
++++ Tab 1
+First panel
++++
++++ Tab 2
+This tab will be active on load
++++
++++ Tab 3
+Third panel
++++
+++++++
+```
+
+#### Alternative Syntax
+
+You can also use the explicit `:::wa-tab-group` syntax:
+
+```markdown
+:::wa-tab-group end manual advanced
++++ General
+General settings
++++
++++ Advanced
+Advanced settings - this tab is active initially
++++
+:::
+```
+
+#### Tab Group Options
+
+| Option | Values | Default | Description |
+|--------|--------|---------|-------------|
+| `placement` | `top`, `bottom`, `start`, `end` | `top` | Where tabs appear relative to content |
+| `activation` | `auto`, `manual` | `auto` | Keyboard navigation behavior |
+| `active` | panel name (e.g., `tab-2`, `advanced`) | (none) | Initially active tab panel |
+| `no-scroll-controls` | boolean flag | (disabled) | Disables scroll arrows for overflowing tabs |
 
 ## Component Reference
 

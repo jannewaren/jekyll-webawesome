@@ -311,17 +311,99 @@
 
 <h2 id="tab-groups">Tab Groups</h2>
 
+<h3 id="basic-tab-group">Basic Tab Group</h3>
+
+<p>Default placement at top:</p>
+
 <wa-tab-group placement="top"><wa-tab panel="tab-1">First Tab</wa-tab><wa-tab panel="tab-2">Second Tab</wa-tab><wa-tab panel="tab-3">Third Tab</wa-tab><wa-tab-panel name="tab-1"><p>Content for the first tab goes here.</p>
 </wa-tab-panel><wa-tab-panel name="tab-2"><p>Content for the second tab.</p>
 </wa-tab-panel><wa-tab-panel name="tab-3"><p>Content for the third tab.</p>
 </wa-tab-panel></wa-tab-group>
 
-<wa-tab-group placement="start"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Content here</p>
+<h3 id="tab-placement">Tab Placement</h3>
+
+<p>Tabs on the left side (start):</p>
+
+<wa-tab-group placement="start"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Content here with start placement</p>
 </wa-tab-panel><wa-tab-panel name="tab-2"><p>More content</p>
 </wa-tab-panel></wa-tab-group>
 
-<wa-tab-group placement="bottom"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Content here</p>
+<p>Tabs on the bottom:</p>
+
+<wa-tab-group placement="bottom"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Content here with bottom placement</p>
 </wa-tab-panel><wa-tab-panel name="tab-2"><p>More content</p>
+</wa-tab-panel></wa-tab-group>
+
+<p>Tabs on the right side (end):</p>
+
+<wa-tab-group placement="end"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Content here with end placement</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>More content</p>
+</wa-tab-panel></wa-tab-group>
+
+<h3 id="initial-active-tab">Initial Active Tab</h3>
+
+<p>Set which tab is active on load (second tab is active here):</p>
+
+<wa-tab-group placement="top" active="tab-2"><wa-tab panel="tab-1">First Tab</wa-tab><wa-tab panel="tab-2">Second Tab</wa-tab><wa-tab panel="tab-3">Third Tab</wa-tab><wa-tab-panel name="tab-1"><p>This is not active initially</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>This tab is active on load!</p>
+</wa-tab-panel><wa-tab-panel name="tab-3"><p>This is not active initially</p>
+</wa-tab-panel></wa-tab-group>
+
+<h3 id="keyboard-navigation">Keyboard Navigation</h3>
+
+<p>Manual activation requires Space/Enter after arrow key navigation:</p>
+
+<wa-tab-group placement="top" activation="manual"><wa-tab panel="tab-1">General</wa-tab><wa-tab panel="tab-2">Advanced</wa-tab><wa-tab panel="tab-3">Settings</wa-tab><wa-tab-panel name="tab-1"><p>Use arrow keys to focus, then press Space or Enter to activate.</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>Try navigating with arrow keys!</p>
+</wa-tab-panel><wa-tab-panel name="tab-3"><p>Manual activation prevents accidental tab switches.</p>
+</wa-tab-panel></wa-tab-group>
+
+<p>Auto activation (default behavior) switches immediately:</p>
+
+<wa-tab-group placement="top" activation="auto"><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab-panel name="tab-1"><p>Arrow keys switch tabs immediately.</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>No need to press Space or Enter.</p>
+</wa-tab-panel></wa-tab-group>
+
+<h3 id="scroll-controls">Scroll Controls</h3>
+
+<p>Disable scroll arrows for many tabs:</p>
+
+<wa-tab-group placement="top" without-scroll-controls=""><wa-tab panel="tab-1">Tab 1</wa-tab><wa-tab panel="tab-2">Tab 2</wa-tab><wa-tab panel="tab-3">Tab 3</wa-tab><wa-tab panel="tab-4">Tab 4</wa-tab><wa-tab panel="tab-5">Tab 5</wa-tab><wa-tab-panel name="tab-1"><p>No scroll arrows displayed</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>Content 2</p>
+</wa-tab-panel><wa-tab-panel name="tab-3"><p>Content 3</p>
+</wa-tab-panel><wa-tab-panel name="tab-4"><p>Content 4</p>
+</wa-tab-panel><wa-tab-panel name="tab-5"><p>Content 5</p>
+</wa-tab-panel></wa-tab-group>
+
+<h3 id="combining-attributes">Combining Attributes</h3>
+
+<p>All attributes work together in any order:</p>
+
+<wa-tab-group placement="bottom" activation="manual" active="tab-3"><wa-tab panel="tab-1">First Tab</wa-tab><wa-tab panel="tab-2">Second Tab</wa-tab><wa-tab panel="tab-3">Third Tab</wa-tab><wa-tab-panel name="tab-1"><p>Not initially active</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>Also not active</p>
+</wa-tab-panel><wa-tab-panel name="tab-3"><p>This tab is active on load, tabs are at bottom, and keyboard navigation is manual!</p>
+</wa-tab-panel></wa-tab-group>
+
+<p>Complex combination with all features:</p>
+
+<wa-tab-group placement="end" activation="manual" active="tab-2" without-scroll-controls=""><wa-tab panel="tab-1">General</wa-tab><wa-tab panel="tab-2">Advanced</wa-tab><wa-tab panel="tab-3">Pro</wa-tab><wa-tab-panel name="tab-1"><p>Basic settings</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>This tab is active initially. Tabs are on the right, keyboard navigation is manual, and scroll controls are disabled.</p>
+</wa-tab-panel><wa-tab-panel name="tab-3"><p>Professional settings</p>
+</wa-tab-panel></wa-tab-group>
+
+<h3 id="alternative-syntax">Alternative Syntax</h3>
+
+<p>Using explicit <code class="language-plaintext highlighter-rouge">:::wa-tab-group</code> syntax:</p>
+
+<wa-tab-group placement="start" activation="manual"><wa-tab panel="tab-1">General</wa-tab><wa-tab panel="tab-2">Custom</wa-tab><wa-tab-panel name="tab-1"><p>This uses the alternative syntax with start placement and manual activation.</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>Alternative syntax works the same way!</p>
+</wa-tab-panel></wa-tab-group>
+
+<p>All attributes work with alternative syntax:</p>
+
+<wa-tab-group placement="bottom" active="tab-2" without-scroll-controls=""><wa-tab panel="tab-1">First</wa-tab><wa-tab panel="tab-2">Second</wa-tab><wa-tab panel="tab-3">Third</wa-tab><wa-tab-panel name="tab-1"><p>Not active</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>Active on load using alternative syntax</p>
+</wa-tab-panel><wa-tab-panel name="tab-3"><p>Also not active</p>
 </wa-tab-panel></wa-tab-group>
 
 <h2 id="badges">Badges</h2>
@@ -450,7 +532,7 @@
 
 <wa-button variant="success" appearance="outlined" size="small" href="https://example.com/start">Get Started</wa-button>
 
-<h3 id="alternative-syntax">Alternative Syntax</h3>
+<h3 id="alternative-syntax-1">Alternative Syntax</h3>
 
 <p>Using :::wa-button syntax:</p>
 
@@ -546,7 +628,7 @@ with multiple lines of text"></wa-copy-button>
 
 <wa-copy-button value="Fast feedback with custom labels" tooltip-placement="top" copy-label="Quick copy" success-label="Done" feedback-duration="500"></wa-copy-button>
 
-<h3 id="alternative-syntax-1">Alternative Syntax</h3>
+<h3 id="alternative-syntax-2">Alternative Syntax</h3>
 
 <p>The <code class="language-plaintext highlighter-rouge">:::wa-copy-button</code> syntax works identically:</p>
 
@@ -1089,7 +1171,7 @@ Alternative syntax with right tooltip
 <p>Third item</p>
 </wa-carousel-item></wa-carousel>
 
-<h3 id="alternative-syntax-2">Alternative Syntax</h3>
+<h3 id="alternative-syntax-3">Alternative Syntax</h3>
 
 <wa-carousel navigation="" pagination=""><wa-carousel-item><p><strong>Alternative Syntax</strong></p>
 
