@@ -487,6 +487,7 @@ Use `aspect-ratio:auto` or `aspect-ratio:none` to override the default fixed hei
 | **Navigation** | `navigation` | Show previous/next buttons |
 | **Pagination** | `pagination` | Show dot indicators |
 | **Autoplay** | `autoplay` | Auto-advance slides |
+| **Autoplay Interval** | `autoplay-interval:5000` | Autoplay delay in milliseconds (default: 3000) |
 | **Mouse Dragging** | `mouse-dragging` | Enable click-and-drag |
 | **Vertical** | `vertical` | Vertical orientation |
 | **Scroll Hint** | `scroll-hint:2rem` | Padding to show adjacent slides |
@@ -1022,6 +1023,7 @@ Cards automatically parse content into these slots:
 | `navigation` | Boolean | Show previous/next buttons (default: off) |
 | `pagination` | Boolean | Show dot indicators (default: off) |
 | `autoplay` | Boolean | Auto-advance slides (default: off) |
+| `autoplay-interval:value` | Attribute | Autoplay delay in milliseconds (default: 3000, e.g., `5000` for 5 seconds) |
 | `mouse-dragging` | Boolean | Enable click-and-drag (default: off) |
 | `vertical` | Keyword | Use vertical orientation (default: horizontal) |
 | `scroll-hint:value` | CSS Property | Padding to show adjacent slides (e.g., `2rem`, `50px`) |
