@@ -257,6 +257,58 @@
 </span><p>The icon is in the beginning now</p>
 </wa-details>
 
+<h3 id="disabled-state">Disabled State</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">disabled</code> attribute prevents the details from expanding:</p>
+
+<wa-details appearance="outlined" icon-placement="end" disabled=""><span slot="summary"><p>This summary cannot be expanded</p>
+</span><p>This content is locked and cannot be viewed (you can’t see this!)</p>
+</wa-details>
+
+<wa-details appearance="filled" icon-placement="end" disabled=""><span slot="summary"><p>Filled but disabled</p>
+</span><p>This content is also locked</p>
+</wa-details>
+
+<h3 id="open-by-default">Open by Default</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">open</code> attribute makes the details initially expanded:</p>
+
+<wa-details appearance="outlined" icon-placement="end" open=""><span slot="summary"><p>This details is open by default</p>
+</span><p>You can see this content immediately when the page loads. Click the summary to collapse it.</p>
+</wa-details>
+
+<wa-details appearance="filled outlined" icon-placement="end" open=""><span slot="summary"><p>Open with styled appearance</p>
+</span><p>This one is also initially expanded with custom styling.</p>
+</wa-details>
+
+<h3 id="accordion-behavior-grouping">Accordion Behavior (Grouping)</h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">name:group-id</code> to create accordion behavior where only one can be open at a time:</p>
+
+<wa-details appearance="outlined" icon-placement="end" open="" name="accordion-demo"><span slot="summary"><p>First Section (initially open)</p>
+</span><p>This section starts open. When you click another section below, this one will automatically close.</p>
+</wa-details>
+
+<wa-details appearance="outlined" icon-placement="end" name="accordion-demo"><span slot="summary"><p>Second Section</p>
+</span><p>Click this summary to open this section. The first section will automatically close.</p>
+</wa-details>
+
+<wa-details appearance="outlined" icon-placement="end" name="accordion-demo"><span slot="summary"><p>Third Section</p>
+</span><p>Opening this section will close whichever section is currently open.</p>
+</wa-details>
+
+<h3 id="combining-multiple-attributes">Combining Multiple Attributes</h3>
+
+<p>All attributes can be combined in any order:</p>
+
+<wa-details appearance="filled" icon-placement="start" open="" name="styled-accordion"><span slot="summary"><p>First Styled Section</p>
+</span><p>This has custom appearance, icon position, starts open, and is part of an accordion group.</p>
+</wa-details>
+
+<wa-details appearance="filled" icon-placement="start" name="styled-accordion"><span slot="summary"><p>Second Styled Section</p>
+</span><p>Same styling and grouping. Opening this closes the first section.</p>
+</wa-details>
+
 <h2 id="tab-groups">Tab Groups</h2>
 
 <wa-tab-group placement="top"><wa-tab panel="tab-1">First Tab</wa-tab><wa-tab panel="tab-2">Second Tab</wa-tab><wa-tab panel="tab-3">Third Tab</wa-tab><wa-tab-panel name="tab-1"><p>Content for the first tab goes here.</p>
@@ -456,7 +508,7 @@ with multiple lines of text"></wa-copy-button>
 
 <wa-copy-button value="3 second feedback with right tooltip" tooltip-placement="right" feedback-duration="3000"></wa-copy-button>
 
-<h3 id="disabled-state">Disabled State</h3>
+<h3 id="disabled-state-1">Disabled State</h3>
 
 <p>Disabled copy buttons cannot be clicked:</p>
 
