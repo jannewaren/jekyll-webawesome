@@ -288,6 +288,10 @@
 
 <h2 id="buttons">Buttons</h2>
 
+<h3 id="basic-button-variants">Basic Button Variants</h3>
+
+<p>Link buttons with different variants:</p>
+
 <wa-button variant="brand" href="https://www.google.com">Go to Google</wa-button>
 
 <wa-button variant="success" href="https://example.com/start">Get Started</wa-button>
@@ -298,9 +302,111 @@
 
 <wa-button variant="neutral" href="https://example.com/docs">Learn More</wa-button>
 
+<p>Regular buttons (non-link):</p>
+
 <wa-button variant="brand">Submit Form</wa-button>
 
 <wa-button variant="danger">Reset Data</wa-button>
+
+<h3 id="button-appearances">Button Appearances</h3>
+
+<p>Buttons with different appearance styles (using brand variant):</p>
+
+<wa-button variant="brand" appearance="accent">Accent (Default)</wa-button>
+
+<wa-button variant="brand" appearance="filled">Filled Appearance</wa-button>
+
+<wa-button variant="brand" appearance="outlined">Outlined Appearance</wa-button>
+
+<wa-button variant="brand" appearance="filled-outlined">Filled-Outlined</wa-button>
+
+<wa-button variant="brand" appearance="plain">Plain Appearance</wa-button>
+
+<h3 id="button-sizes">Button Sizes</h3>
+
+<p>Buttons in different sizes:</p>
+
+<wa-button size="small">Small Button</wa-button>
+
+<wa-button size="medium">Medium Button (Default)</wa-button>
+
+<wa-button size="large">Large Button</wa-button>
+
+<p>Size combined with variant:</p>
+
+<wa-button variant="brand" size="small">Small Brand</wa-button>
+
+<wa-button variant="success" size="large">Large Success</wa-button>
+
+<h3 id="pill-buttons">Pill Buttons</h3>
+
+<p>Pill buttons have rounded edges:</p>
+
+<wa-button pill="">Rounded Button</wa-button>
+
+<wa-button variant="brand" pill="">Brand Pill</wa-button>
+
+<wa-button variant="success" size="large" pill="">Large Success Pill</wa-button>
+
+<wa-button variant="danger" size="small" pill="">Small Danger Pill</wa-button>
+
+<p>Pill link buttons:</p>
+
+<wa-button variant="brand" pill="" href="https://example.com/download">Download</wa-button>
+
+<h3 id="buttons-with-caret">Buttons with Caret</h3>
+
+<p>Buttons with dropdown indicator:</p>
+
+<wa-button with-caret="">Options ▼</wa-button>
+
+<wa-button variant="brand" with-caret="">Actions ▼</wa-button>
+
+<wa-button variant="success" size="small" with-caret="">Small Menu</wa-button>
+
+<h3 id="button-states">Button States</h3>
+
+<p>Loading state:</p>
+
+<wa-button loading="">Processing…</wa-button>
+
+<wa-button variant="brand" loading="">Saving Changes…</wa-button>
+
+<p>Disabled state:</p>
+
+<wa-button disabled="">Can’t Click</wa-button>
+
+<wa-button variant="danger" disabled="">Cannot Delete</wa-button>
+
+<wa-button variant="brand" disabled="" href="https://example.com">Disabled Link</wa-button>
+
+<h3 id="complex-combinations">Complex Combinations</h3>
+
+<p>Multiple attributes combined:</p>
+
+<wa-button variant="brand" appearance="filled" size="large" pill="">Large Filled Pill</wa-button>
+
+<wa-button variant="success" appearance="outlined" size="small" pill="" with-caret="">Small Options</wa-button>
+
+<wa-button variant="warning" appearance="filled" size="medium">Medium Warning</wa-button>
+
+<wa-button variant="danger" appearance="outlined" size="large" pill="">Large Danger Pill</wa-button>
+
+<p>Link button with all attributes:</p>
+
+<wa-button variant="brand" appearance="filled" size="large" pill="" href="https://example.com/download">Download Now</wa-button>
+
+<wa-button variant="success" appearance="outlined" size="small" href="https://example.com/start">Get Started</wa-button>
+
+<h3 id="alternative-syntax">Alternative Syntax</h3>
+
+<p>Using :::wa-button syntax:</p>
+
+<wa-button variant="brand">Regular Button</wa-button>
+
+<wa-button variant="success" appearance="filled" size="large">Large Filled Success</wa-button>
+
+<wa-button variant="danger" pill="" href="https://example.com">Link Button</wa-button>
 
 <h2 id="copy-buttons">Copy Buttons</h2>
 
@@ -813,7 +919,7 @@ with multiple lines of text"></wa-copy-button>
 <p>Third item</p>
 </wa-carousel-item></wa-carousel>
 
-<h3 id="alternative-syntax">Alternative Syntax</h3>
+<h3 id="alternative-syntax-1">Alternative Syntax</h3>
 
 <wa-carousel navigation="" pagination=""><wa-carousel-item><p><strong>Alternative Syntax</strong></p>
 
