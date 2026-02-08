@@ -180,6 +180,76 @@ Plain appearance summary
 The icon is in the beginning now
 ^^^
 
+### Disabled State
+
+The `disabled` attribute prevents the details from expanding:
+
+^^^disabled
+This summary cannot be expanded
+>>>
+This content is locked and cannot be viewed (you can't see this!)
+^^^
+
+^^^filled disabled
+Filled but disabled
+>>>
+This content is also locked
+^^^
+
+### Open by Default
+
+The `open` attribute makes the details initially expanded:
+
+^^^open
+This details is open by default
+>>>
+You can see this content immediately when the page loads. Click the summary to collapse it.
+^^^
+
+^^^filled-outlined open
+Open with styled appearance
+>>>
+This one is also initially expanded with custom styling.
+^^^
+
+### Accordion Behavior (Grouping)
+
+Use `name:group-id` to create accordion behavior where only one can be open at a time:
+
+^^^name:accordion-demo open
+First Section (initially open)
+>>>
+This section starts open. When you click another section below, this one will automatically close.
+^^^
+
+^^^name:accordion-demo
+Second Section
+>>>
+Click this summary to open this section. The first section will automatically close.
+^^^
+
+^^^name:accordion-demo
+Third Section
+>>>
+Opening this section will close whichever section is currently open.
+^^^
+
+### Combining Multiple Attributes
+
+All attributes can be combined in any order:
+
+^^^filled start open name:styled-accordion
+First Styled Section
+>>>
+This has custom appearance, icon position, starts open, and is part of an accordion group.
+^^^
+
+^^^filled start name:styled-accordion
+Second Styled Section
+>>>
+Same styling and grouping. Opening this closes the first section.
+^^^
+
 ## Tab Groups
 
 ++++++

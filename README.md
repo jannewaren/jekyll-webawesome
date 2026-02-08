@@ -993,6 +993,86 @@ Parameters can be in any order: start filled, filled start, etc.
 ^^^
 ```
 
+#### Disabled State
+
+Prevent the details from expanding with the `disabled` flag:
+
+```markdown
+^^^disabled
+This summary cannot be expanded
+>>>
+This content is locked and cannot be viewed
+^^^
+```
+
+#### Open by Default
+
+Make the details open by default with the `open` flag:
+
+```markdown
+^^^open
+This summary is initially expanded
+>>>
+This content is visible when the page loads
+^^^
+```
+
+#### Accordion Behavior (Grouping)
+
+Group multiple details with the `name:group-id` parameter to create accordion behavior where only one can be open at a time:
+
+```markdown
+^^^name:faq-group open
+First Question
+>>>
+Answer to the first question (initially open)
+^^^
+
+^^^name:faq-group
+Second Question
+>>>
+Answer to the second question
+^^^
+
+^^^name:faq-group
+Third Question
+>>>
+Answer to the third question
+^^^
+```
+
+When one details element in the group opens, others with the same `name` automatically close.
+
+#### Combining All Attributes
+
+All attributes can be combined in any order:
+
+```markdown
+^^^filled start disabled
+Disabled with custom styling
+>>>
+Content here
+^^^
+
+^^^filled-outlined open name:section-1
+First Section (initially open)
+>>>
+Content for first section
+^^^
+
+^^^filled-outlined name:section-1
+Second Section
+>>>
+Only one section can be open at a time
+^^^
+```
+
+**Available attributes:**
+- **Appearance:** `outlined` (default), `filled`, `filled-outlined`, `plain`
+- **Icon placement:** `start`, `end` (default)
+- **Boolean flags:** `disabled`, `open`
+- **Grouping:** `name:group-id` (for accordion behavior)
+
 ### Tab Groups
 
 Create tabbed content using the `++++++` syntax for tab groups and `+++` for tabs.
