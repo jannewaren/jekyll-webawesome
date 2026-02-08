@@ -17,7 +17,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Badge** | `!!!variant appearance? pill? attention?` | `:::wa-badge variant appearance?` | `<wa-badge variant="brand" appearance="filled">content</wa-badge>` |
 | **Button** | `%%%variant? appearance? size? pill? caret? loading? disabled?` | `:::wa-button attributes?` | `<wa-button variant="brand" size="large" pill>text</wa-button>` or with `href` for links |
 | **Callouts** | `:::info size? appearance?` | `:::wa-callout info size? appearance?` | `<wa-callout variant="brand"><wa-icon name="circle-info"></wa-icon>content</wa-callout>` |
-| **Card** | `===` | `:::wa-card` | `<wa-card>content</wa-card>` |
+| **Card** | `===appearance? orientation?` | `:::wa-card appearance? orientation?` | `<wa-card appearance="filled" orientation="horizontal">content</wa-card>` |
 | **Carousel** | `~~~~~~` | `:::wa-carousel` | `<wa-carousel>` with carousel items |
 | **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
 | **Copy Button** | `<<<` | `:::wa-copy-button` | `<wa-copy-button value="content">content</wa-copy-button>` |
@@ -279,6 +279,26 @@ This card uses the filled-outlined appearance.
 This card uses the accent appearance for emphasis.
 ===
 ```
+
+#### Card Orientations
+
+Cards can be displayed in horizontal layout for side-by-side presentation:
+
+```markdown
+===horizontal
+![Feature Image](feature.jpg)
+# Horizontal Card
+This card displays with a side-by-side layout where media appears on the left.
+===
+
+===filled horizontal
+![Product Photo](product.jpg)
+# Combined Attributes
+You can combine appearance and orientation in any order.
+===
+```
+
+**Note:** Horizontal cards display media on the left and content on the right. Make sure to set an appropriate max-width for the media slot in your CSS if needed.
 
 ![Cards component example](readme_screenshots/cards.png)
 
@@ -964,6 +984,9 @@ Supported placements: `top` (default), `bottom`, `start`, `end`.
 
 ### Card Options
 
+Cards support flexible attribute ordering using space-separated parameters:
+
+**Appearance:**
 | Type | Description |
 |------|-------------|
 | `outlined` (default) | Default outlined appearance |
@@ -971,6 +994,14 @@ Supported placements: `top` (default), `bottom`, `start`, `end`.
 | `plain` | Minimal plain appearance |
 | `filled-outlined` | Combination of filled and outlined |
 | `accent` | Accent appearance for emphasis |
+
+**Orientation:**
+| Type | Description |
+|------|-------------|
+| `vertical` (default) | Traditional stacked card layout |
+| `horizontal` | Side-by-side layout with media on the left |
+
+**Note:** All attributes can be combined in any order (e.g., `===filled horizontal` or `===horizontal filled`).
 
 ### Card Structure
 
