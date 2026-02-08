@@ -16,7 +16,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 |-----------|----------------|-------------------|-------------|
 | **Badge** | `!!!variant` | `:::wa-badge variant` | `<wa-badge variant="brand">content</wa-badge>` |
 | **Button** | `%%%variant` | `:::wa-button variant` | `<wa-button variant="brand" href="url">text</wa-button>` or `<wa-button variant="brand">text</wa-button>` |
-| **Callouts** | `:::info` | `:::wa-callout info` | `<wa-callout variant="brand"><wa-icon name="circle-info"></wa-icon>content</wa-callout>` |
+| **Callouts** | `:::info size? appearance?` | `:::wa-callout info size? appearance?` | `<wa-callout variant="brand"><wa-icon name="circle-info"></wa-icon>content</wa-callout>` |
 | **Card** | `===` | `:::wa-card` | `<wa-card>content</wa-card>` |
 | **Carousel** | `~~~~~~` | `:::wa-carousel` | `<wa-carousel>` with carousel items |
 | **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
@@ -126,9 +126,33 @@ This is a danger callout.
 :::neutral
 This is a neutral callout.
 :::
+
+:::brand
+This is a brand callout (official variant name, same as `info`).
+:::
 ```
 
-These transform into Web Awesome callout components with appropriate icons and styling
+You can also add optional `size` and `appearance` parameters after the variant:
+
+```markdown
+:::info small
+A compact callout.
+:::
+
+:::warning large filled-outlined
+A large warning with filled-outlined appearance.
+:::
+
+:::success accent
+An accent callout that draws more attention.
+:::
+```
+
+**Size options:** `small`, `medium` (default), `large`
+
+**Appearance options:** `accent`, `filled`, `outlined`, `plain`, `filled-outlined` (default)
+
+These transform into Web Awesome callout components with appropriate icons and styling.
 
 ![Callout component example](readme_screenshots/callouts.png)
 
@@ -743,11 +767,19 @@ Supported placements: `top` (default), `bottom`, `start`, `end`.
 
 | Type | Icon | Variant |
 |------|------|---------|
-| `info` | circle-info | brand |
+| `brand` | circle-info | brand |
+| `info` | circle-info | brand (alias) |
 | `success` | circle-check | success |
 | `warning` | triangle-exclamation | warning |
 | `danger` | circle-exclamation | danger |
 | `neutral` | gear | neutral |
+
+### Callout Options
+
+| Option | Values | Default |
+|--------|--------|---------|
+| `size` | `small`, `medium`, `large` | `medium` |
+| `appearance` | `accent`, `filled`, `outlined`, `plain`, `filled-outlined` | `filled-outlined` |
 
 ### Card Options
 
