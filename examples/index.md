@@ -87,7 +87,7 @@ Large filled-outlined warning callout.
 
 Tags can be used in two ways: **block syntax** (with newlines) or **inline syntax** (on the same line with spaces).
 
-### Block Tags
+### Basic Tag Variants
 
 @@@
 Basic tag
@@ -113,6 +113,138 @@ Critical Issue
 Documentation
 @@@
 
+### Appearance Styles
+
+Tags support four different appearance styles:
+
+@@@accent
+Accent appearance
+@@@
+
+@@@filled
+Filled appearance
+@@@
+
+@@@outlined
+Outlined appearance
+@@@
+
+@@@filled-outlined
+Filled-outlined (default)
+@@@
+
+You can combine variants with appearances:
+
+@@@brand accent
+Brand accent
+@@@
+
+@@@success filled
+Success filled
+@@@
+
+@@@warning outlined
+Warning outlined
+@@@
+
+@@@danger filled-outlined
+Danger filled-outlined
+@@@
+
+### Sizes
+
+Tags come in three sizes:
+
+@@@small
+Small tag
+@@@
+
+@@@medium
+Medium tag (default)
+@@@
+
+@@@large
+Large tag
+@@@
+
+Combined with variants:
+
+@@@brand small
+Small brand
+@@@
+
+@@@success medium
+Medium success
+@@@
+
+@@@danger large
+Large danger
+@@@
+
+### Pill Shape
+
+The `pill` attribute gives tags rounded edges:
+
+@@@pill
+Rounded tag
+@@@
+
+@@@brand pill
+Brand pill
+@@@
+
+@@@success pill large
+Large success pill
+@@@
+
+@@@warning pill small
+Small warning pill
+@@@
+
+### Removable Tags
+
+Tags with the `with-remove` attribute show a remove button:
+
+@@@with-remove
+Removable tag
+@@@
+
+@@@brand with-remove
+Removable brand tag
+@@@
+
+@@@success large with-remove
+Large removable success tag
+@@@
+
+@@@danger pill with-remove
+Removable pill-shaped danger tag
+@@@
+
+### Combined Attributes
+
+All tag attributes work together in any order:
+
+@@@brand accent small pill
+Small brand accent pill
+@@@
+
+@@@success filled large with-remove
+Large filled success with remove
+@@@
+
+@@@warning outlined medium pill
+Medium outlined warning pill
+@@@
+
+@@@danger filled-outlined large pill with-remove
+Large danger pill with all features
+@@@
+
+@@@pill large filled brand
+Same as first (order doesn't matter)
+@@@
+
 ### Inline Tags
 
 Use inline tags in headings or within text: @@@ brand v2.0 @@@ or @@@ success New @@@
@@ -128,6 +260,12 @@ Use inline tags in headings or within text: @@@ brand v2.0 @@@ or @@@ success Ne
 This release has @@@ success stable @@@ status and includes @@@ brand new features @@@.
 
 You can use multiple variants: @@@ brand Brand @@@ @@@ success Success @@@ @@@ neutral Neutral @@@ @@@ warning Warning @@@ @@@ danger Danger @@@
+
+#### Inline with Attributes
+
+Inline tags support all attributes: @@@ pill small brand Tag @@@ and @@@ large filled success Ready @@@ and @@@ pill with-remove danger Remove @@@.
+
+Status @@@ accent small brand Active @@@ - Version @@@ pill large success v2.0 @@@
 
 ## Comparison
 
