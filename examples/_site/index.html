@@ -47,7 +47,7 @@
         }
 
         /* Inline components */
-        wa-button, wa-tag, wa-icon, wa-badge {
+        wa-button, wa-tag, wa-badge {
             margin-top: 1rem;
         }
 
@@ -177,6 +177,27 @@
 <wa-callout variant="brand" appearance="filled-outlined"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>Filled-outlined</strong> (default) — Combines filled background with border for maximum clarity.</p>
 </wa-callout>
 
+<h3 id="custom-icons">Custom Icons</h3>
+
+<p>Override the default variant icon with <code class="language-plaintext highlighter-rouge">icon:name</code>:</p>
+
+<wa-callout variant="warning"><wa-icon slot="icon" name="shield" variant="solid"></wa-icon><p><strong>Security notice</strong> — uses a shield icon instead of the default warning icon.</p>
+</wa-callout>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="rocket" variant="solid"></wa-icon><p><strong>Launch update</strong> — custom rocket icon for brand callout.</p>
+</wa-callout>
+
+<wa-callout variant="success"><wa-icon slot="icon" name="thumbs-up" variant="solid"></wa-icon><p><strong>Approved!</strong> — thumbs-up icon overrides the default checkmark.</p>
+</wa-callout>
+
+<wa-callout variant="danger"><wa-icon slot="icon" name="skull" variant="solid"></wa-icon><p><strong>Critical failure</strong> — custom icon for emphasis.</p>
+</wa-callout>
+
+<p>Custom icon with size and appearance:</p>
+
+<wa-callout variant="brand" appearance="filled" size="large"><wa-icon slot="icon" name="lightbulb" variant="solid"></wa-icon><p><strong>Pro tip</strong> — a large filled callout with a lightbulb icon. Size and appearance work alongside custom icons.</p>
+</wa-callout>
+
 <h3 id="combined-size-and-appearance">Combined size and appearance</h3>
 
 <wa-callout variant="brand" appearance="accent" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Small accent callout — compact and eye-catching.</p>
@@ -254,6 +275,26 @@
 <wa-tag variant="success" size="large" pill="">Large success pill</wa-tag>
 
 <wa-tag variant="warning" size="small" pill="">Small warning pill</wa-tag>
+
+<h3 id="tags-with-icons">Tags with Icons</h3>
+
+<p>Add an icon inside a tag with <code class="language-plaintext highlighter-rouge">icon:name</code>:</p>
+
+<wa-tag variant="success"><wa-icon name="check"></wa-icon>Approved</wa-tag>
+
+<wa-tag variant="danger"><wa-icon name="circle-xmark"></wa-icon>Rejected</wa-tag>
+
+<wa-tag variant="brand"><wa-icon name="star"></wa-icon>Featured</wa-tag>
+
+<wa-tag variant="warning"><wa-icon name="clock"></wa-icon>Pending</wa-tag>
+
+<p>Combined with other attributes:</p>
+
+<wa-tag variant="success" size="large" pill=""><wa-icon name="circle-check"></wa-icon>Verified</wa-tag>
+
+<wa-tag variant="danger" appearance="filled" size="small"><wa-icon name="fire"></wa-icon>Hot</wa-tag>
+
+<p>Inline tags with icons: <wa-tag variant="brand"><wa-icon name="star"></wa-icon>Featured</wa-tag> and <wa-tag variant="success"><wa-icon name="check"></wa-icon>Done</wa-tag> and <wa-tag variant="warning"><wa-icon name="clock"></wa-icon>Pending</wa-tag></p>
 
 <h3 id="removable-tags">Removable Tags</h3>
 
@@ -339,6 +380,22 @@
 
 <wa-details appearance="plain" icon-placement="start"><span slot="summary"><p>Plain appearance summary</p>
 </span><p>The icon is in the beginning now</p>
+</wa-details>
+
+<h3 id="custom-expandcollapse-icons">Custom Expand/Collapse Icons</h3>
+
+<p>Replace the default toggle icon with custom expand and collapse icons:</p>
+
+<wa-details appearance="outlined" icon-placement="end"><span slot="summary"><p>Click to expand (plus/minus icons)</p>
+</span><wa-icon slot="expand-icon" name="plus"></wa-icon><wa-icon slot="collapse-icon" name="minus"></wa-icon><p>Custom expand/collapse icons make the interaction more intuitive. The plus becomes a minus when opened.</p>
+</wa-details>
+
+<wa-details appearance="filled" icon-placement="end"><span slot="summary"><p>Chevron icons with filled appearance</p>
+</span><wa-icon slot="expand-icon" name="chevron-down"></wa-icon><wa-icon slot="collapse-icon" name="chevron-up"></wa-icon><p>Chevron-down when collapsed, chevron-up when expanded. Combined with filled appearance.</p>
+</wa-details>
+
+<wa-details appearance="outlined" icon-placement="end" open=""><span slot="summary"><p>Caret icons (open by default)</p>
+</span><wa-icon slot="expand-icon" name="caret-right"></wa-icon><wa-icon slot="collapse-icon" name="caret-down"></wa-icon><p>This uses right/down caret icons and starts expanded.</p>
 </wa-details>
 
 <h3 id="disabled-state">Disabled State</h3>
@@ -525,6 +582,32 @@
 <wa-button variant="brand">Submit Form</wa-button>
 
 <wa-button variant="danger">Reset Data</wa-button>
+
+<h3 id="buttons-with-icons">Buttons with Icons</h3>
+
+<p>Add icons to buttons with <code class="language-plaintext highlighter-rouge">icon:name</code> (start slot by default) or <code class="language-plaintext highlighter-rouge">icon:end:name</code>:</p>
+
+<wa-button variant="brand"><wa-icon slot="start" name="download"></wa-icon>Download File</wa-button>
+
+<wa-button variant="success"><wa-icon slot="start" name="check"></wa-icon>Confirm</wa-button>
+
+<wa-button variant="danger"><wa-icon slot="start" name="trash"></wa-icon>Delete Item</wa-button>
+
+<p>Button with end icon:</p>
+
+<wa-button><wa-icon slot="end" name="arrow-right"></wa-icon>Next Step</wa-button>
+
+<p>Button with both start and end icons:</p>
+
+<wa-button variant="brand"><wa-icon slot="start" name="gear"></wa-icon><wa-icon slot="end" name="arrow-right"></wa-icon>Settings</wa-button>
+
+<p>Icons with other attributes:</p>
+
+<wa-button variant="success" size="large" pill="" href="https://example.com/download"><wa-icon slot="start" name="download"></wa-icon>Download Now</wa-button>
+
+<wa-button variant="warning" appearance="outlined" size="small"><wa-icon slot="start" name="triangle-exclamation"></wa-icon>Caution</wa-button>
+
+<wa-button variant="brand" appearance="filled" href="https://example.com/launch"><wa-icon slot="start" name="rocket"></wa-icon>Launch App</wa-button>
 
 <h3 id="button-appearances">Button Appearances</h3>
 
@@ -1188,7 +1271,7 @@ Alternative syntax with right tooltip
 
 <p>Automatically advance slides every 5 seconds:</p>
 
-<wa-carousel autoplay="" autoplay-interval="5000" loop="" pagination=""><wa-carousel-item><p><strong>Auto Slide 1</strong></p>
+<wa-carousel autoplay="" loop="" pagination="" autoplay-interval="5000"><wa-carousel-item><p><strong>Auto Slide 1</strong></p>
 
 <p>This carousel auto-advances every 5 seconds</p>
 </wa-carousel-item><wa-carousel-item><p><strong>Auto Slide 2</strong></p>
@@ -1222,7 +1305,7 @@ Alternative syntax with right tooltip
 
 <p>Show 3 slides, move 2 at a time:</p>
 
-<wa-carousel slides-per-page="3" slides-per-move="2" loop="" navigation="" pagination=""><wa-carousel-item><p><strong>Feature 1</strong></p>
+<wa-carousel loop="" navigation="" pagination="" slides-per-page="3" slides-per-move="2"><wa-carousel-item><p><strong>Feature 1</strong></p>
 
 <p>Description here</p>
 </wa-carousel-item><wa-carousel-item><p><strong>Feature 2</strong></p>
