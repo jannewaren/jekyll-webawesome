@@ -8,6 +8,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Placeholder
 
+## [0.9.0] - 2026-02-09
+
+### Added
+
+- **Icon slot syntax** for components via markawesome 0.4.0:
+  - Buttons: `icon:name` (start) and `icon:end:name` for start/end icon slots
+  - Callouts: `icon:name` to override default variant icons
+  - Details: `icon:expand:name` and `icon:collapse:name` for custom toggle icons
+  - Tags: `icon:name` for inline content icons (block and inline syntax)
+- Example site updated with icon demonstrations for all supported components
+
+### Fixed
+
+- Removed `margin-top` from `wa-icon` in example site CSS that caused misaligned icons inside components
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.4`
+
 ## [0.8.0] - 2026-02-08
 
 ### Changed

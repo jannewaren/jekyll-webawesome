@@ -73,6 +73,32 @@ The `appearance` attribute controls visual styling. Each appearance has a distin
 **Filled-outlined** (default) — Combines filled background with border for maximum clarity.
 :::
 
+### Custom Icons
+
+Override the default variant icon with `icon:name`:
+
+:::warning icon:shield
+**Security notice** — uses a shield icon instead of the default warning icon.
+:::
+
+:::brand icon:rocket
+**Launch update** — custom rocket icon for brand callout.
+:::
+
+:::success icon:thumbs-up
+**Approved!** — thumbs-up icon overrides the default checkmark.
+:::
+
+:::danger icon:skull
+**Critical failure** — custom icon for emphasis.
+:::
+
+Custom icon with size and appearance:
+
+:::brand icon:lightbulb large filled
+**Pro tip** — a large filled callout with a lightbulb icon. Size and appearance work alongside custom icons.
+:::
+
 ### Combined size and appearance
 
 :::info small accent
@@ -201,6 +227,38 @@ Large success pill
 Small warning pill
 @@@
 
+### Tags with Icons
+
+Add an icon inside a tag with `icon:name`:
+
+@@@success icon:check
+Approved
+@@@
+
+@@@danger icon:circle-xmark
+Rejected
+@@@
+
+@@@brand icon:star
+Featured
+@@@
+
+@@@warning icon:clock
+Pending
+@@@
+
+Combined with other attributes:
+
+@@@success icon:circle-check large pill
+Verified
+@@@
+
+@@@danger icon:fire small filled
+Hot
+@@@
+
+Inline tags with icons: @@@ brand icon:star Featured @@@ and @@@ success icon:check Done @@@ and @@@ warning icon:clock Pending @@@
+
 ### Removable Tags
 
 Tags with the `with-remove` attribute show a remove button:
@@ -316,6 +374,28 @@ Defaults to end but you can use start to get the icon at the beginning.
 Plain appearance summary
 >>>
 The icon is in the beginning now
+^^^
+
+### Custom Expand/Collapse Icons
+
+Replace the default toggle icon with custom expand and collapse icons:
+
+^^^icon:expand:plus icon:collapse:minus
+Click to expand (plus/minus icons)
+>>>
+Custom expand/collapse icons make the interaction more intuitive. The plus becomes a minus when opened.
+^^^
+
+^^^icon:expand:chevron-down icon:collapse:chevron-up filled
+Chevron icons with filled appearance
+>>>
+Chevron-down when collapsed, chevron-up when expanded. Combined with filled appearance.
+^^^
+
+^^^icon:expand:caret-right icon:collapse:caret-down open
+Caret icons (open by default)
+>>>
+This uses right/down caret icons and starts expanded.
 ^^^
 
 ### Disabled State
@@ -625,6 +705,48 @@ Submit Form
 
 %%%danger
 Reset Data
+%%%
+
+### Buttons with Icons
+
+Add icons to buttons with `icon:name` (start slot by default) or `icon:end:name`:
+
+%%%brand icon:download
+Download File
+%%%
+
+%%%success icon:check
+Confirm
+%%%
+
+%%%danger icon:trash
+Delete Item
+%%%
+
+Button with end icon:
+
+%%%icon:end:arrow-right
+Next Step
+%%%
+
+Button with both start and end icons:
+
+%%%brand icon:start:gear icon:end:arrow-right
+Settings
+%%%
+
+Icons with other attributes:
+
+%%%success icon:download large pill
+[Download Now](https://example.com/download)
+%%%
+
+%%%warning icon:triangle-exclamation small outlined
+Caution
+%%%
+
+%%%brand icon:rocket filled
+[Launch App](https://example.com/launch)
 %%%
 
 ### Button Appearances
