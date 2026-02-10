@@ -1348,6 +1348,224 @@ Alternative syntax with right tooltip
 <p>More content here</p>
 </wa-carousel-item></wa-carousel>
 
+<h2 id="layouts">Layouts</h2>
+
+<p>Layout containers use <code class="language-plaintext highlighter-rouge">::::</code> (quadruple colon) syntax to wrap content in Web Awesome CSS layout utilities. Layouts compose with component syntax — use <code class="language-plaintext highlighter-rouge">:::</code> components inside <code class="language-plaintext highlighter-rouge">::::</code> layouts.</p>
+
+<h3 id="grid--responsive-card-layout">Grid — Responsive Card Layout</h3>
+
+<p>Cards automatically arrange into a responsive grid:</p>
+
+<div class="wa-grid wa-gap-l">
+<wa-card with-header="" with-footer=""><div slot="header"><p>Getting Started</p>
+</div><p>Set up your project in minutes with our quick-start guide.</p>
+<div slot="footer"><wa-button href="https://example.com">Read Guide</wa-button></div></wa-card>
+
+<wa-card with-header="" with-footer=""><div slot="header"><p>Components</p>
+</div><p>Browse our library of 30+ accessible web components.</p>
+<div slot="footer"><wa-button href="https://example.com">View Docs</wa-button></div></wa-card>
+
+<wa-card with-header="" with-footer=""><div slot="header"><p>Theming</p>
+</div><p>Customize colors, typography, and spacing to match your brand.</p>
+<div slot="footer"><wa-button href="https://example.com">Explore Themes</wa-button></div></wa-card>
+</div>
+
+<h3 id="grid-with-custom-column-size">Grid with Custom Column Size</h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">min:</code> to control when columns wrap:</p>
+
+<div class="wa-grid wa-gap-l" style="--min-column-size: 300px">
+<wa-card appearance="filled" with-header=""><div slot="header"><p>Wide Card One</p>
+</div><p>This grid has a larger minimum column size, so it wraps to fewer columns sooner.</p>
+</wa-card>
+
+<wa-card appearance="filled" with-header=""><div slot="header"><p>Wide Card Two</p>
+</div><p>Great for content that needs more horizontal space to breathe.</p>
+</wa-card>
+
+<wa-card appearance="filled" with-header=""><div slot="header"><p>Wide Card Three</p>
+</div><p>Resize the browser to see the responsive behavior in action.</p>
+</wa-card>
+
+<wa-card appearance="filled" with-header=""><div slot="header"><p>Wide Card Four</p>
+</div><p>Four cards that reflow into 1–3 columns depending on screen width.</p>
+</wa-card>
+</div>
+
+<h3 id="stack--vertical-spacing">Stack — Vertical Spacing</h3>
+
+<p>Stack arranges items vertically with consistent spacing. Perfect for sequential content:</p>
+
+<div class="wa-stack wa-gap-l">
+<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p><strong>Step 1</strong> — Install the gem: <code>gem install jekyll-webawesome</code></p>
+</wa-callout>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>Step 2</strong> — Add it to your <code>_config.yml</code> plugins list.</p>
+</wa-callout>
+
+<wa-callout variant="warning"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p><strong>Step 3</strong> — Use the custom Markdown syntax in your posts and pages.</p>
+</wa-callout>
+
+<wa-callout variant="neutral"><wa-icon slot="icon" name="gear" variant="solid"></wa-icon><p><strong>Step 4</strong> — Build your site and verify the components render correctly.</p>
+</wa-callout>
+</div>
+
+<h3 id="stack-with-tight-spacing">Stack with Tight Spacing</h3>
+
+<p>A compact stack with small gap:</p>
+
+<div class="wa-stack wa-gap-xs">
+<wa-callout variant="success" size="small"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>Tests passing</p>
+</wa-callout>
+
+<wa-callout variant="success" size="small"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>Build complete</p>
+</wa-callout>
+
+<wa-callout variant="brand" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Deployed to production</p>
+</wa-callout>
+</div>
+
+<h3 id="cluster--inline-elements">Cluster — Inline Elements</h3>
+
+<p>Cluster wraps items inline with even spacing. Ideal for tag clouds and status indicators:</p>
+
+<div class="wa-cluster wa-gap-s">
+<wa-tag pill="">rand Version 2.0</wa-tag>
+
+<wa-tag variant="success" pill="">Stable</wa-tag>
+
+<wa-tag variant="neutral" pill="">Documentation</wa-tag>
+
+<wa-tag variant="warning" pill="">Beta</wa-tag>
+
+<wa-tag pill="">nger Deprecated</wa-tag>
+
+<wa-tag pill=""><wa-icon name="star"></wa-icon>rand Featured</wa-tag>
+
+<wa-tag variant="success" pill=""><wa-icon name="check"></wa-icon>Verified</wa-tag>
+
+<wa-tag variant="neutral" pill=""><wa-icon name="clock"></wa-icon>Updated</wa-tag>
+</div>
+
+<h3 id="cluster-with-justify">Cluster with Justify</h3>
+
+<p>Center a group of buttons:</p>
+
+<div class="wa-cluster wa-gap-m wa-justify-content-center">
+<wa-button variant="brand" href="https://example.com">Get Started</wa-button>
+
+<wa-button appearance="outlined" href="https://example.com">Documentation</wa-button>
+
+<wa-button variant="neutral" href="https://example.com">GitHub</wa-button>
+</div>
+
+<h3 id="split--two-column-layout">Split — Two-Column Layout</h3>
+
+<p>Split distributes items evenly across the available space:</p>
+
+<div class="wa-split wa-gap-l">
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>Left Column</strong> — This content sits on the left side of the split. Splits are perfect for navigation bars, headers, and any two-column layout.</p>
+</wa-callout>
+
+<wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p><strong>Right Column</strong> — This content sits on the right side. When the screen gets too narrow, the items will stack vertically.</p>
+</wa-callout>
+</div>
+
+<h3 id="flank--sidebar-layout">Flank — Sidebar Layout</h3>
+
+<p>Flank positions one item alongside content that fills the remaining space:</p>
+
+<div class="wa-flank wa-gap-l" style="--flank-size: 250px">
+<wa-callout variant="neutral"><wa-icon slot="icon" name="gear" variant="solid"></wa-icon><p><strong>Sidebar</strong></p>
+
+<ul>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Components</a></li>
+  <li><a href="#">Layouts</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+</wa-callout>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>Main Content Area</strong> — The flank layout is perfect for sidebar navigation patterns. The sidebar has a fixed target width (250px here) while the main content stretches to fill the remaining space. When the screen is too narrow, the sidebar wraps below.</p>
+</wa-callout>
+</div>
+
+<h3 id="frame--constrained-aspect-ratios">Frame — Constrained Aspect Ratios</h3>
+
+<p>Frame creates containers with consistent proportions. Great for images:</p>
+
+<div class="wa-frame:landscape wa-border-radius-l">
+<img src="image_colours.png" alt="Landscape framed image" />
+</div>
+
+<div class="wa-frame:portrait wa-border-radius-m">
+<img src="image.png" alt="Portrait framed image" />
+</div>
+
+<div class="wa-frame:square wa-border-radius-circle">
+<img src="image_colours.png" alt="Square framed image" />
+</div>
+
+<h3 id="nested-layouts">Nested Layouts</h3>
+
+<p>Combine layouts by using HTML for the outer container and <code class="language-plaintext highlighter-rouge">::::</code> syntax for inner layouts. Here’s a grid of stacks:</p>
+
+<div class="wa-grid wa-gap-l" style="--min-column-size: 250px">
+
+<div class="wa-stack wa-gap-s">
+<h4><wa-icon name="rocket"></wa-icon> Features</h4>
+
+<wa-callout variant="brand" appearance="accent" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Built-in accessibility for all components.</p>
+</wa-callout>
+
+<wa-callout variant="brand" appearance="accent" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Dark mode and theming support.</p>
+</wa-callout>
+
+<wa-callout variant="brand" appearance="accent" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Lightweight — no heavy frameworks required.</p>
+</wa-callout>
+</div>
+
+<div class="wa-stack wa-gap-s">
+<h4><wa-icon name="shield"></wa-icon> Security</h4>
+
+<wa-callout variant="success" appearance="accent" size="small"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>XSS protection built in.</p>
+</wa-callout>
+
+<wa-callout variant="success" appearance="accent" size="small"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>CSP-compatible components.</p>
+</wa-callout>
+
+<wa-callout variant="success" appearance="accent" size="small"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>Regular security audits.</p>
+</wa-callout>
+</div>
+
+<div class="wa-stack wa-gap-s">
+<h4><wa-icon name="gauge-high"></wa-icon> Performance</h4>
+
+<wa-callout variant="warning" appearance="accent" size="small"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p>Lazy-loaded components.</p>
+</wa-callout>
+
+<wa-callout variant="warning" appearance="accent" size="small"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p>Tree-shakeable imports.</p>
+</wa-callout>
+
+<wa-callout variant="warning" appearance="accent" size="small"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p>Under 10kb gzipped core.</p>
+</wa-callout>
+</div>
+
+</div>
+
+<h3 id="alternative-syntax-4">Alternative Syntax</h3>
+
+<p>All layouts support <code class="language-plaintext highlighter-rouge">::::wa-</code> prefix syntax:</p>
+
+<div class="wa-stack wa-gap-m">
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>This layout uses <code>::::wa-stack</code> instead of <code>::::stack</code>.</p>
+</wa-callout>
+
+<wa-callout variant="brand"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Both syntaxes produce identical output.</p>
+</wa-callout>
+</div>
+
 
         </main>
     </div>

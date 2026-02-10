@@ -1484,3 +1484,257 @@ More content here
 ~~~
 :::
 
+## Layouts
+
+Layout containers use `::::` (quadruple colon) syntax to wrap content in Web Awesome CSS layout utilities. Layouts compose with component syntax — use `:::` components inside `::::` layouts.
+
+### Grid — Responsive Card Layout
+
+Cards automatically arrange into a responsive grid:
+
+::::grid gap:l
+===
+# Getting Started
+Set up your project in minutes with our quick-start guide.
+[Read Guide](https://example.com)
+===
+
+===
+# Components
+Browse our library of 30+ accessible web components.
+[View Docs](https://example.com)
+===
+
+===
+# Theming
+Customize colors, typography, and spacing to match your brand.
+[Explore Themes](https://example.com)
+===
+::::
+
+### Grid with Custom Column Size
+
+Use `min:` to control when columns wrap:
+
+::::grid gap:l min:300px
+===filled
+# Wide Card One
+This grid has a larger minimum column size, so it wraps to fewer columns sooner.
+===
+
+===filled
+# Wide Card Two
+Great for content that needs more horizontal space to breathe.
+===
+
+===filled
+# Wide Card Three
+Resize the browser to see the responsive behavior in action.
+===
+
+===filled
+# Wide Card Four
+Four cards that reflow into 1–3 columns depending on screen width.
+===
+::::
+
+### Stack — Vertical Spacing
+
+Stack arranges items vertically with consistent spacing. Perfect for sequential content:
+
+::::stack gap:l
+:::success
+**Step 1** — Install the gem: `gem install jekyll-webawesome`
+:::
+
+:::brand
+**Step 2** — Add it to your `_config.yml` plugins list.
+:::
+
+:::warning
+**Step 3** — Use the custom Markdown syntax in your posts and pages.
+:::
+
+:::neutral
+**Step 4** — Build your site and verify the components render correctly.
+:::
+::::
+
+### Stack with Tight Spacing
+
+A compact stack with small gap:
+
+::::stack gap:xs
+:::success small
+Tests passing
+:::
+
+:::success small
+Build complete
+:::
+
+:::brand small
+Deployed to production
+:::
+::::
+
+### Cluster — Inline Elements
+
+Cluster wraps items inline with even spacing. Ideal for tag clouds and status indicators:
+
+::::cluster gap:s
+@@@brand pill Version 2.0 @@@
+
+@@@success pill Stable @@@
+
+@@@neutral pill Documentation @@@
+
+@@@warning pill Beta @@@
+
+@@@danger pill Deprecated @@@
+
+@@@brand pill icon:star Featured @@@
+
+@@@success pill icon:check Verified @@@
+
+@@@neutral pill icon:clock Updated @@@
+::::
+
+### Cluster with Justify
+
+Center a group of buttons:
+
+::::cluster gap:m justify:center
+%%%brand
+[Get Started](https://example.com)
+%%%
+
+%%%outlined
+[Documentation](https://example.com)
+%%%
+
+%%%neutral
+[GitHub](https://example.com)
+%%%
+::::
+
+### Split — Two-Column Layout
+
+Split distributes items evenly across the available space:
+
+::::split gap:l
+:::brand
+**Left Column** — This content sits on the left side of the split. Splits are perfect for navigation bars, headers, and any two-column layout.
+:::
+
+:::success
+**Right Column** — This content sits on the right side. When the screen gets too narrow, the items will stack vertically.
+:::
+::::
+
+### Flank — Sidebar Layout
+
+Flank positions one item alongside content that fills the remaining space:
+
+::::flank gap:l size:250px
+:::neutral
+**Sidebar**
+
+- [Home](#)
+- [About](#)
+- [Components](#)
+- [Layouts](#)
+- [Contact](#)
+:::
+
+:::brand
+**Main Content Area** — The flank layout is perfect for sidebar navigation patterns. The sidebar has a fixed target width (250px here) while the main content stretches to fill the remaining space. When the screen is too narrow, the sidebar wraps below.
+:::
+::::
+
+### Frame — Constrained Aspect Ratios
+
+Frame creates containers with consistent proportions. Great for images:
+
+::::frame landscape radius:l
+<img src="image_colours.png" alt="Landscape framed image">
+::::
+
+::::frame portrait radius:m
+<img src="image.png" alt="Portrait framed image">
+::::
+
+::::frame square radius:circle
+<img src="image_colours.png" alt="Square framed image">
+::::
+
+### Nested Layouts
+
+Combine layouts by using HTML for the outer container and `::::` syntax for inner layouts. Here's a grid of stacks:
+
+<div class="wa-grid wa-gap-l" style="--min-column-size: 250px">
+
+::::stack gap:s
+<h4>$$$rocket Features</h4>
+
+:::brand small accent
+Built-in accessibility for all components.
+:::
+
+:::brand small accent
+Dark mode and theming support.
+:::
+
+:::brand small accent
+Lightweight — no heavy frameworks required.
+:::
+::::
+
+::::stack gap:s
+<h4>$$$shield Security</h4>
+
+:::success small accent
+XSS protection built in.
+:::
+
+:::success small accent
+CSP-compatible components.
+:::
+
+:::success small accent
+Regular security audits.
+:::
+::::
+
+::::stack gap:s
+<h4>$$$gauge-high Performance</h4>
+
+:::warning small accent
+Lazy-loaded components.
+:::
+
+:::warning small accent
+Tree-shakeable imports.
+:::
+
+:::warning small accent
+Under 10kb gzipped core.
+:::
+::::
+
+</div>
+
+### Alternative Syntax
+
+All layouts support `::::wa-` prefix syntax:
+
+::::wa-stack gap:m
+:::info
+This layout uses `::::wa-stack` instead of `::::stack`.
+:::
+
+:::info
+Both syntaxes produce identical output.
+:::
+::::
+
