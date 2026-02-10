@@ -4,9 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
-## [Unreleased]
+## [0.10.0] - 2026-02-10
 
-- Placeholder
+### Added
+
+- **Layout syntax** via markawesome 0.5.0: new `::::` (quadruple colon) syntax for CSS layout containers
+  - `::::grid` — responsive auto-wrapping grid with `min:` column size control
+  - `::::stack` — vertical spacing with gap control
+  - `::::cluster` — inline wrapping elements (tag clouds, button groups)
+  - `::::split` — even two-column/row distribution with `row`/`column` modifiers
+  - `::::flank` — sidebar + main content with `size:` and `content:` controls
+  - `::::frame` — aspect ratio containers (`landscape`/`portrait`/`square`) with `radius:`
+  - Common attributes: `gap:SIZE`, `align:VALUE`, `justify:VALUE`
+  - Alternative `::::wa-*` syntax supported for all layout types
+  - Nest components (`:::`) inside layouts (`::::`) for page composition
+- Example site updated with comprehensive layout demonstrations
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.5`
 
 ## [0.9.0] - 2026-02-09
 
