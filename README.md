@@ -23,12 +23,28 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Copy Button** | `<<<placement? disabled? duration? labels?` | `:::wa-copy-button attributes?` | `<wa-copy-button value="content" tooltip-placement="right" disabled>` |
 | **Details** | `^^^appearance? icon-placement?` | `:::wa-details appearance? icon-placement?` | `<wa-details appearance="..." icon-placement="...">content</wa-details>` |
 | **Dialog** | `???params?` | `:::wa-dialog params?` | `<wa-dialog>` with trigger button and content |
+| **Icon** | `$$$icon-name` | `:::wa-icon name` | `<wa-icon name="icon-name" variant="solid"></wa-icon>` |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
 
 Not all components will make sense to include here, to be included in the "prose" content of a web page. Some components are more suitable to be used in layouts or used in the page as includes, too complicated for this purpose.
 
 Both syntax styles work identically and can be mixed within the same document.
+
+### Layout utilities
+
+Layout containers use `::::` (quadruple colon) syntax to wrap content in Web Awesome CSS layout utilities. Layouts compose with component syntax — use `:::` components inside `::::` layouts.
+
+| Layout | Primary Syntax | Key Attributes | Description |
+|--------|----------------|----------------|-------------|
+| **Grid** | `::::grid` | `min:SIZE`, `gap:SIZE` | Responsive auto-wrapping grid |
+| **Stack** | `::::stack` | `gap:SIZE` | Vertical spacing |
+| **Cluster** | `::::cluster` | `gap:SIZE`, `justify:VALUE` | Inline wrapping elements (tag clouds, button groups) |
+| **Split** | `::::split` | `gap:SIZE`, `row`/`column` | Even two-column/row distribution |
+| **Flank** | `::::flank` | `size:SIZE`, `content:SIZE`, `gap:SIZE` | Sidebar + main content |
+| **Frame** | `::::frame` | `landscape`/`portrait`/`square`, `radius:VALUE` | Aspect ratio containers |
+
+Common attributes across all layouts: `gap:SIZE`, `align:VALUE`, `justify:VALUE`. Alternative `::::wa-*` syntax is supported for all layout types.
 
 ## Installation
 
