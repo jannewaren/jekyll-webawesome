@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [0.12.0] - 2026-02-14
+
+### Changed
+
+- **BREAKING: Card header syntax** — Card headers now use `**bold text**` instead of `# heading` via markawesome 0.6.0. The first bold-only line inside a card block becomes the header slot. This avoids markdownlint warnings (MD025, MD001) and better reflects that card titles are not semantic document headings.
+- Updated `markawesome` dependency to `~> 0.6`
+- Example site updated with new card header syntax
+
+## [0.11.0] - 2026-02-10
+
+### Added
+
+- Icon component and layout utilities table added to README
+
 ## [0.10.0] - 2026-02-10
 
 ### Added
