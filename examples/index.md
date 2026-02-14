@@ -1193,46 +1193,46 @@ This is a basic card with just content.
 ===
 
 ===
-# Card Title
+**Card Title**
 This is the card content that appears in the main area.
 ===
 
 ===
 ![Alt text](image.png)
-# Featured Content
+**Featured Content**
 This card includes both an image and a title.
 ===
 
 ===
-# Get Started
-Ready to begin your journey? 
+**Get Started**
+Ready to begin your journey?
 [Learn More](https://example.com)
 ===
 
 ===filled
 ![Hero Image](image.png)
-# Complete Example
+**Complete Example**
 This card has media, header, content, and footer with a filled appearance.
 [Get Started](https://example.com)
 ===
 
 ===filled
-# Filled Card
+**Filled Card**
 This card uses the filled appearance.
 ===
 
 ===plain
-# Plain Card
+**Plain Card**
 This card uses the plain appearance.
 ===
 
 ===filled-outlined
-# Filled Outlined Card
+**Filled Outlined Card**
 This card uses the filled-outlined appearance.
 ===
 
 ===accent
-# Accent Card
+**Accent Card**
 This card uses the accent appearance for emphasis.
 ===
 
@@ -1242,25 +1242,25 @@ Horizontal layout displays media and content side-by-side:
 
 ===horizontal
 ![Feature Image](image.png)
-# Horizontal Card
+**Horizontal Card**
 This card displays with a side-by-side layout where media appears on the left and content on the right. Perfect for showcasing features or products.
 ===
 
 ===filled horizontal
 ![Product Photo](image_colours.png)
-# Filled Horizontal
+**Filled Horizontal**
 Combine appearance and orientation attributes for varied styling. The filled appearance with horizontal layout creates a bold presentation.
 ===
 
 ===accent horizontal
 ![Accent Feature](image_big.png)
-# Accent Horizontal
+**Accent Horizontal**
 The accent appearance combined with horizontal orientation draws attention to important content while maintaining a modern side-by-side layout.
 ===
 
 ===plain horizontal
 ![Simple Layout](image.png)
-# Plain Horizontal
+**Plain Horizontal**
 The plain appearance with horizontal orientation creates a clean, minimal presentation ideal for simple content displays.
 ===
 
@@ -1494,19 +1494,19 @@ Cards automatically arrange into a responsive grid:
 
 ::::grid gap:l
 ===
-# Getting Started
+**Getting Started**
 Set up your project in minutes with our quick-start guide.
 [Read Guide](https://example.com)
 ===
 
 ===
-# Components
+**Components**
 Browse our library of 30+ accessible web components.
 [View Docs](https://example.com)
 ===
 
 ===
-# Theming
+**Theming**
 Customize colors, typography, and spacing to match your brand.
 [Explore Themes](https://example.com)
 ===
@@ -1518,22 +1518,22 @@ Use `min:` to control when columns wrap:
 
 ::::grid gap:l min:300px
 ===filled
-# Wide Card One
+**Wide Card One**
 This grid has a larger minimum column size, so it wraps to fewer columns sooner.
 ===
 
 ===filled
-# Wide Card Two
+**Wide Card Two**
 Great for content that needs more horizontal space to breathe.
 ===
 
 ===filled
-# Wide Card Three
+**Wide Card Three**
 Resize the browser to see the responsive behavior in action.
 ===
 
 ===filled
-# Wide Card Four
+**Wide Card Four**
 Four cards that reflow into 1–3 columns depending on screen width.
 ===
 ::::

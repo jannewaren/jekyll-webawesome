@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gemspec
 
 # Use local markawesome gem for development
-gem 'markawesome', '~> 0.2'
+gem 'markawesome', '~> 0.6'
 
 gem 'rake', '~> 13.0'
 gem 'rspec', '~> 3.0'

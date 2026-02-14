@@ -224,11 +224,11 @@ This is a basic card with just content.
 
 #### Cards with Headers
 
-The first heading (`#`) automatically becomes the card header:
+The first bold line (`**text**`) automatically becomes the card header:
 
 ```markdown
 ===
-# Card Title
+**Card Title**
 This is the card content that appears in the main area.
 ===
 ```
@@ -240,7 +240,7 @@ The first image automatically becomes the card media:
 ```markdown
 ===
 ![Alt text](image.jpg)
-# Featured Content
+**Featured Content**
 This card includes both an image and a title.
 ===
 ```
@@ -251,8 +251,8 @@ Links at the end of the card content automatically become footer buttons:
 
 ```markdown
 ===
-# Get Started
-Ready to begin your journey? 
+**Get Started**
+Ready to begin your journey?
 [Learn More](https://example.com)
 ===
 ```
@@ -264,7 +264,7 @@ You can combine all elements for rich content cards:
 ```markdown
 ===filled
 ![Hero Image](hero.jpg)
-# Complete Example
+**Complete Example**
 This card has media, header, content, and footer with a filled appearance.
 [Get Started](https://example.com)
 ===
@@ -276,22 +276,22 @@ You can specify different visual styles:
 
 ```markdown
 ===filled
-# Filled Card
+**Filled Card**
 This card uses the filled appearance.
 ===
 
 ===plain
-# Plain Card
+**Plain Card**
 This card uses the plain appearance.
 ===
 
 ===filled-outlined
-# Filled Outlined Card
+**Filled Outlined Card**
 This card uses the filled-outlined appearance.
 ===
 
 ===accent
-# Accent Card
+**Accent Card**
 This card uses the accent appearance for emphasis.
 ===
 ```
@@ -303,13 +303,13 @@ Cards can be displayed in horizontal layout for side-by-side presentation:
 ```markdown
 ===horizontal
 ![Feature Image](feature.jpg)
-# Horizontal Card
+**Horizontal Card**
 This card displays with a side-by-side layout where media appears on the left.
 ===
 
 ===filled horizontal
 ![Product Photo](product.jpg)
-# Combined Attributes
+**Combined Attributes**
 You can combine appearance and orientation in any order.
 ===
 ```
@@ -1410,7 +1410,7 @@ Cards support flexible attribute ordering using space-separated parameters:
 Cards automatically parse content into these slots:
 
 - **Media**: First image becomes media slot
-- **Header**: First `#` heading becomes header slot  
+- **Header**: First `**bold line**` becomes header slot
 - **Content**: Remaining content becomes main content
 - **Footer**: Trailing links become footer buttons
 
