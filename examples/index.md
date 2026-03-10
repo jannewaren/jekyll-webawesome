@@ -1186,6 +1186,72 @@ To prevent an image from being transformed, add `"nodialog"` to the title attrib
 
 Images in inline code are automatically protected: `![example](image.png)` won't be transformed.
 
+## Popovers
+
+Popovers show floating content when a trigger is clicked. They use `&&&` syntax with `>>>` to separate trigger text from popover content.
+
+### Basic Popover
+
+Default placement is top:
+
+&&&
+Hover for info
+>>>
+This is a basic popover with **markdown** support.
+&&&
+
+### Placements
+
+&&&bottom
+Bottom popover
+>>>
+This popover appears below the trigger.
+&&&
+
+&&&left
+Left popover
+>>>
+This popover appears to the left.
+&&&
+
+&&&right
+Right popover
+>>>
+This popover appears to the right.
+&&&
+
+### Without Arrow
+
+&&&top without-arrow
+No arrow
+>>>
+This popover has no arrow pointing to the trigger.
+&&&
+
+### Custom Distance
+
+&&&bottom distance:20
+Far away
+>>>
+This popover has extra distance from its trigger element.
+&&&
+
+### Combined Parameters
+
+&&&right without-arrow distance:10
+Custom popover
+>>>
+Combines placement, no arrow, and custom distance. All parameters work together in any order.
+&&&
+
+### Alternative Syntax
+
+:::wa-popover bottom
+Alternative syntax trigger
+>>>
+This uses the `:::wa-popover` syntax instead of `&&&`.
+:::
+
 ## Cards
 
 ===
