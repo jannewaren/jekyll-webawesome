@@ -1244,12 +1244,44 @@ Custom popover
 Combines placement, no arrow, and custom distance. All parameters work together in any order.
 &&&
 
+### Link Style
+
+Use the `link` flag to render the trigger as a link-styled element instead of a button:
+
+&&&link
+Learn more about popovers
+>>>
+The `link` flag renders the trigger as underlined text that looks like a hyperlink, blending naturally into paragraphs.
+&&&
+
+Link style with placement:
+
+&&&bottom link
+What is Web Awesome?
+>>>
+Web Awesome is a collection of beautifully designed, framework-agnostic web components built on open web standards.
+&&&
+
+Link style with all parameters:
+
+&&&right link without-arrow distance:5
+Terms and conditions
+>>>
+By using this site, you agree to our terms of service and privacy policy. All content is provided as-is.
+&&&
+
 ### Alternative Syntax
 
 :::wa-popover bottom
 Alternative syntax trigger
 >>>
 This uses the `:::wa-popover` syntax instead of `&&&`.
+:::
+
+:::wa-popover link
+Alternative link popover
+>>>
+The `link` flag also works with alternative `:::wa-popover` syntax.
 :::
 
 ## Cards
