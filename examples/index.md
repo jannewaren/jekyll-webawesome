@@ -1270,6 +1270,34 @@ Terms and conditions
 By using this site, you agree to our terms of service and privacy policy. All content is provided as-is.
 &&&
 
+### Rich Markdown Content
+
+Popovers support full markdown inside — multiple paragraphs, lists, links, emphasis, and more:
+
+&&&top
+Feature overview
+>>>
+**Key highlights:**
+
+- *Fast* rendering with zero JavaScript overhead
+- Support for **all** Web Awesome components
+- [Full documentation](https://webawesome.com) available
+
+Works great for contextual help and tooltips with rich formatting.
+&&&
+
+&&&bottom link
+What are the requirements?
+>>>
+**System requirements:**
+
+1. Jekyll >= 3.7
+2. Kramdown >= 2.0
+3. Web Awesome CSS/JS loaded via [Kit](https://webawesome.com)
+
+You'll also need `bundler` to manage gem dependencies. Run `bundle install` after adding the gem to your `Gemfile`.
+&&&
+
 ### Alternative Syntax
 
 :::wa-popover bottom
