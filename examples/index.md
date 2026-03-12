@@ -1300,6 +1300,20 @@ You'll also need `bundler` to manage gem dependencies. Run `bundle install` afte
 
 ### Alternative Syntax
 
+### Inline Syntax
+
+Popovers can be used inline within a sentence. They always render as link-styled triggers. Use `&&&trigger text >>> popover content&&&` on a single line:
+
+Send invoices via &&&Peppol >>> Peppol is a standardized e-invoicing network used across Europe&&& to your trading partners.
+
+Inline popovers support all placement parameters. Learn about &&&bottom API authentication >>> API keys are used to authenticate your requests to the Maventa API&&& in our documentation.
+
+You can combine parameters too: check the &&&right without-arrow distance:5 invoice validation >>> Invoices are validated against Peppol business rules before being sent&&& rules before submitting.
+
+Multiple inline popovers work on the same line: use &&&Peppol >>> Pan-European e-invoicing network&&& or &&&SFTP >>> Secure file transfer protocol for batch processing&&& for delivery.
+
+### Alternative Syntax
+
 :::wa-popover bottom
 Alternative syntax trigger
 >>>

@@ -1180,6 +1180,20 @@ Multiple paragraphs work too.
 &&&
 ```
 
+#### Inline Syntax
+
+Popovers can be used inline within a sentence using `&&&trigger text >>> popover content&&&` on a single line. Inline popovers always render as link-styled triggers:
+
+```markdown
+Send invoices via &&&Peppol >>> A standardized e-invoicing network&&& to your customers.
+
+Learn about &&&bottom API keys >>> API keys authenticate your requests&&& in the docs.
+
+Check &&&right without-arrow distance:5 validation >>> Invoices are validated against business rules&&& before submitting.
+```
+
+Parameters (placement, `without-arrow`, `distance:N`) come before the trigger text. Inline popover content is plain text (use block syntax for rich markdown content).
+
 #### Alternative Syntax
 
 You can also use the explicit `:::wa-popover` syntax:
@@ -1197,7 +1211,7 @@ Popover content using the alternative syntax.
 | Option | Values | Default | Description |
 |--------|--------|---------|-------------|
 | `placement` | `top`, `bottom`, `left`, `right` | `top` | Where the popover appears |
-| `link` | keyword | off | Renders trigger as underlined text instead of button |
+| `link` | keyword | off (always on for inline) | Renders trigger as underlined text instead of button |
 | `without-arrow` | keyword | off | Hides the popover arrow |
 | `distance:N` | number (pixels) | (default) | Distance between trigger and popover |
 

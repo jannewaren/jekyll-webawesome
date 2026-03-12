@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [0.15.0] - 2026-03-12
+
+### Added
+
+- **Inline popover syntax** via markawesome 0.9.0: `&&&trigger text >>> popover content&&&` for use within sentences
+  - Always renders as link-styled trigger (underlined text)
+  - Supports all parameters: placement, `without-arrow`, `distance:N`
+  - Plain text content (HTML-escaped, no markdown processing)
+  - Multiple inline popovers supported on the same line
+- Inline popover examples added to example site
+- Updated README with inline popover documentation
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.9`
+
 ## [0.14.0] - 2026-03-12
 
 ### Changed
