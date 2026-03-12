@@ -24,6 +24,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Details** | `^^^appearance? icon-placement?` | `:::wa-details appearance? icon-placement?` | `<wa-details appearance="..." icon-placement="...">content</wa-details>` |
 | **Dialog** | `???params?` | `:::wa-dialog params?` | `<wa-dialog>` with trigger button and content |
 | **Icon** | `$$$icon-name` | `:::wa-icon name` | `<wa-icon name="icon-name" variant="solid"></wa-icon>` |
+| **Popover** | `&&&placement? link? without-arrow? distance:N?` | `:::wa-popover params?` | `<wa-popover>` with trigger and floating content |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
 
@@ -1052,6 +1053,154 @@ This dialog has light dismiss enabled and is 700px wide.
 
 > **Note**: The dialog uses Web Awesome's declarative `data-dialog` API, so no custom JavaScript is needed. Each dialog gets a unique ID automatically generated from its content. The header with X close button is always shown for accessibility, and a "Close" button is automatically added to the footer.
 
+### Popovers
+
+Create floating popover content attached to a trigger element using the `&&&` syntax:
+
+```markdown
+&&&
+Hover for info
+>>>
+This is the popover content with **markdown** support.
+&&&
+```
+
+This creates a trigger button and a floating popover:
+
+```html
+<wa-button id='popover-abc123' variant='text'>Hover for info</wa-button>
+<wa-popover for='popover-abc123' placement='top'>
+  <p>This is the popover content with <strong>markdown</strong> support.</p>
+</wa-popover>
+```
+
+#### Popover Placement
+
+Control where the popover appears relative to the trigger:
+
+```markdown
+&&&top
+Hover (top)
+>>>
+Popover content above the trigger.
+&&&
+
+&&&bottom
+Hover (bottom)
+>>>
+Popover content below the trigger.
+&&&
+
+&&&left
+Hover (left)
+>>>
+Popover content to the left.
+&&&
+
+&&&right
+Hover (right)
+>>>
+Popover content to the right.
+&&&
+```
+
+**Supported placements:** `top` (default), `bottom`, `left`, `right`
+
+#### Link-style Trigger
+
+Use the `link` parameter to render the trigger as underlined text instead of a button:
+
+```markdown
+&&&link
+Learn more
+>>>
+Detailed explanation that appears on hover.
+&&&
+
+&&&bottom link
+See details
+>>>
+This popover appears below the link-style trigger.
+&&&
+```
+
+Link triggers render as a native `<button>` styled to look like inline text with an underline, making them blend naturally into surrounding prose.
+
+#### Without Arrow
+
+Hide the popover's arrow indicator:
+
+```markdown
+&&&without-arrow
+Hover me
+>>>
+This popover has no arrow pointing to the trigger.
+&&&
+```
+
+#### Custom Distance
+
+Set the distance between the trigger and the popover (in pixels):
+
+```markdown
+&&&distance:20
+Hover me
+>>>
+This popover is 20px away from the trigger.
+&&&
+```
+
+#### Combining Parameters
+
+All parameters can be combined in any order:
+
+```markdown
+&&&bottom link without-arrow distance:10
+Read more
+>>>
+A link-style trigger with popover below, no arrow, and custom distance.
+&&&
+```
+
+#### Rich Popover Content
+
+The popover content supports full markdown — multiple paragraphs, lists, links, bold, italic, code, etc.:
+
+```markdown
+&&&top
+Show details
+>>>
+**Feature highlights:**
+
+- Supports *rich* markdown content
+- Including [links](https://example.com)
+- And `inline code`
+
+Multiple paragraphs work too.
+&&&
+```
+
+#### Alternative Syntax
+
+You can also use the explicit `:::wa-popover` syntax:
+
+```markdown
+:::wa-popover bottom link
+Click for details
+>>>
+Popover content using the alternative syntax.
+:::
+```
+
+#### Popover Parameters
+
+| Option | Values | Default | Description |
+|--------|--------|---------|-------------|
+| `placement` | `top`, `bottom`, `left`, `right` | `top` | Where the popover appears |
+| `link` | keyword | off | Renders trigger as underlined text instead of button |
+| `without-arrow` | keyword | off | Hides the popover arrow |
+| `distance:N` | number (pixels) | (default) | Distance between trigger and popover |
+
 ### Details/Summary (Collapsible Content)
 
 Create collapsible content using the `^^^` syntax:
@@ -1487,6 +1636,15 @@ Cards automatically parse content into these slots:
 - **Declarative API**: Uses Web Awesome's `data-dialog` attributes - no custom JavaScript needed
 - **Label Extraction**: First `#` heading becomes the dialog label, or button text is used as fallback
 - **Markdown Support**: Full markdown formatting in dialog content
+
+### Popover Parameters
+
+| Option | Values | Default | Description |
+|--------|--------|---------|-------------|
+| `placement` | `top`, `bottom`, `left`, `right` | `top` | Where the popover appears relative to the trigger |
+| `link` | keyword | off | Renders trigger as underlined text instead of a `wa-button` |
+| `without-arrow` | keyword | off | Hides the popover arrow indicator |
+| `distance:N` | number (pixels) | (default) | Custom distance between trigger and popover |
 
 ### Image Dialogs (Auto-transformation)
 

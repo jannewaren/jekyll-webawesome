@@ -67,16 +67,9 @@ examples/
 └── README.md           # This file
 ```
 
-## Web Awesome CDN
+## Web Awesome
 
-The examples use the official Web Awesome CDN:
-
-```html
-<link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/styles/webawesome.css" />
-<script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/webawesome.loader.js"></script>
-```
-
-This ensures all components render correctly with the latest styling and functionality.
+The examples use a Web Awesome Kit script that auto-loads the latest version (currently 3.3.1). The Kit is configured in `_layouts/default.html` and automatically provides all components, styles, and functionality.
 
 ## Customization
 
