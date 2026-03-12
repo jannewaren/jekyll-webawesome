@@ -1140,6 +1140,136 @@ Alternative syntax with right tooltip
 
 <p>Images in inline code are automatically protected: <code class="language-plaintext highlighter-rouge">![example](image.png)</code> won’t be transformed.</p>
 
+<h2 id="popovers">Popovers</h2>
+
+<p>Popovers show floating content when a trigger is clicked. They use <code class="language-plaintext highlighter-rouge">&amp;&amp;&amp;</code> syntax with <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code> to separate trigger text from popover content.</p>
+
+<h3 id="basic-popover">Basic Popover</h3>
+
+<p>Default placement is top:</p>
+
+<wa-button id="popover-5c8374b5" variant="text">Hover for info</wa-button>
+<wa-popover for="popover-5c8374b5" placement="top">
+<p>This is a basic popover with <strong>markdown</strong> support.</p>
+
+</wa-popover>
+
+<h3 id="placements">Placements</h3>
+
+<wa-button id="popover-07c427a9" variant="text">Bottom popover</wa-button>
+<wa-popover for="popover-07c427a9" placement="bottom">
+<p>This popover appears below the trigger.</p>
+
+</wa-popover>
+
+<wa-button id="popover-e45adb84" variant="text">Left popover</wa-button>
+<wa-popover for="popover-e45adb84" placement="left">
+<p>This popover appears to the left.</p>
+
+</wa-popover>
+
+<wa-button id="popover-7bd2f802" variant="text">Right popover</wa-button>
+<wa-popover for="popover-7bd2f802" placement="right">
+<p>This popover appears to the right.</p>
+
+</wa-popover>
+
+<h3 id="without-arrow">Without Arrow</h3>
+
+<wa-button id="popover-7080b5a9" variant="text">No arrow</wa-button>
+<wa-popover for="popover-7080b5a9" placement="top" without-arrow="">
+<p>This popover has no arrow pointing to the trigger.</p>
+
+</wa-popover>
+
+<h3 id="custom-distance">Custom Distance</h3>
+
+<wa-button id="popover-4493eecd" variant="text">Far away</wa-button>
+<wa-popover for="popover-4493eecd" placement="bottom" distance="20">
+<p>This popover has extra distance from its trigger element.</p>
+
+</wa-popover>
+
+<h3 id="combined-parameters">Combined Parameters</h3>
+
+<wa-button id="popover-0f024b11" variant="text">Custom popover</wa-button>
+<wa-popover for="popover-0f024b11" placement="right" without-arrow="" distance="10">
+<p>Combines placement, no arrow, and custom distance. All parameters work together in any order.</p>
+
+</wa-popover>
+
+<h3 id="link-style">Link Style</h3>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">link</code> flag to render the trigger as a link-styled element instead of a button:</p>
+
+<p><button id="popover-f840143f" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">Learn more about popovers</button></p>
+<wa-popover for="popover-f840143f" placement="top">
+<p>The <code>link</code> flag renders the trigger as underlined text that looks like a hyperlink, blending naturally into paragraphs.</p>
+
+</wa-popover>
+
+<p>Link style with placement:</p>
+
+<p><button id="popover-e396e4c3" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">What is Web Awesome?</button></p>
+<wa-popover for="popover-e396e4c3" placement="bottom">
+<p>Web Awesome is a collection of beautifully designed, framework-agnostic web components built on open web standards.</p>
+
+</wa-popover>
+
+<p>Link style with all parameters:</p>
+
+<p><button id="popover-edc804e8" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">Terms and conditions</button></p>
+<wa-popover for="popover-edc804e8" placement="right" without-arrow="" distance="5">
+<p>By using this site, you agree to our terms of service and privacy policy. All content is provided as-is.</p>
+
+</wa-popover>
+
+<h3 id="rich-markdown-content">Rich Markdown Content</h3>
+
+<p>Popovers support full markdown inside — multiple paragraphs, lists, links, emphasis, and more:</p>
+
+<wa-button id="popover-4295f7f4" variant="text">Feature overview</wa-button>
+<wa-popover for="popover-4295f7f4" placement="top">
+<p><strong>Key highlights:</strong></p>
+
+<ul>
+  <li><em>Fast</em> rendering with zero JavaScript overhead</li>
+  <li>Support for <strong>all</strong> Web Awesome components</li>
+  <li><a href="https://webawesome.com">Full documentation</a> available</li>
+</ul>
+
+<p>Works great for contextual help and tooltips with rich formatting.</p>
+
+</wa-popover>
+
+<p><button id="popover-192e7e70" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">What are the requirements?</button></p>
+<wa-popover for="popover-192e7e70" placement="bottom">
+<p><strong>System requirements:</strong></p>
+
+<ol>
+  <li>Jekyll &gt;= 3.7</li>
+  <li>Kramdown &gt;= 2.0</li>
+  <li>Web Awesome CSS/JS loaded via <a href="https://webawesome.com">Kit</a></li>
+</ol>
+
+<p>You’ll also need <code>bundler</code> to manage gem dependencies. Run <code>bundle install</code> after adding the gem to your <code>Gemfile</code>.</p>
+
+</wa-popover>
+
+<h3 id="alternative-syntax-3">Alternative Syntax</h3>
+
+<wa-button id="popover-5086d240" variant="text">Alternative syntax trigger</wa-button>
+<wa-popover for="popover-5086d240" placement="bottom">
+<p>This uses the <code>:::wa-popover</code> syntax instead of <code>&amp;&amp;&amp;</code>.</p>
+
+</wa-popover>
+
+<p><button id="popover-81fba96b" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">Alternative link popover</button></p>
+<wa-popover for="popover-81fba96b" placement="top">
+<p>The <code>link</code> flag also works with alternative <code>:::wa-popover</code> syntax.</p>
+
+</wa-popover>
+
 <h2 id="cards">Cards</h2>
 
 <wa-card><p>This is a basic card with just content.</p>
@@ -1338,7 +1468,7 @@ Alternative syntax with right tooltip
 <p>Third item</p>
 </wa-carousel-item></wa-carousel>
 
-<h3 id="alternative-syntax-3">Alternative Syntax</h3>
+<h3 id="alternative-syntax-4">Alternative Syntax</h3>
 
 <wa-carousel navigation="" pagination=""><wa-carousel-item><p><strong>Alternative Syntax</strong></p>
 
@@ -1554,7 +1684,7 @@ Alternative syntax with right tooltip
 
 </div>
 
-<h3 id="alternative-syntax-4">Alternative Syntax</h3>
+<h3 id="alternative-syntax-5">Alternative Syntax</h3>
 
 <p>All layouts support <code class="language-plaintext highlighter-rouge">::::wa-</code> prefix syntax:</p>
 

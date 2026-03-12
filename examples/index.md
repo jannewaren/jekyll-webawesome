@@ -1186,6 +1186,132 @@ To prevent an image from being transformed, add `"nodialog"` to the title attrib
 
 Images in inline code are automatically protected: `![example](image.png)` won't be transformed.
 
+## Popovers
+
+Popovers show floating content when a trigger is clicked. They use `&&&` syntax with `>>>` to separate trigger text from popover content.
+
+### Basic Popover
+
+Default placement is top:
+
+&&&
+Hover for info
+>>>
+This is a basic popover with **markdown** support.
+&&&
+
+### Placements
+
+&&&bottom
+Bottom popover
+>>>
+This popover appears below the trigger.
+&&&
+
+&&&left
+Left popover
+>>>
+This popover appears to the left.
+&&&
+
+&&&right
+Right popover
+>>>
+This popover appears to the right.
+&&&
+
+### Without Arrow
+
+&&&top without-arrow
+No arrow
+>>>
+This popover has no arrow pointing to the trigger.
+&&&
+
+### Custom Distance
+
+&&&bottom distance:20
+Far away
+>>>
+This popover has extra distance from its trigger element.
+&&&
+
+### Combined Parameters
+
+&&&right without-arrow distance:10
+Custom popover
+>>>
+Combines placement, no arrow, and custom distance. All parameters work together in any order.
+&&&
+
+### Link Style
+
+Use the `link` flag to render the trigger as a link-styled element instead of a button:
+
+&&&link
+Learn more about popovers
+>>>
+The `link` flag renders the trigger as underlined text that looks like a hyperlink, blending naturally into paragraphs.
+&&&
+
+Link style with placement:
+
+&&&bottom link
+What is Web Awesome?
+>>>
+Web Awesome is a collection of beautifully designed, framework-agnostic web components built on open web standards.
+&&&
+
+Link style with all parameters:
+
+&&&right link without-arrow distance:5
+Terms and conditions
+>>>
+By using this site, you agree to our terms of service and privacy policy. All content is provided as-is.
+&&&
+
+### Rich Markdown Content
+
+Popovers support full markdown inside — multiple paragraphs, lists, links, emphasis, and more:
+
+&&&top
+Feature overview
+>>>
+**Key highlights:**
+
+- *Fast* rendering with zero JavaScript overhead
+- Support for **all** Web Awesome components
+- [Full documentation](https://webawesome.com) available
+
+Works great for contextual help and tooltips with rich formatting.
+&&&
+
+&&&bottom link
+What are the requirements?
+>>>
+**System requirements:**
+
+1. Jekyll >= 3.7
+2. Kramdown >= 2.0
+3. Web Awesome CSS/JS loaded via [Kit](https://webawesome.com)
+
+You'll also need `bundler` to manage gem dependencies. Run `bundle install` after adding the gem to your `Gemfile`.
+&&&
+
+### Alternative Syntax
+
+:::wa-popover bottom
+Alternative syntax trigger
+>>>
+This uses the `:::wa-popover` syntax instead of `&&&`.
+:::
+
+:::wa-popover link
+Alternative link popover
+>>>
+The `link` flag also works with alternative `:::wa-popover` syntax.
+:::
+
 ## Cards
 
 ===

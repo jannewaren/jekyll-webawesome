@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [0.13.0] - 2026-03-12
+
+### Added
+
+- **Popover component** (`&&&` or `:::wa-popover`) via markawesome 0.7.0:
+  - Floating popover content attached to a trigger element
+  - Placement options: `top` (default), `bottom`, `left`, `right`
+  - `without-arrow` flag, `distance:N` parameter, `link` trigger style
+  - Trigger text and popover content separated by `>>>`
+- Example site updated with popover demonstrations (placements, link style, combined parameters)
+- Example site README updated to reference Web Awesome Kit (replaces outdated beta CDN reference)
+
 ## [0.12.0] - 2026-02-14
 
 ### Changed
