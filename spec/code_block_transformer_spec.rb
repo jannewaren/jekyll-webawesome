@@ -11,7 +11,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       markdown = "Some text\n```ruby\nputs 'hello'\n```\nMore text"
       result = described_class.protect_all_code_blocks(markdown)
 
-      expect(result).to include('<!--PROTECTED_CODE_BLOCK_0-->')
+      expect(result).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
       expect(result).not_to include('```ruby')
       expect(result).not_to include("puts 'hello'")
     end
@@ -20,8 +20,8 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       markdown = "```ruby\ncode1\n```\n\nSome text\n\n```javascript\ncode2\n```"
       result = described_class.protect_all_code_blocks(markdown)
 
-      expect(result).to include('<!--PROTECTED_CODE_BLOCK_0-->')
-      expect(result).to include('<!--PROTECTED_CODE_BLOCK_1-->')
+      expect(result).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
+      expect(result).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_1-->')
       expect(result).not_to include('```ruby')
       expect(result).not_to include('```javascript')
     end
@@ -30,7 +30,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       markdown = "```xml\n<?xml version=\"1.0\"?>\n<root></root>\n```"
       result = described_class.protect_all_code_blocks(markdown)
 
-      expect(result).to include('<!--PROTECTED_CODE_BLOCK_0-->')
+      expect(result).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
       expect(result).not_to include('<?xml')
     end
 
@@ -38,7 +38,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       markdown = "```\nplain code\n```"
       result = described_class.protect_all_code_blocks(markdown)
 
-      expect(result).to include('<!--PROTECTED_CODE_BLOCK_0-->')
+      expect(result).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
       expect(result).not_to include('plain code')
     end
   end
@@ -51,7 +51,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
 
       # After transformation, protected blocks should still be placeholders
       # but their stored values should be transformed
-      expect(result).to include('<!--PROTECTED_CODE_BLOCK_0-->')
+      expect(result).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
     end
 
     it 'does not transform plain code blocks' do
@@ -85,7 +85,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       expect(result).to include('{% highlight ruby %}')
       expect(result).to include("puts 'hello'")
       expect(result).to include('{% endhighlight %}')
-      expect(result).not_to include('<!--PROTECTED_CODE_BLOCK')
+      expect(result).not_to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK')
     end
 
     it 'restores multiple protected blocks' do
@@ -96,7 +96,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
 
       expect(result).to include('{% highlight ruby %}')
       expect(result).to include('{% highlight javascript %}')
-      expect(result).not_to include('<!--PROTECTED_CODE_BLOCK')
+      expect(result).not_to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK')
     end
   end
 
@@ -121,12 +121,12 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
 
       # Step 1: Protect all code blocks
       protected = described_class.protect_all_code_blocks(markdown)
-      expect(protected).to include('<!--PROTECTED_CODE_BLOCK_0-->')
+      expect(protected).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
       expect(protected).not_to include('<?xml')
 
       # Step 2: Transform the wa-details syntax (simulating DetailsTransformer)
       # After protection, the placeholder should remain in the content
-      expect(protected).to include('<!--PROTECTED_CODE_BLOCK_0-->')
+      expect(protected).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
 
       # Step 3: Transform code blocks
       described_class.transform_code_blocks(protected)
@@ -160,8 +160,8 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       MARKDOWN
 
       protected = described_class.protect_all_code_blocks(markdown)
-      expect(protected).to include('<!--PROTECTED_CODE_BLOCK_0-->')
-      expect(protected).to include('<!--PROTECTED_CODE_BLOCK_1-->')
+      expect(protected).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
+      expect(protected).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_1-->')
 
       described_class.transform_code_blocks(protected)
       result = described_class.restore_protected_blocks(protected)
@@ -184,7 +184,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       MARKDOWN
 
       protected = described_class.protect_all_code_blocks(markdown)
-      expect(protected).to include('<!--PROTECTED_CODE_BLOCK_0-->')
+      expect(protected).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
 
       described_class.transform_code_blocks(protected)
       result = described_class.restore_protected_blocks(protected)
@@ -214,7 +214,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       MARKDOWN
 
       protected = described_class.protect_all_code_blocks(markdown)
-      expect(protected).to include('<!--PROTECTED_CODE_BLOCK_0-->')
+      expect(protected).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
 
       described_class.transform_code_blocks(protected)
       result = described_class.restore_protected_blocks(protected)
@@ -326,7 +326,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       content = Markawesome::DetailsTransformer.transform(content)
 
       # At this point, the code block should still be protected
-      expect(content).to include('<!--PROTECTED_CODE_BLOCK_0-->')
+      expect(content).to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK_0-->')
       expect(content).to include('<wa-details')
 
       # Step 3: Transform code blocks (priority 15)
@@ -353,7 +353,7 @@ RSpec.describe Jekyll::WebAwesome::CodeBlockTransformer do
       expect(code_section).not_to include('<p>')
       expect(code_section).not_to include('</p>')
 
-      expect(result).not_to include('<!--PROTECTED_CODE_BLOCK')
+      expect(result).not_to include('<!--MARKAWESOME_PROTECTED_CODE_BLOCK')
     end
   end
 end

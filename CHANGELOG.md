@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
-## [0.16.0] - 2026-06-16
+## [0.17.0] - 2026-06-16
 
 ### Changed
 
@@ -13,6 +13,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 ### Added
 
 - Example site now demonstrates the Web Awesome 3.x size scale (`xs`–`xl`) for callouts, tags, and buttons, and the `4xl`/`5xl` layout gaps.
+
+## [0.16.0] - 2026-05-05
+
+### Changed
+
+- Internal: code block protection (replacing fenced code blocks with placeholders before Markawesome transforms run, so `:::info`/`^^^`/`@@@` examples inside fenced code stay intact) is now delegated to `Markawesome::CodeBlockProtector` instead of being implemented locally. The Jekyll-specific `{% highlight %}` substitution at priority 15 stays in this gem. No behavior change for Jekyll users.
+- Updated `markawesome` dependency to `~> 0.10`. The 0.10.0 release adds `Markawesome::PlainMarkdownRenderer` (an alternate renderer that emits clean GFM instead of HTML) and exposes `Markawesome::CodeBlockProtector` as a public helper.
 
 ## [0.15.0] - 2026-03-12
 

@@ -1,71 +1,61 @@
 # frozen_string_literal: true
 
+require 'markawesome/code_block_protector'
+
 module Jekyll
   module WebAwesome
-    # Transforms markdown code blocks to Jekyll highlight syntax
+    # Protects markdown fenced code blocks before Markawesome transforms
+    # run, and substitutes them with Jekyll `{% highlight %}` tags after,
+    # so code examples containing `:::`/`^^^`/`@@@` survive intact and
+    # language-tagged blocks still render with Jekyll's syntax highlighter.
+    #
+    # Protection/restore is delegated to Markawesome::CodeBlockProtector;
+    # the `{% highlight %}` substitution at priority 15 is Jekyll-specific
+    # and stays here.
     module CodeBlockTransformer
-      CODE_BLOCK_PATTERN = /```([a-zA-Z0-9.+#_-]+)?(\n.*?)```/m
+      CODE_BLOCK_PATTERN = Markawesome::CodeBlockProtector::CODE_BLOCK_PATTERN
 
-      # Class variable to store protected blocks across hook calls
-      @@protected_blocks = {}
+      @protected_blocks = {}
 
       class << self
+        attr_reader :protected_blocks
+
         def clear_protected_blocks
-          @@protected_blocks.clear
+          @protected_blocks.clear
         end
 
         # Check if pages transformation is enabled
         def transform_pages_enabled?(site)
-          # Check plugin configuration first
           return Jekyll::WebAwesome.configuration.transform_pages if Jekyll::WebAwesome.configuration
-
-          # Check site config
           return site.config.dig('webawesome', 'transform_pages') if site.config.dig('webawesome', 'transform_pages') != nil
 
-          # Default to true
           true
         end
 
         # Check if documents transformation is enabled
         def transform_documents_enabled?(site)
-          # Check plugin configuration first
           return Jekyll::WebAwesome.configuration.transform_documents if Jekyll::WebAwesome.configuration
-
-          # Check site config
           return site.config.dig('webawesome', 'transform_documents') if site.config.dig('webawesome', 'transform_documents') != nil
 
-          # Default to true
           true
         end
 
-        # Check if a code block contains WebAwesome syntax that should be preserved
-        def contains_webawesome_syntax?(content)
-          # Check for WebAwesome patterns
-          callout_pattern = /^:::(info|success|neutral|warning|danger)/m
-          details_pattern = /^\^\^\^/m
-          tabs_pattern = /^\+{6}/m
-
-          content.match?(callout_pattern) || content.match?(details_pattern) || content.match?(tabs_pattern)
-        end
-
-        # Protect all code blocks by converting them to placeholders
-        # This prevents markdown processing from corrupting code blocks inside custom elements
+        # Protect all code blocks by converting them to placeholders via
+        # Markawesome::CodeBlockProtector. The resulting token map is
+        # merged into @protected_blocks so per-page placeholders survive
+        # across the pre_render priority chain (50 → 15 → 10).
         def protect_all_code_blocks(content)
-          counter = @@protected_blocks.size
-
-          content.gsub(CODE_BLOCK_PATTERN) do |match|
-            placeholder = "<!--PROTECTED_CODE_BLOCK_#{counter}-->"
-            @@protected_blocks[placeholder] = match
-            counter += 1
-            placeholder
-          end
+          protected_content, tokens = Markawesome::CodeBlockProtector.protect(content)
+          @protected_blocks.merge!(tokens)
+          protected_content
         end
 
-        # Transform code blocks from markdown syntax to Jekyll highlight tags
-        # This should be called AFTER WebAwesome transformers have processed the content
+        # Rewrite each protected fenced block to a Jekyll `{% highlight %}`
+        # tag, except for blocks without a language or with `plain` — those
+        # are restored verbatim. Called at priority 15, i.e. after
+        # Markawesome transformers but before restore.
         def transform_code_blocks(content)
-          # Transform code blocks that were previously protected
-          @@protected_blocks.transform_values! do |match|
+          @protected_blocks.transform_values! do |match|
             if match =~ CODE_BLOCK_PATTERN
               language = Regexp.last_match(1)
               code_content = Regexp.last_match(2).strip
@@ -73,7 +63,7 @@ module Jekyll
               if language && language.downcase != 'plain'
                 "{% highlight #{language} %}\n#{code_content}\n{% endhighlight %}"
               else
-                match # Return original block if no language or 'plain'
+                match
               end
             else
               match
@@ -82,12 +72,14 @@ module Jekyll
           content
         end
 
-        # Restore protected WebAwesome example blocks after WaElementTransformer processing
+        # Restore protected code blocks using Markawesome::CodeBlockProtector,
+        # then clear the per-page token map so the next page starts fresh.
+        # CodeBlockProtector.protect always restarts its counter at 0, so
+        # clearing between pages prevents placeholder-id collisions.
         def restore_protected_blocks(content)
-          @@protected_blocks.each do |placeholder, original_block|
-            content = content.gsub(placeholder, original_block)
-          end
-          content
+          restored = Markawesome::CodeBlockProtector.restore(content, @protected_blocks)
+          @protected_blocks.clear
+          restored
         end
 
         def process(content)
@@ -95,15 +87,11 @@ module Jekyll
         end
       end
 
-      # Register hooks directly in the transformer module
-      # Wrapped in conditional to prevent errors when Jekyll::Hooks is not fully loaded
       if defined?(Jekyll::Hooks)
-        # Clear protected blocks at start of build
         Jekyll::Hooks.register :site, :pre_render do |_site|
           CodeBlockTransformer.clear_protected_blocks
         end
 
-        # STEP 1: Protect all code blocks BEFORE any transformations (highest priority)
         Jekyll::Hooks.register :documents, :pre_render, priority: 50 do |document|
           next unless document.relative_path =~ /.*\.md$/i
           next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
@@ -120,8 +108,6 @@ module Jekyll
           page.content = CodeBlockTransformer.protect_all_code_blocks(page.content)
         end
 
-        # STEP 2: Transform protected code blocks to Jekyll highlight syntax
-        # This happens AFTER WebAwesome transformers (priority 20) but BEFORE restoration
         Jekyll::Hooks.register :documents, :pre_render, priority: 15 do |document|
           next unless document.relative_path =~ /.*\.md$/i
           next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
@@ -138,7 +124,6 @@ module Jekyll
           page.content = CodeBlockTransformer.transform_code_blocks(page.content)
         end
 
-        # STEP 3: Restore protected blocks after transformation (lowest priority)
         Jekyll::Hooks.register :documents, :pre_render, priority: 10 do |document|
           next unless document.relative_path =~ /.*\.md$/i
           next unless CodeBlockTransformer.transform_documents_enabled?(document.site)
