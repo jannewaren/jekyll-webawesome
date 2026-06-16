@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [0.16.0] - 2026-06-16
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.11`, which aligns generated markup with Web Awesome 3.8.0. This fixes four invalid attribute values that previously fell back to wrong defaults (dialog footer button `variant='primary'`, dialog image-trigger and popover trigger `variant='text'`, details `appearance='filled outlined'`) and adds the Web Awesome 3.x size scale (`xs`/`s`/`m`/`l`/`xl`) for buttons, callouts, and tags plus `4xl`/`5xl` layout gap tokens.
+
+### Added
+
+- Example site now demonstrates the Web Awesome 3.x size scale (`xs`–`xl`) for callouts, tags, and buttons, and the `4xl`/`5xl` layout gaps.
+
 ## [0.15.0] - 2026-03-12
 
 ### Added

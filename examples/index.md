@@ -49,6 +49,32 @@ This is a **medium** callout (default) with standard padding.
 This is a **large** callout with generous padding.
 :::
 
+#### Web Awesome 3.x size scale (xs–xl)
+
+Web Awesome 3.x replaced the three-step `small`/`medium`/`large` scale with a
+five-step `xs`/`s`/`m`/`l`/`xl` scale. Both work (legacy names are aliases),
+but the new scale gives finer control — all five render as distinct sizes:
+
+:::brand xs
+**xs** — extra small.
+:::
+
+:::brand s
+**s** — small.
+:::
+
+:::brand m
+**m** — medium (default).
+:::
+
+:::brand l
+**l** — large.
+:::
+
+:::brand xl
+**xl** — extra large.
+:::
+
 ### Callouts with appearance
 
 The `appearance` attribute controls visual styling. Each appearance has a distinct look:
@@ -205,6 +231,28 @@ Medium success
 
 @@@danger large
 Large danger
+@@@
+
+The Web Awesome 3.x five-step scale (`xs`/`s`/`m`/`l`/`xl`) is also supported:
+
+@@@brand xs
+xs
+@@@
+
+@@@brand s
+s
+@@@
+
+@@@brand m
+m
+@@@
+
+@@@brand l
+l
+@@@
+
+@@@brand xl
+xl
 @@@
 
 ### Pill Shape
@@ -797,6 +845,29 @@ Small Brand
 
 %%%success large
 Large Success
+%%%
+
+The Web Awesome 3.x five-step scale (`xs`/`s`/`m`/`l`/`xl`) renders five
+distinct button sizes:
+
+%%%brand xs
+xs
+%%%
+
+%%%brand s
+s
+%%%
+
+%%%brand m
+m
+%%%
+
+%%%brand l
+l
+%%%
+
+%%%brand xl
+xl
 %%%
 
 ### Pill Buttons
@@ -1715,6 +1786,31 @@ Build complete
 
 :::brand small
 Deployed to production
+:::
+::::
+
+#### Extra-wide gaps (4xl / 5xl)
+
+Web Awesome 3.4 extended the spacing scale with `4xl` and `5xl`. These produce
+noticeably larger gaps than `3xl` — useful for spacing out major page sections:
+
+::::stack gap:4xl
+:::brand small
+Section one — followed by a `4xl` gap.
+:::
+
+:::brand small
+Section two.
+:::
+::::
+
+::::stack gap:5xl
+:::success small
+Section one — followed by a `5xl` gap (the widest step).
+:::
+
+:::success small
+Section two.
 :::
 ::::
 

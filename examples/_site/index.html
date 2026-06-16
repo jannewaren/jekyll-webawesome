@@ -158,6 +158,27 @@
 <wa-callout variant="brand" size="large"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>This is a <strong>large</strong> callout with generous padding.</p>
 </wa-callout>
 
+<h4 id="web-awesome-3x-size-scale-xsxl">Web Awesome 3.x size scale (xs–xl)</h4>
+
+<p>Web Awesome 3.x replaced the three-step <code class="language-plaintext highlighter-rouge">small</code>/<code class="language-plaintext highlighter-rouge">medium</code>/<code class="language-plaintext highlighter-rouge">large</code> scale with a
+five-step <code class="language-plaintext highlighter-rouge">xs</code>/<code class="language-plaintext highlighter-rouge">s</code>/<code class="language-plaintext highlighter-rouge">m</code>/<code class="language-plaintext highlighter-rouge">l</code>/<code class="language-plaintext highlighter-rouge">xl</code> scale. Both work (legacy names are aliases),
+but the new scale gives finer control — all five render as distinct sizes:</p>
+
+<wa-callout variant="brand" size="xs"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>xs</strong> — extra small.</p>
+</wa-callout>
+
+<wa-callout variant="brand" size="s"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>s</strong> — small.</p>
+</wa-callout>
+
+<wa-callout variant="brand" size="m"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>m</strong> — medium (default).</p>
+</wa-callout>
+
+<wa-callout variant="brand" size="l"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>l</strong> — large.</p>
+</wa-callout>
+
+<wa-callout variant="brand" size="xl"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p><strong>xl</strong> — extra large.</p>
+</wa-callout>
+
 <h3 id="callouts-with-appearance">Callouts with appearance</h3>
 
 <p>The <code class="language-plaintext highlighter-rouge">appearance</code> attribute controls visual styling. Each appearance has a distinct look:</p>
@@ -263,6 +284,18 @@
 <wa-tag variant="success" size="medium">Medium success</wa-tag>
 
 <wa-tag variant="danger" size="large">Large danger</wa-tag>
+
+<p>The Web Awesome 3.x five-step scale (<code class="language-plaintext highlighter-rouge">xs</code>/<code class="language-plaintext highlighter-rouge">s</code>/<code class="language-plaintext highlighter-rouge">m</code>/<code class="language-plaintext highlighter-rouge">l</code>/<code class="language-plaintext highlighter-rouge">xl</code>) is also supported:</p>
+
+<wa-tag variant="brand" size="xs">xs</wa-tag>
+
+<wa-tag variant="brand" size="s">s</wa-tag>
+
+<wa-tag variant="brand" size="m">m</wa-tag>
+
+<wa-tag variant="brand" size="l">l</wa-tag>
+
+<wa-tag variant="brand" size="xl">xl</wa-tag>
 
 <h3 id="pill-shape">Pill Shape</h3>
 
@@ -370,7 +403,7 @@
 </span><p>Content goes here</p>
 </wa-details>
 
-<wa-details appearance="filled outlined" icon-placement="end"><span slot="summary"><p>Filled and outlined appearance summary</p>
+<wa-details appearance="filled-outlined" icon-placement="end"><span slot="summary"><p>Filled and outlined appearance summary</p>
 </span><p>Content goes here</p>
 </wa-details>
 
@@ -418,7 +451,7 @@
 </span><p>You can see this content immediately when the page loads. Click the summary to collapse it.</p>
 </wa-details>
 
-<wa-details appearance="filled outlined" icon-placement="end" open=""><span slot="summary"><p>Open with styled appearance</p>
+<wa-details appearance="filled-outlined" icon-placement="end" open=""><span slot="summary"><p>Open with styled appearance</p>
 </span><p>This one is also initially expanded with custom styling.</p>
 </wa-details>
 
@@ -639,6 +672,19 @@
 
 <wa-button variant="success" size="large">Large Success</wa-button>
 
+<p>The Web Awesome 3.x five-step scale (<code class="language-plaintext highlighter-rouge">xs</code>/<code class="language-plaintext highlighter-rouge">s</code>/<code class="language-plaintext highlighter-rouge">m</code>/<code class="language-plaintext highlighter-rouge">l</code>/<code class="language-plaintext highlighter-rouge">xl</code>) renders five
+distinct button sizes:</p>
+
+<wa-button variant="brand" size="xs">xs</wa-button>
+
+<wa-button variant="brand" size="s">s</wa-button>
+
+<wa-button variant="brand" size="m">m</wa-button>
+
+<wa-button variant="brand" size="l">l</wa-button>
+
+<wa-button variant="brand" size="xl">xl</wa-button>
+
 <h3 id="pill-buttons">Pill Buttons</h3>
 
 <p>Pill buttons have rounded edges:</p>
@@ -818,7 +864,7 @@ Alternative syntax with right tooltip
 <wa-dialog id="dialog-3002490c" label="Open Basic Dialog">
 <p>This is a simple dialog with <strong>markdown</strong> support and <a href="https://example.com">links</a>.</p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <p>Dialog with heading as label:</p>
@@ -827,7 +873,7 @@ Alternative syntax with right tooltip
 <wa-dialog id="dialog-75d4e79f" label="Important Notice">
 <p>Please read this information carefully before proceeding.</p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <p>Dialog with light dismiss (click outside to close):</p>
@@ -836,7 +882,7 @@ Alternative syntax with right tooltip
 <wa-dialog id="dialog-8770bdf3" label="Click Outside" light-dismiss="">
 <p>You can close this dialog by clicking on the overlay.</p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <p>Dialog with custom width (600px):</p>
@@ -845,7 +891,7 @@ Alternative syntax with right tooltip
 <wa-dialog id="dialog-34579bb6" label="Custom Width" style="--width: 600px">
 <p>This dialog is 600 pixels wide.</p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <p>Dialog with custom width (50vw):</p>
@@ -854,7 +900,7 @@ Alternative syntax with right tooltip
 <wa-dialog id="dialog-bbf06cf2" label="Viewport Width" style="--width: 50vw">
 <p>This dialog is 50% of the viewport width.</p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <p>Dialog with all options combined:</p>
@@ -872,7 +918,7 @@ Alternative syntax with right tooltip
 
 <p>Click outside or use the close button below!</p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <p>Alternative syntax:</p>
@@ -881,14 +927,14 @@ Alternative syntax with right tooltip
 <wa-dialog id="dialog-328c70ed" label="Alternative Syntax">
 <p>This uses the <code>:::wa-dialog</code> syntax instead of <code>???</code>.</p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <wa-button data-dialog="open dialog-1e5bf7e9">Alternative with Options</wa-button>
 <wa-dialog id="dialog-1e5bf7e9" label="Alternative with Options" light-dismiss="" style="--width: 45em">
 <p>This combines alternative syntax with light-dismiss and 45em width.</p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <h3 id="image-dialogs-auto-transformed-images">Image Dialogs (Auto-transformed Images)</h3>
@@ -921,11 +967,11 @@ Alternative syntax with right tooltip
   }
 </style>
 
-<wa-button id="dialog-136a734e-btn" variant="text" data-dialog="open dialog-136a734e"><img src="image.png" alt="BW Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-button id="dialog-136a734e-btn" appearance="plain" data-dialog="open dialog-136a734e"><img src="image.png" alt="BW Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
 <wa-dialog id="dialog-136a734e" label="BW Image" light-dismiss="" style="--width: 90vh">
 <p><img src="image.png" alt="BW Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
@@ -949,11 +995,11 @@ Alternative syntax with right tooltip
   }
 </style>
 
-<wa-button id="dialog-7e7643ed-btn" variant="text" data-dialog="open dialog-7e7643ed"><img src="image_colours.png" alt="Colour Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-button id="dialog-7e7643ed-btn" appearance="plain" data-dialog="open dialog-7e7643ed"><img src="image_colours.png" alt="Colour Image" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
 <wa-dialog id="dialog-7e7643ed" label="Colour Image" light-dismiss="" style="--width: 90vh">
 <p><img src="image_colours.png" alt="Colour Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <p>You can control the dialog width by adding a width parameter in the title:</p>
@@ -979,11 +1025,11 @@ Alternative syntax with right tooltip
   }
 </style>
 
-<wa-button id="dialog-43edf1c0-btn" variant="text" data-dialog="open dialog-43edf1c0"><img src="image.png" alt="BW Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-button id="dialog-43edf1c0-btn" appearance="plain" data-dialog="open dialog-43edf1c0"><img src="image.png" alt="BW Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
 <wa-dialog id="dialog-43edf1c0" label="BW Image with custom width" light-dismiss="" style="--width: 50%">
 <p><img src="image.png" alt="BW Image with custom width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
@@ -1007,11 +1053,11 @@ Alternative syntax with right tooltip
   }
 </style>
 
-<wa-button id="dialog-bdd788bf-btn" variant="text" data-dialog="open dialog-bdd788bf"><img src="image_colours.png" alt="Colour Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-button id="dialog-bdd788bf-btn" appearance="plain" data-dialog="open dialog-bdd788bf"><img src="image_colours.png" alt="Colour Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
 <wa-dialog id="dialog-bdd788bf" label="Colour Image in large dialog" light-dismiss="" style="--width: 800px">
 <p><img src="image_colours.png" alt="Colour Image in large dialog" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
@@ -1035,11 +1081,11 @@ Alternative syntax with right tooltip
   }
 </style>
 
-<wa-button id="dialog-ca73b7dd-btn" variant="text" data-dialog="open dialog-ca73b7dd"><img src="image.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-button id="dialog-ca73b7dd-btn" appearance="plain" data-dialog="open dialog-ca73b7dd"><img src="image.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
 <wa-dialog id="dialog-ca73b7dd" label="Full viewport width" light-dismiss="" style="--width: 90vw">
 <p><img src="image.png" alt="Full viewport width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <p>Same with a big image</p>
@@ -1065,11 +1111,11 @@ Alternative syntax with right tooltip
   }
 </style>
 
-<wa-button id="dialog-d322c672-btn" variant="text" data-dialog="open dialog-d322c672"><img src="image_big.png" alt="Big Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-button id="dialog-d322c672-btn" appearance="plain" data-dialog="open dialog-d322c672"><img src="image_big.png" alt="Big Image with custom width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
 <wa-dialog id="dialog-d322c672" label="Big Image with custom width" light-dismiss="" style="--width: 50%">
 <p><img src="image_big.png" alt="Big Image with custom width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
@@ -1093,11 +1139,11 @@ Alternative syntax with right tooltip
   }
 </style>
 
-<wa-button id="dialog-a64e8908-btn" variant="text" data-dialog="open dialog-a64e8908"><img src="image_big.png" alt="Big Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-button id="dialog-a64e8908-btn" appearance="plain" data-dialog="open dialog-a64e8908"><img src="image_big.png" alt="Big Image in large dialog" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
 <wa-dialog id="dialog-a64e8908" label="Big Image in large dialog" light-dismiss="" style="--width: 800px">
 <p><img src="image_big.png" alt="Big Image in large dialog" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <style>
@@ -1121,11 +1167,11 @@ Alternative syntax with right tooltip
   }
 </style>
 
-<wa-button id="dialog-6425125b-btn" variant="text" data-dialog="open dialog-6425125b"><img src="image_big.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
+<wa-button id="dialog-6425125b-btn" appearance="plain" data-dialog="open dialog-6425125b"><img src="image_big.png" alt="Full viewport width" style="cursor: zoom-in; display: block; width: 100%; height: auto;" /></wa-button>
 <wa-dialog id="dialog-6425125b" label="Full viewport width" light-dismiss="" style="--width: 90vw">
 <p><img src="image_big.png" alt="Full viewport width" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" /></p>
 
-<wa-button slot="footer" variant="primary" data-dialog="close">Close</wa-button>
+<wa-button slot="footer" variant="brand" data-dialog="close">Close</wa-button>
 </wa-dialog>
 
 <p>You can also control thumbnail display width with inline HTML:</p>
@@ -1148,7 +1194,7 @@ Alternative syntax with right tooltip
 
 <p>Default placement is top:</p>
 
-<wa-button id="popover-5c8374b5" variant="text">Hover for info</wa-button>
+<wa-button id="popover-5c8374b5" appearance="plain">Hover for info</wa-button>
 <wa-popover for="popover-5c8374b5" placement="top">
 <p>This is a basic popover with <strong>markdown</strong> support.</p>
 
@@ -1156,19 +1202,19 @@ Alternative syntax with right tooltip
 
 <h3 id="placements">Placements</h3>
 
-<wa-button id="popover-07c427a9" variant="text">Bottom popover</wa-button>
+<wa-button id="popover-07c427a9" appearance="plain">Bottom popover</wa-button>
 <wa-popover for="popover-07c427a9" placement="bottom">
 <p>This popover appears below the trigger.</p>
 
 </wa-popover>
 
-<wa-button id="popover-e45adb84" variant="text">Left popover</wa-button>
+<wa-button id="popover-e45adb84" appearance="plain">Left popover</wa-button>
 <wa-popover for="popover-e45adb84" placement="left">
 <p>This popover appears to the left.</p>
 
 </wa-popover>
 
-<wa-button id="popover-7bd2f802" variant="text">Right popover</wa-button>
+<wa-button id="popover-7bd2f802" appearance="plain">Right popover</wa-button>
 <wa-popover for="popover-7bd2f802" placement="right">
 <p>This popover appears to the right.</p>
 
@@ -1176,7 +1222,7 @@ Alternative syntax with right tooltip
 
 <h3 id="without-arrow">Without Arrow</h3>
 
-<wa-button id="popover-7080b5a9" variant="text">No arrow</wa-button>
+<wa-button id="popover-7080b5a9" appearance="plain">No arrow</wa-button>
 <wa-popover for="popover-7080b5a9" placement="top" without-arrow="">
 <p>This popover has no arrow pointing to the trigger.</p>
 
@@ -1184,7 +1230,7 @@ Alternative syntax with right tooltip
 
 <h3 id="custom-distance">Custom Distance</h3>
 
-<wa-button id="popover-4493eecd" variant="text">Far away</wa-button>
+<wa-button id="popover-4493eecd" appearance="plain">Far away</wa-button>
 <wa-popover for="popover-4493eecd" placement="bottom" distance="20">
 <p>This popover has extra distance from its trigger element.</p>
 
@@ -1192,7 +1238,7 @@ Alternative syntax with right tooltip
 
 <h3 id="combined-parameters">Combined Parameters</h3>
 
-<wa-button id="popover-0f024b11" variant="text">Custom popover</wa-button>
+<wa-button id="popover-0f024b11" appearance="plain">Custom popover</wa-button>
 <wa-popover for="popover-0f024b11" placement="right" without-arrow="" distance="10">
 <p>Combines placement, no arrow, and custom distance. All parameters work together in any order.</p>
 
@@ -1202,7 +1248,7 @@ Alternative syntax with right tooltip
 
 <p>Use the <code class="language-plaintext highlighter-rouge">link</code> flag to render the trigger as a link-styled element instead of a button:</p>
 
-<p><button id="popover-f840143f" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">Learn more about popovers</button></p>
+<p><button type="button" id="popover-f840143f" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">Learn more about popovers</button></p>
 <wa-popover for="popover-f840143f" placement="top">
 <p>The <code>link</code> flag renders the trigger as underlined text that looks like a hyperlink, blending naturally into paragraphs.</p>
 
@@ -1210,7 +1256,7 @@ Alternative syntax with right tooltip
 
 <p>Link style with placement:</p>
 
-<p><button id="popover-e396e4c3" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">What is Web Awesome?</button></p>
+<p><button type="button" id="popover-e396e4c3" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">What is Web Awesome?</button></p>
 <wa-popover for="popover-e396e4c3" placement="bottom">
 <p>Web Awesome is a collection of beautifully designed, framework-agnostic web components built on open web standards.</p>
 
@@ -1218,7 +1264,7 @@ Alternative syntax with right tooltip
 
 <p>Link style with all parameters:</p>
 
-<p><button id="popover-edc804e8" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">Terms and conditions</button></p>
+<p><button type="button" id="popover-edc804e8" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">Terms and conditions</button></p>
 <wa-popover for="popover-edc804e8" placement="right" without-arrow="" distance="5">
 <p>By using this site, you agree to our terms of service and privacy policy. All content is provided as-is.</p>
 
@@ -1228,7 +1274,7 @@ Alternative syntax with right tooltip
 
 <p>Popovers support full markdown inside — multiple paragraphs, lists, links, emphasis, and more:</p>
 
-<wa-button id="popover-4295f7f4" variant="text">Feature overview</wa-button>
+<wa-button id="popover-4295f7f4" appearance="plain">Feature overview</wa-button>
 <wa-popover for="popover-4295f7f4" placement="top">
 <p><strong>Key highlights:</strong></p>
 
@@ -1242,7 +1288,7 @@ Alternative syntax with right tooltip
 
 </wa-popover>
 
-<p><button id="popover-192e7e70" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">What are the requirements?</button></p>
+<p><button type="button" id="popover-192e7e70" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">What are the requirements?</button></p>
 <wa-popover for="popover-192e7e70" placement="bottom">
 <p><strong>System requirements:</strong></p>
 
@@ -1260,25 +1306,25 @@ Alternative syntax with right tooltip
 
 <h3 id="inline-syntax">Inline Syntax</h3>
 
-<p>Popovers can be used inline within a sentence. They always render as link-styled triggers. Use <code class="language-plaintext highlighter-rouge">&lt;button id='popover-58a22e77' style='background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;'&gt;trigger text&lt;/button&gt;&lt;wa-popover for='popover-58a22e77' placement='top'&gt;popover content&lt;/wa-popover&gt;</code> on a single line:</p>
+<p>Popovers can be used inline within a sentence. They always render as link-styled triggers. Use <code class="language-plaintext highlighter-rouge">&lt;button type='button' id='popover-58a22e77' class='ma-popover-trigger' style='background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;'&gt;trigger text&lt;/button&gt;&lt;wa-popover for='popover-58a22e77' placement='top'&gt;popover content&lt;/wa-popover&gt;</code> on a single line:</p>
 
-<p>Send invoices via <button id="popover-2119454d" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">Peppol</button><wa-popover for="popover-2119454d" placement="top">Peppol is a standardized e-invoicing network used across Europe</wa-popover> to your trading partners.</p>
+<p>Send invoices via <button type="button" id="popover-2119454d" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">Peppol</button><wa-popover for="popover-2119454d" placement="top">Peppol is a standardized e-invoicing network used across Europe</wa-popover> to your trading partners.</p>
 
-<p>Inline popovers support all placement parameters. Learn about <button id="popover-5f4a2a12" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">API authentication</button><wa-popover for="popover-5f4a2a12" placement="bottom">API keys are used to authenticate your requests to the Maventa API</wa-popover> in our documentation.</p>
+<p>Inline popovers support all placement parameters. Learn about <button type="button" id="popover-5f4a2a12" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">API authentication</button><wa-popover for="popover-5f4a2a12" placement="bottom">API keys are used to authenticate your requests to the Maventa API</wa-popover> in our documentation.</p>
 
-<p>You can combine parameters too: check the <button id="popover-3fa23f7d" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">invoice validation</button><wa-popover for="popover-3fa23f7d" placement="right" without-arrow="" distance="5">Invoices are validated against Peppol business rules before being sent</wa-popover> rules before submitting.</p>
+<p>You can combine parameters too: check the <button type="button" id="popover-3fa23f7d" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">invoice validation</button><wa-popover for="popover-3fa23f7d" placement="right" without-arrow="" distance="5">Invoices are validated against Peppol business rules before being sent</wa-popover> rules before submitting.</p>
 
-<p>Multiple inline popovers work on the same line: use <button id="popover-1b54a692" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">Peppol</button><wa-popover for="popover-1b54a692" placement="top">Pan-European e-invoicing network</wa-popover> or <button id="popover-97e97927" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">SFTP</button><wa-popover for="popover-97e97927" placement="top">Secure file transfer protocol for batch processing</wa-popover> for delivery.</p>
+<p>Multiple inline popovers work on the same line: use <button type="button" id="popover-1b54a692" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">Peppol</button><wa-popover for="popover-1b54a692" placement="top">Pan-European e-invoicing network</wa-popover> or <button type="button" id="popover-97e97927" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">SFTP</button><wa-popover for="popover-97e97927" placement="top">Secure file transfer protocol for batch processing</wa-popover> for delivery.</p>
 
 <h3 id="alternative-syntax-4">Alternative Syntax</h3>
 
-<wa-button id="popover-5086d240" variant="text">Alternative syntax trigger</wa-button>
+<wa-button id="popover-5086d240" appearance="plain">Alternative syntax trigger</wa-button>
 <wa-popover for="popover-5086d240" placement="bottom">
 <p>This uses the <code>:::wa-popover</code> syntax instead of <code>&amp;&amp;&amp;</code>.</p>
 
 </wa-popover>
 
-<p><button id="popover-81fba96b" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit;">Alternative link popover</button></p>
+<p><button type="button" id="popover-81fba96b" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">Alternative link popover</button></p>
 <wa-popover for="popover-81fba96b" placement="top">
 <p>The <code>link</code> flag also works with alternative <code>:::wa-popover</code> syntax.</p>
 
@@ -1566,6 +1612,27 @@ Alternative syntax with right tooltip
 </wa-callout>
 
 <wa-callout variant="brand" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Deployed to production</p>
+</wa-callout>
+</div>
+
+<h4 id="extra-wide-gaps-4xl--5xl">Extra-wide gaps (4xl / 5xl)</h4>
+
+<p>Web Awesome 3.4 extended the spacing scale with <code class="language-plaintext highlighter-rouge">4xl</code> and <code class="language-plaintext highlighter-rouge">5xl</code>. These produce
+noticeably larger gaps than <code class="language-plaintext highlighter-rouge">3xl</code> — useful for spacing out major page sections:</p>
+
+<div class="wa-stack wa-gap-4xl">
+<wa-callout variant="brand" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Section one — followed by a <code>4xl</code> gap.</p>
+</wa-callout>
+
+<wa-callout variant="brand" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Section two.</p>
+</wa-callout>
+</div>
+
+<div class="wa-stack wa-gap-5xl">
+<wa-callout variant="success" size="small"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>Section one — followed by a <code>5xl</code> gap (the widest step).</p>
+</wa-callout>
+
+<wa-callout variant="success" size="small"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>Section two.</p>
 </wa-callout>
 </div>
 
