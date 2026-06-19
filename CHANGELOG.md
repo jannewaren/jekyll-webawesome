@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [0.18.0] - 2026-06-19
+
+### Added
+
+- Link-form buttons can now open in a new tab and trigger downloads, via markawesome 0.12.0. Write `target` (`_blank`/`_self`/`_parent`/`_top`) and/or `download` in the button attributes, e.g. `%%%brand _blank\n[Visit](https://example.com)\n%%%` or `%%%neutral download\n[Get file](/files/report.pdf)\n%%%`. A `_blank` target automatically adds `rel="noopener noreferrer"`. These attributes apply only to link-form buttons (markup wrapping a markdown link); on a regular button they are ignored.
+- Example site now demonstrates link-button `target`/`download` (open-in-new-tab and download), backed by a small served `downloads/sample.txt` asset.
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.12`.
+
 ## [0.17.0] - 2026-06-16
 
 ### Changed

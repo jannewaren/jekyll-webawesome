@@ -984,6 +984,25 @@ Large Filled Success
 [Link Button](https://example.com)
 :::
 
+### Link Targets and Downloads
+
+These attributes apply to link-form buttons only (a button wrapping a markdown
+link). `_blank` opens the link in a new tab and automatically adds
+`rel="noopener noreferrer"`; `download` makes the link download the target file
+instead of navigating to it.
+
+Open an external link in a new tab:
+
+%%%brand _blank
+[Visit Web Awesome](https://webawesome.com)
+%%%
+
+Download a file (served from `/downloads/sample.txt`):
+
+%%%neutral download icon:download
+[Download sample file](/downloads/sample.txt)
+%%%
+
 ## Copy Buttons
 
 Basic copy buttons:

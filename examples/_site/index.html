@@ -755,6 +755,21 @@ distinct button sizes:</p>
 
 <wa-button variant="danger" pill="" href="https://example.com">Link Button</wa-button>
 
+<h3 id="link-targets-and-downloads">Link Targets and Downloads</h3>
+
+<p>These attributes apply to link-form buttons only (a button wrapping a markdown
+link). <code class="language-plaintext highlighter-rouge">_blank</code> opens the link in a new tab and automatically adds
+<code class="language-plaintext highlighter-rouge">rel="noopener noreferrer"</code>; <code class="language-plaintext highlighter-rouge">download</code> makes the link download the target file
+instead of navigating to it.</p>
+
+<p>Open an external link in a new tab:</p>
+
+<wa-button variant="brand" href="https://webawesome.com" target="_blank" rel="noopener noreferrer">Visit Web Awesome</wa-button>
+
+<p>Download a file (served from <code class="language-plaintext highlighter-rouge">/downloads/sample.txt</code>):</p>
+
+<wa-button variant="neutral" href="/downloads/sample.txt" download=""><wa-icon slot="start" name="download"></wa-icon>Download sample file</wa-button>
+
 <h2 id="copy-buttons">Copy Buttons</h2>
 
 <p>Basic copy buttons:</p>

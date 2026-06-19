@@ -1,0 +1,4 @@
+This is a sample file served by the jekyll-webawesome examples site.
+
+It exists so the Buttons section can demonstrate link-form buttons with the
+`download` attribute against a real served asset.
