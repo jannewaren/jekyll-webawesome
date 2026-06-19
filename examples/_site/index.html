@@ -219,6 +219,14 @@ but the new scale gives finer control — all five render as distinct sizes:</p>
 <wa-callout variant="brand" appearance="filled" size="large"><wa-icon slot="icon" name="lightbulb" variant="solid"></wa-icon><p><strong>Pro tip</strong> — a large filled callout with a lightbulb icon. Size and appearance work alongside custom icons.</p>
 </wa-callout>
 
+<h3 id="animated-callout-icons">Animated callout icons</h3>
+
+<p>Callouts can override their icon’s <code class="language-plaintext highlighter-rouge">family</code>/<code class="language-plaintext highlighter-rouge">variant</code>/<code class="language-plaintext highlighter-rouge">animation</code>. Animation needs
+no Pro kit — the icon below visibly animates:</p>
+
+<wa-callout variant="warning"><wa-icon slot="icon" name="triangle-exclamation" variant="solid" animation="shake"></wa-icon><p>This warning’s icon animates.</p>
+</wa-callout>
+
 <h3 id="combined-size-and-appearance">Combined size and appearance</h3>
 
 <wa-callout variant="brand" appearance="accent" size="small"><wa-icon slot="icon" name="circle-info" variant="solid"></wa-icon><p>Small accent callout — compact and eye-catching.</p>
@@ -226,6 +234,48 @@ but the new scale gives finer control — all five render as distinct sizes:</p>
 
 <wa-callout variant="warning" appearance="filled-outlined" size="large"><wa-icon slot="icon" name="triangle-exclamation" variant="solid"></wa-icon><p>Large filled-outlined warning callout.</p>
 </wa-callout>
+
+<h2 id="icons">Icons</h2>
+
+<p>The standalone <code class="language-plaintext highlighter-rouge">:::wa-icon</code> block accepts the icon name first, then optional
+<code class="language-plaintext highlighter-rouge">family</code> / <code class="language-plaintext highlighter-rouge">variant</code> / <code class="language-plaintext highlighter-rouge">animation</code> tokens (order-independent), and an optional
+block body that becomes the accessible <code class="language-plaintext highlighter-rouge">label</code>. The inline <code class="language-plaintext highlighter-rouge">$$$name</code> form stays
+name-only and decorative.</p>
+
+<h3 id="animation-no-pro-kit-required">Animation (no Pro kit required)</h3>
+
+<p>These animate purely with CSS, so the motion is visible regardless of the kit tier:</p>
+
+<wa-icon name="arrows-rotate" animation="spin"></wa-icon>
+
+<wa-icon name="bell" animation="shake"></wa-icon>
+
+<h3 id="accessible-label">Accessible label</h3>
+
+<p>A non-empty block body becomes the icon’s accessible <code class="language-plaintext highlighter-rouge">label</code>. An empty body leaves
+the icon presentational (no <code class="language-plaintext highlighter-rouge">label</code>):</p>
+
+<wa-icon name="circle-check" variant="solid" label="Task complete"></wa-icon>
+
+<h3 id="variant-and-family-pro-weightsfamilies">Variant and family (Pro weights/families)</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">variant</code> (Font Awesome weight) and <code class="language-plaintext highlighter-rouge">family</code> attributes reach the <code class="language-plaintext highlighter-rouge">&lt;wa-icon&gt;</code>
+element. Whether the glyph visibly changes depends on the kit’s Font Awesome tier:</p>
+
+<wa-icon name="gear" variant="solid"></wa-icon>
+
+<wa-icon name="star" family="sharp"></wa-icon>
+
+<h3 id="combined">Combined</h3>
+
+<p>Family, variant, animation, and a label together:</p>
+
+<wa-icon name="star" family="sharp" variant="solid" animation="beat" label="Featured item"></wa-icon>
+
+<h3 id="inline-icons-are-unchanged">Inline icons are unchanged</h3>
+
+<p>Inline icons stay name-only and decorative — use them mid-prose like the <wa-icon name="gear"></wa-icon>
+icon in this sentence.</p>
 
 <h2 id="tags">Tags</h2>
 

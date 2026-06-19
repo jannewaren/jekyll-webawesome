@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [0.19.0] - 2026-06-20
+
+### Added
+
+- Standalone icons can now be enriched, via markawesome 0.13.0. The `:::wa-icon` block accepts `family`/`variant`/`animation` tokens after the icon name and turns its block body into an accessible `label`, e.g. `:::wa-icon bell shake\n:::` (animates, no Pro kit needed) or `:::wa-icon circle-check solid\nTask complete\n:::` (sets the accessible name). The inline `$$$name` form stays name-only and decorative.
+- Callouts can now override their icon's `family`/`variant`/`animation` with bare tokens on the callout line, e.g. `:::warning shake`. The historical `solid` variant default is preserved, so existing callouts are unchanged.
+- Example site gains an `## Icons` section (animation, label, variant/family, combined, and an unchanged inline icon) plus an animated-icon callout override. `animation` and `label` are fully functional on the examples kit; `family`/`variant` reach the DOM but only swap the glyph visibly with a Font Awesome Pro kit.
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.13`.
+
 ## [0.18.0] - 2026-06-19
 
 ### Added

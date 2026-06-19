@@ -125,6 +125,15 @@ Custom icon with size and appearance:
 **Pro tip** — a large filled callout with a lightbulb icon. Size and appearance work alongside custom icons.
 :::
 
+### Animated callout icons
+
+Callouts can override their icon's `family`/`variant`/`animation`. Animation needs
+no Pro kit — the icon below visibly animates:
+
+:::warning shake
+This warning's icon animates.
+:::
+
 ### Combined size and appearance
 
 :::info small accent
@@ -134,6 +143,56 @@ Small accent callout — compact and eye-catching.
 :::warning large filled-outlined
 Large filled-outlined warning callout.
 :::
+
+## Icons
+
+The standalone `:::wa-icon` block accepts the icon name first, then optional
+`family` / `variant` / `animation` tokens (order-independent), and an optional
+block body that becomes the accessible `label`. The inline `$$$name` form stays
+name-only and decorative.
+
+### Animation (no Pro kit required)
+
+These animate purely with CSS, so the motion is visible regardless of the kit tier:
+
+:::wa-icon arrows-rotate spin
+:::
+
+:::wa-icon bell shake
+:::
+
+### Accessible label
+
+A non-empty block body becomes the icon's accessible `label`. An empty body leaves
+the icon presentational (no `label`):
+
+:::wa-icon circle-check solid
+Task complete
+:::
+
+### Variant and family (Pro weights/families)
+
+The `variant` (Font Awesome weight) and `family` attributes reach the `<wa-icon>`
+element. Whether the glyph visibly changes depends on the kit's Font Awesome tier:
+
+:::wa-icon gear solid
+:::
+
+:::wa-icon star sharp
+:::
+
+### Combined
+
+Family, variant, animation, and a label together:
+
+:::wa-icon star sharp solid beat
+Featured item
+:::
+
+### Inline icons are unchanged
+
+Inline icons stay name-only and decorative — use them mid-prose like the $$$gear
+icon in this sentence.
 
 ## Tags
 
