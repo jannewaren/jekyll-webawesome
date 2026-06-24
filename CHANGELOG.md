@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [0.20.0] - 2026-06-24
+
+### Added
+
+- Accordion support, via markawesome 0.14.0. A multi-section collapsible container — the grouped sibling of Details/Summary, ideal for FAQs and docs sections. The container fence is `//////` (6 slashes) and each item is a `///` block (3 slashes) with an explicit `///` close (or use the `:::wa-accordion … :::` alternative form). Container tokens: `appearance` (`outlined` default, `filled`, `filled-outlined`, `plain`), `mode` (`multiple` default, `single`, `single-collapsible`), `icon-placement` (`start`/`end`), and `heading:N` (`1`–`6` or `none`). Item tokens: leading `expanded`/`disabled` flags, an `icon:name` first child, and the rest of the line as the label. Item bodies are full Markdown and may contain other components.
+- Example site gains an `## Accordion` section exercising the basic FAQ shape, every appearance, `single`/`single-collapsible` modes, `icon-placement start`, `heading:2`, an `expanded` item, a `disabled` item, custom item icons, rich item bodies (a nested callout, button, and list), and the `:::wa-accordion` alternative form. Validated live in the browser against the examples kit (rendering, click-to-expand/collapse, `mode="single"` closing the previously open item, and the live-DOM attributes); `wa-accordion` is experimental in Web Awesome but everything used here is declarative and static-safe.
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.14`.
+
 ## [0.19.0] - 2026-06-20
 
 ### Added

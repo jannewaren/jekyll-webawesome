@@ -533,6 +533,111 @@ icon in this sentence.</p>
 </span><p>Same styling and grouping. Opening this closes the first section.</p>
 </wa-details>
 
+<h2 id="accordion">Accordion</h2>
+
+<p>A multi-section collapsible container — the grouped sibling of Details/Summary, ideal for FAQs and docs sections. The container fence is <code class="language-plaintext highlighter-rouge">//////</code> (6 slashes) and each item is a <code class="language-plaintext highlighter-rouge">///</code> block (3 slashes) with an explicit <code class="language-plaintext highlighter-rouge">///</code> close. (Web Awesome flags <code class="language-plaintext highlighter-rouge">wa-accordion</code> as experimental, but everything used here is declarative and static-safe.)</p>
+
+<h3 id="basic-faq">Basic FAQ</h3>
+
+<wa-accordion appearance="outlined"><wa-accordion-item label="What is Web Awesome?"><p>Web Awesome is a library of framework-agnostic web components.</p>
+</wa-accordion-item><wa-accordion-item label="Is it free?"><p>The core library is free and open source. A Pro tier adds more icons and components.</p>
+</wa-accordion-item><wa-accordion-item label="How do I install it?"><p>Add the CDN <code>&lt;script&gt;</code> tag, or install the npm package. See the docs for details.</p>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="appearances">Appearances</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">appearance</code> token controls the chrome. It defaults to <code class="language-plaintext highlighter-rouge">outlined</code>; <code class="language-plaintext highlighter-rouge">filled</code>, <code class="language-plaintext highlighter-rouge">filled-outlined</code>, and <code class="language-plaintext highlighter-rouge">plain</code> are also available.</p>
+
+<wa-accordion appearance="filled"><wa-accordion-item label="Filled appearance"><p>The accordion items have a filled background.</p>
+</wa-accordion-item><wa-accordion-item label="Second item"><p>Content for the second item.</p>
+</wa-accordion-item></wa-accordion>
+
+<wa-accordion appearance="plain"><wa-accordion-item label="Plain appearance"><p>No borders or fill — just the dividers.</p>
+</wa-accordion-item><wa-accordion-item label="Second item"><p>Content for the second item.</p>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="single-mode">Single mode</h3>
+
+<p>With <code class="language-plaintext highlighter-rouge">mode:single</code> only one section can be open at a time — opening one closes the previously open one. (One section always stays open.)</p>
+
+<wa-accordion appearance="outlined" mode="single"><wa-accordion-item label="First section"><p>Open another section and watch this one close automatically.</p>
+</wa-accordion-item><wa-accordion-item label="Second section"><p>Only one section in this accordion can be open at once.</p>
+</wa-accordion-item><wa-accordion-item label="Third section"><p>Opening this closes whichever section was open.</p>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="single-collapsible-mode">Single-collapsible mode</h3>
+
+<p><code class="language-plaintext highlighter-rouge">mode:single-collapsible</code> behaves like <code class="language-plaintext highlighter-rouge">single</code>, but the open section can also be collapsed, leaving everything closed.</p>
+
+<wa-accordion appearance="outlined" mode="single-collapsible"><wa-accordion-item label="First section"><p>Like single mode, but you can also click the open section to close it.</p>
+</wa-accordion-item><wa-accordion-item label="Second section"><p>Now all sections can be closed at the same time.</p>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="icon-placement-1">Icon placement</h3>
+
+<p>The expand/collapse icon sits at the <code class="language-plaintext highlighter-rouge">end</code> by default; <code class="language-plaintext highlighter-rouge">start</code> moves it to the leading edge.</p>
+
+<wa-accordion appearance="outlined" icon-placement="start"><wa-accordion-item label="Icon on the left"><p>The chevron is at the start of the header instead of the end.</p>
+</wa-accordion-item><wa-accordion-item label="Second item"><p>Content here.</p>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="heading-level">Heading level</h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">heading:N</code> (1–6, or <code class="language-plaintext highlighter-rouge">none</code>) to set the semantic heading level the items render as, for correct document outline / accessibility.</p>
+
+<wa-accordion appearance="outlined" heading-level="2"><wa-accordion-item label="A level-2 section"><p>This item’s header is exposed as an <code>&lt;h2&gt;</code>-level heading to assistive tech.</p>
+</wa-accordion-item><wa-accordion-item label="Another level-2 section"><p>Same heading level for consistent document structure.</p>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="expanded-item">Expanded item</h3>
+
+<p>Mark an item <code class="language-plaintext highlighter-rouge">expanded</code> (leading flag) to have it open on load.</p>
+
+<wa-accordion appearance="outlined"><wa-accordion-item label="Open on load" expanded=""><p>This section starts expanded when the page loads.</p>
+</wa-accordion-item><wa-accordion-item label="Closed on load"><p>This one starts collapsed.</p>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="disabled-item">Disabled item</h3>
+
+<p>A <code class="language-plaintext highlighter-rouge">disabled</code> item renders but can’t be toggled.</p>
+
+<wa-accordion appearance="outlined"><wa-accordion-item label="Coming soon" disabled=""><p>You can see this header, but it can’t be expanded.</p>
+</wa-accordion-item><wa-accordion-item label="Available now"><p>This section works normally.</p>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="custom-item-icon">Custom item icon</h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">icon:name</code> on an item to replace its default expand icon with a Web Awesome icon.</p>
+
+<wa-accordion appearance="outlined"><wa-accordion-item label="Featured"><wa-icon slot="icon" name="star"></wa-icon><p>This item uses a star icon in its expand slot.</p>
+</wa-accordion-item><wa-accordion-item label="Help"><wa-icon slot="icon" name="circle-question"></wa-icon><p>And this one uses a question-mark icon.</p>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="rich-item-bodies">Rich item bodies</h3>
+
+<p>Item bodies are full Markdown and may contain other components — callouts, buttons, lists, and more.</p>
+
+<wa-accordion appearance="filled"><wa-accordion-item label="Section with a callout"><wa-callout variant="success"><wa-icon slot="icon" name="circle-check" variant="solid"></wa-icon><p>Nested components render correctly inside accordion items.</p>
+</wa-callout>
+</wa-accordion-item><wa-accordion-item label="Section with a button and a list"><p>Steps to get started:</p>
+
+<ol>
+  <li>Install the library</li>
+  <li>Add a component</li>
+  <li>Ship it</li>
+</ol>
+
+<wa-button variant="brand" href="https://webawesome.com">Read the docs</wa-button>
+</wa-accordion-item></wa-accordion>
+
+<h3 id="alternative-syntax">Alternative syntax</h3>
+
+<p>Every container component also has a <code class="language-plaintext highlighter-rouge">:::wa-…</code> form. Here the same items use <code class="language-plaintext highlighter-rouge">:::wa-accordion</code>:</p>
+
+<wa-accordion appearance="filled" mode="single"><wa-accordion-item label="First section"><p>The alternative syntax accepts the same container tokens (<code>filled single</code> here).</p>
+</wa-accordion-item><wa-accordion-item label="Second section"><p>And the same <code>///</code> item blocks.</p>
+</wa-accordion-item></wa-accordion>
+
 <h2 id="tab-groups">Tab Groups</h2>
 
 <h3 id="basic-tab-group">Basic Tab Group</h3>
@@ -615,7 +720,7 @@ icon in this sentence.</p>
 </wa-tab-panel><wa-tab-panel name="tab-3"><p>Professional settings</p>
 </wa-tab-panel></wa-tab-group>
 
-<h3 id="alternative-syntax">Alternative Syntax</h3>
+<h3 id="alternative-syntax-1">Alternative Syntax</h3>
 
 <p>Using explicit <code class="language-plaintext highlighter-rouge">:::wa-tab-group</code> syntax:</p>
 
@@ -795,7 +900,7 @@ distinct button sizes:</p>
 
 <wa-button variant="success" appearance="outlined" size="small" href="https://example.com/start">Get Started</wa-button>
 
-<h3 id="alternative-syntax-1">Alternative Syntax</h3>
+<h3 id="alternative-syntax-2">Alternative Syntax</h3>
 
 <p>Using :::wa-button syntax:</p>
 
@@ -906,7 +1011,7 @@ with multiple lines of text"></wa-copy-button>
 
 <wa-copy-button value="Fast feedback with custom labels" tooltip-placement="top" copy-label="Quick copy" success-label="Done" feedback-duration="500"></wa-copy-button>
 
-<h3 id="alternative-syntax-2">Alternative Syntax</h3>
+<h3 id="alternative-syntax-3">Alternative Syntax</h3>
 
 <p>The <code class="language-plaintext highlighter-rouge">:::wa-copy-button</code> syntax works identically:</p>
 
@@ -1367,7 +1472,7 @@ Alternative syntax with right tooltip
 
 </wa-popover>
 
-<h3 id="alternative-syntax-3">Alternative Syntax</h3>
+<h3 id="alternative-syntax-4">Alternative Syntax</h3>
 
 <h3 id="inline-syntax">Inline Syntax</h3>
 
@@ -1381,7 +1486,7 @@ Alternative syntax with right tooltip
 
 <p>Multiple inline popovers work on the same line: use <button type="button" id="popover-1b54a692" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">Peppol</button><wa-popover for="popover-1b54a692" placement="top">Pan-European e-invoicing network</wa-popover> or <button type="button" id="popover-97e97927" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">SFTP</button><wa-popover for="popover-97e97927" placement="top">Secure file transfer protocol for batch processing</wa-popover> for delivery.</p>
 
-<h3 id="alternative-syntax-4">Alternative Syntax</h3>
+<h3 id="alternative-syntax-5">Alternative Syntax</h3>
 
 <wa-button id="popover-5086d240" appearance="plain">Alternative syntax trigger</wa-button>
 <wa-popover for="popover-5086d240" placement="bottom">
@@ -1593,7 +1698,7 @@ Alternative syntax with right tooltip
 <p>Third item</p>
 </wa-carousel-item></wa-carousel>
 
-<h3 id="alternative-syntax-5">Alternative Syntax</h3>
+<h3 id="alternative-syntax-6">Alternative Syntax</h3>
 
 <wa-carousel navigation="" pagination=""><wa-carousel-item><p><strong>Alternative Syntax</strong></p>
 
@@ -1830,7 +1935,7 @@ noticeably larger gaps than <code class="language-plaintext highlighter-rouge">3
 
 </div>
 
-<h3 id="alternative-syntax-6">Alternative Syntax</h3>
+<h3 id="alternative-syntax-7">Alternative Syntax</h3>
 
 <p>All layouts support <code class="language-plaintext highlighter-rouge">::::wa-</code> prefix syntax:</p>
 

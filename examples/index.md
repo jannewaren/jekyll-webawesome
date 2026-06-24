@@ -575,6 +575,194 @@ Second Styled Section
 Same styling and grouping. Opening this closes the first section.
 ^^^
 
+## Accordion
+
+A multi-section collapsible container — the grouped sibling of Details/Summary, ideal for FAQs and docs sections. The container fence is `//////` (6 slashes) and each item is a `///` block (3 slashes) with an explicit `///` close. (Web Awesome flags `wa-accordion` as experimental, but everything used here is declarative and static-safe.)
+
+### Basic FAQ
+
+//////
+/// What is Web Awesome?
+Web Awesome is a library of framework-agnostic web components.
+///
+
+/// Is it free?
+The core library is free and open source. A Pro tier adds more icons and components.
+///
+
+/// How do I install it?
+Add the CDN `<script>` tag, or install the npm package. See the docs for details.
+///
+//////
+
+### Appearances
+
+The `appearance` token controls the chrome. It defaults to `outlined`; `filled`, `filled-outlined`, and `plain` are also available.
+
+//////filled
+/// Filled appearance
+The accordion items have a filled background.
+///
+
+/// Second item
+Content for the second item.
+///
+//////
+
+//////plain
+/// Plain appearance
+No borders or fill — just the dividers.
+///
+
+/// Second item
+Content for the second item.
+///
+//////
+
+### Single mode
+
+With `mode:single` only one section can be open at a time — opening one closes the previously open one. (One section always stays open.)
+
+//////single
+/// First section
+Open another section and watch this one close automatically.
+///
+
+/// Second section
+Only one section in this accordion can be open at once.
+///
+
+/// Third section
+Opening this closes whichever section was open.
+///
+//////
+
+### Single-collapsible mode
+
+`mode:single-collapsible` behaves like `single`, but the open section can also be collapsed, leaving everything closed.
+
+//////single-collapsible
+/// First section
+Like single mode, but you can also click the open section to close it.
+///
+
+/// Second section
+Now all sections can be closed at the same time.
+///
+//////
+
+### Icon placement
+
+The expand/collapse icon sits at the `end` by default; `start` moves it to the leading edge.
+
+//////start
+/// Icon on the left
+The chevron is at the start of the header instead of the end.
+///
+
+/// Second item
+Content here.
+///
+//////
+
+### Heading level
+
+Use `heading:N` (1–6, or `none`) to set the semantic heading level the items render as, for correct document outline / accessibility.
+
+//////heading:2
+/// A level-2 section
+This item's header is exposed as an `<h2>`-level heading to assistive tech.
+///
+
+/// Another level-2 section
+Same heading level for consistent document structure.
+///
+//////
+
+### Expanded item
+
+Mark an item `expanded` (leading flag) to have it open on load.
+
+//////
+/// expanded Open on load
+This section starts expanded when the page loads.
+///
+
+/// Closed on load
+This one starts collapsed.
+///
+//////
+
+### Disabled item
+
+A `disabled` item renders but can't be toggled.
+
+//////
+/// disabled Coming soon
+You can see this header, but it can't be expanded.
+///
+
+/// Available now
+This section works normally.
+///
+//////
+
+### Custom item icon
+
+Use `icon:name` on an item to replace its default expand icon with a Web Awesome icon.
+
+//////
+/// icon:star Featured
+This item uses a star icon in its expand slot.
+///
+
+/// icon:circle-question Help
+And this one uses a question-mark icon.
+///
+//////
+
+### Rich item bodies
+
+Item bodies are full Markdown and may contain other components — callouts, buttons, lists, and more.
+
+//////filled
+/// Section with a callout
+
+:::success
+Nested components render correctly inside accordion items.
+:::
+
+///
+
+/// Section with a button and a list
+
+Steps to get started:
+
+1. Install the library
+2. Add a component
+3. Ship it
+
+%%%brand
+[Read the docs](https://webawesome.com)
+%%%
+
+///
+//////
+
+### Alternative syntax
+
+Every container component also has a `:::wa-…` form. Here the same items use `:::wa-accordion`:
+
+:::wa-accordion filled single
+/// First section
+The alternative syntax accepts the same container tokens (`filled single` here).
+///
+
+/// Second section
+And the same `///` item blocks.
+///
+:::
+
 ## Tab Groups
 
 ### Basic Tab Group
