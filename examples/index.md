@@ -1663,6 +1663,54 @@ Alternative link popover
 The `link` flag also works with alternative `:::wa-popover` syntax.
 :::
 
+## Tooltips
+
+Tooltips show brief contextual help on hover or focus — ideal for glossary terms and inline definitions. The inline form puts the anchor term and the tip text inside triple parentheses, separated by `>>>`:
+
+```
+(((anchor term >>> tip text)))
+```
+
+The anchor term is rendered as a focusable, dotted-underlined span, and the tip appears in a `<wa-tooltip>` wired to it automatically. Zero JavaScript required.
+
+### Basic Inline Tooltip
+
+Default placement is top. The web is styled with (((CSS >>> Cascading Style Sheets — the language that describes how HTML elements are displayed))) and structured with (((HTML >>> HyperText Markup Language — the standard markup language for documents displayed in a browser))).
+
+### Placements
+
+Each invoice is routed over (((bottom Peppol >>> A standardized pan-European e-invoicing network))) to the recipient's access point.
+
+Authentication uses an (((left API key >>> A secret token that identifies and authorizes an application making a request))) sent with every request.
+
+Files are delivered over (((right SFTP >>> SSH File Transfer Protocol — encrypted file transfer over a single connection))) for batch processing.
+
+### Custom Distance
+
+Hover over (((distance:12 SLA >>> Service Level Agreement — the guaranteed uptime and response commitments))) to see the tip pushed further from the anchor.
+
+### Combined Parameters
+
+The order of leading tokens doesn't matter: read about (((bottom distance:8 OCR >>> Optical Character Recognition — extracting machine-readable text from scanned documents))) in our processing pipeline.
+
+### Multiple Tooltips in One Sentence
+
+A typical exchange touches several acronyms: (((VAT >>> Value Added Tax))), (((IBAN >>> International Bank Account Number))), and (((BIC >>> Bank Identifier Code, also known as a SWIFT code))) all appear on a cross-border invoice.
+
+### Mid-sentence and HTML Escaping
+
+Tip text is HTML-escaped, so symbols are safe: the (((ampersand >>> The "&" character — written as &amp; in HTML))) renders literally. Line breaks use `\n`: organisation numbers differ by country — (((Org number >>> NO: 9 digits\nSE: 10 digits\nDK: 8-digit CVR))) — hover to see each on its own line.
+
+### Alternative Syntax
+
+For consistency with the other components, a block form is also accepted:
+
+:::wa-tooltip bottom
+JIT
+>>>
+Just-In-Time — compiling or producing something only at the moment it is needed.
+:::
+
 ## Cards
 
 ===

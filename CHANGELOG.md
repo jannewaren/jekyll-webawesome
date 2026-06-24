@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [0.21.0] - 2026-06-25
+
+### Added
+
+- Tooltip support, via markawesome 0.15.0. Inline contextual help shown on hover or focus — ideal for glossary terms and inline definitions. The primary form is inline: `(((anchor term >>> tip text)))`. The anchor becomes a focusable, dotted-underlined `<span>` (`tabindex="0"`, class `ma-tooltip-anchor`) and the tip is emitted as a `<wa-tooltip>` wired to it via a generated `for`/`id` pair, so keyboard and assistive-technology users get the tip too. Leading `placement` (`top` default, `bottom`, `left`, `right`) and `distance:N` tokens go before the anchor; tip text is plain text (HTML-escaped) with literal `\n` rendered as `<br>`. A `:::wa-tooltip placement? distance:N? … >>> … :::` block alternative is also accepted. Declarative and zero-JavaScript; no Jekyll-side configuration needed.
+- Example site gains a `## Tooltips` section exercising the basic inline form, every placement, `distance:N`, combined parameters, multiple inline tooltips in one sentence, HTML escaping, `\n` line breaks, and the `:::wa-tooltip` alternative form. Validated live in the browser against the examples kit (WA 3.9.0): each anchor's `for` resolves to its tooltip's `id`, the `<wa-tooltip>` upgrades and opens on both hover and focus, and the requested `placement` positions the bubble correctly in the live DOM.
+
 ## [0.20.0] - 2026-06-24
 
 ### Added

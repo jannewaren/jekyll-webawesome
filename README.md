@@ -27,6 +27,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Popover** | `&&&placement? link? without-arrow? distance:N?` | `:::wa-popover params?` | `<wa-popover>` with trigger and floating content |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
+| **Tooltip** | `(((anchor >>> tip)))` | `:::wa-tooltip placement? distance:N?` | focusable `<span>` anchor + `<wa-tooltip for="…" placement="top">tip</wa-tooltip>` |
 
 Not all components will make sense to include here, to be included in the "prose" content of a web page. Some components are more suitable to be used in layouts or used in the page as includes, too complicated for this purpose.
 
@@ -1214,6 +1215,82 @@ Popover content using the alternative syntax.
 | `link` | keyword | off (always on for inline) | Renders trigger as underlined text instead of button |
 | `without-arrow` | keyword | off | Hides the popover arrow |
 | `distance:N` | number (pixels) | (default) | Distance between trigger and popover |
+
+### Tooltips
+
+Add brief contextual help on hover or focus — ideal for glossary terms and inline definitions. The primary form is inline: put the anchor term and the tip text inside triple parentheses, separated by `>>>`:
+
+```markdown
+The web is styled with (((CSS >>> Cascading Style Sheets))) and structured with (((HTML >>> HyperText Markup Language))).
+```
+
+The anchor term becomes a focusable, dotted-underlined `<span>`, with a `<wa-tooltip>` wired to it via a generated `for`/`id` pair:
+
+```html
+<span id="tooltip-ab12c3d4" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">CSS</span>
+<wa-tooltip for="tooltip-ab12c3d4" placement="top">Cascading Style Sheets</wa-tooltip>
+```
+
+The anchor is focusable (`tabindex="0"`) so keyboard and assistive-technology users get the tip too (Web Awesome tooltips fire on focus as well as hover). The `ma-tooltip-anchor` class is a styling hook for overriding the default underline/cursor. No JavaScript is required.
+
+#### Tooltip Placement
+
+Leading `placement`/`distance:N` tokens go before the anchor term:
+
+```markdown
+Routed over (((bottom Peppol >>> A standardized pan-European e-invoicing network))) to the recipient.
+
+Authentication uses an (((left API key >>> A secret token that authorizes a request))).
+
+Files are delivered over (((right SFTP >>> SSH File Transfer Protocol))) for batch processing.
+```
+
+**Supported placements:** `top` (default), `bottom`, `left`, `right`
+
+#### Custom Distance
+
+Set the distance between the anchor and the tooltip (in pixels):
+
+```markdown
+Hover over (((distance:12 SLA >>> Service Level Agreement))) to see the tip pushed further from the anchor.
+```
+
+#### Combining Parameters
+
+Tokens can be combined in any order before the anchor term:
+
+```markdown
+Read about (((bottom distance:8 OCR >>> Optical Character Recognition))) in the pipeline.
+```
+
+#### Tip Content and Line Breaks
+
+Tip text is plain text and HTML-escaped, so symbols are safe. Use `\n` for line breaks (rendered as `<br>`):
+
+```markdown
+Org numbers differ by country — (((Org number >>> NO: 9 digits\nSE: 10 digits\nDK: 8-digit CVR))).
+```
+
+Tooltips hold brief text, so there is no Markdown body (unlike popovers).
+
+#### Alternative Syntax
+
+For consistency with the other components, a block form is also accepted:
+
+```markdown
+:::wa-tooltip bottom
+JIT
+>>>
+Just-In-Time — produced only at the moment it is needed.
+:::
+```
+
+#### Tooltip Parameters
+
+| Option | Values | Default | Description |
+|--------|--------|---------|-------------|
+| `placement` | `top`, `bottom`, `left`, `right` | `top` | Where the tooltip appears relative to the anchor |
+| `distance:N` | number (pixels) | (default) | Distance between the anchor and the tooltip |
 
 ### Details/Summary (Collapsible Content)
 
