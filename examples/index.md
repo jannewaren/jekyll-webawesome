@@ -1292,6 +1292,26 @@ Tooltip appears on the bottom
 Tooltip appears on the left
 <<<
 
+### Tooltip Mode
+
+Control when the built-in tooltip appears.
+
+<<<tooltip:full
+Full (default): tooltip on hover/focus plus copy feedback
+<<<
+
+<<<tooltip:copy
+Copy: silent on hover/focus; tooltip only on copy feedback
+<<<
+
+<<<tooltip:none
+None: no tooltip in any state
+<<<
+
+<<<top tooltip:copy
+Combined with placement
+<<<
+
 ### Custom Labels
 
 Customize the tooltip messages for different states:

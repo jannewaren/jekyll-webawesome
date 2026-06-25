@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [0.22.0] - 2026-06-25
+
+### Added
+
+- Copy-button tooltip mode, via markawesome 0.16.0. A `tooltip:full|copy|none` token on the copy-button line controls *when* the built-in tooltip appears, distinct from the existing `tooltip-placement`: `full` (Web Awesome's default — tooltip on hover/focus plus the brief copy-success/error feedback), `copy` (silent on hover/focus; the tooltip appears only to confirm a copy), and `none` (no tooltip in any state). Combine it with a placement, e.g. `<<<top tooltip:copy`. The token is order-independent with the other copy-button parameters; invalid values are dropped and fall back to Web Awesome's default.
+- Example site's `## Copy Buttons` section gains a `### Tooltip Mode` subsection exercising `full`, `copy`, `none`, and a placement combination (`<<<top tooltip:copy`). Validated live in the browser against the examples kit (WA 3.9.0, ≥ 3.6 so `tooltip` is supported): the `tooltip` attribute reflects onto the upgraded `<wa-copy-button>`, and the rendered behavior differs as expected — `full` builds an internal `<wa-tooltip trigger="hover focus">` (opens on hover/focus, shown opening on hover in the live DOM), `copy` builds `<wa-tooltip trigger="manual">` (silent on hover/focus, copy-feedback only), `none` renders no internal tooltip at all (none on hover, confirmed live), and `<<<top tooltip:copy` carries both `tooltip-placement="top"` and `tooltip="copy"`.
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.16`.
+
 ## [0.21.0] - 2026-06-25
 
 ### Added

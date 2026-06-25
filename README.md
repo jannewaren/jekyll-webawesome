@@ -20,7 +20,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Card** | `===appearance? orientation?` | `:::wa-card appearance? orientation?` | `<wa-card appearance="filled" orientation="horizontal">content</wa-card>` |
 | **Carousel** | `~~~~~~` | `:::wa-carousel` | `<wa-carousel>` with carousel items |
 | **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
-| **Copy Button** | `<<<placement? disabled? duration? labels?` | `:::wa-copy-button attributes?` | `<wa-copy-button value="content" tooltip-placement="right" disabled>` |
+| **Copy Button** | `<<<placement? tooltip:mode? disabled? duration? labels?` | `:::wa-copy-button attributes?` | `<wa-copy-button value="content" tooltip-placement="right" tooltip="copy" disabled>` |
 | **Details** | `^^^appearance? icon-placement?` | `:::wa-details appearance? icon-placement?` | `<wa-details appearance="..." icon-placement="...">content</wa-details>` |
 | **Dialog** | `???params?` | `:::wa-dialog params?` | `<wa-dialog>` with trigger button and content |
 | **Icon** | `$$$icon-name` | `:::wa-icon name` | `<wa-icon name="icon-name" variant="solid"></wa-icon>` |
@@ -719,6 +719,27 @@ Copy with tooltip on bottom
 
 <<<left
 Copy with tooltip on left
+<<<
+```
+
+**Tooltip Mode:**
+
+Control *when* the built-in tooltip appears (`full`, `copy`, or `none`):
+```markdown
+<<<tooltip:full
+Full (default): tooltip on hover/focus plus copy feedback
+<<<
+
+<<<tooltip:copy
+Copy: silent on hover/focus; tooltip only on copy feedback
+<<<
+
+<<<tooltip:none
+None: no tooltip in any state
+<<<
+
+<<<top tooltip:copy
+Combined with a tooltip placement
 <<<
 ```
 
