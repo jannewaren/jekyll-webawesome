@@ -6,6 +6,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 jekyll-webawesome is a Ruby gem (Jekyll plugin) that transforms custom Markdown syntax into [Web Awesome](https://webawesome.com/) web components. The actual Markdown-to-HTML transformation logic lives in a separate gem called [markawesome](https://github.com/jannewaren/markawesome) — this gem is the Jekyll integration layer.
 
+## The markawesome ecosystem — keep the syntax in sync
+
+The Markawesome-flavoured Markdown syntax spans **five repositories that must
+stay in lockstep**:
+
+| Repo | Role | Stack | Registry |
+|------|------|-------|----------|
+| `markawesome` | **Authors** the syntax (engine) | Ruby | RubyGems |
+| `markawesome-js` | **Authors** the syntax (engine) | TypeScript / Node | npm |
+| `jekyll-webawesome` | **Uses** it (Jekyll integration) | Ruby | RubyGems |
+| `eleventy-plugin-webawesome` | **Uses** it (Eleventy integration) | Node | npm |
+| `markawesome-vscode` | **Produces** it (snippets/completions/validation) | TypeScript | VS Code Marketplace |
+
+**This repo's role:** **uses** the syntax — it consumes the Ruby `markawesome`
+engine and defines no syntax of its own. Syntax changes belong in the engines, not
+here.
+
+**Sync rule:** any change to the Markawesome Markdown syntax must land in **both
+engines** (`markawesome` *and* `markawesome-js`) so the Ruby and Node worlds accept
+identical input, **and** in `markawesome-vscode` so the editor emits it. The VS Code
+extension is shared across both worlds, so it may only produce syntax that **both**
+engines support. Confirm the engines still agree via `markawesome-js`'s
+`test/parity-corpus.test.ts` plus the Ruby specs in `markawesome/spec/`.
+
 ## Common Commands
 
 ```bash
@@ -103,3 +127,15 @@ either gem is released. Follow this order:
 > published to RubyGems but never pushed to the repo leaves clones diverged: the
 > version bump and any code in that release become invisible to other machines,
 > and the next release collides on the version number.
+
+## Releases are tagged to match the published version
+
+Every version published to a registry gets a matching **GitHub Release**, so the
+repo's releases line up 1:1 with what's installable:
+
+1. Tag the released commit `vX.Y.Z` — the same version as
+   `lib/jekyll/webawesome/version.rb`.
+2. Push the commit and the tag.
+3. `gh release create vX.Y.Z` with notes drawn from `CHANGELOG.md`.
+
+The GitHub Release tag **must equal** the version published to RubyGems.
