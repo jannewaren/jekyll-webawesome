@@ -1731,6 +1731,58 @@ JIT
 Just-In-Time — compiling or producing something only at the moment it is needed.
 :::
 
+## Dates / Timestamps
+
+Render dates declaratively: the value is baked into the Markdown at build time and the browser formats it on the client. `[[[ … ]]]` produces an absolute, locale-formatted date (`<wa-format-date>`); a leading `relative` token produces a "3 days ago"-style phrase (`<wa-relative-time>`). No JavaScript wiring, no data fetching — ideal for blog post dates, changelog stamps, and "last updated".
+
+```
+[[[2026-06-26 style:long]]]
+[[[relative 2026-06-20]]]
+```
+
+### Absolute Dates — Style Presets
+
+A bare date defaults to `style:long`. The four presets trade brevity for detail:
+
+- Short: [[[2026-06-26 style:short]]]
+- Medium: [[[2026-06-26 style:medium]]]
+- Long (default): [[[2026-06-26 style:long]]]
+- Full (with weekday): [[[2026-06-26 style:full]]]
+
+### Dates with Time
+
+Datetimes use the `T` separator. Combine a date `style:` with a `time:` preset, and force a 24-hour clock with `hour-format:24`:
+
+This release shipped on [[[2026-06-26T14:30:00Z style:medium time:short]]], or in 24-hour form [[[2026-06-26T14:30:00Z style:medium time:short hour-format:24]]].
+
+### Locale
+
+The `lang:` (or `locale:`) token formats the date for another locale. The same day in French: [[[2026-06-26 style:full lang:fr]]], and in German: [[[2026-06-26 style:full lang:de]]].
+
+### Granular Overrides
+
+Granular tokens override a preset per field — here `style:long` with the month forced to its short form: [[[2026-06-26 style:long month:short]]].
+
+### Relative Times
+
+Prefix the date with `relative` for a phrase relative to now. This page was last updated [[[relative 2026-06-20]]]; an earlier revision landed [[[relative 2026-05-30 format:short]]].
+
+Add `sync` to keep the phrase ticking live while the page stays open: this session started [[[relative 2026-06-26T09:00:00Z sync]]].
+
+### Block Syntax
+
+A block form is also accepted; the selector name picks the mode:
+
+:::wa-format-date 2026-06-26 style:full lang:fr
+:::
+
+:::wa-relative-time 2026-06-20 sync
+:::
+
+### Current Time
+
+Omit the date entirely to format the viewer's current time — useful for a live "generated at" stamp: [[[time:medium]]].
+
 ## Cards
 
 ===

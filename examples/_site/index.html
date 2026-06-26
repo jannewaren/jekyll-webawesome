@@ -953,6 +953,18 @@ with multiple lines of text"></wa-copy-button>
 
 <wa-copy-button value="Tooltip appears on the left" tooltip-placement="left"></wa-copy-button>
 
+<h3 id="tooltip-mode">Tooltip Mode</h3>
+
+<p>Control when the built-in tooltip appears.</p>
+
+<wa-copy-button value="Full (default): tooltip on hover/focus plus copy feedback" tooltip="full"></wa-copy-button>
+
+<wa-copy-button value="Copy: silent on hover/focus; tooltip only on copy feedback" tooltip="copy"></wa-copy-button>
+
+<wa-copy-button value="None: no tooltip in any state" tooltip="none"></wa-copy-button>
+
+<wa-copy-button value="Combined with placement" tooltip-placement="top" tooltip="copy"></wa-copy-button>
+
 <h3 id="custom-labels">Custom Labels</h3>
 
 <p>Customize the tooltip messages for different states:</p>
@@ -1480,7 +1492,7 @@ Alternative syntax with right tooltip
 
 <p>Send invoices via <button type="button" id="popover-2119454d" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">Peppol</button><wa-popover for="popover-2119454d" placement="top">Peppol is a standardized e-invoicing network used across Europe</wa-popover> to your trading partners.</p>
 
-<p>Inline popovers support all placement parameters. Learn about <button type="button" id="popover-5f4a2a12" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">API authentication</button><wa-popover for="popover-5f4a2a12" placement="bottom">API keys are used to authenticate your requests to the API</wa-popover> in our documentation.</p>
+<p>Inline popovers support all placement parameters. Learn about <button type="button" id="popover-4aba3879" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">API authentication</button><wa-popover for="popover-4aba3879" placement="bottom">API keys are used to authenticate your requests to the API</wa-popover> in our documentation.</p>
 
 <p>You can combine parameters too: check the <button type="button" id="popover-3fa23f7d" class="ma-popover-trigger" style="background: none; border: none; padding: 0; color: inherit; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; font: inherit;">invoice validation</button><wa-popover for="popover-3fa23f7d" placement="right" without-arrow="" distance="5">Invoices are validated against Peppol business rules before being sent</wa-popover> rules before submitting.</p>
 
@@ -1499,6 +1511,100 @@ Alternative syntax with right tooltip
 <p>The <code>link</code> flag also works with alternative <code>:::wa-popover</code> syntax.</p>
 
 </wa-popover>
+
+<h2 id="tooltips">Tooltips</h2>
+
+<p>Tooltips show brief contextual help on hover or focus — ideal for glossary terms and inline definitions. The inline form puts the anchor term and the tip text inside triple parentheses, separated by <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(((anchor term &gt;&gt;&gt; tip text)))
+</code></pre></div></div>
+
+<p>The anchor term is rendered as a focusable, dotted-underlined span, and the tip appears in a <code class="language-plaintext highlighter-rouge">&lt;wa-tooltip&gt;</code> wired to it automatically. Zero JavaScript required.</p>
+
+<h3 id="basic-inline-tooltip">Basic Inline Tooltip</h3>
+
+<p>Default placement is top. The web is styled with <span id="tooltip-ebf4315b" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">CSS</span><wa-tooltip for="tooltip-ebf4315b" placement="top">Cascading Style Sheets — the language that describes how HTML elements are displayed</wa-tooltip> and structured with <span id="tooltip-a1dffb18" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">HTML</span><wa-tooltip for="tooltip-a1dffb18" placement="top">HyperText Markup Language — the standard markup language for documents displayed in a browser</wa-tooltip>.</p>
+
+<h3 id="placements-1">Placements</h3>
+
+<p>Each invoice is routed over <span id="tooltip-d6d3800f" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">Peppol</span><wa-tooltip for="tooltip-d6d3800f" placement="bottom">A standardized pan-European e-invoicing network</wa-tooltip> to the recipient’s access point.</p>
+
+<p>Authentication uses an <span id="tooltip-4e1b8852" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">API key</span><wa-tooltip for="tooltip-4e1b8852" placement="left">A secret token that identifies and authorizes an application making a request</wa-tooltip> sent with every request.</p>
+
+<p>Files are delivered over <span id="tooltip-b368363d" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">SFTP</span><wa-tooltip for="tooltip-b368363d" placement="right">SSH File Transfer Protocol — encrypted file transfer over a single connection</wa-tooltip> for batch processing.</p>
+
+<h3 id="custom-distance-1">Custom Distance</h3>
+
+<p>Hover over <span id="tooltip-f53d1d07" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">SLA</span><wa-tooltip for="tooltip-f53d1d07" placement="top" distance="12">Service Level Agreement — the guaranteed uptime and response commitments</wa-tooltip> to see the tip pushed further from the anchor.</p>
+
+<h3 id="combined-parameters-1">Combined Parameters</h3>
+
+<p>The order of leading tokens doesn’t matter: read about <span id="tooltip-cc255e5c" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">OCR</span><wa-tooltip for="tooltip-cc255e5c" placement="bottom" distance="8">Optical Character Recognition — extracting machine-readable text from scanned documents</wa-tooltip> in our processing pipeline.</p>
+
+<h3 id="multiple-tooltips-in-one-sentence">Multiple Tooltips in One Sentence</h3>
+
+<p>A typical exchange touches several acronyms: <span id="tooltip-c75dfe19" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">VAT</span><wa-tooltip for="tooltip-c75dfe19" placement="top">Value Added Tax</wa-tooltip>, <span id="tooltip-dc0e6300" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">IBAN</span><wa-tooltip for="tooltip-dc0e6300" placement="top">International Bank Account Number</wa-tooltip>, and <span id="tooltip-ca72bcdb" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">BIC</span><wa-tooltip for="tooltip-ca72bcdb" placement="top">Bank Identifier Code, also known as a SWIFT code</wa-tooltip> all appear on a cross-border invoice.</p>
+
+<h3 id="mid-sentence-and-html-escaping">Mid-sentence and HTML Escaping</h3>
+
+<p>Tip text is HTML-escaped, so symbols are safe: the <span id="tooltip-cb9868d9" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">ampersand</span><wa-tooltip for="tooltip-cb9868d9" placement="top">The &quot;&amp;&quot; character — written as &amp;amp; in HTML</wa-tooltip> renders literally. Line breaks use <code class="language-plaintext highlighter-rouge">\n</code>: organisation numbers differ by country — <span id="tooltip-b3792117" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">Org number</span><wa-tooltip for="tooltip-b3792117" placement="top">NO: 9 digits<br />SE: 10 digits<br />DK: 8-digit CVR</wa-tooltip> — hover to see each on its own line.</p>
+
+<h3 id="alternative-syntax-6">Alternative Syntax</h3>
+
+<p>For consistency with the other components, a block form is also accepted:</p>
+
+<p><span id="tooltip-dc18ddf3" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">JIT</span><wa-tooltip for="tooltip-dc18ddf3" placement="bottom">Just-In-Time — compiling or producing something only at the moment it is needed.</wa-tooltip></p>
+
+<h2 id="dates--timestamps">Dates / Timestamps</h2>
+
+<p>Render dates declaratively: the value is baked into the Markdown at build time and the browser formats it on the client. <code class="language-plaintext highlighter-rouge">&lt;wa-format-date year="numeric" month="long" day="numeric"&gt;&lt;/wa-format-date&gt;</code> produces an absolute, locale-formatted date (<code class="language-plaintext highlighter-rouge">&lt;wa-format-date&gt;</code>); a leading <code class="language-plaintext highlighter-rouge">relative</code> token produces a “3 days ago”-style phrase (<code class="language-plaintext highlighter-rouge">&lt;wa-relative-time&gt;</code>). No JavaScript wiring, no data fetching — ideal for blog post dates, changelog stamps, and “last updated”.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[[2026-06-26 style:long]]]
+[[[relative 2026-06-20]]]
+</code></pre></div></div>
+
+<h3 id="absolute-dates--style-presets">Absolute Dates — Style Presets</h3>
+
+<p>A bare date defaults to <code class="language-plaintext highlighter-rouge">style:long</code>. The four presets trade brevity for detail:</p>
+
+<ul>
+  <li>Short: <wa-format-date date="2026-06-26" year="2-digit" month="numeric" day="numeric"></wa-format-date></li>
+  <li>Medium: <wa-format-date date="2026-06-26" year="numeric" month="short" day="numeric"></wa-format-date></li>
+  <li>Long (default): <wa-format-date date="2026-06-26" year="numeric" month="long" day="numeric"></wa-format-date></li>
+  <li>Full (with weekday): <wa-format-date date="2026-06-26" weekday="long" year="numeric" month="long" day="numeric"></wa-format-date></li>
+</ul>
+
+<h3 id="dates-with-time">Dates with Time</h3>
+
+<p>Datetimes use the <code class="language-plaintext highlighter-rouge">T</code> separator. Combine a date <code class="language-plaintext highlighter-rouge">style:</code> with a <code class="language-plaintext highlighter-rouge">time:</code> preset, and force a 24-hour clock with <code class="language-plaintext highlighter-rouge">hour-format:24</code>:</p>
+
+<p>This release shipped on <wa-format-date date="2026-06-26T14:30:00Z" year="numeric" month="short" day="numeric" hour="numeric" minute="numeric"></wa-format-date>, or in 24-hour form <wa-format-date date="2026-06-26T14:30:00Z" year="numeric" month="short" day="numeric" hour="numeric" minute="numeric" hour-format="24"></wa-format-date>.</p>
+
+<h3 id="locale">Locale</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">lang:</code> (or <code class="language-plaintext highlighter-rouge">locale:</code>) token formats the date for another locale. The same day in French: <wa-format-date date="2026-06-26" weekday="long" year="numeric" month="long" day="numeric" lang="fr"></wa-format-date>, and in German: <wa-format-date date="2026-06-26" weekday="long" year="numeric" month="long" day="numeric" lang="de"></wa-format-date>.</p>
+
+<h3 id="granular-overrides">Granular Overrides</h3>
+
+<p>Granular tokens override a preset per field — here <code class="language-plaintext highlighter-rouge">style:long</code> with the month forced to its short form: <wa-format-date date="2026-06-26" year="numeric" month="short" day="numeric"></wa-format-date>.</p>
+
+<h3 id="relative-times">Relative Times</h3>
+
+<p>Prefix the date with <code class="language-plaintext highlighter-rouge">relative</code> for a phrase relative to now. This page was last updated <wa-relative-time date="2026-06-20"></wa-relative-time>; an earlier revision landed <wa-relative-time date="2026-05-30" format="short"></wa-relative-time>.</p>
+
+<p>Add <code class="language-plaintext highlighter-rouge">sync</code> to keep the phrase ticking live while the page stays open: this session started <wa-relative-time date="2026-06-26T09:00:00Z" sync=""></wa-relative-time>.</p>
+
+<h3 id="block-syntax">Block Syntax</h3>
+
+<p>A block form is also accepted; the selector name picks the mode:</p>
+
+<wa-format-date date="2026-06-26" weekday="long" year="numeric" month="long" day="numeric" lang="fr"></wa-format-date>
+
+<wa-relative-time date="2026-06-20" sync=""></wa-relative-time>
+
+<h3 id="current-time">Current Time</h3>
+
+<p>Omit the date entirely to format the viewer’s current time — useful for a live “generated at” stamp: <wa-format-date hour="numeric" minute="numeric" second="numeric"></wa-format-date>.</p>
 
 <h2 id="cards">Cards</h2>
 
@@ -1698,7 +1804,7 @@ Alternative syntax with right tooltip
 <p>Third item</p>
 </wa-carousel-item></wa-carousel>
 
-<h3 id="alternative-syntax-6">Alternative Syntax</h3>
+<h3 id="alternative-syntax-7">Alternative Syntax</h3>
 
 <wa-carousel navigation="" pagination=""><wa-carousel-item><p><strong>Alternative Syntax</strong></p>
 
@@ -1935,7 +2041,7 @@ noticeably larger gaps than <code class="language-plaintext highlighter-rouge">3
 
 </div>
 
-<h3 id="alternative-syntax-7">Alternative Syntax</h3>
+<h3 id="alternative-syntax-8">Alternative Syntax</h3>
 
 <p>All layouts support <code class="language-plaintext highlighter-rouge">::::wa-</code> prefix syntax:</p>
 

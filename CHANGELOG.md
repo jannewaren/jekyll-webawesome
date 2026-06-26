@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [Unreleased]
+
+### Added
+
+- Declarative timestamps, via markawesome's new `DateTransformer`. The inline `[[[ <date> <tokens> ]]]` form renders an absolute, locale-formatted date (`<wa-format-date>`); a leading `relative` token renders a "3 days ago"-style phrase (`<wa-relative-time>`). A block alternative (`:::wa-format-date` / `:::wa-relative-time` … `:::`) is also accepted. The date value is baked into the Markdown at build time; the browser formats it via `Intl.DateTimeFormat` / `Intl.RelativeTimeFormat` with no JavaScript wiring or data fetching — ideal for blog post dates, changelog stamps, and "last updated".
+  - `style:`/`time:` presets (`short|medium|long|full`), granular overrides (`weekday`, `month`, `day`, `hour`, … plus `hour-format`, `time-zone-name`, `time-zone`), and `lang:`/`locale:` are supported; a bare date defaults to `style:long`. Relative timestamps take `format:`, `numeric:`, and a `sync` flag for live ticking. Omitting the date renders the viewer's current time.
+- Example site's new `## Dates / Timestamps` section exercises the style/time presets, a datetime with `time:` + `hour-format:24`, French/German locales, a granular override, relative times (incl. `format:short` and live `sync`), both block forms, and a no-date "current time" stamp. Validated live in the browser against the examples kit (WA 3.9.0): the components upgrade and render real formatted text in their shadow DOM — e.g. `style:full` → "Friday, June 26, 2026", `lang:fr` → "vendredi 26 juin 2026", `lang:de` → "Freitag, 26. Juni 2026", `hour-format:24` → "Jun 26, 2026, 17:30", relative → "last week" / "4 wk. ago", live `sync` → "44 minutes ago", and a no-date `time:medium` → the current "12:43:56 PM". For reference, a bare `<wa-format-date>` with no format attributes renders WA's terse numeric default ("6/26/2026"), which is why a bare date here defaults to the more readable `style:long`.
+  - Like `<wa-icon>`, both components render generated text into shadow DOM with no light-DOM fallback — with Web Awesome's JS disabled they show nothing (the same static-site caveat noted for `<wa-tag with-remove>`).
+
 ## [0.22.0] - 2026-06-25
 
 ### Added
