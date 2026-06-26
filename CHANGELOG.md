@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [0.23.0] - 2026-06-26
+
 ### Added
 
 - Video and video playlist embedding, via markawesome's new `VideoTransformer`. A `;;;` fence wraps a single `<wa-video>` and a `;;;;;;` container wraps bare `;;;` items into a `<wa-video-playlist>` (block alternatives `:::wa-video` / `:::wa-video-playlist`). The body's first markdown link supplies the video `title`/`src` and the first image supplies the `poster`; tokens cover `controls:none|standard|full`, `preload:auto|metadata|none`, and the `autoplay`/`autoplay-muted`/`autoplay-on-visible`/`loop`/`muted` flags. The playlist's `controls` preset is forwarded to every child. Both components are Web Awesome **Pro** (experimental).
@@ -16,6 +18,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
   - Like `<wa-icon>`, both components render generated text into shadow DOM with no light-DOM fallback — with Web Awesome's JS disabled they show nothing (the same static-site caveat noted for `<wa-tag with-remove>`).
 - Aligned placements + `skidding` for popovers and tooltips, and a per-tab `disabled` flag, via markawesome's expanded `PopoverTransformer`/`TooltipTransformer`/`TabsTransformer`. `<wa-popover>`/`<wa-tooltip>` now accept all twelve Web Awesome placements (the four primary plus the eight aligned variants `top-start`, `bottom-end`, …) and a `skidding:N` token that offsets the floating element *along* its target (negative values allowed), complementing the existing `distance:N` (offset *away*). A leading `disabled` token on a `+++ ` tab item header (e.g. `+++ disabled Coming soon`) renders the tab but prevents selection, mirroring the accordion item flags.
 - Example site adds cases for each: an "Aligned Placement and Skidding" subsection in both `## Popovers` and `## Tooltips`, and a "Disabled Tab" subsection in `## Tab Groups`. Validated live in the browser against the examples kit (WA 3.9.0): the components upgrade and the attributes reflect and take effect in the live DOM — `placement="bottom-start"` anchors the popover to its trigger's start edge and `bottom-end` to the end edge; toggling `skidding` from 0 to 12 shifts the rendered popup exactly 12px along the trigger axis; the tooltip parses a negative `skidding="-4"`; and `<wa-tab disabled>` renders `aria-disabled="true"` with `tabindex="-1"`, stays non-activatable on click, and leaves the first panel showing.
+
+### Changed
+
+- Updated `markawesome` dependency to `~> 0.17`.
 
 ## [0.22.0] - 2026-06-25
 
