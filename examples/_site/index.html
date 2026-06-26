@@ -1853,6 +1853,34 @@ Alternative syntax with right tooltip
 <p>More content here</p>
 </wa-carousel-item></wa-carousel>
 
+<h2 id="video">Video</h2>
+
+<p>Video and playlist components require <a href="https://webawesome.com/">Web Awesome Pro</a>
+(both are experimental). A <code class="language-plaintext highlighter-rouge">;;;</code> fence wraps a single <code class="language-plaintext highlighter-rouge">&lt;wa-video&gt;</code>: the body’s
+first markdown link supplies the <code class="language-plaintext highlighter-rouge">title</code>/<code class="language-plaintext highlighter-rouge">src</code> and the first image supplies the
+<code class="language-plaintext highlighter-rouge">poster</code>. A <code class="language-plaintext highlighter-rouge">;;;;;;</code> fence wraps <code class="language-plaintext highlighter-rouge">;;;</code> items into a <code class="language-plaintext highlighter-rouge">&lt;wa-video-playlist&gt;</code>, with a
+single <code class="language-plaintext highlighter-rouge">controls</code> preset forwarded to every child.</p>
+
+<h3 id="basic-video">Basic Video</h3>
+
+<wa-video src="test_video.mp4" poster="test_video_poster.jpg" title="Demo clip" controls="full"></wa-video>
+
+<h3 id="controls-preset-with-autoplay-muted-and-loop">Controls Preset with autoplay-muted and loop</h3>
+
+<wa-video src="test_video.mp4" poster="test_video_poster.jpg" title="Muted autoplay clip" controls="standard" autoplay-muted="" loop=""></wa-video>
+
+<h3 id="alternative-syntax-8">Alternative Syntax</h3>
+
+<wa-video src="test_video.mp4" poster="test_video_poster.jpg" title="Demo clip" preload="auto"></wa-video>
+
+<h3 id="video-playlist">Video Playlist</h3>
+
+<wa-video-playlist controls="standard"><wa-video src="test_video.mp4" poster="test_video_poster.jpg" title="Part 1"></wa-video><wa-video src="test_video.mp4" poster="test_video_poster.jpg" title="Part 2"></wa-video></wa-video-playlist>
+
+<h3 id="playlist--alternative-syntax">Playlist — Alternative Syntax</h3>
+
+<wa-video-playlist controls="full"><wa-video src="test_video.mp4" poster="test_video_poster.jpg" title="First"></wa-video><wa-video src="test_video.mp4" title="Second"></wa-video></wa-video-playlist>
+
 <h2 id="layouts">Layouts</h2>
 
 <p>Layout containers use <code class="language-plaintext highlighter-rouge">::::</code> (quadruple colon) syntax to wrap content in Web Awesome CSS layout utilities. Layouts compose with component syntax — use <code class="language-plaintext highlighter-rouge">:::</code> components inside <code class="language-plaintext highlighter-rouge">::::</code> layouts.</p>
@@ -2080,7 +2108,7 @@ noticeably larger gaps than <code class="language-plaintext highlighter-rouge">3
 
 </div>
 
-<h3 id="alternative-syntax-8">Alternative Syntax</h3>
+<h3 id="alternative-syntax-9">Alternative Syntax</h3>
 
 <p>All layouts support <code class="language-plaintext highlighter-rouge">::::wa-</code> prefix syntax:</p>
 

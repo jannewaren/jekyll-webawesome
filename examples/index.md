@@ -2131,6 +2131,60 @@ More content here
 ~~~
 :::
 
+## Video
+
+Video and playlist components require [Web Awesome Pro](https://webawesome.com/)
+(both are experimental). A `;;;` fence wraps a single `<wa-video>`: the body's
+first markdown link supplies the `title`/`src` and the first image supplies the
+`poster`. A `;;;;;;` fence wraps `;;;` items into a `<wa-video-playlist>`, with a
+single `controls` preset forwarded to every child.
+
+### Basic Video
+
+;;;controls:full
+[Demo clip](test_video.mp4)
+![Poster](test_video_poster.jpg)
+;;;
+
+### Controls Preset with autoplay-muted and loop
+
+;;;controls:standard autoplay-muted loop
+[Muted autoplay clip](test_video.mp4)
+![Poster](test_video_poster.jpg)
+;;;
+
+### Alternative Syntax
+
+:::wa-video preload:auto
+[Demo clip](test_video.mp4)
+![Poster](test_video_poster.jpg)
+:::
+
+### Video Playlist
+
+;;;;;;controls:standard
+;;;
+[Part 1](test_video.mp4)
+![Poster](test_video_poster.jpg)
+;;;
+;;;
+[Part 2](test_video.mp4)
+![Poster](test_video_poster.jpg)
+;;;
+;;;;;;
+
+### Playlist — Alternative Syntax
+
+:::wa-video-playlist controls:full
+;;;
+[First](test_video.mp4)
+![Poster](test_video_poster.jpg)
+;;;
+;;;
+[Second](test_video.mp4)
+;;;
+:::
+
 ## Layouts
 
 Layout containers use `::::` (quadruple colon) syntax to wrap content in Web Awesome CSS layout utilities. Layouts compose with component syntax — use `:::` components inside `::::` layouts.
