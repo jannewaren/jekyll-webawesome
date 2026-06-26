@@ -704,6 +704,15 @@ icon in this sentence.</p>
 </wa-tab-panel><wa-tab-panel name="tab-5"><p>Content 5</p>
 </wa-tab-panel></wa-tab-group>
 
+<h3 id="disabled-tab">Disabled Tab</h3>
+
+<p>A leading <code class="language-plaintext highlighter-rouge">disabled</code> token on a <code class="language-plaintext highlighter-rouge">+++ </code> item header renders the tab but prevents selection (the flag is stripped from the label):</p>
+
+<wa-tab-group placement="top"><wa-tab panel="tab-1">Overview</wa-tab><wa-tab panel="tab-2" disabled="">Coming soon</wa-tab><wa-tab panel="tab-3">Settings</wa-tab><wa-tab-panel name="tab-1"><p>The first tab is active and selectable.</p>
+</wa-tab-panel><wa-tab-panel name="tab-2"><p>Not yet available — this tab renders but cannot be selected.</p>
+</wa-tab-panel><wa-tab-panel name="tab-3"><p>A normal selectable tab after the disabled one.</p>
+</wa-tab-panel></wa-tab-group>
+
 <h3 id="combining-attributes">Combining Attributes</h3>
 
 <p>All attributes work together in any order:</p>
@@ -1426,6 +1435,28 @@ Alternative syntax with right tooltip
 
 </wa-popover>
 
+<h3 id="aligned-placement-and-skidding">Aligned Placement and Skidding</h3>
+
+<p>The twelve placements include the eight aligned variants (<code class="language-plaintext highlighter-rouge">top-start</code>, <code class="language-plaintext highlighter-rouge">bottom-end</code>, …) for fine control over which corner the popover anchors to. <code class="language-plaintext highlighter-rouge">skidding:N</code> shifts it <em>along</em> the trigger axis (negative values shift the other way), complementing <code class="language-plaintext highlighter-rouge">distance:N</code> which pushes it <em>away</em>.</p>
+
+<wa-button id="popover-0c605964" appearance="plain">Aligned to the start edge</wa-button>
+<wa-popover for="popover-0c605964" placement="bottom-start">
+<p>This popover anchors to the start (left) edge of its trigger instead of centring under it.</p>
+
+</wa-popover>
+
+<wa-button id="popover-44be07bd" appearance="plain">Skidded along the trigger</wa-button>
+<wa-popover for="popover-44be07bd" placement="bottom-end" skidding="12">
+<p><code>bottom-end</code> anchors to the end edge, and <code>skidding:12</code> nudges the popover 12px further along the trigger axis.</p>
+
+</wa-popover>
+
+<wa-button id="popover-746f533c" appearance="plain">All offsets combined</wa-button>
+<wa-popover for="popover-746f533c" placement="right-start" distance="8" skidding="-6">
+<p><code>right-start</code> placement with an 8px distance away from the trigger and a -6px skid back along it.</p>
+
+</wa-popover>
+
 <h3 id="link-style">Link Style</h3>
 
 <p>Use the <code class="language-plaintext highlighter-rouge">link</code> flag to render the trigger as a link-styled element instead of a button:</p>
@@ -1540,6 +1571,14 @@ Alternative syntax with right tooltip
 <h3 id="combined-parameters-1">Combined Parameters</h3>
 
 <p>The order of leading tokens doesn’t matter: read about <span id="tooltip-cc255e5c" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">OCR</span><wa-tooltip for="tooltip-cc255e5c" placement="bottom" distance="8">Optical Character Recognition — extracting machine-readable text from scanned documents</wa-tooltip> in our processing pipeline.</p>
+
+<h3 id="aligned-placement-and-skidding-1">Aligned Placement and Skidding</h3>
+
+<p>Tooltips share the popover’s twelve placements and the <code class="language-plaintext highlighter-rouge">skidding:N</code> offset (offset <em>along</em> the anchor; negative shifts the other way). An aligned variant: the term <span id="tooltip-1f5ba707" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">API</span><wa-tooltip for="tooltip-1f5ba707" placement="right-end" skidding="-4">Application Programming Interface — a contract for how software components talk to each other</wa-tooltip> anchors to the end edge on the right and skids -4px along it. Combine with distance: <span id="tooltip-d4392cf5" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">RBAC</span><wa-tooltip for="tooltip-d4392cf5" placement="bottom-start" distance="8" skidding="12">Role-Based Access Control — permissions granted via roles rather than per-user</wa-tooltip> pushes 8px away and 12px along.</p>
+
+<p>A block form with an aligned placement and skidding:</p>
+
+<p><span id="tooltip-8c961d40" tabindex="0" class="ma-tooltip-anchor" style="text-decoration: underline dotted; cursor: help;">REST</span><wa-tooltip for="tooltip-8c961d40" placement="bottom-end" distance="8" skidding="12">Representational State Transfer — an architectural style for networked APIs.</wa-tooltip></p>
 
 <h3 id="multiple-tooltips-in-one-sentence">Multiple Tooltips in One Sentence</h3>
 

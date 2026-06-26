@@ -883,6 +883,22 @@ Content 5
 +++
 ++++++
 
+### Disabled Tab
+
+A leading `disabled` token on a `+++ ` item header renders the tab but prevents selection (the flag is stripped from the label):
+
+++++++
++++ Overview
+The first tab is active and selectable.
++++
++++ disabled Coming soon
+Not yet available — this tab renders but cannot be selected.
++++
++++ Settings
+A normal selectable tab after the disabled one.
++++
+++++++
+
 ### Combining Attributes
 
 All attributes work together in any order:
@@ -1601,6 +1617,28 @@ Custom popover
 Combines placement, no arrow, and custom distance. All parameters work together in any order.
 &&&
 
+### Aligned Placement and Skidding
+
+The twelve placements include the eight aligned variants (`top-start`, `bottom-end`, …) for fine control over which corner the popover anchors to. `skidding:N` shifts it *along* the trigger axis (negative values shift the other way), complementing `distance:N` which pushes it *away*.
+
+&&&bottom-start
+Aligned to the start edge
+>>>
+This popover anchors to the start (left) edge of its trigger instead of centring under it.
+&&&
+
+&&&bottom-end skidding:12
+Skidded along the trigger
+>>>
+`bottom-end` anchors to the end edge, and `skidding:12` nudges the popover 12px further along the trigger axis.
+&&&
+
+&&&right-start distance:8 skidding:-6
+All offsets combined
+>>>
+`right-start` placement with an 8px distance away from the trigger and a -6px skid back along it.
+&&&
+
 ### Link Style
 
 Use the `link` flag to render the trigger as a link-styled element instead of a button:
@@ -1712,6 +1750,18 @@ Hover over (((distance:12 SLA >>> Service Level Agreement — the guaranteed upt
 ### Combined Parameters
 
 The order of leading tokens doesn't matter: read about (((bottom distance:8 OCR >>> Optical Character Recognition — extracting machine-readable text from scanned documents))) in our processing pipeline.
+
+### Aligned Placement and Skidding
+
+Tooltips share the popover's twelve placements and the `skidding:N` offset (offset *along* the anchor; negative shifts the other way). An aligned variant: the term (((right-end skidding:-4 API >>> Application Programming Interface — a contract for how software components talk to each other))) anchors to the end edge on the right and skids -4px along it. Combine with distance: (((bottom-start distance:8 skidding:12 RBAC >>> Role-Based Access Control — permissions granted via roles rather than per-user))) pushes 8px away and 12px along.
+
+A block form with an aligned placement and skidding:
+
+:::wa-tooltip bottom-end distance:8 skidding:12
+REST
+>>>
+Representational State Transfer — an architectural style for networked APIs.
+:::
 
 ### Multiple Tooltips in One Sentence
 
