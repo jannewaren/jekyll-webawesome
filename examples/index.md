@@ -1663,7 +1663,7 @@ Popovers can be used inline within a sentence. They always render as link-styled
 
 Send invoices via &&&Peppol >>> Peppol is a standardized e-invoicing network used across Europe&&& to your trading partners.
 
-Inline popovers support all placement parameters. Learn about &&&bottom API authentication >>> API keys are used to authenticate your requests to the Maventa API&&& in our documentation.
+Inline popovers support all placement parameters. Learn about &&&bottom API authentication >>> API keys are used to authenticate your requests to the API&&& in our documentation.
 
 You can combine parameters too: check the &&&right without-arrow distance:5 invoice validation >>> Invoices are validated against Peppol business rules before being sent&&& rules before submitting.
 
