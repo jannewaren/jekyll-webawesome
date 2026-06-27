@@ -763,6 +763,49 @@ And the same `///` item blocks.
 ///
 :::
 
+## Tree
+
+A hierarchical list rendered from a **nested Markdown bullet list** — ideal for file/directory layouts, taxonomies, and nested navigation. The fence is `||||||` (6 pipes) wrapping a normal nested list, closed by `||||||`; children are simply more-indented items (2- or 4-space indentation both work). Add `open` to the fence to expand the top-level branches on load, mark a branch `expanded`, and prefix any item with `icon:name` for a leading folder/file icon. This is a **display/navigation-only** tree: Web Awesome's interactive selection (`selection`, `lazy`, …) needs JavaScript, so it's deliberately omitted on a static site. (Web Awesome only honors an initial `expanded` on items visible at load, so deeper branches stay collapsed until you open their parent — full deep-expand-on-load would need JS.)
+
+### ZIP download contents
+
+What's inside `my-plugin.zip` before you download it — `open` expands the top-level folder, with a folder/file icon on each item. Click a folder to drill into `dist/` and `src/`.
+
+||||||open
+- icon:folder my-plugin
+  - icon:folder dist
+    - icon:file-code index.js
+    - icon:file-code index.d.ts
+  - icon:folder src
+    - icon:file-code index.ts
+  - icon:file README.md
+  - icon:file package.json
+- icon:file LICENSE
+||||||
+
+### Peppol BIS 3.0 invoice element structure
+
+Deep nesting with element-name labels. Colon-bearing labels like `cbc:ID` are kept verbatim — only a leading `icon:` token is treated as an icon — so XML element paths render unchanged.
+
+||||||open
+- Invoice
+  - cbc:CustomizationID
+  - cbc:ID
+  - cbc:IssueDate
+  - cac:AccountingSupplierParty
+    - cac:Party
+      - cac:PostalAddress
+      - cac:PartyLegalEntity
+  - cac:AccountingCustomerParty
+    - cac:Party
+  - cac:InvoiceLine
+    - cbc:ID
+    - cbc:InvoicedQuantity
+    - cac:Item
+      - cbc:Name
+      - cac:Price
+||||||
+
 ## Tab Groups
 
 ### Basic Tab Group

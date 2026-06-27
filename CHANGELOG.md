@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+### Added
+
+- Example site's new `## Tree` section exercises markawesome's new `TreeTransformer` — a `<wa-tree>` / `<wa-tree-item>` hierarchy rendered from a nested Markdown bullet list (the `||||||` fence). Two cases: a ZIP-contents tree (`open` + folder/file icons) and a deeply nested Peppol BIS 3.0 invoice element structure (proving colon-bearing labels like `cbc:ID` render verbatim). Requires the unreleased `markawesome` (the example site already points at the local `../markawesome` working copy); the published gem dependency stays `~> 0.17`.
+
 ## [0.23.0] - 2026-06-26
 
 ### Added
