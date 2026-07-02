@@ -111,9 +111,9 @@ either gem is released. Follow this order:
 4. **Check them visually.** Run `cd examples && bundle exec jekyll serve` and
    verify the rendered components in a browser. Confirm the change actually
    renders (measure/inspect the live DOM), not just that the HTML attribute is
-   present. The Web Awesome version is set by the CDN kit configured on
-   webawesome.com — the kit URL in `examples/_layouts/default.html` is opaque,
-   so validate against whatever version that kit currently serves.
+   present. The Web Awesome version is **pinned to 3.9.0** in the CDN URLs in
+   `examples/_layouts/default.html`, so validate against that exact version.
+   Bump the pinned version deliberately when moving to a new WA release.
 5. **Release markawesome.** Bump `lib/markawesome/version.rb`, finalize its
    CHANGELOG, `gem build`, and `gem push` to RubyGems.
 6. **Update the required markawesome version here.** Bump the `~> X.Y`

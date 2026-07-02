@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="wa-theme-tailspin wa-palette-vogue wa-brand-indigo" data-fa-kit-code="4f5838335e">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Awesome Examples - Jekyll Web Awesome Plugin Examples</title>
     
-    <!-- Web Awesome CDN -->
-    <script src="https://kit.webawesome.com/43e2fc18755d4267.js" crossorigin="anonymous"></script>
-    
+    <!-- Web Awesome — pinned CDN (webawesome@3.9.0); replaces the opaque kit script -->
+    <!-- Theme + color palette -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.9.0/styles/themes/tailspin.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.9.0/styles/color/palettes/vogue.css" />
+    <!-- Native styles / CSS reset -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.9.0/styles/native.css" />
+    <!-- CSS utilities -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.9.0/styles/utilities.css" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" />
+    <!-- Web Awesome autoloader -->
+    <script type="module" src="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.9.0/webawesome.loader.js"></script>
+    <!-- Custom theme overrides -->
+    <style>
+      :root {
+        --wa-font-family-body: Inter, sans-serif;
+        --wa-font-family-heading: Inter, sans-serif;
+        --wa-font-family-code: ui-monospace, monospace;
+        --wa-font-family-longform: ui-serif, serif;
+        --wa-font-weight-body: 400;
+        --wa-font-weight-heading: 700;
+        --wa-font-weight-code: 400;
+        --wa-font-weight-longform: 400;
+        --wa-border-radius-scale: 1;
+        --wa-border-width-scale: 1;
+        --wa-space-scale: 0.875;
+      }
+    </style>
+
     <!-- Minimal styling -->
     <style>
         body {
@@ -637,6 +663,22 @@ icon in this sentence.</p>
 <wa-accordion appearance="filled" mode="single"><wa-accordion-item label="First section"><p>The alternative syntax accepts the same container tokens (<code>filled single</code> here).</p>
 </wa-accordion-item><wa-accordion-item label="Second section"><p>And the same <code>///</code> item blocks.</p>
 </wa-accordion-item></wa-accordion>
+
+<h2 id="tree">Tree</h2>
+
+<p>A hierarchical list rendered from a <strong>nested Markdown bullet list</strong> — ideal for file/directory layouts, taxonomies, and nested navigation. The fence is <code class="language-plaintext highlighter-rouge">||||||</code> (6 pipes) wrapping a normal nested list, closed by <code class="language-plaintext highlighter-rouge">||||||</code>; children are simply more-indented items (2- or 4-space indentation both work). Add <code class="language-plaintext highlighter-rouge">open</code> to the fence to expand the top-level branches on load, mark a branch <code class="language-plaintext highlighter-rouge">expanded</code>, and prefix any item with <code class="language-plaintext highlighter-rouge">icon:name</code> for a leading folder/file icon. This is a <strong>display/navigation-only</strong> tree: Web Awesome’s interactive selection (<code class="language-plaintext highlighter-rouge">selection</code>, <code class="language-plaintext highlighter-rouge">lazy</code>, …) needs JavaScript, so it’s deliberately omitted on a static site. (Web Awesome only honors an initial <code class="language-plaintext highlighter-rouge">expanded</code> on items visible at load, so deeper branches stay collapsed until you open their parent — full deep-expand-on-load would need JS.)</p>
+
+<h3 id="zip-download-contents">ZIP download contents</h3>
+
+<p>What’s inside <code class="language-plaintext highlighter-rouge">my-plugin.zip</code> before you download it — <code class="language-plaintext highlighter-rouge">open</code> expands the top-level folder, with a folder/file icon on each item. Click a folder to drill into <code class="language-plaintext highlighter-rouge">dist/</code> and <code class="language-plaintext highlighter-rouge">src/</code>.</p>
+
+<wa-tree><wa-tree-item expanded=""><wa-icon name="folder"></wa-icon>my-plugin<wa-tree-item expanded=""><wa-icon name="folder"></wa-icon>dist<wa-tree-item><wa-icon name="file-code"></wa-icon>index.js</wa-tree-item><wa-tree-item><wa-icon name="file-code"></wa-icon>index.d.ts</wa-tree-item></wa-tree-item><wa-tree-item expanded=""><wa-icon name="folder"></wa-icon>src<wa-tree-item><wa-icon name="file-code"></wa-icon>index.ts</wa-tree-item></wa-tree-item><wa-tree-item><wa-icon name="file"></wa-icon>README.md</wa-tree-item><wa-tree-item><wa-icon name="file"></wa-icon>package.json</wa-tree-item></wa-tree-item><wa-tree-item><wa-icon name="file"></wa-icon>LICENSE</wa-tree-item></wa-tree>
+
+<h3 id="peppol-bis-30-invoice-element-structure">Peppol BIS 3.0 invoice element structure</h3>
+
+<p>Deep nesting with element-name labels. Colon-bearing labels like <code class="language-plaintext highlighter-rouge">cbc:ID</code> are kept verbatim — only a leading <code class="language-plaintext highlighter-rouge">icon:</code> token is treated as an icon — so XML element paths render unchanged.</p>
+
+<wa-tree><wa-tree-item expanded="">Invoice<wa-tree-item>cbc:CustomizationID</wa-tree-item><wa-tree-item>cbc:ID</wa-tree-item><wa-tree-item>cbc:IssueDate</wa-tree-item><wa-tree-item expanded="">cac:AccountingSupplierParty<wa-tree-item expanded="">cac:Party<wa-tree-item>cac:PostalAddress</wa-tree-item><wa-tree-item>cac:PartyLegalEntity</wa-tree-item></wa-tree-item></wa-tree-item><wa-tree-item expanded="">cac:AccountingCustomerParty<wa-tree-item>cac:Party</wa-tree-item></wa-tree-item><wa-tree-item expanded="">cac:InvoiceLine<wa-tree-item>cbc:ID</wa-tree-item><wa-tree-item>cbc:InvoicedQuantity</wa-tree-item><wa-tree-item expanded="">cac:Item<wa-tree-item>cbc:Name</wa-tree-item><wa-tree-item>cac:Price</wa-tree-item></wa-tree-item></wa-tree-item></wa-tree-item></wa-tree>
 
 <h2 id="tab-groups">Tab Groups</h2>
 

@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 - Example site's new `## Tree` section exercises markawesome's new `TreeTransformer` — a `<wa-tree>` / `<wa-tree-item>` hierarchy rendered from a nested Markdown bullet list (the `||||||` fence). Two cases: a ZIP-contents tree (`open` + folder/file icons) and a deeply nested Peppol BIS 3.0 invoice element structure (proving colon-bearing labels like `cbc:ID` render verbatim). Requires the unreleased `markawesome` (the example site already points at the local `../markawesome` working copy); the published gem dependency stays `~> 0.17`.
 
+### Changed
+
+- Example site now loads Web Awesome via the **pinned 3.9.0 CDN** (`ka-p.webawesome.com/kit/…/webawesome@3.9.0/…` stylesheets + autoloader in `_layouts/default.html`) instead of the auto-updating kit script (`kit.webawesome.com/43e2fc18755d4267.js`). Pinning the version makes the rendered output deterministic and visual validation reproducible — the kit URL hid which WA version it served, so the version drifted silently. The tailspin theme / vogue palette / indigo brand and the FA Pro kit code are now set explicitly on `<html>`; the example CSS is unchanged so the appearance is preserved.
+
 ## [0.23.0] - 2026-06-26
 
 ### Added
