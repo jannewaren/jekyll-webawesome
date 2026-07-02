@@ -12,7 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ### Changed
 
-- Example site now loads Web Awesome via the **pinned 3.9.0 CDN** (`ka-p.webawesome.com/kit/…/webawesome@3.9.0/…` stylesheets + autoloader in `_layouts/default.html`) instead of the auto-updating kit script (`kit.webawesome.com/43e2fc18755d4267.js`). Pinning the version makes the rendered output deterministic and visual validation reproducible — the kit URL hid which WA version it served, so the version drifted silently. The tailspin theme / vogue palette / indigo brand and the FA Pro kit code are now set explicitly on `<html>`; the example CSS is unchanged so the appearance is preserved.
+- Example site now loads Web Awesome via the **pinned 3.10.0 CDN** (`ka-p.webawesome.com/kit/…/webawesome@3.10.0/…` stylesheets + autoloader in `_layouts/default.html`) instead of the auto-updating kit script (`kit.webawesome.com/43e2fc18755d4267.js`). Pinning the version makes the rendered output deterministic and visual validation reproducible — the kit URL hid which WA version it served, so the version drifted silently. The tailspin theme / vogue palette / indigo brand and the FA Pro kit code are now set explicitly on `<html>`; the example CSS is unchanged so the appearance is preserved. Validated live in the browser against WA 3.10.0: all 695 `wa-*` elements on the example page upgrade (`:defined`) and render with correct dimensions, only `webawesome@3.10.0` assets load, and the console is clean.
 
 ## [0.23.0] - 2026-06-26
 
