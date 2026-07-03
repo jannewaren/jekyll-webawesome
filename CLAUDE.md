@@ -128,6 +128,13 @@ either gem is released. Follow this order:
 > version bump and any code in that release become invisible to other machines,
 > and the next release collides on the version number.
 
+## Branching & Commits
+
+This repo works directly on `main` — there is **no feature-branch convention**.
+Commit changes, including version bumps, straight to `main`; do not create a branch
+when asked to commit. Releases are then taken as **tags from `main`** (see "Releases
+are tagged to match the published version" below).
+
 ## Releases are tagged to match the published version
 
 Every version published to a registry gets a matching **GitHub Release**, so the
