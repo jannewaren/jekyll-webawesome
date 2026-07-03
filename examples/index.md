@@ -2174,6 +2174,80 @@ More content here
 ~~~
 :::
 
+## Random Content
+
+Web Awesome's experimental `<wa-random-content>` shows one or more of its options at random (optionally rotating them) and hides the rest — all in Web Awesome's own runtime, so a static page gets a "little bit dynamic" rotating tips / testimonials / featured-content block with **zero authored JavaScript**. The fence is `......` (6 dots) carrying the params, with each option separated by a `>>>` line, closed by `......`. Each option's Markdown is wrapped in a single `<div>` so Web Awesome sees exactly one selectable child per option. Params (order-independent): `mode` (`unique` default / `random` / `sequence`), `items:n`, `animation` (`fade`, `fade-up`, …), `autoplay`, and `autoplay-interval:ms`. A `:::wa-random-content … :::` block form is also accepted.
+
+### Basic tips rotator
+
+By default (`mode` unspecified → Web Awesome's `unique`) one option is shown at random on each load. Reload the page to see a different tip.
+
+......
+💡 **Tip:** Reuse the `>>>` separator you already know from details and popovers.
+>>>
+🎨 **Tip:** Each option can hold full Markdown — **bold**, `code`, or a [link](https://webawesome.com/).
+>>>
+🚀 **Tip:** Add `autoplay` to rotate options on a timer instead of only at load.
+......
+
+### Sequence mode
+
+`mode:sequence` walks the options in order rather than picking at random.
+
+......mode:sequence
+First in the sequence.
+>>>
+Second in the sequence.
+>>>
+Third in the sequence.
+......
+
+### Show two at once
+
+`items:2` shows two of the options at a time (Web Awesome shows a single child by default).
+
+......items:2
+Featured: **Alpha** — the first pick.
+>>>
+Featured: **Beta** — the second pick.
+>>>
+Featured: **Gamma** — the third pick.
+......
+
+### Autoplay with a fade
+
+`autoplay` rotates the shown option on a timer; `autoplay-interval:2000` sets the cadence (ms) and `animation:fade` eases the transition.
+
+......autoplay autoplay-interval:2000 animation:fade
+> "This rotating testimonial fades in on its own." — Reviewer One
+>>>
+> "No JavaScript required on my end." — Reviewer Two
+......
+
+### Options containing other components
+
+Because random-content runs **last** in the pipeline, an option can wrap an already-transformed component — here a nested callout. Each rendered callout ends up as the single `<div>` child Web Awesome selects.
+
+......mode:random
+:::success
+You landed on the **success** option — nicely done.
+:::
+>>>
+:::warning
+Heads up — this **warning** option rotates in at random.
+:::
+......
+
+### Alternative block syntax
+
+The `:::wa-random-content` form takes the same params on its opening line.
+
+:::wa-random-content sequence animation:fade-up
+Block-form option one.
+>>>
+Block-form option two.
+:::
+
 ## Video
 
 Video and playlist components require [Web Awesome Pro](https://webawesome.com/)
