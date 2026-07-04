@@ -13,6 +13,13 @@ layout: shell
   <a class="home-card" href="{{ item.url | relative_url }}">
     <strong>{{ item.title }}</strong>
     <span>{{ item.summary }}</span>
+    {% if item.components %}
+    <ul class="home-card__components">
+      {% for component in item.components %}
+      <li>{{ component | escape }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </a>
   {% endfor %}
 </div>

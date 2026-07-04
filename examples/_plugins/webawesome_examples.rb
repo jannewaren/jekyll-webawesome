@@ -38,7 +38,8 @@ module Jekyll
             'id' => category['id'],
             'title' => category['title'],
             'url' => "/#{category['id']}/",
-            'summary' => summary_of(category['intro'])
+            'summary' => summary_of(category['intro']),
+            'components' => category['components']
           }
         end
 

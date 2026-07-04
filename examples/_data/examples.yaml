@@ -6,6 +6,10 @@ categories:
     title: "Callouts & status"
     intro: |
       Callouts draw attention to important information; badges and tags label and count. Every example shows the exact markawesome markdown on the left and the live Web Awesome component on the right.
+    components:
+      - "<wa-callout>"
+      - "<wa-badge>"
+      - "<wa-tag>"
     examples:
       - heading: "Callout"
       - title: "Type: info"
@@ -257,6 +261,9 @@ categories:
     title: "Buttons & actions"
     intro: |
       Buttons trigger actions or link out; copy buttons put text on the clipboard in one click.
+    components:
+      - "<wa-button>"
+      - "<wa-copy-button>"
     examples:
       - heading: "Button"
       - title: "Variant: brand"
@@ -413,6 +420,8 @@ categories:
     title: "Cards"
     intro: |
       Cards are flexible containers. The first image becomes the media, the first `#` heading the header, trailing links the footer — everything else is body content.
+    components:
+      - "<wa-card>"
     examples:
       - title: "Appearance: outlined"
         code: |
@@ -466,6 +475,11 @@ categories:
     title: "Disclosure"
     intro: |
       Progressively reveal content: expandable details, grouped accordions, tabs, and trees.
+    components:
+      - "<wa-details>"
+      - "<wa-accordion>"
+      - "<wa-tab-group>"
+      - "<wa-tree>"
     examples:
       - heading: "Details"
       - title: "Appearance: outlined"
@@ -623,6 +637,10 @@ categories:
     title: "Overlays"
     intro: |
       Floating UI attached to a trigger: modal dialogs, popovers, and inline tooltips.
+    components:
+      - "<wa-dialog>"
+      - "<wa-popover>"
+      - "<wa-tooltip>"
     examples:
       - heading: "Dialog"
       - title: "Basic"
@@ -709,6 +727,10 @@ categories:
     title: "Icons & dates"
     intro: |
       Standalone icons plus build-time-baked dates. Icons, dates, and relative times render text into shadow DOM, so they need Web Awesome’s runtime to appear.
+    components:
+      - "<wa-icon>"
+      - "<wa-format-date>"
+      - "<wa-relative-time>"
     examples:
       - heading: "Icon"
       - title: "Inline"
@@ -1139,6 +1161,11 @@ categories:
     title: "Media"
     intro: |
       Carousels, before/after comparisons, video, and randomly-rotating content.
+    components:
+      - "<wa-carousel>"
+      - "<wa-comparison>"
+      - "<wa-video>"
+      - "<wa-random-content>"
     examples:
       - heading: "Carousel"
       - title: "Navigation + pagination"
@@ -1228,6 +1255,13 @@ categories:
     title: "Layouts"
     intro: |
       Zero-media-query layout primitives that map to Web Awesome CSS utilities: grid, stack, cluster, split, flank, and frame.
+    components:
+      - ".wa-grid"
+      - ".wa-stack"
+      - ".wa-cluster"
+      - ".wa-split"
+      - ".wa-flank"
+      - ".wa-frame"
     examples:
       - heading: "Grid"
       - title: "Auto-adaptive columns"
