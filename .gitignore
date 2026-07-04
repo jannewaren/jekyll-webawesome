@@ -16,3 +16,4 @@ mkmf.log
 Gemfile.lock
 WEBAWESOME_DOCS.md
 .DS_Store
+_site/

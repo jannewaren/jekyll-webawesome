@@ -1,0 +1,18 @@
+---
+layout: shell
+---
+<header class="wa-stack wa-gap-xs">
+  <h1 style="margin: 0;">{{ site.title }}</h1>
+  <p class="category-intro">A side-by-side tour of every Web Awesome component the
+    <strong>jekyll-webawesome</strong> plugin supports. Each example shows the markawesome
+    markdown next to the live component it renders. Pick a category to explore.</p>
+</header>
+
+<div class="home-grid">
+  {% for item in page.nav %}
+  <a class="home-card" href="{{ item.url | relative_url }}">
+    <strong>{{ item.title }}</strong>
+    <span>{{ item.summary }}</span>
+  </a>
+  {% endfor %}
+</div>

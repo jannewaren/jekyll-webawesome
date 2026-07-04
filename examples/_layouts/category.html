@@ -1,0 +1,22 @@
+---
+layout: shell
+---
+<header class="wa-stack wa-gap-xs">
+  <h1 style="margin: 0;">{{ page.title }}</h1>
+  {% if page.intro_html %}<div class="category-intro">{{ page.intro_html }}</div>{% endif %}
+</header>
+
+{% for ex in page.examples %}
+{% if ex.heading %}
+<h2 class="category-group" id="{{ ex.heading | slugify }}">{{ ex.heading }}</h2>
+{% else %}
+<section class="wa-example">
+  <div class="wa-example__header">
+    <h3 class="wa-example__title">{{ ex.title }}</h3>
+    {% if ex.description_html %}<p class="wa-example__description">{{ ex.description_html }}</p>{% endif %}
+  </div>
+  <div class="wa-example__code">{{ ex.code_html }}</div>
+  <div class="wa-example__preview">{{ ex.rendered_html }}</div>
+</section>
+{% endif %}
+{% endfor %}

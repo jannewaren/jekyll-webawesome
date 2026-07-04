@@ -1,0 +1,237 @@
+/*
+ * examples.css — shared, byte-identical across jekyll-webawesome and
+ * eleventy-plugin-webawesome. Styles the <wa-page> shell and the paired
+ * "markdown / rendered" example rows. Uses only Web Awesome design tokens so
+ * it themes with the site. Do not add site- or engine-specific rules here.
+ */
+
+/* Hard rule 1: reset html/body (native.css also does this — belt & suspenders). */
+html,
+body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* --- <wa-page> chrome ----------------------------------------------------- */
+
+wa-page {
+  --menu-width: 16rem;
+}
+wa-page[view='mobile'] {
+  --menu-width: auto;
+}
+
+.site-header {
+  gap: var(--wa-space-m);
+  padding-inline: var(--wa-space-l);
+}
+.site-title {
+  font-size: var(--wa-font-size-l);
+  text-decoration: none;
+  color: inherit;
+}
+.site-subheader {
+  padding-inline: var(--wa-space-l);
+  color: var(--wa-color-text-quiet);
+}
+
+/* Navigation sidebar / drawer links. */
+.site-nav a {
+  display: block;
+  padding: var(--wa-space-2xs) var(--wa-space-s);
+  border-radius: var(--wa-border-radius-m);
+  text-decoration: none;
+  color: var(--wa-color-text-normal);
+}
+.site-nav a:hover {
+  background-color: var(--wa-color-neutral-fill-quiet);
+}
+.site-nav a[aria-current='page'] {
+  background-color: var(--wa-color-brand-fill-quiet);
+  color: var(--wa-color-brand-on-quiet);
+  font-weight: var(--wa-font-weight-semibold);
+}
+
+.site-footer {
+  padding-inline: var(--wa-space-l);
+  color: var(--wa-color-text-quiet);
+  font-size: var(--wa-font-size-s);
+}
+
+/* --- Page intro & group headings ----------------------------------------- */
+
+.category-intro {
+  max-width: 60ch;
+  color: var(--wa-color-text-quiet);
+}
+.category-group {
+  margin-block-start: var(--wa-space-2xl);
+  padding-block-end: var(--wa-space-xs);
+  border-block-end: var(--wa-border-width-s) solid var(--wa-color-surface-border);
+}
+
+/* --- Paired example rows --------------------------------------------------- */
+
+.wa-example {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--wa-space-l);
+  align-items: start;
+  margin-block: var(--wa-space-xl);
+  padding-block-start: var(--wa-space-l);
+  border-block-start: var(--wa-border-width-s) solid var(--wa-color-surface-border);
+}
+
+.wa-example__header {
+  grid-column: 1 / -1;
+}
+.wa-example__title {
+  margin: 0;
+  font-size: var(--wa-font-size-l);
+}
+.wa-example__description {
+  margin-block: var(--wa-space-2xs) 0;
+  color: var(--wa-color-text-quiet);
+}
+
+.wa-example__code,
+.wa-example__preview {
+  min-width: 0;
+}
+/* Normal block flow in the preview: block components (callouts, cards, layouts)
+   fill the width; inline ones (buttons, badges, tags, icons) hug their content
+   and left-align. (A flex column here would stretch every child to full width.) */
+.wa-example__code::before,
+.wa-example__preview::before {
+  display: block;
+  margin-block-end: var(--wa-space-2xs);
+  font-size: var(--wa-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: var(--wa-font-weight-semibold);
+  color: var(--wa-color-text-quiet);
+}
+.wa-example__code::before {
+  content: 'Markdown';
+}
+.wa-example__preview::before {
+  content: 'Rendered';
+}
+
+.wa-example__code pre {
+  margin: 0;
+  padding: var(--wa-space-m);
+  max-height: 32rem;
+  overflow: auto;
+  border-radius: var(--wa-border-radius-m);
+  border: var(--wa-border-width-s) solid var(--wa-color-surface-border);
+  font-family: var(--wa-font-family-code);
+  font-size: var(--wa-font-size-s);
+  line-height: 1.5;
+}
+/* The plugin wraps highlighted code in .highlight; keep any theme padding off
+   the wrapper so our pre padding is authoritative. */
+.wa-example__code .highlight {
+  margin: 0;
+}
+
+.wa-example__preview {
+  min-width: 0;
+}
+
+/* Comprehensive icon reference galleries (Icons page): a grid of plain cards,
+   each a larger live icon above its token name. */
+.wa-example__preview .wa-grid wa-card[appearance='plain'] {
+  text-align: center;
+}
+.wa-example__preview .wa-grid wa-card[appearance='plain'] wa-icon {
+  font-size: 1.75rem;
+}
+.wa-example__preview .wa-grid wa-card[appearance='plain'] p {
+  margin-block: var(--wa-space-3xs);
+}
+.wa-example__preview .wa-grid wa-card[appearance='plain'] p:last-child {
+  font-family: var(--wa-font-family-code);
+  font-size: var(--wa-font-size-xs);
+  color: var(--wa-color-text-quiet);
+}
+
+/* Canvas reference: the "canvas" changes the box around a glyph, not the glyph.
+   Only the canvas-demo icons carry a [canvas] attribute, so tint their box and
+   give it a dashed outline to make the reserved spacing visible. */
+.wa-example__preview wa-icon[canvas] {
+  font-size: 2.25rem;
+  margin-inline-end: var(--wa-space-2xs);
+  background-color: var(--wa-color-brand-fill-quiet);
+  outline: var(--wa-border-width-s) dashed var(--wa-color-brand-border-loud);
+  vertical-align: middle;
+}
+
+/* <wa-comparison> positions its divider as a percentage of its own width and
+   stretches its frame to fill the container, but Web Awesome's slotted-image
+   rule only sets `max-width: 100%` (not `width`). So an image SMALLER than the
+   rendered frame (our 400px demo images in a ~670px column) doesn't fill it, and
+   the handle can travel into the empty strip past the image edge. Make the
+   comparison images fill the frame so the divider always maps onto them. */
+.wa-example__preview wa-comparison img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* wa-flank sizes the flanking item to --flank-size (e.g. 160px), but a raw
+   <img> has min-width:auto and won't shrink below its intrinsic width — so a
+   large photo balloons and shoves the content off-screen. Let flank images
+   shrink to and fill the sidebar column. */
+.wa-example__preview [class*='wa-flank'] img {
+  min-width: 0;
+  width: 100%;
+  height: auto;
+  border-radius: var(--wa-border-radius-m);
+}
+
+/* Web Awesome's horizontal card sizes each body child to fill the media-governed
+   height (an internal `height: 100%`). That's fine for a single block, but a body
+   with more than one block — our heading plus a paragraph — makes each child fill
+   the height and the extra ones overflow below the card. Let the body children
+   keep their natural height and sit centered beside the media. */
+.wa-example__preview wa-card[orientation='horizontal'] > :not([slot='media']) {
+  height: auto;
+  align-self: center;
+}
+
+/* Stack the pair on narrow screens. */
+@media (max-width: 800px) {
+  .wa-example {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Home / overview ------------------------------------------------------ */
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--wa-space-l);
+}
+.home-card {
+  display: block;
+  padding: var(--wa-space-l);
+  border-radius: var(--wa-border-radius-l);
+  border: var(--wa-border-width-s) solid var(--wa-color-surface-border);
+  background-color: var(--wa-color-surface-default);
+  text-decoration: none;
+  color: inherit;
+}
+.home-card:hover {
+  border-color: var(--wa-color-brand-border-loud);
+}
+.home-card strong {
+  display: block;
+  font-size: var(--wa-font-size-l);
+  margin-block-end: var(--wa-space-2xs);
+}
+.home-card span {
+  color: var(--wa-color-text-quiet);
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-tailspin wa-palette-vogue wa-brand-indigo" data-fa-kit-code="4f5838335e">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <wa-page mobile-breakpoint="920">
+    <header slot="header" class="wa-split site-header">
+      <a href="{{ '/' | relative_url }}" class="site-title"><strong>{{ site.title }}</strong></a>
+      <a href="https://github.com/jannewaren/jekyll-webawesome" target="_blank" rel="noopener noreferrer">
+        <wa-icon family="brands" name="github" label="GitHub"></wa-icon>
+      </a>
+    </header>
+
+    <nav slot="subheader" class="wa-cluster wa-gap-xs site-subheader">
+      <wa-button data-toggle-nav appearance="plain" class="wa-mobile-only" aria-label="Toggle navigation">
+        <wa-icon name="bars" label="Menu"></wa-icon>
+      </wa-button>
+      <span>{{ page.title }}</span>
+    </nav>
+
+    <nav slot="navigation-header"><strong>Components</strong></nav>
+    <nav slot="navigation" class="wa-stack wa-gap-3xs site-nav">
+      <a href="{{ '/' | relative_url }}" data-drawer="close"{% if page.url == '/' %} aria-current="page"{% endif %}>Overview</a>
+      {% for item in page.nav %}
+      <a href="{{ item.url | relative_url }}" data-drawer="close"{% if page.category_id == item.id %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+
+    <main class="wa-stack wa-gap-l">
+      {{ content }}
+    </main>
+
+    <footer slot="footer" class="site-footer">
+      <small>Built with the
+        <a href="https://github.com/jannewaren/jekyll-webawesome">jekyll-webawesome</a> plugin and
+        <a href="https://webawesome.com">Web Awesome</a>. Every example is generated from a single
+        shared dataset.</small>
+    </footer>
+  </wa-page>
+</body>
+</html>

@@ -106,7 +106,14 @@ end
 
 ## Live Examples
 
-See the plugin in action with a complete Jekyll site showcasing all supported components:
+**🔗 [View the hosted examples site →](https://jannewaren.github.io/jekyll-webawesome/)**
+
+A multi-page, navigable demo showing every supported component **side by side** — the
+markawesome markdown on the left, the live Web Awesome component it renders on the right.
+Every example is generated from a single shared dataset (`examples/_data/examples.yaml`),
+so the syntax and the rendered result can never drift.
+
+To run it locally:
 
 ```bash
 cd examples
@@ -114,7 +121,8 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Then visit `http://localhost:4000` to see all components rendered with Web Awesome styling.
+Then visit `http://localhost:4000/jekyll-webawesome/` to see all components rendered with
+Web Awesome styling.
 
 > **Note**: All components support dual syntax. You can use either the primary syntax (shown in examples below) or the alternative `:::wa-component` syntax.
 

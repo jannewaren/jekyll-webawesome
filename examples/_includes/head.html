@@ -1,0 +1,37 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+
+<!-- Web Awesome — pinned CDN (webawesome@3.10.0); replaces the opaque kit script -->
+<!-- Theme + color palette -->
+<link rel="stylesheet" href="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.10.0/styles/themes/tailspin.css" />
+<link rel="stylesheet" href="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.10.0/styles/color/palettes/vogue.css" />
+<!-- Native styles / CSS reset -->
+<link rel="stylesheet" href="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.10.0/styles/native.css" />
+<!-- CSS utilities -->
+<link rel="stylesheet" href="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.10.0/styles/utilities.css" />
+<!-- Fonts -->
+<link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" />
+<!-- Web Awesome autoloader -->
+<script type="module" src="https://ka-p.webawesome.com/kit/43e2fc18755d4267/webawesome@3.10.0/webawesome.loader.js"></script>
+
+<!-- Custom theme overrides -->
+<style>
+  :root {
+    --wa-font-family-body: Inter, sans-serif;
+    --wa-font-family-heading: Inter, sans-serif;
+    --wa-font-family-code: ui-monospace, monospace;
+    --wa-font-family-longform: ui-serif, serif;
+    --wa-font-weight-body: 400;
+    --wa-font-weight-heading: 700;
+    --wa-font-weight-code: 400;
+    --wa-font-weight-longform: 400;
+    --wa-border-radius-scale: 1;
+    --wa-border-width-scale: 1;
+    --wa-space-scale: 0.875;
+  }
+</style>
+
+<!-- Syntax theme (Rouge) + shared example-page styles -->
+<link rel="stylesheet" href="{{ '/assets/rouge.css' | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/examples.css' | relative_url }}" />

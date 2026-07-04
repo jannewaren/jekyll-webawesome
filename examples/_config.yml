@@ -1,8 +1,8 @@
 # Jekyll Web Awesome Plugin Example Site
 title: "Jekyll Web Awesome Plugin Examples"
 description: "A showcase of all Web Awesome components supported by the jekyll-webawesome plugin"
-baseurl: ""
-url: ""
+baseurl: "/jekyll-webawesome"
+url: "https://jannewaren.github.io"
 
 # Build settings
 markdown: kramdown

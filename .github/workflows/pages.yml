@@ -1,0 +1,70 @@
+name: Deploy examples to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress run.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # The examples Gemfile pins `gem 'markawesome', path: '../../markawesome'`
+      # and `gem 'jekyll-webawesome', path: '../'`. Check both repos out as
+      # siblings so those paths resolve unchanged and Pages builds against
+      # markawesome@main (catching any syntax drift).
+      - name: Checkout jekyll-webawesome
+        uses: actions/checkout@v4
+        with:
+          path: jekyll-webawesome
+      - name: Checkout markawesome (sibling engine)
+        uses: actions/checkout@v4
+        with:
+          repository: jannewaren/markawesome
+          path: markawesome
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: jekyll-webawesome/examples
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # A classic branch-deploy Jekyll build runs in safe mode and ignores
+      # _plugins/, so this bespoke Actions build is required — the site is
+      # generated entirely by examples/_plugins/webawesome_examples.rb.
+      - name: Build with Jekyll
+        working-directory: jekyll-webawesome/examples
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: jekyll-webawesome/examples/_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
