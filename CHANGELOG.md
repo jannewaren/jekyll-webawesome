@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [0.24.1] - 2026-07-04
+
+### Changed
+
+- Bump `markawesome` dependency to `~> 0.18`, requiring the engine that ships the `TreeTransformer` (`<wa-tree>`) and `RandomContentTransformer` (`<wa-random-content>`). The previous `~> 0.17` already permitted 0.18, so this tightens the floor rather than changing what a fresh install resolves to.
+
 ## [0.24.0] - 2026-07-04
 
 ### Added
