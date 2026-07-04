@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [0.24.2] - 2026-07-04
+
+### Changed
+
+- Bump `markawesome` dependency to `~> 0.18.1`, requiring the engine that fixes horizontal-card body overflow (a multi-block `===horizontal` body — e.g. a heading plus a paragraph — is now wrapped in a single `<div>` so it no longer spills below the card). Tightens the floor from 0.18.0. The examples site drops its horizontal-card CSS workaround now that the engine handles this.
+
 ## [0.24.1] - 2026-07-04
 
 ### Changed

@@ -191,19 +191,6 @@ wa-page[view='mobile'] {
   border-radius: var(--wa-border-radius-m);
 }
 
-/* Horizontal card body layout. The engines now wrap a horizontal card's body in a
-   single <div> so Web Awesome's per-body-child `height: 100%` rule targets that one
-   wrapper instead of each block — that is the real overflow fix (see markawesome's
-   card_transformer). This rule is presentational on top of it: it lets the wrapper
-   keep its natural height and centers it vertically beside the media instead of
-   stretching to the full media height. It also keeps the body in-bounds for a
-   consumer still on a pre-wrap engine (e.g. before the matching markawesome-js
-   release reaches this site). */
-.wa-example__preview wa-card[orientation='horizontal'] > :not([slot='media']) {
-  height: auto;
-  align-self: center;
-}
-
 /* Stack the pair on narrow screens. */
 @media (max-width: 800px) {
   .wa-example {
