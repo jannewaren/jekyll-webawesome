@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [0.24.0] - 2026-07-04
+
 ### Added
 
 - Example site's new `## Random Content` section exercises markawesome's new `RandomContentTransformer` — Web Awesome's experimental `<wa-random-content>`, which shows one or more of its options at random (optionally rotating) and hides the rest, with zero authored JavaScript. Six cases: a basic tips rotator, `mode:sequence`, `items:2` (two options shown at once), `autoplay autoplay-interval:2000 animation:fade`, an option wrapping a nested `:::success`/`:::warning` callout (proving random-content runs **last** and wraps already-transformed components), and the `:::wa-random-content` block form. Requires the unreleased `markawesome` (the example site already points at the local `../markawesome` working copy); the published gem dependency stays `~> 0.17`. Validated live in the browser against WA 3.10.0: all six `<wa-random-content>` elements upgrade (`:defined`, shadow DOM present), each shows the configured number of `<div>` options (`items:2` shows two, the rest show one), the nested callout renders inside its option, and there are zero Web Awesome console errors.
