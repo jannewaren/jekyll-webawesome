@@ -147,47 +147,148 @@ Large filled-outlined warning callout.
 ## Icons
 
 The standalone `:::wa-icon` block accepts the icon name first, then optional
-`family` / `variant` / `animation` tokens (order-independent), and an optional
-block body that becomes the accessible `label`. The inline `$$$name` form stays
-name-only and decorative.
+`family` / `variant` / `animation` / `canvas` tokens (order-independent), and an
+optional block body that becomes the accessible `label`. The inline `$$$name` form
+stays name-only and decorative.
 
-### Animation (no Pro kit required)
+### Shorthand basics
 
-These animate purely with CSS, so the motion is visible regardless of the kit tier:
-
-:::wa-icon arrows-rotate spin
-:::
+The block form takes the icon name, then optional order-independent tokens, and an
+optional body that becomes the accessible `label`. These go through the plugin, so the
+tokens reach the emitted `<wa-icon>`:
 
 :::wa-icon bell shake
+Notifications
 :::
 
-### Accessible label
-
-A non-empty block body becomes the icon's accessible `label`. An empty body leaves
-the icon presentational (no `label`):
-
-:::wa-icon circle-check solid
-Task complete
+:::wa-icon star jelly
 :::
 
-### Variant and family (Pro weights/families)
-
-The `variant` (Font Awesome weight) and `family` attributes reach the `<wa-icon>`
-element. Whether the glyph visibly changes depends on the kit's Font Awesome tier:
-
-:::wa-icon gear solid
+:::wa-icon gear spin-snap
 :::
 
-:::wa-icon star sharp
+:::wa-icon star semibold
 :::
 
-### Combined
-
-Family, variant, animation, and a label together:
-
-:::wa-icon star sharp solid beat
-Featured item
+:::wa-icon star roomy
 :::
+
+The reference tables below name **every** family, variant, animation, and canvas value
+Web Awesome 3.10.0 accepts (the first column is the token you add after the name), each
+with a live example. Family, `semibold`, and duotone glyphs depend on the site's Font
+Awesome kit tier (Pro / Pro+); animations and `canvas` work with any kit.
+
+<style>
+.wa-ref-table { border-collapse: collapse; margin: 1rem 0; }
+.wa-ref-table th, .wa-ref-table td { padding: 0.35rem 0.85rem; border-bottom: 1px solid var(--wa-color-neutral-border-quiet, #e2e8f0); text-align: left; vertical-align: middle; }
+.wa-ref-table wa-icon { font-size: 1.75rem; }
+.wa-canvas-cell wa-icon { font-size: 2.25rem; margin-right: 0.4rem; background: var(--wa-color-brand-fill-quiet, rgba(99, 102, 241, 0.12)); outline: 1px dashed var(--wa-color-brand-border-loud, #6366f1); vertical-align: middle; }
+</style>
+
+### Families
+
+A _family_ sets the icon's overall style (its _variant_ sets the weight). `classic` and
+`brands` are free; `duotone`, `sharp`, and `sharp-duotone` need Font Awesome Pro; the
+rest are Pro+ packs, each shown with its own default weight.
+
+<table class="wa-ref-table">
+<thead><tr><th>Family</th><th>Plan</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>classic</code> (default)</td><td>Free</td><td><wa-icon name="star" family="classic" variant="solid"></wa-icon></td></tr>
+<tr><td><code>brands</code></td><td>Free</td><td><wa-icon name="github" family="brands"></wa-icon></td></tr>
+<tr><td><code>duotone</code></td><td>Pro</td><td><wa-icon name="star" family="duotone" variant="solid"></wa-icon></td></tr>
+<tr><td><code>sharp</code></td><td>Pro</td><td><wa-icon name="star" family="sharp" variant="solid"></wa-icon></td></tr>
+<tr><td><code>sharp-duotone</code></td><td>Pro</td><td><wa-icon name="star" family="sharp-duotone" variant="solid"></wa-icon></td></tr>
+<tr><td><code>chisel</code></td><td>Pro+</td><td><wa-icon name="star" family="chisel" variant="regular"></wa-icon></td></tr>
+<tr><td><code>etch</code></td><td>Pro+</td><td><wa-icon name="star" family="etch" variant="solid"></wa-icon></td></tr>
+<tr><td><code>graphite</code></td><td>Pro+</td><td><wa-icon name="star" family="graphite" variant="thin"></wa-icon></td></tr>
+<tr><td><code>jelly</code></td><td>Pro+</td><td><wa-icon name="star" family="jelly" variant="regular"></wa-icon></td></tr>
+<tr><td><code>jelly-duo</code></td><td>Pro+</td><td><wa-icon name="star" family="jelly-duo" variant="regular"></wa-icon></td></tr>
+<tr><td><code>jelly-fill</code></td><td>Pro+</td><td><wa-icon name="star" family="jelly-fill" variant="regular"></wa-icon></td></tr>
+<tr><td><code>mosaic</code></td><td>Pro+</td><td><wa-icon name="star" family="mosaic" variant="solid"></wa-icon></td></tr>
+<tr><td><code>notdog</code></td><td>Pro+</td><td><wa-icon name="star" family="notdog" variant="solid"></wa-icon></td></tr>
+<tr><td><code>notdog-duo</code></td><td>Pro+</td><td><wa-icon name="star" family="notdog-duo" variant="solid"></wa-icon></td></tr>
+<tr><td><code>pixel</code></td><td>Pro+</td><td><wa-icon name="star" family="pixel" variant="regular"></wa-icon></td></tr>
+<tr><td><code>slab</code></td><td>Pro+</td><td><wa-icon name="star" family="slab" variant="regular"></wa-icon></td></tr>
+<tr><td><code>slab-press</code></td><td>Pro+</td><td><wa-icon name="star" family="slab-press" variant="regular"></wa-icon></td></tr>
+<tr><td><code>slab-duo</code></td><td>Pro+</td><td><wa-icon name="star" family="slab-duo" variant="regular"></wa-icon></td></tr>
+<tr><td><code>slab-press-duo</code></td><td>Pro+</td><td><wa-icon name="star" family="slab-press-duo" variant="regular"></wa-icon></td></tr>
+<tr><td><code>thumbprint</code></td><td>Pro+</td><td><wa-icon name="star" family="thumbprint" variant="light"></wa-icon></td></tr>
+<tr><td><code>utility</code></td><td>Pro+</td><td><wa-icon name="star" family="utility" variant="semibold"></wa-icon></td></tr>
+<tr><td><code>utility-duo</code></td><td>Pro+</td><td><wa-icon name="star" family="utility-duo" variant="semibold"></wa-icon></td></tr>
+<tr><td><code>utility-fill</code></td><td>Pro+</td><td><wa-icon name="star" family="utility-fill" variant="semibold"></wa-icon></td></tr>
+<tr><td><code>vellum</code></td><td>Pro+</td><td><wa-icon name="star" family="vellum" variant="solid"></wa-icon></td></tr>
+<tr><td><code>whiteboard</code></td><td>Pro+</td><td><wa-icon name="star" family="whiteboard" variant="semibold"></wa-icon></td></tr>
+</tbody>
+</table>
+
+### Variants
+
+A _variant_ is the Font Awesome weight. `regular` and `solid` are free on the `classic`
+family; `thin`, `light`, and `semibold` need a Pro (or Pro+) kit. `semibold` is the
+default weight of the `utility` and `whiteboard` Pro+ packs.
+
+<table class="wa-ref-table">
+<thead><tr><th>Variant</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>thin</code></td><td><wa-icon name="star" variant="thin"></wa-icon></td></tr>
+<tr><td><code>light</code></td><td><wa-icon name="star" variant="light"></wa-icon></td></tr>
+<tr><td><code>regular</code></td><td><wa-icon name="star" variant="regular"></wa-icon></td></tr>
+<tr><td><code>solid</code> (default)</td><td><wa-icon name="star" variant="solid"></wa-icon></td></tr>
+<tr><td><code>semibold</code> (Utility / Whiteboard)</td><td><wa-icon name="star" family="utility" variant="semibold"></wa-icon></td></tr>
+</tbody>
+</table>
+
+### Animations
+
+Animations are pure CSS, so they play on any kit tier. The Web Awesome 3.10.0 additions
+are `flip-360`, `spin-snap`, `spin-snap-4`, `spin-snap-8`, `buzz`, `float`, `jello`,
+`swing`, and `wag`.
+
+<table class="wa-ref-table">
+<thead><tr><th>Animation</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>beat</code></td><td><wa-icon name="heart" animation="beat"></wa-icon></td></tr>
+<tr><td><code>fade</code></td><td><wa-icon name="triangle-exclamation" animation="fade"></wa-icon></td></tr>
+<tr><td><code>beat-fade</code></td><td><wa-icon name="circle-exclamation" animation="beat-fade"></wa-icon></td></tr>
+<tr><td><code>bounce</code></td><td><wa-icon name="volleyball" animation="bounce"></wa-icon></td></tr>
+<tr><td><code>flip</code></td><td><wa-icon name="compact-disc" animation="flip"></wa-icon></td></tr>
+<tr><td><code>flip-360</code></td><td><wa-icon name="compact-disc" animation="flip-360"></wa-icon></td></tr>
+<tr><td><code>shake</code></td><td><wa-icon name="bell" animation="shake"></wa-icon></td></tr>
+<tr><td><code>spin</code></td><td><wa-icon name="arrows-rotate" animation="spin"></wa-icon></td></tr>
+<tr><td><code>spin-pulse</code></td><td><wa-icon name="spinner" animation="spin-pulse"></wa-icon></td></tr>
+<tr><td><code>spin-reverse</code></td><td><wa-icon name="gear" animation="spin-reverse"></wa-icon></td></tr>
+<tr><td><code>spin-snap</code></td><td><wa-icon name="gear" animation="spin-snap"></wa-icon></td></tr>
+<tr><td><code>spin-snap-4</code></td><td><wa-icon name="gear" animation="spin-snap-4"></wa-icon></td></tr>
+<tr><td><code>spin-snap-8</code></td><td><wa-icon name="gear" animation="spin-snap-8"></wa-icon></td></tr>
+<tr><td><code>buzz</code></td><td><wa-icon name="mobile" animation="buzz"></wa-icon></td></tr>
+<tr><td><code>float</code></td><td><wa-icon name="feather" animation="float"></wa-icon></td></tr>
+<tr><td><code>jello</code></td><td><wa-icon name="cube" animation="jello"></wa-icon></td></tr>
+<tr><td><code>swing</code></td><td><wa-icon name="bell" animation="swing"></wa-icon></td></tr>
+<tr><td><code>wag</code></td><td><wa-icon name="hand-pointer" animation="wag"></wa-icon></td></tr>
+</tbody>
+</table>
+
+### Canvas (Web Awesome 3.10.0)
+
+The **canvas** is the box an icon sits in. It mirrors Font Awesome's icon canvas and
+scales with `font-size`, and it changes the **box, not the glyph** — a star at a given
+`font-size` is drawn the same in every mode; only the space reserved around it changes.
+That's why it's shown below with *different-width* icons in a tinted box: `fixed` gives
+every icon the **same** `1.25 × 1em` box so they line up in lists and menus, while
+`auto` lets each take its natural width (`ruler-horizontal` wide, `ruler-vertical`
+narrow). `square` and `roomy` are uniform, larger boxes for standalone icons.
+(`auto-width` is the deprecated spelling of `canvas="auto"`.)
+
+<table class="wa-ref-table">
+<thead><tr><th>Canvas</th><th>Box</th><th>Best for</th><th>Example (same icons, tinted box)</th></tr></thead>
+<tbody>
+<tr><td><code>fixed</code> (default)</td><td><code>1.25 × 1em</code></td><td>Aligning icons in lists / menus</td><td class="wa-canvas-cell"><wa-icon name="ruler-horizontal" canvas="fixed"></wa-icon><wa-icon name="image" canvas="fixed"></wa-icon><wa-icon name="face-smile" canvas="fixed"></wa-icon><wa-icon name="file" canvas="fixed"></wa-icon><wa-icon name="ruler-vertical" canvas="fixed"></wa-icon></td></tr>
+<tr><td><code>auto</code></td><td><code>auto × 1em</code></td><td>Matching each glyph's natural width</td><td class="wa-canvas-cell"><wa-icon name="ruler-horizontal" canvas="auto"></wa-icon><wa-icon name="image" canvas="auto"></wa-icon><wa-icon name="face-smile" canvas="auto"></wa-icon><wa-icon name="file" canvas="auto"></wa-icon><wa-icon name="ruler-vertical" canvas="auto"></wa-icon></td></tr>
+<tr><td><code>square</code></td><td><code>1.25 × 1.25em</code></td><td>Standalone icons, square footprint</td><td class="wa-canvas-cell"><wa-icon name="ruler-horizontal" canvas="square"></wa-icon><wa-icon name="image" canvas="square"></wa-icon><wa-icon name="face-smile" canvas="square"></wa-icon><wa-icon name="file" canvas="square"></wa-icon><wa-icon name="ruler-vertical" canvas="square"></wa-icon></td></tr>
+<tr><td><code>roomy</code></td><td><code>1.5 × 1.5em</code></td><td>Standalone icons needing breathing room</td><td class="wa-canvas-cell"><wa-icon name="ruler-horizontal" canvas="roomy"></wa-icon><wa-icon name="image" canvas="roomy"></wa-icon><wa-icon name="face-smile" canvas="roomy"></wa-icon><wa-icon name="file" canvas="roomy"></wa-icon><wa-icon name="ruler-vertical" canvas="roomy"></wa-icon></td></tr>
+</tbody>
+</table>
 
 ### Inline icons are unchanged
 
