@@ -636,7 +636,7 @@ categories:
   - id: "overlays"
     title: "Overlays"
     intro: |
-      Floating UI attached to a trigger: modal dialogs, popovers, and inline tooltips.
+      Floating UI attached to a trigger: modal dialogs, popovers, and inline tooltips. Plain Markdown images can also auto-open in a click-to-zoom dialog when the plugin’s image-dialog option is on.
     components:
       - "<wa-dialog>"
       - "<wa-popover>"
@@ -665,6 +665,19 @@ categories:
           >>>
           This dialog is 400px wide.
           ???
+      - heading: "Image dialog"
+      - title: "Auto-zoom"
+        description: "With the plugin’s image-dialog option enabled, every standalone Markdown image becomes a click-to-zoom `<wa-dialog>` — no sigils needed. This whole demo runs with it on, so click the image."
+        code: |
+          ![A porch swing by a forest pond](../assets/photo.jpg)
+      - title: "Custom dialog width"
+        description: "A CSS width in the image title — `\"60%\"`, `\"800px\"`, `\"90vw\"` — sizes that image’s dialog. Thumbnails look identical until you open them."
+        code: |
+          ![A porch swing by a forest pond](../assets/photo.jpg "60%")
+      - title: "Opt out with nodialog"
+        description: "Add `\"nodialog\"` to the title to leave an image as a plain, non-clickable `<img>`."
+        code: |
+          ![A porch swing by a forest pond](../assets/photo.jpg "nodialog")
       - heading: "Popover"
       - title: "Placement: top"
         code: |
