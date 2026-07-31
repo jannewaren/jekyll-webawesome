@@ -673,7 +673,7 @@ categories:
       - title: "Custom dialog width"
         description: "A CSS width in the image title — `\"60%\"`, `\"800px\"`, `\"90vw\"` — sizes that image’s dialog. Thumbnails look identical until you open them."
         code: |
-          ![A porch swing by a forest pond](../assets/photo.jpg "60%")
+          ![A porch swing, opened at 60% width](../assets/photo.jpg "60%")
       - title: "Opt out with nodialog"
         description: "Add `\"nodialog\"` to the title to leave an image as a plain, non-clickable `<img>`."
         code: |
