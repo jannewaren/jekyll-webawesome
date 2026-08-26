@@ -6,12 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [0.25.0] - 2026-08-26
+
 ### Fixed
 
 - **The "Custom dialog width" image-dialog example now opens its own dialog.** It reused the previous example's alt text and image, and the engine hashes a dialog's id from trigger plus body — so both examples produced the same id and the 60% one was unreachable, silently opening the 90vh dialog instead. Its alt text is now distinct. (The engine also gained a `-2`, `-3`, … suffix for repeats, but that counter is per `Transformer.process` call and the examples site renders each snippet in its own call, so it cannot deduplicate across two examples.)
 
 ### Changed
 
+- **Requires `markawesome ~> 0.19`** (up from `~> 0.18.1`), picking up the repeated-dialog DOM id fix: the engine hashes a dialog's id from its trigger text plus body, so two dialogs on a page that differed only by a param — or were byte-identical — shared an id, and every trigger's `getElementById` resolved to the first of them, leaving the rest unopenable. Repeats now take a `-2`, `-3`, … suffix. Also picks up image-dialog triggers styling both `::part(base)` and `::part(button)` for Web Awesome 3.11+.
 - Examples site now loads the **pinned Web Awesome 3.12.0 CDN** (`examples/_includes/head.html`), up from 3.11.0. 3.12.0 (August 2026) changes nothing this site renders: its only component-level additions are navigation attributes (`href`/`target`/`rel`/`download`) on `<wa-dropdown-item>` and a `filterOptions` column option on `<wa-data-grid>` — neither component appears in the examples, and neither has a Markawesome syntax. Everything else is internal to Web Awesome's own shadow DOM, and three of those fixes improve the examples for free: `<wa-button>` keeps its accessible name (and gains `aria-busy`) while `loading`, duplicate landmarks were removed from `<wa-card>`/`<wa-dialog>`/`<wa-drawer>`, and `<wa-tooltip>` light dismiss handles target presses and page clicks better. No `<wa-page>` slot the shell layout uses was removed or renamed.
 - Examples site now loads the **pinned Web Awesome 3.11.0 CDN** (`examples/_includes/head.html`), up from 3.10.0. 3.11.0 (July 30th, 2026) is additive for this site: it adds `<wa-otp-input>`, `<wa-pagination>` and `<wa-data-grid>`, moves `<wa-toast>`/`<wa-toast-item>` from Pro to Core, and gives every component a CSS part named after itself (softly deprecating the generic `base` part). Nothing the examples render was removed or renamed — every `<wa-page>` slot the shell layout uses (`header`, `subheader`, `navigation-header`, `navigation`, `footer`) still exists in 3.11.0. One behaviour change to be aware of when eyeballing the output: WA dropped `font-variant-numeric: tabular-nums` from its default `<table>` styles, so numeric Markdown tables now need the opt-in `wa-tabular-nums` class to keep digits column-aligned.
 - Docs now point at `examples/_includes/head.html` for the CDN pin (both `CLAUDE.md` and `examples/README.md` still said `_layouts/default.html`, which does not exist).
