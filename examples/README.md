@@ -69,7 +69,7 @@ examples/
 
 ## Web Awesome
 
-The examples load Web Awesome from the CDN with the version **pinned to 3.11.0** in the URL, configured in `_includes/head.html`. Pinning the version keeps the rendered output deterministic and reproducible (no silent drift), unlike the auto-updating kit script it replaced. The pinned includes provide the theme/palette, native styles, CSS utilities, and the autoloader that upgrades all components. Bump the pinned version deliberately when validating against a new Web Awesome release.
+The examples load Web Awesome from the CDN with the version **pinned to 3.12.0** in the URL, configured in `_includes/head.html`. Pinning the version keeps the rendered output deterministic and reproducible (no silent drift), unlike the auto-updating kit script it replaced. The pinned includes provide the theme/palette, native styles, CSS utilities, and the autoloader that upgrades all components. Bump the pinned version deliberately when validating against a new Web Awesome release.
 
 ## Customization
 
