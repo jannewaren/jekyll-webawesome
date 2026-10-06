@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+### Changed
+
+- Examples site now loads the **pinned Web Awesome 3.14.0 CDN** (`examples/_includes/head.html`), up from 3.12.0 (covers 3.13.0 too). The release is additive for this site: it adds `<wa-stepper>`/`<wa-step>` and `<wa-tag-input>`, gives `<wa-divider>` a label slot with `label-placement`, and promotes `<wa-accordion>` and `<wa-random-content>` — both rendered by the examples — to stable. Nothing the examples render was removed or renamed.
+
 ## [0.25.0] - 2026-08-26
 
 ### Fixed
