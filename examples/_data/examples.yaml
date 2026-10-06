@@ -474,12 +474,13 @@ categories:
   - id: "disclosure"
     title: "Disclosure"
     intro: |
-      Progressively reveal content: expandable details, grouped accordions, tabs, and trees.
+      Progressively reveal content: expandable details, grouped accordions, tabs, trees, and steppers.
     components:
       - "<wa-details>"
       - "<wa-accordion>"
       - "<wa-tab-group>"
       - "<wa-tree>"
+      - "<wa-stepper>"
     examples:
       - heading: "Details"
       - title: "Appearance: outlined"
@@ -633,6 +634,56 @@ categories:
           - icon:folder assets
             - icon:file logo.svg
           ||||||
+      - heading: "Stepper"
+      - title: "Checkout progress"
+        description: "A task list inside `>>>>>>` becomes a display-only `<wa-stepper>`. `[x]` marks a step complete; the first incomplete step is the current one."
+        code: |
+          >>>>>> label:"Checkout progress"
+          - [x] Cart
+          - [x] Shipping
+          - [ ] Payment
+          - [ ] Review
+          >>>>>>
+      - title: "Vertical, with descriptions and icons"
+        description: "Lines indented under a step become its description; `icon:name` replaces the step number."
+        code: |
+          >>>>>> vertical
+          - [x] icon:user Create an account
+            Takes about a minute.
+          - [x] icon:envelope Verify your email
+            Check your inbox for the **confirmation** link.
+          - [ ] icon:rocket Launch your first project
+            Pick a template or start from scratch.
+          >>>>>>
+      - title: "All steps complete"
+        description: "When every step is checked, the last one is current."
+        code: |
+          >>>>>>
+          - [x] Draft
+          - [x] Review
+          - [x] Publish
+          >>>>>>
+      - title: "Flag the current step"
+        description: "`active` picks the current step explicitly; a variant and an attention effect draw the eye to it."
+        code: |
+          >>>>>>
+          - [x] Build
+          - [ ] active warning pulse Deploy
+            Waiting on a manual approval
+          - [ ] Verify
+          >>>>>>
+      - title: "Inside a callout"
+        code: |
+          :::info
+          Your order is on its way.
+
+          >>>>>>
+          - [x] Ordered
+          - [x] Packed
+          - [ ] Shipped
+          - [ ] Delivered
+          >>>>>>
+          :::
   - id: "overlays"
     title: "Overlays"
     intro: |
@@ -1267,7 +1318,7 @@ categories:
   - id: "layouts"
     title: "Layouts"
     intro: |
-      Zero-media-query layout primitives that map to Web Awesome CSS utilities: grid, stack, cluster, split, flank, and frame.
+      Zero-media-query layout primitives that map to Web Awesome CSS utilities — grid, stack, cluster, split, flank, and frame — plus labeled dividers to separate them.
     components:
       - ".wa-grid"
       - ".wa-stack"
@@ -1275,6 +1326,7 @@ categories:
       - ".wa-split"
       - ".wa-flank"
       - ".wa-frame"
+      - "<wa-divider>"
     examples:
       - heading: "Grid"
       - title: "Auto-adaptive columns"
@@ -1364,3 +1416,51 @@ categories:
           ::::frame square radius:l
           <img src="../assets/photo.jpg" alt="square frame">
           ::::
+      - heading: "Divider"
+      - title: "Label between choices"
+        description: "`--- label ---` puts a label in the middle of a `<wa-divider>`. A plain `---` stays an ordinary rule."
+        code: |
+          ::::stack
+          %%%brand
+          Sign in with email
+          %%%
+          --- or ---
+          %%%neutral
+          Continue with SSO
+          %%%
+          ::::
+      - title: "Section label at the start"
+        description: "A leading `start` or `end` moves the label along the line."
+        code: |
+          --- start Release notes ---
+
+          Version 2.0 brings a new theme and faster builds.
+
+          --- end icon:clock Updated today ---
+      - title: "Icon-only flourish"
+        code: |
+          The end of one chapter.
+
+          --- icon:star ---
+
+          The start of the next.
+      - title: "Vertical, inside a cluster"
+        description: "`vertical` turns the divider into an upright separator between inline items."
+        code: |
+          ::::cluster align:center
+          %%%success
+          Approve
+          %%%
+          --- vertical or ---
+          %%%danger
+          Reject
+          %%%
+          ::::
+      - title: "Inside a card"
+        code: |
+          ===
+          # Plan comparison
+          Free for personal use.
+          --- or ---
+          $9 per month for teams.
+          ===

@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+### Added
+
+- **Examples for the new labeled divider and stepper.** The Layouts page gains a *Divider* section (a centered "or" between two buttons, start/end-placed section labels with an icon, an icon-only flourish, a vertical divider between buttons in a `::::cluster`, and a divider inside a card); the Disclosure page gains a *Stepper* section (a horizontal checkout, a vertical stepper with icons and descriptions, an all-complete stepper, an explicitly flagged `warning`/`pulse` current step, and a stepper inside a callout). Each was checked in the browser against the Web Awesome 3.14.0 CDN, measuring the live DOM: label placement, the vertical divider's height inside the cluster, the active step, completed checkmarks and slotted descriptions. `examples/_data/examples.yaml` stays byte-identical between `jekyll-webawesome` and `eleventy-plugin-webawesome`.
+
 ### Changed
 
 - Examples site now loads the **pinned Web Awesome 3.14.0 CDN** (`examples/_includes/head.html`), up from 3.12.0 (covers 3.13.0 too). The release is additive for this site: it adds `<wa-stepper>`/`<wa-step>` and `<wa-tag-input>`, gives `<wa-divider>` a label slot with `label-placement`, and promotes `<wa-accordion>` and `<wa-random-content>` — both rendered by the examples — to stable. Nothing the examples render was removed or renamed.
