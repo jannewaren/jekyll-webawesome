@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+### Changed
+
+- **Examples site pinned to Web Awesome 3.15.0.** The six CDN URLs in `examples/_includes/head.html` move from 3.14.0 to 3.15.0 (November 17th, 2026), along with the pin noted in `CLAUDE.md` and `examples/README.md`. The 3.15.0 enum diff is purely additive, so no existing example changes.
+
 ## [0.26.0] - 2026-10-09
 
 ### Added
