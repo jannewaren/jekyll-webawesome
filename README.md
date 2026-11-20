@@ -16,6 +16,7 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 
 | Component | Primary Syntax | Alternative Syntax | HTML Output |
 |-----------|----------------|-------------------|-------------|
+| **Accordion** | `//////params?` with `/// Title` items | `:::wa-accordion params?` | `<wa-accordion>` of `<wa-accordion-item label="…">` sections |
 | **Badge** | `!!!variant appearance? pill? attention?` | `:::wa-badge variant appearance?` | `<wa-badge variant="brand" appearance="filled">content</wa-badge>` |
 | **Button** | `%%%variant? appearance? size? pill? caret? loading? disabled?` | `:::wa-button attributes?` | `<wa-button variant="brand" size="large" pill>text</wa-button>` or with `href` for links |
 | **Callouts** | `:::info size? appearance?` | `:::wa-callout info size? appearance?` | `<wa-callout variant="brand"><wa-icon name="circle-info"></wa-icon>content</wa-callout>` |
@@ -23,13 +24,25 @@ This plugin focuses on the most commonly used Web Awesome components for Jekyll 
 | **Carousel** | `~~~~~~` | `:::wa-carousel` | `<wa-carousel>` with carousel items |
 | **Comparison** | `\|\|\|` or `\|\|\|25` | `:::wa-comparison` or `:::wa-comparison 25` | `<wa-comparison>` with before/after slots |
 | **Copy Button** | `<<<placement? tooltip:mode? disabled? duration? labels?` | `:::wa-copy-button attributes?` | `<wa-copy-button value="content" tooltip-placement="right" tooltip="copy" disabled>` |
+| **Counter** | `[[[ date countdown\|countup params? ]]]` | `:::wa-counter date params?` (empty body) | `<wa-counter date="2026-12-24" direction="up"></wa-counter>` — live countdown / count-up (WA 3.15.0, experimental) |
 | **Details** | `^^^appearance? icon-placement?` | `:::wa-details appearance? icon-placement?` | `<wa-details appearance="..." icon-placement="...">content</wa-details>` |
 | **Dialog** | `???params?` | `:::wa-dialog params?` | `<wa-dialog>` with trigger button and content |
+| **Divider** | `--- label ---` (e.g. `--- start icon:star New ---`) | `:::wa-divider params?` (body is the label) | `<wa-divider label-placement="start"><wa-icon name="star"></wa-icon> New</wa-divider>` |
+| **Format Date** | `[[[2026-06-26 style:long]]]` | `:::wa-format-date date params?` (empty body) | `<wa-format-date date="2026-06-26" year="numeric" month="long" day="numeric"></wa-format-date>` |
 | **Icon** | `$$$icon-name` | `:::wa-icon name` | `<wa-icon name="icon-name" variant="solid"></wa-icon>` |
+| **Image Dialog** | `![alt](url)` (with `image_dialog` enabled) | — | Wraps images in clickable `<wa-dialog>` overlays |
+| **Lightbox** | `::::lightbox params?` wrapping image lines | `:::wa-lightbox params?` | `<wa-lightbox class="wa-grid">` of `<wa-lightbox-item>` thumbnails opening a full-screen viewer (WA 3.15.0, experimental) |
+| **Number Ticker** | `[[[ number params? ]]]` (e.g. `[[[ 87% ]]]`, `[[[ 18452.75 currency:EUR ]]]`) | `:::wa-number-ticker number params?` (empty body) | `<wa-number-ticker value="0.87" type="percent"></wa-number-ticker>` — counts up on scroll-in (WA 3.15.0, experimental) |
 | **Popover** | `&&&placement? link? without-arrow? distance:N?` | `:::wa-popover params?` | `<wa-popover>` with trigger and floating content |
+| **Random Content** | `......params?` with `>>>`-separated options | `:::wa-random-content params?` | `<wa-random-content>` showing a random/rotating subset of its options |
+| **Relative Time** | `[[[relative 2026-06-20]]]` | `:::wa-relative-time date params?` (empty body) | `<wa-relative-time date="2026-06-20"></wa-relative-time>` |
+| **Stepper** | `>>>>>> params?` wrapping a task list | `:::wa-stepper params?` | `<wa-stepper active="step-2"><wa-step name="step-1" completed>…</wa-step>…</wa-stepper>` |
 | **Tab Group** | `++++++` | `:::wa-tabs` | `<wa-tab-group><wa-tab>content</wa-tab></wa-tab-group>` |
 | **Tag** | `@@@brand` | `:::wa-tag brand` | `<wa-tag variant="brand">content</wa-tag>` |
 | **Tooltip** | `(((anchor >>> tip)))` | `:::wa-tooltip placement? distance:N?` | focusable `<span>` anchor + `<wa-tooltip for="…" placement="top">tip</wa-tooltip>` |
+| **Tree** | `\|\|\|\|\|\|open?` wrapping a nested bullet list | `:::wa-tree open?` | `<wa-tree>` of nested `<wa-tree-item>`s |
+| **Video** | `;;;params?` with a link + optional poster image | `:::wa-video params?` | `<wa-video>` (Web Awesome Pro) |
+| **Video Playlist** | `;;;;;;params?` wrapping `;;;` videos | `:::wa-video-playlist params?` | `<wa-video-playlist>` (Web Awesome Pro) |
 
 Not all components will make sense to include here, to be included in the "prose" content of a web page. Some components are more suitable to be used in layouts or used in the page as includes, too complicated for this purpose.
 
