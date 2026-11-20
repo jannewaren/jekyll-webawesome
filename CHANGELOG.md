@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+### Added
+
+- **Examples for the new lightbox, counter and number ticker.** The Media page gains a *Lightbox* section (a gallery with a thumbnail strip, captions, a linked separate thumbnail and a video item; landscape thumbnails; a gallery inside a card); the Icons & dates page gains *Counter* (a countdown, a past-date countdown showing its `finished` text, a count-up with a unit range and short labels, a clock-style countdown) and *Number ticker* (EUR currency, `87%`, a start value with `decimals:2`) sections. Each was checked in the browser against the Web Awesome 3.15.0 CDN, measuring the live DOM: square 130×130 and 4:3 thumbnails in the grid, the viewer opening on the clicked item with its caption and the full-size image, the video item playing, counters ticking and the clock's `:` delimiters, and tickers animating to €18,452.75 / 87% / 12,000.00. `examples/_data/examples.yaml` stays byte-identical between `jekyll-webawesome` and `eleventy-plugin-webawesome`.
+
 ### Changed
 
 - **Examples site pinned to Web Awesome 3.15.0.** The six CDN URLs in `examples/_includes/head.html` move from 3.14.0 to 3.15.0 (November 17th, 2026), along with the pin noted in `CLAUDE.md` and `examples/README.md`. The 3.15.0 enum diff is purely additive, so no existing example changes.

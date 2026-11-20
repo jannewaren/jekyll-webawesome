@@ -790,11 +790,13 @@ categories:
   - id: "icons"
     title: "Icons & dates"
     intro: |
-      Standalone icons plus build-time-baked dates. Icons, dates, and relative times render text into shadow DOM, so they need Web Awesome’s runtime to appear.
+      Standalone icons plus build-time-baked dates and numbers. Icons, dates, relative times, counters, and number tickers render text into shadow DOM, so they need Web Awesome’s runtime to appear.
     components:
       - "<wa-icon>"
       - "<wa-format-date>"
       - "<wa-relative-time>"
+      - "<wa-counter>"
+      - "<wa-number-ticker>"
     examples:
       - heading: "Icon"
       - title: "Inline"
@@ -1221,13 +1223,44 @@ categories:
         code: |
           :::wa-relative-time 2026-06-20 sync
           :::
+      - heading: "Counter"
+      - title: "Countdown"
+        description: "A `countdown` token turns a date into a live `<wa-counter>`. Quote values with spaces: `key:\"…\"`."
+        code: |
+          New year in [[[ 2027-01-01T00:00:00Z countdown finished:"Happy new year!" ]]]
+      - title: "Finished countdown"
+        description: "When the date has already passed, the `finished:` text shows in place of the units."
+        code: |
+          [[[ 2026-01-01T00:00:00Z countdown finished:"🎉 We’re live!" ]]]
+      - title: "Count up"
+        description: "`countup` counts from a past date; `largest:`/`smallest:` pick the unit range and `format:` the label style."
+        code: |
+          Running for [[[ 2020-03-01 countup largest:years smallest:days format:short ]]]
+      - title: "Clock style"
+        description: "`no-labels` plus a `delimiter:` gives a digital-clock look."
+        code: |
+          :::wa-counter 2027-01-01T00:00:00Z largest:hours no-labels delimiter:":" label:"Time to new year"
+          :::
+      - heading: "Number ticker"
+      - title: "Currency"
+        description: "A leading number makes a `<wa-number-ticker>` that counts up when it scrolls into view."
+        code: |
+          Raised [[[ 18452.75 currency:EUR ]]] so far.
+      - title: "Percent"
+        description: "`87%` becomes `type=\"percent\" value=\"0.87\"` — the decimal point is shifted at build time."
+        code: |
+          [[[ 87% ]]] satisfaction
+      - title: "Start value + decimals"
+        code: |
+          [[[ 12000 from:10000 duration:1500 decimals:2 ]]] users
   - id: "media"
     title: "Media"
     intro: |
-      Carousels, before/after comparisons, video, and randomly-rotating content.
+      Carousels, before/after comparisons, lightbox galleries, video, and randomly-rotating content.
     components:
       - "<wa-carousel>"
       - "<wa-comparison>"
+      - "<wa-lightbox>"
       - "<wa-video>"
       - "<wa-random-content>"
     examples:
@@ -1281,6 +1314,34 @@ categories:
           ![Before](../assets/before.jpg)
           ![After](../assets/photo.jpg)
           |||
+      - heading: "Lightbox"
+      - title: "Gallery with thumbnails"
+        description: "Each image line is an item; its title is the caption. A linked image sets a separate thumbnail, and a video link plays in the viewer. `thumbnails` adds a strip of thumbnails."
+        code: |
+          ::::lightbox loop thumbnails min:8rem gap:s label:"Sample gallery"
+          ![Photo](../assets/photo.jpg "Full-colour photo")
+          ![Before](../assets/before.jpg "Black and white")
+          [![Square crop](../assets/thumb.jpg)](../assets/poster.jpg "A separate thumbnail")
+          [![Video poster](../assets/poster.jpg)](../assets/video.mp4 "Sample clip")
+          ::::
+      - title: "Landscape thumbnails"
+        description: "Thumbnails are square by default; `landscape`, `portrait`, or `natural` change the crop."
+        code: |
+          ::::lightbox landscape min:12rem no-counter
+          ![Photo](../assets/photo.jpg "Photo")
+          ![Before](../assets/before.jpg "Before")
+          ::::
+      - title: "Inside a card"
+        description: "Lightboxes nest inside cards, tabs, and layouts."
+        code: |
+          ===
+          ## Trip photos
+          ::::lightbox min:6rem gap:xs
+          ![Photo](../assets/photo.jpg)
+          ![Before](../assets/before.jpg)
+          ![Thumb](../assets/thumb.jpg)
+          ::::
+          ===
       - heading: "Video"
       - title: "Standard controls"
         description: "The first link supplies the title and src; the first image supplies the poster. `<wa-video>` is Web Awesome Pro."
